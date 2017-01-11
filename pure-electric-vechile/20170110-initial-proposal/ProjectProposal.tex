@@ -1,0 +1,66 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[cm]{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\graphicspath{ {../images/} }
+
+\usepackage[noadjust]{cite}
+
+\usepackage{multicol}
+\usepackage{hyperref}
+\hypersetup{
+    %backref,
+    pdfstartview=FitH,
+    pdfpagemode=UseNone,
+    %colorlinks=true,
+    %bookmarks=true,
+    pdftitle={Project proposal --- Fabricator of an pure electric hybrid vehicle},
+    pdfauthor={Suresh Kumar Gadi},
+    pdfsubject={electric vehicle},
+    pdfkeywords={electric vehicle, energy management, super capacitors, power electronics},
+    pdfstartpage = 2
+}
+
+\title{Project proposal --- Fabricator of an pure electric hybrid vehicle}
+\date {January 10, 2017}
+\author{Dr. Suresh Kumar Gadi}
+\begin{document}
+\maketitle
+\begin {abstract}
+This document identifies the requirements for fabricating an electric car at FIME, UAdeC. Also, proposes a possible methodology to realize the project.
+\end {abstract}
+\section{Objective}
+The objective of this project is to model, design and fabricate an pure electric hybrid vehicle with the following functionality.
+\begin{itemize}
+	\item Steep acceleration curves similar to the petroleum vehicles (PV).
+	\item Maximizing the energy harvesting at all the times, i.e. during all kinds of the breaking routine.
+\end{itemize}
+\section{Introduction}
+The electric vehicles were introduced in the early nineteenth century; these were holding a greater market in comparison to the internal combustion (IC) ones until the end of that century \cite{6487583}. However, petroleum vehicles (PV) soon became more common on the roads later, which can be seen from the 2005 estimates, which indicate that the PV constitute a 97\% of the vehicles \cite{de2012electrical}. Recently there is a growing interest in the hybrid vehicles (a hybrid of petroleum and electric) and pure electric vehicles (PEV) \cite{hori2004future, turrentine1995will, SKGadi-2016EuropeReportEV}.
+\section{Selection of storage type}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.48\textwidth]{specific-power-energy}
+	\caption{Ragone plot --- Comparison energy density (specific energy) and power density (specific power) of most common storage domains \cite{winter2004batteries}.}
+	\label{Fig:power-vs-energy-1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{power-vs-energy-density}
+	\caption{Ragone plot --- Comparison energy density (specific energy) and power density (specific power) of various electric power storages \cite{simon2008materials}.}
+	\label{Fig:power-vs-energy-2}
+\end{figure}
+\autoref{Fig:power-vs-energy-1} shows the Ragone plot for the most common storage domains \cite{simon2008materials}. It is clear that combustion engines have high specific power and specific energy. In the context of automobiles, specific energy can be associated to the fuel autonomy measure, i.e. the distance it can move by consuming a unit fuel mass, and the specific power can be associated to the acceleration which it can achieve with a given unit fuel mass. So from \autoref{Fig:power-vs-energy-1}, we see that a petroleum based automobile have an advantage over any other domain. Also, we can see that a properly designed electric hybrid system can perform on par with combustion engines.
+
+\autoref{Fig:power-vs-energy-2} shows the Ragone plot of electric storage devices. We can ignore the Li-primary batteries option because they are not rechargeable. So, the solution to achieve high specific energy and specific power is combining the positive trades of the super-capacitors (electrochemical capacitors) and the Li-ion batteries in an hybrid system.
+\section{System scheme}
+
+Figure x shows the power flow diagram in an electric vehicle 
+
+\bibliographystyle{IEEEtran}
+\bibliography{../refs}
+
+\end{document} 
