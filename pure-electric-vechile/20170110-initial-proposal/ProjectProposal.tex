@@ -23,6 +23,10 @@
     pdfstartpage = 2
 }
 
+\usepackage{tcolorbox}
+
+
+
 \title{Project proposal --- Fabricator of an pure electric hybrid vehicle}
 \date {January 10, 2017}
 \author{Dr. Suresh Kumar Gadi}
@@ -56,9 +60,53 @@ The electric vehicles were introduced in the early nineteenth century; these wer
 \autoref{Fig:power-vs-energy-1} shows the Ragone plot for the most common storage domains \cite{simon2008materials}. It is clear that combustion engines have high specific power and specific energy. In the context of automobiles, specific energy can be associated to the fuel autonomy measure, i.e. the distance it can move by consuming a unit fuel mass, and the specific power can be associated to the acceleration which it can achieve with a given unit fuel mass. So from \autoref{Fig:power-vs-energy-1}, we see that a petroleum based automobile have an advantage over any other domain. Also, we can see that a properly designed electric hybrid system can perform on par with combustion engines.
 
 \autoref{Fig:power-vs-energy-2} shows the Ragone plot of electric storage devices. We can ignore the Li-primary batteries option because they are not rechargeable. So, the solution to achieve high specific energy and specific power is combining the positive trades of the super-capacitors (electrochemical capacitors) and the Li-ion batteries in an hybrid system.
-\section{System scheme}
+\section{Power flow in an EV}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{driving-mode-scheme}
+	\caption{Power flow diagram of an EV in the driving mode}
+	\label{Fig:driving-mode-scheme}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{braking-mode-scheme}
+	\caption{Power flow diagram of an EV in the braking mode}
+	\label{Fig:braking-mode-scheme}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{combining-driving-n-braking-modes}
+	\caption{Schematic showing the EV's power flow diagram}
+	\label{Fig:combining-driving-n-braking-modes}
+\end{figure}
+At any given time a vehicle operates in one of the two modes, namely the driving mode and the braking mode. In an EV the wheel is coupled to the electric machine. Hence, in the driving mode the electric machine should act as a motor and in the driving mode it should act as a generator. \autoref{Fig:driving-mode-scheme} and \autoref{Fig:braking-mode-scheme} show the power flow diagram for an electric vehicle in the driving mode and the braking mode respectively.
 
-Figure x shows the power flow diagram in an electric vehicle 
+\autoref{Fig:combining-driving-n-braking-modes} shows a possible way of merging both modes of operations in a vehicle. In order to achieve this scheme, we need to satisfy the following conditions.
+
+\begin{tcolorbox}[colback=blue!0!white,colframe=blue!75!black,title=Conditions]
+\begin{enumerate}
+  \item The coupling between electric machine and the vehicle's wheel should be bidirectional.
+  \item The same electric machine should work as a motor and a generator.
+  \item The power electronics should be bidirectional.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Selection of the electric machine}
+The electric machines capable of acting as both motors and generators are:
+\begin{itemize}
+  \item DC machines
+  \item AC synchronous machine
+  \item AC induction motor
+\end{itemize}
+
+An induction motor required a speed higher than the synchronous speed to act as a generator, hence this is not viable in our design.
+
+Using AC synchronous machine implies the following complications.
+\begin{itemize}
+  \item AC to DC converters (rectifiers) are required in the power electronics
+  \item Inverters (DC to AC converters) with variable frequency is 
+  \item .
+\end{itemize}
 
 \bibliographystyle{IEEEtran}
 \bibliography{../refs}
