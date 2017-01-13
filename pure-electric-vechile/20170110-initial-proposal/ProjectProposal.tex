@@ -94,19 +94,45 @@ At any given time a vehicle operates in one of the two modes, namely the driving
 \section{Selection of the electric machine}
 The electric machines capable of acting as both motors and generators are:
 \begin{itemize}
-  \item DC machines
-  \item AC synchronous machine
   \item AC induction motor
+  \item AC synchronous machine
+  \item DC machines
 \end{itemize}
-
+\subsection{AC induction motor}
 An induction motor required a speed higher than the synchronous speed to act as a generator, hence this is not viable in our design.
-
-Using AC synchronous machine implies the following complications.
+\subsection{AC synchronous machine}
+AC synchronous machine require the following power electronic modules.
 \begin{itemize}
-  \item AC to DC converters (rectifiers) are required in the power electronics
-  \item Inverters (DC to AC converters) with variable frequency is 
-  \item .
+  \item Rectifiers (AC to DC converters)
+  \item Inverters (DC to AC converters)
+  \item DC to DC converter (Buck–boost converter)
 \end{itemize}
+\subsection{DC machines}
+DC machines require the following power electronic modules.
+\begin{itemize}
+  \item DC to DC converter (Buck–boost converter)
+\end{itemize}
+
+We select DC machine to minimize the system complexity.
+
+\section{System design}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{combining-driving-n-braking-modes}
+	\caption{Schematic showing the EV's power flow diagram}
+	\label{Fig:combining-driving-n-braking-modes}
+\end{figure}
+Figure x shows the complete system scheme. Here for simplicity, one one direction of wheel movement is considered. We can notice that we need the following for the EV.
+\begin{tcolorbox}[colback=blue!0!white,colframe=blue!75!black,title=Conditions]
+\begin{enumerate}
+  \item The coupling between electric machine and the vehicle's wheel should be bidirectional.
+  \item The same electric machine should work as a motor and a generator.
+  \item The power electronics should be bidirectional.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{s}
 
 \bibliographystyle{IEEEtran}
 \bibliography{../refs}
