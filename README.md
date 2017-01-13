@@ -1,2 +1,3 @@
-# documents
-Documents prepared by Suresh Kumar Gadi
+# Projects by Suresh Kumar Gadi
+
+This repo contains the projects by Suresh Kumar Gadi
