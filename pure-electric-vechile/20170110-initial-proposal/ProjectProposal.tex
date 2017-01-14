@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{url}
+\usepackage{siunitx}
+
 \usepackage{graphicx}
 \graphicspath{ {../images/} }
 
@@ -27,13 +29,13 @@
 
 
 
-\title{Project proposal --- Fabricator of an pure electric hybrid vehicle}
+\title{Project proposal: Design and fabrication of a pure electric hybrid vehicle (First version)}
 \date {January 10, 2017}
 \author{Dr. Suresh Kumar Gadi}
 \begin{document}
 \maketitle
 \begin {abstract}
-This document identifies the requirements for fabricating an electric car at FIME, UAdeC. Also, proposes a possible methodology to realize the project.
+The \emph{Facultad de Ingeniería Mecánica y Eléctrica} (FIME) of the \emph{Universidad Autónoma de Coahuila} (UAdeC) wants to fabricate a pure electric vehicle for the didactic and the research purposes. It will be fabricated in many versions, moving from the simplest version to the complex one. This document identifies the requirements for the first version of such vehicle.
 \end {abstract}
 \section{Objective}
 The objective of this project is to model, design and fabricate an pure electric hybrid vehicle with the following functionality.
@@ -43,6 +45,15 @@ The objective of this project is to model, design and fabricate an pure electric
 \end{itemize}
 \section{Introduction}
 The electric vehicles were introduced in the early nineteenth century; these were holding a greater market in comparison to the internal combustion (IC) ones until the end of that century \cite{6487583}. However, petroleum vehicles (PV) soon became more common on the roads later, which can be seen from the 2005 estimates, which indicate that the PV constitute a 97\% of the vehicles \cite{de2012electrical}. Recently there is a growing interest in the hybrid vehicles (a hybrid of petroleum and electric) and pure electric vehicles (PEV) \cite{hori2004future, turrentine1995will, SKGadi-2016EuropeReportEV}.
+
+The \emph{Facultad de Ingeniería Mecánica y Eléctrica} (FIME) of the \emph{Universidad Autónoma de Coahuila} (UAdeC) wants to fabricate a pure electrical vehicle for the didactic and the research purposes. It is decided to fabricate various versions, the first version being a small capacity EV, i.e. $\approx \SI{100}{\kilo\gram}$ payload. This document presents a rough calculations to identify the specifications for the electric, electronic and mechanic devices. This allows to prepare an estimate for the first version vehicle. Also, it is decided to use a low velocity tricycle for the first version EV, which allows us to simplify the following complications.
+\begin{itemize}
+  \item Implementation of  differential wheel algorithm
+  \item Safety associated with the braking mechanism
+  \item Air resistance plays a major role in the calculation of power in high speed vehicles.
+\end{itemize}
+The structural design is \textbf{not} considered in this document.
+
 \section{Selection of storage type}
 \begin{figure}[h]
 	\centering
@@ -116,23 +127,33 @@ DC machines require the following power electronic modules.
 We select DC machine to minimize the system complexity.
 
 \section{System design}
-
-\begin{figure}
+\begin{figure*}
 	\centering
-	\includegraphics[width=0.48\textwidth]{combining-driving-n-braking-modes}
-	\caption{Schematic showing the EV's power flow diagram}
-	\label{Fig:combining-driving-n-braking-modes}
-\end{figure}
-Figure x shows the complete system scheme. Here for simplicity, one one direction of wheel movement is considered. We can notice that we need the following for the EV.
-\begin{tcolorbox}[colback=blue!0!white,colframe=blue!75!black,title=Conditions]
+	\includegraphics[width=0.96\textwidth]{system-design-v000}
+	\caption{Schematic showing entire system}
+	\label{Fig:system-design}
+\end{figure*}
+\autoref{Fig:system-design} shows the complete system scheme. Here for simplicity, one one direction of wheel movement is considered. We can notice that we need the following for the EV.
+\begin{tcolorbox}[colback=green!0!white,colframe=green!75!black,title=Requirements]
 \begin{enumerate}
-  \item The coupling between electric machine and the vehicle's wheel should be bidirectional.
-  \item The same electric machine should work as a motor and a generator.
-  \item The power electronics should be bidirectional.
+  \item DC machine
+  \item EV's mechanical structure
+  \item Buck-boost converter
+  \item Electronic switches and relays
+  \item High-speed controller with
+\begin{enumerate}
+  \item Digital IOs (inputs and outputs)
+  \item Analog IOs
+  \item Counter for encoder
+\end{enumerate}
+  \item Electronically actuated mechanical brake
+  \item Super-capacitors
+  \item Rechargeable battery
 \end{enumerate}
 \end{tcolorbox}
 
-\section{s}
+\section{Selection of DC machine}
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{../refs}
