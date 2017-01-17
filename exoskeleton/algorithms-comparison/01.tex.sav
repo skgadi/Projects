@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+%----------figure layout style
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[small,bf]{caption}
+
+
+\title{Comparison of exoskeleton's control algorithms}
+%\author{Suresh Kumar Gadi}
+\author{}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+In this report we show a generalized scheme to understand the interaction between exoskeleton and human body. Later part of this report shows how different control schemes fit in the given scheme. This report allows us to observe the differences in the control schemes. Stability proof or performance for the different control schemes are not given in this report.
+\section{A generalised approach to study exoskeleton}
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm]{images/General_BD.eps}\\
+  \caption{Generalised block diagram showing endoskeleton and exoskeleton}\label{Fig:General_BD}
+\end{figure}
+Figure \ref{Fig:General_BD} shows a possible interaction between human and exoskeleton. Central nervous system (CNS) and spinal chord provide 
+\section{Kazerooni's algorithm (1988) \cite{Kazerooni88}}
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm]{images/Kazerooni_BD.eps}\\
+  \caption{Control scheme equivalent to the control scheme proposed in \cite{Kazerooni88}}\label{Fig:Kazerooni_BD}
+\end{figure}
+
+\section{BLEEX algorithm (2005) \cite{kazerooni2005control}}
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm]{images/BLEEX_BD.eps}\\
+  \caption{Control scheme equivalent to the control scheme proposed in \cite{kazerooni2005control}}\label{Fig:BLEEX_BD}
+\end{figure}
+\section{Tomizuka's algorithm (2009) \cite{kong2009control}}
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm]{images/Tomizuka_BD.eps}\\
+  \caption{Control scheme equivalent to the control scheme proposed in \cite{kong2009control}}\label{Fig:Tomizuka_BD}
+\end{figure}
+\section{Our algorithm}
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm]{images/Our_BD.eps}\\
+  \caption{Our control scheme}\label{Fig:Our_BD}
+\end{figure}
+\bibliographystyle{unsrt}
+\bibliography{Ref}
+\end{document}
+

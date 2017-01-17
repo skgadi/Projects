@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{SGadi:Kazerooni88}
+H.~Kazerooni.
+\newblock Human machine interaction via the transfer of power and information
+  signals.
+\newblock {\em ASME Winter Annual Meeting}, DECEMBER 1988.
+
+\bibitem{kazerooni2005control}
+H.~Kazerooni, J.L. Racine, L.~Huang, and R.~Steger.
+\newblock On the control of the berkeley lower extremity exoskeleton (bleex).
+\newblock In {\em Proceedings of the 2005 IEEE International Conference on
+  Robotics and Automation, 2005. ICRA 2005.}, pages 4353--4360. IEEE, 2005.
+
+\bibitem{kong2009control}
+Kyoungchul Kong and Masayoshi Tomizuka.
+\newblock Control of exoskeletons inspired by fictitious gain in human model.
+\newblock {\em IEEE/ASME Transactions on Mechatronics}, 14(6):689--698, 2009.
+
+\bibitem{gadi2016stability}
+Suresh~K Gadi, Antonio Osorio-Cordero, Rogelio Lozano-Leal, and Ruben~A
+  Garrido.
+\newblock Stability analysis of a human arm interacting with a force augmenting
+  device.
+\newblock {\em Journal of Intelligent \& Robotic Systems}, pages 1--10, 2016.
+
+\end{thebibliography}
