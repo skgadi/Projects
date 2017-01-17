@@ -5,6 +5,9 @@
 \usepackage{url}
 \usepackage{siunitx}
 
+
+
+
 \usepackage{graphicx}
 \graphicspath{ {../images/} }
 
@@ -22,16 +25,24 @@
     pdfauthor={Suresh Kumar Gadi},
     pdfsubject={electric vehicle},
     pdfkeywords={electric vehicle, energy management, super capacitors, power electronics},
-    pdfstartpage = 2
+    %pdfstartpage = 3
 }
 
+\usepackage{array,tabularx,colortbl}
 \usepackage{tcolorbox}
 
 
 
 \title{Project proposal: Design and fabrication of a pure electric hybrid vehicle (First version)}
 \date {January 10, 2017}
-\author{Dr. Suresh Kumar Gadi}
+\author{ABC\thanks{XYZ} \and DEF\thanks{UVW} \and GHI\footnotemark[1]}
+
+\author{\IEEEauthorblockN{S. K. Gadi}
+\\ \IEEEauthorblockA{Facultad de Ingeniería Mecánica y Eléctrica\\
+Universidad Autónoma de Coahuila \\
+Email: gadis@uadec.edu.mx}
+}
+
 \begin{document}
 \maketitle
 \begin {abstract}
@@ -46,7 +57,7 @@ The objective of this project is to model, design and fabricate an pure electric
 \section{Introduction}
 The electric vehicles were introduced in the early nineteenth century; these were holding a greater market in comparison to the internal combustion (IC) ones until the end of that century \cite{6487583}. However, petroleum vehicles (PV) soon became more common on the roads later, which can be seen from the 2005 estimates, which indicate that the PV constitute a 97\% of the vehicles \cite{de2012electrical}. Recently there is a growing interest in the hybrid vehicles (a hybrid of petroleum and electric) and pure electric vehicles (PEV) \cite{hori2004future, turrentine1995will, SKGadi-2016EuropeReportEV}.
 
-The \emph{Facultad de Ingeniería Mecánica y Eléctrica} (FIME) of the \emph{Universidad Autónoma de Coahuila} (UAdeC) wants to fabricate a pure electrical vehicle for the didactic and the research purposes. It is decided to fabricate various versions, the first version being a small capacity EV, i.e. $\approx \SI{100}{\kilo\gram}$ payload. This document presents a rough calculations to identify the specifications for the electric, electronic and mechanic devices. This allows to prepare an estimate for the first version vehicle. Also, it is decided to use a low velocity tricycle for the first version EV, which allows us to simplify the following complications.
+The \emph{Facultad de Ingeniería Mecánica y Eléctrica} (FIME) of the \emph{Universidad Autónoma de Coahuila} (UAdeC) wants to fabricate a pure electrical vehicle for the didactic and the research purposes. It is decided to fabricate various versions, the first version being a small capacity EV, i.e. $\approx \SI{100}{\kilo\gram}$ payload. This document identifies the required electric, electronic and mechanic devices. This allows to prepare an estimate for the first version vehicle. Also, it is decided to use a low velocity tricycle for the first version EV, which allows us to simplify the following complexities.
 \begin{itemize}
   \item Implementation of  differential wheel algorithm
   \item Safety associated with the braking mechanism
@@ -140,7 +151,7 @@ We select DC machine to minimize the system complexity.
   \item EV's mechanical structure
   \item Buck-boost converter
   \item Electronic switches and relays
-  \item High-speed controller with
+  \item High-speed controller ($>\SI{100}{\kilo\hertz}$) with
 \begin{enumerate}
   \item Digital IOs (inputs and outputs)
   \item Analog IOs
@@ -151,11 +162,65 @@ We select DC machine to minimize the system complexity.
   \item Rechargeable battery
 \end{enumerate}
 \end{tcolorbox}
+This project focuses on braking only with the help electric regenerative braking, however a electronically actuated mechanical brake is required for the following reasons.
+\begin{enumerate}
+  \item To ensure safety, in case the regenerative braking torque is not sufficient.
+  \item To compliment required braking torque, in case the designed regenerative braking torque is not sufficient to achieve the required deceleration.
+\end{enumerate}
 
-\section{Selection of DC machine}
 
-
+\section{Execution plan}
+The project can be realized by implementing in the following stages one after another.
+\begin{tcolorbox}[colback=blue!0!white,colframe=blue!75!black,title=Project stages]
+\begin{enumerate}
+  \item Procure a data acquisition (DAQ) card to implement hardware-in-loop experiments with the help of a PC.
+  \item Design and fabricate a power electronic circuit for the DC motor's speed control.
+  \item Procure the storage devices. i.e. the super capacitors and battery.
+  \item Design and fabricate a power electronic circuit to charge/discharge the selected storage device.
+  \item Implement the control algorithm in a embedded system.
+  \item Fabricate the mechanical structure.
+  \item Integrate all the modules to complete the EV.
+\end{enumerate}
+\end{tcolorbox}
+\section{Conclusion}
+This document presents system schematic for the first version EV. It also proposes the stages in which the project can be carried out.
 \bibliographystyle{IEEEtran}
 \bibliography{../refs}
 
-\end{document} 
+\end{document}
+
+\section{Calculating equipment specifications}
+In this section, the specifications for the required equipment is calculated. In order to proceed with the calculations, we suppose the following system specification.
+\begin{tcolorbox}[colback=blue!0!white,colframe=blue!75!black,tabularx={X|l|l|r},title=Proposed system specifications]
+Acceleration  & $a$ & \si{\meter\per\second\squared} & 2.7 \\ \hline
+Deceleration & $d$ & \si{\meter\per\second\squared} & 10 \\ \hline
+Top speed & $v$ & \si{\kilo\meter\per\second} & 15 \\ \hline
+Vehicle's mass & $M$ & \si{\kilo\gram} & 500 \\ \hline
+Wheel's radius & $r$ & \si{\meter} & 0.5 \\
+\end{tcolorbox}
+\subsection{Electric machine power}
+In our design, electric machine provides both the acceleration and the deceleration. Since deceleration is more resource-demanding, we consider it for the power calculations.
+
+The force, $F$, required to decelerate the EV is
+\begin{eqnarray}
+  F &=& 500*10 \\
+    &=& \SI{5}{\kilo\newton}.
+\end{eqnarray}
+Hence, the torque, $\tau$ is
+\begin{eqnarray}
+  \tau &=& Fr \\
+  &=& 5000\times 0.5 \\
+    &=& \SI{2.5}{\kilo\newton\meter}
+\end{eqnarray}
+\noindent where $r$ is wheel's radius. Wheel's angular velocity, $\omega$ is
+\begin{eqnarray}
+  \omega &=& \frac{v}{r} \\
+  &=& \frac{15}{0.5} \\
+    &=& \SI{30}{\radian\per\second}
+\end{eqnarray}
+\noindent where $v$ is vehicle's velocity. Hence, power, $P$ can we calculated as
+\begin{eqnarray}
+  P &=& \tau \omega \\
+  &=& 2500\times 30 \\
+    &=& \SI{75}{\kilo\watt}
+\end{eqnarray}
