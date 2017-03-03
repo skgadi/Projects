@@ -56,6 +56,11 @@
 					</def>
 				</variable>
 				<variable public='0' >
+					<def class_type='variable' name='InString' type='T8' description='' isconst='0' isinit='0' usrinit='&quot;&quot;' setinit='' >
+						<array size='3' />
+					</def>
+				</variable>
+				<variable public='0' >
 					<def class_type='variable' name='true' type='b1' description='' isconst='1' isinit='1' usrinit='1' setinit='1' />
 				</variable>
 			</variables>
@@ -63,41 +68,23 @@
 				<macro >
 					<flowline name='Main' description='' >
 						<return name='Return' type='v0' description='' isconst='0' isinit='0' usrinit='' setinit='' />
+						<command class_type='call' title='Call Component Macro' component='PWM1' macro='Enable' />
 						<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='Initialise' />
 						<command class_type='loop' title='Loop' textarea='36,0,511,300' type='0' exp='1' >
 							<flowline >
-								<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-									<exp exp='Operation = 0x00' />
-								</command>
-								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='ReadByte' >
-									<return exp='Operation' />
+								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='ReadString' >
+									<return exp='InString' />
 									<argument exp='1' />
+									<argument exp='3' />
 								</command>
-								<command class_type='decision' title='Decision' exp='Operation = 0x31' swap='0' >
+								<command class_type='decision' title='Decision' exp='InString[0] = 0x31' swap='0' >
 									<flowline >
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc0' macro='GetInt' >
-											<return exp='ReadInput' />
+										<command class_type='calculation' title='Calculation' >
+											<exp exp='InString = Right$ (InString,2)' />
+											<exp exp='ReadInput = StringToInt$ (InString)' />
 										</command>
-										<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-											<exp exp='//ReadInput = 1024' />
-											<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
-											<exp exp='OutString[0] = ReadInput' />
-											<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
-											<argument exp='OutString' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc1' macro='GetInt' >
-											<return exp='ReadInput' />
-										</command>
-										<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-											<exp exp='//ReadInput = 1024' />
-											<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
-											<exp exp='OutString[0] = ReadInput' />
-											<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
-											<argument exp='OutString' />
+										<command class_type='call' title='Call Component Macro' component='PWM1' macro='SetDutyCycle10Bit' >
+											<argument exp='ReadInput' />
 										</command>
 									</flowline>
 									<flowline />
@@ -134,44 +121,21 @@
 				<variables />
 				<macros />
 			</component>
-			<component class_type='ref' guid='14683ea8-5a08-4b3a-be2d-3dea3e17e720' vmin='3' vmaj='1' codename='v5__adc0' x='4.57143' y='2.28571' z='0' xsz='25.1419' ysz='25.1419' zsz='18.45' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' interactive='1' solid='1' layer='0' poslock='0' >
+			<component class_type='ref' guid='444fb704-814c-4707-a15c-759ba088505c' vmin='6' vmaj='1' codename='PWM1' x='0' y='0' z='1.1225' xsz='1' ysz='1' zsz='1' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' interactive='1' solid='1' layer='1' poslock='1' >
 				<resources />
 				<properties />
 				<values >
-					<value target='angle_start' data='225.000000' />
-					<value target='angle_sweep' data='270.000000' />
-					<value target='cap_color' data='192' />
-					<value target='point_color' data='16777215' />
-					<value target='ScopeTraces' data='0' />
-					<value target='channel' data='7' />
-					<value target='vrefvol' data='500' />
-					<value target='vrefop' data='0' />
-					<value target='convspd' data='3' />
-					<value target='actime' data='40' />
-					<value target='bits' data='10' />
-					<value target='bitmul' data='0.004883' />
-				</values>
-				<events />
-				<apis />
-				<variables />
-				<macros />
-			</component>
-			<component class_type='ref' guid='14683ea8-5a08-4b3a-be2d-3dea3e17e720' vmin='3' vmaj='1' codename='v5__adc1' x='43.4286' y='1.77636e-015' z='0' xsz='25.1419' ysz='25.1419' zsz='18.45' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' interactive='1' solid='1' layer='0' poslock='0' >
-				<resources />
-				<properties />
-				<values >
-					<value target='angle_start' data='225.000000' />
-					<value target='angle_sweep' data='270.000000' />
-					<value target='cap_color' data='192' />
-					<value target='point_color' data='16777215' />
-					<value target='ScopeTraces' data='0' />
-					<value target='channel' data='8' />
-					<value target='vrefvol' data='500' />
-					<value target='vrefop' data='0' />
-					<value target='convspd' data='3' />
-					<value target='actime' data='40' />
-					<value target='bits' data='10' />
-					<value target='bitmul' data='0.004883' />
+					<value target='channel' data='001' />
+					<value target='altpin' data='0' />
+					<value target='pwm_pin' data='$PORTC.5' />
+					<value target='RemapPin' data='' />
+					<value target='timer' data='002' />
+					<value target='period' data='255' />
+					<value target='prescale' data='000' />
+					<value target='period_calc' data='85.333336' />
+					<value target='frequency_calc' data='11.718750' />
+					<value target='pwm_prescale' data='1' />
+					<value target='SimRep' data='001' />
 				</values>
 				<events />
 				<apis />
@@ -191,7 +155,7 @@
 		<camera xe='0' ye='0' ze='300' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
 	</panel3d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wAAAAAUAAAARgMAAOYCAAA' zoom='75' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wAAAAAUAAAARgMAAOYCAAA' zoom='75' scrollx='0' scrolly='31' flags='0' />
 	</layout>
 </document>
 </root>

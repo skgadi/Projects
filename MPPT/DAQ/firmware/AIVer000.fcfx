@@ -66,41 +66,29 @@
 						<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='Initialise' />
 						<command class_type='loop' title='Loop' textarea='36,0,511,300' type='0' exp='1' >
 							<flowline >
+								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc0' macro='GetInt' >
+									<return exp='ReadInput' />
+								</command>
 								<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-									<exp exp='Operation = 0x00' />
+									<exp exp='//ReadInput = 1024' />
+									<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
+									<exp exp='OutString[0] = ReadInput' />
+									<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
 								</command>
-								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='ReadByte' >
-									<return exp='Operation' />
-									<argument exp='1' />
+								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
+									<argument exp='OutString' />
 								</command>
-								<command class_type='decision' title='Decision' exp='Operation = 0x31' swap='0' >
-									<flowline >
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc0' macro='GetInt' >
-											<return exp='ReadInput' />
-										</command>
-										<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-											<exp exp='//ReadInput = 1024' />
-											<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
-											<exp exp='OutString[0] = ReadInput' />
-											<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
-											<argument exp='OutString' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc1' macro='GetInt' >
-											<return exp='ReadInput' />
-										</command>
-										<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
-											<exp exp='//ReadInput = 1024' />
-											<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
-											<exp exp='OutString[0] = ReadInput' />
-											<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
-										</command>
-										<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
-											<argument exp='OutString' />
-										</command>
-									</flowline>
-									<flowline />
+								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__adc1' macro='GetInt' >
+									<return exp='ReadInput' />
+								</command>
+								<command class_type='calculation' title='Calculation' textarea='36,0,511,300' >
+									<exp exp='//ReadInput = 1024' />
+									<exp exp='ReadInput = ((ReadInput &lt;&lt; 1) | 0x1001)' />
+									<exp exp='OutString[0] = ReadInput' />
+									<exp exp='OutString[1] = (ReadInput &gt;&gt; 8)' />
+								</command>
+								<command class_type='call' title='Call Component Macro' textarea='36,0,511,300' component='v5__usbserial0' macro='SendString' >
+									<argument exp='OutString' />
 								</command>
 							</flowline>
 						</command>
@@ -156,7 +144,7 @@
 				<variables />
 				<macros />
 			</component>
-			<component class_type='ref' guid='14683ea8-5a08-4b3a-be2d-3dea3e17e720' vmin='3' vmaj='1' codename='v5__adc1' x='43.4286' y='1.77636e-015' z='0' xsz='25.1419' ysz='25.1419' zsz='18.45' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' interactive='1' solid='1' layer='0' poslock='0' >
+			<component class_type='ref' guid='14683ea8-5a08-4b3a-be2d-3dea3e17e720' vmin='3' vmaj='1' codename='v5__adc1' x='40' y='0' z='0' xsz='25.1419' ysz='25.1419' zsz='18.45' xang='0' yang='0' zang='0' xquat='0' yquat='0' zquat='0' wquat='1' visible='1' interactive='1' solid='1' layer='0' poslock='0' >
 				<resources />
 				<properties />
 				<values >
@@ -191,7 +179,7 @@
 		<camera xe='0' ye='0' ze='300' xt='0' yt='0' zt='0' xquat='0' yquat='0' zquat='0' wquat='1' />
 	</panel3d>
 	<layout >
-		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wAAAAAUAAAARgMAAOYCAAA' zoom='75' scrollx='0' scrolly='0' flags='0' />
+		<view type='0' name='Main' mode='0' placement='LAAAAAAAAAABAAAA---------------------wAAAAAUAAAARgMAAOYCAAA' zoom='75' scrollx='0' scrolly='74' flags='0' />
 	</layout>
 </document>
 </root>

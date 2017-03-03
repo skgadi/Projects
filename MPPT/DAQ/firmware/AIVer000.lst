@@ -1,0 +1,2681 @@
+;/////////////////////////////////////////////////////////////////////////////////
+;// Code Generator: BoostC Compiler - http://www.sourceboost.com
+;// Version       : 7.20
+;// License Type  : Pro License
+;// Limitations   : PIC18 max code size:Unlimited, max RAM banks:Unlimited
+;/////////////////////////////////////////////////////////////////////////////////
+
+	ORG 0x00000000
+0000  EF47F008  	GOTO	_startup
+	ORG 0x00000008
+0008  EF4AF009  	GOTO	interrupt
+	ORG 0x0000000C
+000C            delay_us_00000
+000C            ; { delay_us ; function begin
+000C            label1
+000C  2FF8      	DECFSZ delay_us_00000_arg_del, F, 1
+000E  D7FE      	BRA	label1
+0010  0012      	RETURN
+0012            ; } delay_us function end
+
+	ORG 0x00000012
+0012            usb_send_d_0007A
+0012            ; { usb_send_data_chunk ; function begin
+0012  0102      	MOVLB 0x02
+0014  6B31      	CLRF usb_send_d_0007A_1_count, 1
+0016            label2
+0016  0101      	MOVLB 0x01
+0018  51E8      	MOVF gbl_delivery_buffer_size, W, 1
+001A  0102      	MOVLB 0x02
+001C  6131      	CPFSLT usb_send_d_0007A_1_count, 1
+001E  D025      	BRA	label5
+0020  0101      	MOVLB 0x01
+0022  51CD      	MOVF gbl_delivery_bytes_to_send+D'1', W, 1
+0024  5DD1      	SUBWF gbl_delivery_bytes_sent+D'1', W, 1
+0026  E102      	BNZ	label3
+0028  51CC      	MOVF gbl_delivery_bytes_to_send, W, 1
+002A  5DD0      	SUBWF gbl_delivery_bytes_sent, W, 1
+002C            label3
+002C  E21E      	BC	label5
+002E  51CF      	MOVF gbl_delivery_bytes_max_send+D'1', W, 1
+0030  5DD1      	SUBWF gbl_delivery_bytes_sent+D'1', W, 1
+0032  E102      	BNZ	label4
+0034  51CE      	MOVF gbl_delivery_bytes_max_send, W, 1
+0036  5DD0      	SUBWF gbl_delivery_bytes_sent, W, 1
+0038            label4
+0038  E218      	BC	label5
+003A  51D3      	MOVF gbl_delivery_ptr+D'1', W, 1
+003C  6EEA      	MOVWF FSR0H
+003E  51D2      	MOVF gbl_delivery_ptr, W, 1
+0040  6EE9      	MOVWF FSR0L
+0042  50EF      	MOVF INDF0, W
+0044  0102      	MOVLB 0x02
+0046  6F32      	MOVWF CompTempVar2756, 1
+0048  0101      	MOVLB 0x01
+004A  51D5      	MOVF gbl_delivery_buffer+D'1', W, 1
+004C  6EEA      	MOVWF FSR0H
+004E  51D4      	MOVF gbl_delivery_buffer, W, 1
+0050  0102      	MOVLB 0x02
+0052  2531      	ADDWF usb_send_d_0007A_1_count, W, 1
+0054  6EE9      	MOVWF FSR0L
+0056  5132      	MOVF CompTempVar2756, W, 1
+0058  6EEF      	MOVWF INDF0
+005A  0101      	MOVLB 0x01
+005C  4BD2      	INFSNZ gbl_delivery_ptr, F, 1
+005E  2BD3      	INCF gbl_delivery_ptr+D'1', F, 1
+0060  4BD0      	INFSNZ gbl_delivery_bytes_sent, F, 1
+0062  2BD1      	INCF gbl_delivery_bytes_sent+D'1', F, 1
+0064  0102      	MOVLB 0x02
+0066  2B31      	INCF usb_send_d_0007A_1_count, F, 1
+0068  D7D6      	BRA	label2
+006A            label5
+006A  0101      	MOVLB 0x01
+006C  51E8      	MOVF gbl_delivery_buffer_size, W, 1
+006E  0102      	MOVLB 0x02
+0070  6131      	CPFSLT usb_send_d_0007A_1_count, 1
+0072  D010      	BRA	label8
+0074  0101      	MOVLB 0x01
+0076  51CE      	MOVF gbl_delivery_bytes_max_send, W, 1
+0078  63D0      	CPFSEQ gbl_delivery_bytes_sent, 1
+007A  D004      	BRA	label6
+007C  51CF      	MOVF gbl_delivery_bytes_max_send+D'1', W, 1
+007E  63D1      	CPFSEQ gbl_delivery_bytes_sent+D'1', 1
+0080  D001      	BRA	label6
+0082  D006      	BRA	label7
+0084            label6
+0084  51CC      	MOVF gbl_delivery_bytes_to_send, W, 1
+0086  63D0      	CPFSEQ gbl_delivery_bytes_sent, 1
+0088  D005      	BRA	label8
+008A  51CD      	MOVF gbl_delivery_bytes_to_send+D'1', W, 1
+008C  63D1      	CPFSEQ gbl_delivery_bytes_sent+D'1', 1
+008E  D002      	BRA	label8
+0090            label7
+0090  0E05      	MOVLW 0x05
+0092  6FE2      	MOVWF gbl_control_mode, 1
+0094            label8
+0094  0102      	MOVLB 0x02
+0096  5131      	MOVF usb_send_d_0007A_1_count, W, 1
+0098  6F05      	MOVWF gbl_bd0in+D'1', 1
+009A  0E02      	MOVLW HIGH(gbl_buffer_0_in+D'0')
+009C  6F07      	MOVWF gbl_bd0in+D'3', 1
+009E  0E88      	MOVLW LOW(gbl_buffer_0_in+D'0')
+00A0  6F06      	MOVWF gbl_bd0in+D'2', 1
+00A2  AD04      	BTFSS gbl_bd0in,6, 1
+00A4  D002      	BRA	label9
+00A6  9D04      	BCF gbl_bd0in,6, 1
+00A8  D001      	BRA	label10
+00AA            label9
+00AA  8D04      	BSF gbl_bd0in,6, 1
+00AC            label10
+00AC  9B04      	BCF gbl_bd0in,5, 1
+00AE  9904      	BCF gbl_bd0in,4, 1
+00B0  8704      	BSF gbl_bd0in,3, 1
+00B2  9504      	BCF gbl_bd0in,2, 1
+00B4  9304      	BCF gbl_bd0in,1, 1
+00B6  9104      	BCF gbl_bd0in,0, 1
+00B8  8F04      	BSF gbl_bd0in,7, 1
+00BA  0012      	RETURN
+00BC            ; } usb_send_data_chunk function end
+
+	ORG 0x000000BC
+00BC            usb_stall__0007B
+00BC            ; { usb_stall_ep0 ; function begin
+00BC  0102      	MOVLB 0x02
+00BE  8504      	BSF gbl_bd0in,2, 1
+00C0  8F04      	BSF gbl_bd0in,7, 1
+00C2  8500      	BSF gbl_bd0out,2, 1
+00C4  8F00      	BSF gbl_bd0out,7, 1
+00C6  0012      	RETURN
+00C8            ; } usb_stall_ep0 function end
+
+	ORG 0x000000C8
+00C8            usb_send_o_0008C
+00C8            ; { usb_send_one_byte ; function begin
+00C8  6F30      	MOVWF usb_send_o_0008C_1___retpointvar, 1
+00CA  0E08      	MOVLW 0x08
+00CC  0101      	MOVLB 0x01
+00CE  6FE8      	MOVWF gbl_delivery_buffer_size, 1
+00D0  6BD0      	CLRF gbl_delivery_bytes_sent, 1
+00D2  6BD1      	CLRF gbl_delivery_bytes_sent+D'1', 1
+00D4  0E01      	MOVLW 0x01
+00D6  6FCC      	MOVWF gbl_delivery_bytes_to_send, 1
+00D8  6BCD      	CLRF gbl_delivery_bytes_to_send+D'1', 1
+00DA  6BCE      	CLRF gbl_delivery_bytes_max_send, 1
+00DC  6BCF      	CLRF gbl_delivery_bytes_max_send+D'1', 1
+00DE  0102      	MOVLB 0x02
+00E0  512F      	MOVF usb_send_o_0008C_arg_data, W, 1
+00E2  0101      	MOVLB 0x01
+00E4  6FEA      	MOVWF gbl_buffer_byte, 1
+00E6  0E01      	MOVLW HIGH(gbl_buffer_byte+D'0')
+00E8  6FD3      	MOVWF gbl_delivery_ptr+D'1', 1
+00EA  0EEA      	MOVLW LOW(gbl_buffer_byte+D'0')
+00EC  6FD2      	MOVWF gbl_delivery_ptr, 1
+00EE  0E02      	MOVLW HIGH(gbl_buffer_0_in+D'0')
+00F0  6FD5      	MOVWF gbl_delivery_buffer+D'1', 1
+00F2  0E88      	MOVLW LOW(gbl_buffer_0_in+D'0')
+00F4  6FD4      	MOVWF gbl_delivery_buffer, 1
+00F6  0102      	MOVLB 0x02
+00F8  9D04      	BCF gbl_bd0in,6, 1
+00FA  EC09F000  	CALL usb_send_d_0007A
+00FE  D000      	BRA	label11
+0100            ; AVOID CODE PAGE BOUNDARY BEGIN - page size:256 words
+	ORG	0x0100
+0100            label11
+0100  0E01      	MOVLW	HIGH( label12 )
+0102  6EFA      	MOVWF PCLATH
+0104  5130      	MOVF usb_send_o_0008C_1___retpointvar, W, 1
+0106  26F9      	ADDWF PCL, F
+0108            ; RET_TABLE_BEGIN
+0108            label12
+0108            ; RET_TABLE_ENTRY
+0108  EF0CF003  	GOTO	label57
+010C            ; RET_TABLE_ENTRY
+010C  EF11F003  	GOTO	label59
+0110            ; RET_TABLE_END
+0110            ; AVOID CODE BOUNDARY END 
+0110            ; } usb_send_one_byte function end
+
+	ORG 0x00000110
+0110            usb_send_e_00079
+0110            ; { usb_send_empty_data_pkt ; function begin
+0110  0102      	MOVLB 0x02
+0112  6F2F      	MOVWF usb_send_e_00079_1___retpointvar, 1
+0114  0E08      	MOVLW 0x08
+0116  0101      	MOVLB 0x01
+0118  6FE8      	MOVWF gbl_delivery_buffer_size, 1
+011A  0E02      	MOVLW HIGH(gbl_buffer_0_in+D'0')
+011C  6FD5      	MOVWF gbl_delivery_buffer+D'1', 1
+011E  0E88      	MOVLW LOW(gbl_buffer_0_in+D'0')
+0120  6FD4      	MOVWF gbl_delivery_buffer, 1
+0122  6BD0      	CLRF gbl_delivery_bytes_sent, 1
+0124  6BD1      	CLRF gbl_delivery_bytes_sent+D'1', 1
+0126  6BCC      	CLRF gbl_delivery_bytes_to_send, 1
+0128  6BCD      	CLRF gbl_delivery_bytes_to_send+D'1', 1
+012A  6BCE      	CLRF gbl_delivery_bytes_max_send, 1
+012C  6BCF      	CLRF gbl_delivery_bytes_max_send+D'1', 1
+012E  6BD2      	CLRF gbl_delivery_ptr, 1
+0130  6BD3      	CLRF gbl_delivery_ptr+D'1', 1
+0132  0102      	MOVLB 0x02
+0134  9D04      	BCF gbl_bd0in,6, 1
+0136  EC09F000  	CALL usb_send_d_0007A
+013A  D000      	BRA	label13
+013C            ; AVOID CODE PAGE BOUNDARY BEGIN - page size:256 words
+	ORG	0x013C
+013C            label13
+013C  0E01      	MOVLW	HIGH( label14 )
+013E  6EFA      	MOVWF PCLATH
+0140  512F      	MOVF usb_send_e_00079_1___retpointvar, W, 1
+0142  26F9      	ADDWF PCL, F
+0144            ; RET_TABLE_BEGIN
+0144            label14
+0144            ; RET_TABLE_ENTRY
+0144  EF54F003  	GOTO	label68
+0148            ; RET_TABLE_ENTRY
+0148  EF3BF003  	GOTO	label67
+014C            ; RET_TABLE_ENTRY
+014C  EFF1F002  	GOTO	label53
+0150            ; RET_TABLE_ENTRY
+0150  EFFBF002  	GOTO	label55
+0154            ; RET_TABLE_END
+0154            ; AVOID CODE BOUNDARY END 
+0154            ; } usb_send_empty_data_pkt function end
+
+	ORG 0x00000154
+0154            usb_send_d_00078
+0154            ; { usb_send_data ; function begin
+0154  0101      	MOVLB 0x01
+0156  EE01F067  	LFSR 0x00, gbl_ep_in_buffer_location
+015A  50E9      	MOVF FSR0L, W
+015C  0102      	MOVLB 0x02
+015E  512D      	MOVF usb_send_d_00078_arg_ep, W, 1
+0160  6F3B      	MOVWF CompTempVar2734, 1
+0162  90D8      	BCF STATUS,C
+0164  353B      	RLCF CompTempVar2734, W, 1
+0166  26E9      	ADDWF FSR0L, F
+0168  50EE      	MOVF POSTINC0, W
+016A  6F39      	MOVWF usb_send_d_00078_1_buffer, 1
+016C  50EF      	MOVF INDF0, W
+016E  6F3A      	MOVWF usb_send_d_00078_1_buffer+D'1', 1
+0170  532D      	MOVF usb_send_d_00078_arg_ep, F, 1
+0172  E00A      	BZ	label16
+0174  052D      	DECF usb_send_d_00078_arg_ep, W, 1
+0176  E015      	BZ	label17
+0178  0E02      	MOVLW 0x02
+017A  632D      	CPFSEQ usb_send_d_00078_arg_ep, 1
+017C  D001      	BRA	label15
+017E  D024      	BRA	label18
+0180            label15
+0180  0E03      	MOVLW 0x03
+0182  632D      	CPFSEQ usb_send_d_00078_arg_ep, 1
+0184  D046      	BRA	label20
+0186  D033      	BRA	label19
+0188            label16
+0188  0E02      	MOVLW HIGH(gbl_bd0in+D'0')
+018A  6F34      	MOVWF usb_send_d_00078_1_bdstat+D'1', 1
+018C  0E04      	MOVLW LOW(gbl_bd0in+D'0')
+018E  6F33      	MOVWF usb_send_d_00078_1_bdstat, 1
+0190  0E02      	MOVLW HIGH(gbl_bd0in+D'1')
+0192  6F36      	MOVWF usb_send_d_00078_1_bdcount+D'1', 1
+0194  0E05      	MOVLW LOW(gbl_bd0in+D'1')
+0196  6F35      	MOVWF usb_send_d_00078_1_bdcount, 1
+0198  0E02      	MOVLW HIGH(gbl_bd0in+D'2')
+019A  6F38      	MOVWF usb_send_d_00078_1_bdaddr+D'1', 1
+019C  0E06      	MOVLW LOW(gbl_bd0in+D'2')
+019E  6F37      	MOVWF usb_send_d_00078_1_bdaddr, 1
+01A0  D038      	BRA	label20
+01A2            label17
+01A2  0E02      	MOVLW HIGH(gbl_bd1in+D'0')
+01A4  6F3B      	MOVWF CompTempVar2738, 1
+01A6  0E0C      	MOVLW LOW(gbl_bd1in+D'0')
+01A8  6F33      	MOVWF usb_send_d_00078_1_bdstat, 1
+01AA  513B      	MOVF CompTempVar2738, W, 1
+01AC  6F34      	MOVWF usb_send_d_00078_1_bdstat+D'1', 1
+01AE  0E02      	MOVLW HIGH(gbl_bd1in+D'1')
+01B0  6F3B      	MOVWF CompTempVar2739, 1
+01B2  0E0D      	MOVLW LOW(gbl_bd1in+D'1')
+01B4  6F35      	MOVWF usb_send_d_00078_1_bdcount, 1
+01B6  513B      	MOVF CompTempVar2739, W, 1
+01B8  6F36      	MOVWF usb_send_d_00078_1_bdcount+D'1', 1
+01BA  0E02      	MOVLW HIGH(gbl_bd1in+D'2')
+01BC  6F3B      	MOVWF CompTempVar2740, 1
+01BE  0E0E      	MOVLW LOW(gbl_bd1in+D'2')
+01C0  6F37      	MOVWF usb_send_d_00078_1_bdaddr, 1
+01C2  513B      	MOVF CompTempVar2740, W, 1
+01C4  6F38      	MOVWF usb_send_d_00078_1_bdaddr+D'1', 1
+01C6  D025      	BRA	label20
+01C8            label18
+01C8  0E02      	MOVLW HIGH(gbl_bd2in+D'0')
+01CA  6F3B      	MOVWF CompTempVar2741, 1
+01CC  0E14      	MOVLW LOW(gbl_bd2in+D'0')
+01CE  6F33      	MOVWF usb_send_d_00078_1_bdstat, 1
+01D0  513B      	MOVF CompTempVar2741, W, 1
+01D2  6F34      	MOVWF usb_send_d_00078_1_bdstat+D'1', 1
+01D4  0E02      	MOVLW HIGH(gbl_bd2in+D'1')
+01D6  6F3B      	MOVWF CompTempVar2742, 1
+01D8  0E15      	MOVLW LOW(gbl_bd2in+D'1')
+01DA  6F35      	MOVWF usb_send_d_00078_1_bdcount, 1
+01DC  513B      	MOVF CompTempVar2742, W, 1
+01DE  6F36      	MOVWF usb_send_d_00078_1_bdcount+D'1', 1
+01E0  0E02      	MOVLW HIGH(gbl_bd2in+D'2')
+01E2  6F3B      	MOVWF CompTempVar2743, 1
+01E4  0E16      	MOVLW LOW(gbl_bd2in+D'2')
+01E6  6F37      	MOVWF usb_send_d_00078_1_bdaddr, 1
+01E8  513B      	MOVF CompTempVar2743, W, 1
+01EA  6F38      	MOVWF usb_send_d_00078_1_bdaddr+D'1', 1
+01EC  D012      	BRA	label20
+01EE            label19
+01EE  0E02      	MOVLW HIGH(gbl_bd3in+D'0')
+01F0  6F3B      	MOVWF CompTempVar2744, 1
+01F2  0E1C      	MOVLW LOW(gbl_bd3in+D'0')
+01F4  6F33      	MOVWF usb_send_d_00078_1_bdstat, 1
+01F6  513B      	MOVF CompTempVar2744, W, 1
+01F8  6F34      	MOVWF usb_send_d_00078_1_bdstat+D'1', 1
+01FA  0E02      	MOVLW HIGH(gbl_bd3in+D'1')
+01FC  6F3B      	MOVWF CompTempVar2745, 1
+01FE  0E1D      	MOVLW LOW(gbl_bd3in+D'1')
+0200  6F35      	MOVWF usb_send_d_00078_1_bdcount, 1
+0202  513B      	MOVF CompTempVar2745, W, 1
+0204  6F36      	MOVWF usb_send_d_00078_1_bdcount+D'1', 1
+0206  0E02      	MOVLW HIGH(gbl_bd3in+D'2')
+0208  6F3B      	MOVWF CompTempVar2746, 1
+020A  0E1E      	MOVLW LOW(gbl_bd3in+D'2')
+020C  6F37      	MOVWF usb_send_d_00078_1_bdaddr, 1
+020E  513B      	MOVF CompTempVar2746, W, 1
+0210  6F38      	MOVWF usb_send_d_00078_1_bdaddr+D'1', 1
+0212            label20
+0212  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+0214  6EEA      	MOVWF FSR0H
+0216  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+0218  6EE9      	MOVWF FSR0L
+021A  BEEF      	BTFSC INDF0,7
+021C  0012      	RETURN
+021E  6B32      	CLRF usb_send_d_00078_1_count, 1
+0220            label21
+0220  5130      	MOVF usb_send_d_00078_arg_send_count, W, 1
+0222  6132      	CPFSLT usb_send_d_00078_1_count, 1
+0224  D013      	BRA	label22
+0226  512F      	MOVF usb_send_d_00078_arg_data+D'1', W, 1
+0228  6EEA      	MOVWF FSR0H
+022A  512E      	MOVF usb_send_d_00078_arg_data, W, 1
+022C  6EE9      	MOVWF FSR0L
+022E  5132      	MOVF usb_send_d_00078_1_count, W, 1
+0230  6F3B      	MOVWF CompTempVar2749, 1
+0232  513B      	MOVF CompTempVar2749, W, 1
+0234  26E9      	ADDWF FSR0L, F
+0236  50EF      	MOVF INDF0, W
+0238  6F3C      	MOVWF CompTempVar2750, 1
+023A  513A      	MOVF usb_send_d_00078_1_buffer+D'1', W, 1
+023C  6EEA      	MOVWF FSR0H
+023E  5139      	MOVF usb_send_d_00078_1_buffer, W, 1
+0240  2532      	ADDWF usb_send_d_00078_1_count, W, 1
+0242  6EE9      	MOVWF FSR0L
+0244  513C      	MOVF CompTempVar2750, W, 1
+0246  6EEF      	MOVWF INDF0
+0248  2B32      	INCF usb_send_d_00078_1_count, F, 1
+024A  D7EA      	BRA	label21
+024C            label22
+024C  5136      	MOVF usb_send_d_00078_1_bdcount+D'1', W, 1
+024E  6EEA      	MOVWF FSR0H
+0250  5135      	MOVF usb_send_d_00078_1_bdcount, W, 1
+0252  6EE9      	MOVWF FSR0L
+0254  5132      	MOVF usb_send_d_00078_1_count, W, 1
+0256  6EEF      	MOVWF INDF0
+0258  5138      	MOVF usb_send_d_00078_1_bdaddr+D'1', W, 1
+025A  6EEA      	MOVWF FSR0H
+025C  5137      	MOVF usb_send_d_00078_1_bdaddr, W, 1
+025E  6EE9      	MOVWF FSR0L
+0260  2AE9      	INCF FSR0L, F
+0262  5139      	MOVF usb_send_d_00078_1_buffer, W, 1
+0264  6F3B      	MOVWF CompTempVar2751, 1
+0266  513A      	MOVF usb_send_d_00078_1_buffer+D'1', W, 1
+0268  6EEF      	MOVWF INDF0
+026A  06E9      	DECF FSR0L, F
+026C  513B      	MOVF CompTempVar2751, W, 1
+026E  6EEF      	MOVWF INDF0
+0270  A131      	BTFSS usb_send_d_00078_arg_first,0, 1
+0272  D005      	BRA	label23
+0274  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+0276  6EEA      	MOVWF FSR0H
+0278  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+027A  6EE9      	MOVWF FSR0L
+027C  9CEF      	BCF INDF0,6
+027E            label23
+027E  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+0280  6EEA      	MOVWF FSR0H
+0282  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+0284  6EE9      	MOVWF FSR0L
+0286  ACEF      	BTFSS INDF0,6
+0288  D006      	BRA	label24
+028A  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+028C  6EEA      	MOVWF FSR0H
+028E  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+0290  6EE9      	MOVWF FSR0L
+0292  9CEF      	BCF INDF0,6
+0294  D005      	BRA	label25
+0296            label24
+0296  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+0298  6EEA      	MOVWF FSR0H
+029A  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+029C  6EE9      	MOVWF FSR0L
+029E  8CEF      	BSF INDF0,6
+02A0            label25
+02A0  5134      	MOVF usb_send_d_00078_1_bdstat+D'1', W, 1
+02A2  6EEA      	MOVWF FSR0H
+02A4  5133      	MOVF usb_send_d_00078_1_bdstat, W, 1
+02A6  6EE9      	MOVWF FSR0L
+02A8  9AEF      	BCF INDF0,5
+02AA  98EF      	BCF INDF0,4
+02AC  86EF      	BSF INDF0,3
+02AE  94EF      	BCF INDF0,2
+02B0  92EF      	BCF INDF0,1
+02B2  90EF      	BCF INDF0,0
+02B4  8EEF      	BSF INDF0,7
+02B6  0012      	RETURN
+02B8            ; } usb_send_data function end
+
+	ORG 0x000002B8
+02B8            usb_get_de_00080
+02B8            ; { usb_get_descriptor_callback ; function begin
+02B8  6B35      	CLRF usb_get_de_00080_1_descrip_00085, 1
+02BA  6B36      	CLRF usb_get_de_00080_1_descrip_00085+D'1', 1
+02BC  052F      	DECF usb_get_de_00080_arg_descr_00081, W, 1
+02BE  E00C      	BZ	label28
+02C0  0E02      	MOVLW 0x02
+02C2  632F      	CPFSEQ usb_get_de_00080_arg_descr_00081, 1
+02C4  D001      	BRA	label26
+02C6  D012      	BRA	label29
+02C8            label26
+02C8  0E03      	MOVLW 0x03
+02CA  632F      	CPFSEQ usb_get_de_00080_arg_descr_00081, 1
+02CC  D001      	BRA	label27
+02CE  D018      	BRA	label30
+02D0            label27
+02D0  0E06      	MOVLW 0x06
+02D2  632F      	CPFSEQ usb_get_de_00080_arg_descr_00081, 1
+02D4  D03A      	BRA	label34
+02D6  D039      	BRA	label34
+02D8            label28
+02D8  0E00      	MOVLW HIGH(gbl_my_device_descriptor+D'0')
+02DA  6F39      	MOVWF CompTempVar2763, 1
+02DC  0E48      	MOVLW LOW(gbl_my_device_descriptor+D'0')
+02DE  6F35      	MOVWF usb_get_de_00080_1_descrip_00085, 1
+02E0  5139      	MOVF CompTempVar2763, W, 1
+02E2  6F36      	MOVWF usb_get_de_00080_1_descrip_00085+D'1', 1
+02E4  0E12      	MOVLW 0x12
+02E6  6F37      	MOVWF usb_get_de_00080_1_descrip_00086, 1
+02E8  6B38      	CLRF usb_get_de_00080_1_descrip_00086+D'1', 1
+02EA  D02F      	BRA	label34
+02EC            label29
+02EC  0E00      	MOVLW HIGH(gbl_complete_serial_config_00000+D'0')
+02EE  6F39      	MOVWF CompTempVar2764, 1
+02F0  0E05      	MOVLW LOW(gbl_complete_serial_config_00000+D'0')
+02F2  6F35      	MOVWF usb_get_de_00080_1_descrip_00085, 1
+02F4  5139      	MOVF CompTempVar2764, W, 1
+02F6  6F36      	MOVWF usb_get_de_00080_1_descrip_00085+D'1', 1
+02F8  0E43      	MOVLW 0x43
+02FA  6F37      	MOVWF usb_get_de_00080_1_descrip_00086, 1
+02FC  6B38      	CLRF usb_get_de_00080_1_descrip_00086+D'1', 1
+02FE  D025      	BRA	label34
+0300            label30
+0300  5330      	MOVF usb_get_de_00080_arg_descr_00082, F, 1
+0302  E006      	BZ	label31
+0304  0530      	DECF usb_get_de_00080_arg_descr_00082, W, 1
+0306  E00E      	BZ	label32
+0308  0E02      	MOVLW 0x02
+030A  6330      	CPFSEQ usb_get_de_00080_arg_descr_00082, 1
+030C  D01E      	BRA	label34
+030E  D014      	BRA	label33
+0310            label31
+0310  0E04      	MOVLW 0x04
+0312  6F37      	MOVWF usb_get_de_00080_1_descrip_00086, 1
+0314  6B38      	CLRF usb_get_de_00080_1_descrip_00086+D'1', 1
+0316  0E01      	MOVLW HIGH(gbl_string_00+D'0')
+0318  6F39      	MOVWF CompTempVar2765, 1
+031A  0EC2      	MOVLW LOW(gbl_string_00+D'0')
+031C  6F35      	MOVWF usb_get_de_00080_1_descrip_00085, 1
+031E  5139      	MOVF CompTempVar2765, W, 1
+0320  6F36      	MOVWF usb_get_de_00080_1_descrip_00085+D'1', 1
+0322  D013      	BRA	label34
+0324            label32
+0324  0E2E      	MOVLW 0x2E
+0326  6F37      	MOVWF usb_get_de_00080_1_descrip_00086, 1
+0328  6B38      	CLRF usb_get_de_00080_1_descrip_00086+D'1', 1
+032A  0E01      	MOVLW HIGH(gbl_MX_USBMFR+D'0')
+032C  6F39      	MOVWF CompTempVar2766, 1
+032E  0E00      	MOVLW LOW(gbl_MX_USBMFR+D'0')
+0330  6F35      	MOVWF usb_get_de_00080_1_descrip_00085, 1
+0332  5139      	MOVF CompTempVar2766, W, 1
+0334  6F36      	MOVWF usb_get_de_00080_1_descrip_00085+D'1', 1
+0336  D009      	BRA	label34
+0338            label33
+0338  0E28      	MOVLW 0x28
+033A  6F37      	MOVWF usb_get_de_00080_1_descrip_00086, 1
+033C  6B38      	CLRF usb_get_de_00080_1_descrip_00086+D'1', 1
+033E  0E01      	MOVLW HIGH(gbl_MX_USBNAME+D'0')
+0340  6F39      	MOVWF CompTempVar2767, 1
+0342  0E2E      	MOVLW LOW(gbl_MX_USBNAME+D'0')
+0344  6F35      	MOVWF usb_get_de_00080_1_descrip_00085, 1
+0346  5139      	MOVF CompTempVar2767, W, 1
+0348  6F36      	MOVWF usb_get_de_00080_1_descrip_00085+D'1', 1
+034A            label34
+034A  5132      	MOVF usb_get_de_00080_arg_rtn_d_00083+D'1', W, 1
+034C  6EEA      	MOVWF FSR0H
+034E  5131      	MOVF usb_get_de_00080_arg_rtn_d_00083, W, 1
+0350  6EE9      	MOVWF FSR0L
+0352  2AE9      	INCF FSR0L, F
+0354  5135      	MOVF usb_get_de_00080_1_descrip_00085, W, 1
+0356  6F39      	MOVWF CompTempVar2768, 1
+0358  5136      	MOVF usb_get_de_00080_1_descrip_00085+D'1', W, 1
+035A  6EEF      	MOVWF INDF0
+035C  06E9      	DECF FSR0L, F
+035E  5139      	MOVF CompTempVar2768, W, 1
+0360  6EEF      	MOVWF INDF0
+0362  5134      	MOVF usb_get_de_00080_arg_rtn_d_00084+D'1', W, 1
+0364  6EEA      	MOVWF FSR0H
+0366  5133      	MOVF usb_get_de_00080_arg_rtn_d_00084, W, 1
+0368  6EE9      	MOVWF FSR0L
+036A  2AE9      	INCF FSR0L, F
+036C  5137      	MOVF usb_get_de_00080_1_descrip_00086, W, 1
+036E  6F39      	MOVWF CompTempVar2769, 1
+0370  5138      	MOVF usb_get_de_00080_1_descrip_00086+D'1', W, 1
+0372  6EEF      	MOVWF INDF0
+0374  06E9      	DECF FSR0L, F
+0376  5139      	MOVF CompTempVar2769, W, 1
+0378  6EEF      	MOVWF INDF0
+037A  0012      	RETURN
+037C            ; } usb_get_descriptor_callback function end
+
+	ORG 0x0000037C
+037C            usb_device_0008A
+037C            ; { usb_device_configured_callback ; function begin
+037C  0E01      	MOVLW 0x01
+037E  0101      	MOVLB 0x01
+0380  6FEF      	MOVWF gbl_CDC_USB_status, 1
+0382  0012      	RETURN
+0384            ; } usb_device_configured_callback function end
+
+	ORG 0x00000384
+0384            usb_config_0008B
+0384            ; { usb_configure_endpoints ; function begin
+0384  010F      	MOVLB 0x0F
+0386  8955      	BSF gbl_uep2,4, 1
+0388  9555      	BCF gbl_uep2,2, 1
+038A  8355      	BSF gbl_uep2,1, 1
+038C  8755      	BSF gbl_uep2,3, 1
+038E  0102      	MOVLB 0x02
+0390  8D14      	BSF gbl_bd2in,6, 1
+0392  9B14      	BCF gbl_bd2in,5, 1
+0394  9914      	BCF gbl_bd2in,4, 1
+0396  9714      	BCF gbl_bd2in,3, 1
+0398  9514      	BCF gbl_bd2in,2, 1
+039A  9314      	BCF gbl_bd2in,1, 1
+039C  9114      	BCF gbl_bd2in,0, 1
+039E  9F14      	BCF gbl_bd2in,7, 1
+03A0  010F      	MOVLB 0x0F
+03A2  8956      	BSF gbl_uep3,4, 1
+03A4  8556      	BSF gbl_uep3,2, 1
+03A6  8356      	BSF gbl_uep3,1, 1
+03A8  8756      	BSF gbl_uep3,3, 1
+03AA  0102      	MOVLB 0x02
+03AC  8D1C      	BSF gbl_bd3in,6, 1
+03AE  9B1C      	BCF gbl_bd3in,5, 1
+03B0  991C      	BCF gbl_bd3in,4, 1
+03B2  971C      	BCF gbl_bd3in,3, 1
+03B4  951C      	BCF gbl_bd3in,2, 1
+03B6  931C      	BCF gbl_bd3in,1, 1
+03B8  911C      	BCF gbl_bd3in,0, 1
+03BA  9F1C      	BCF gbl_bd3in,7, 1
+03BC  0E08      	MOVLW 0x08
+03BE  6F19      	MOVWF gbl_bd3out+D'1', 1
+03C0  0E98      	MOVLW 0x98
+03C2  6F1A      	MOVWF gbl_bd3out+D'2', 1
+03C4  0E02      	MOVLW 0x02
+03C6  6F1B      	MOVWF gbl_bd3out+D'3', 1
+03C8  9D18      	BCF gbl_bd3out,6, 1
+03CA  9B18      	BCF gbl_bd3out,5, 1
+03CC  9918      	BCF gbl_bd3out,4, 1
+03CE  9718      	BCF gbl_bd3out,3, 1
+03D0  9518      	BCF gbl_bd3out,2, 1
+03D2  9318      	BCF gbl_bd3out,1, 1
+03D4  9118      	BCF gbl_bd3out,0, 1
+03D6  8F18      	BSF gbl_bd3out,7, 1
+03D8  0012      	RETURN
+03DA            ; } usb_configure_endpoints function end
+
+	ORG 0x000003DA
+03DA            usb_cdc_ha_00089
+03DA            ; { usb_cdc_handle_tx ; function begin
+03DA  0E02      	MOVLW HIGH(gbl_bd3in+D'0')
+03DC  0102      	MOVLB 0x02
+03DE  6F2D      	MOVWF usb_cdc_ha_00089_1_bd+D'1', 1
+03E0  0E1C      	MOVLW LOW(gbl_bd3in+D'0')
+03E2  6F2C      	MOVWF usb_cdc_ha_00089_1_bd, 1
+03E4  512D      	MOVF usb_cdc_ha_00089_1_bd+D'1', W, 1
+03E6  6EEA      	MOVWF FSR0H
+03E8  512C      	MOVF usb_cdc_ha_00089_1_bd, W, 1
+03EA  6EE9      	MOVWF FSR0L
+03EC  BEEF      	BTFSC INDF0,7
+03EE  0012      	RETURN
+03F0  0101      	MOVLB 0x01
+03F2  517D      	MOVF gbl_ep_in_buffer_size+D'6', W, 1
+03F4  0102      	MOVLB 0x02
+03F6  6F28      	MOVWF usb_cdc_ha_00089_1_buffer_size, 1
+03F8  0101      	MOVLB 0x01
+03FA  517E      	MOVF gbl_ep_in_buffer_size+D'7', W, 1
+03FC  0102      	MOVLB 0x02
+03FE  6F29      	MOVWF usb_cdc_ha_00089_1_buffer_size+D'1', 1
+0400  0101      	MOVLB 0x01
+0402  516D      	MOVF gbl_ep_in_buffer_location+D'6', W, 1
+0404  0102      	MOVLB 0x02
+0406  6F2A      	MOVWF usb_cdc_ha_00089_1_buffer, 1
+0408  0101      	MOVLB 0x01
+040A  516E      	MOVF gbl_ep_in_buffer_location+D'7', W, 1
+040C  0102      	MOVLB 0x02
+040E  6F2B      	MOVWF usb_cdc_ha_00089_1_buffer+D'1', 1
+0410  0101      	MOVLB 0x01
+0412  51EB      	MOVF gbl_cdc_tx_start, W, 1
+0414  63EC      	CPFSEQ gbl_cdc_tx_end, 1
+0416  D001      	BRA	label35
+0418  0012      	RETURN
+041A            label35
+041A  0102      	MOVLB 0x02
+041C  912E      	BCF usb_cdc_ha_00089_1_store_gie,0, 1
+041E  BEF2      	BTFSC gbl_intcon,7
+0420  812E      	BSF usb_cdc_ha_00089_1_store_gie,0, 1
+0422            label36
+0422  9EF2      	BCF gbl_intcon,7
+0424  BEF2      	BTFSC gbl_intcon,7
+0426  D7FD      	BRA	label36
+0428  6B27      	CLRF usb_cdc_ha_00089_1_count, 1
+042A            label37
+042A  0101      	MOVLB 0x01
+042C  51EB      	MOVF gbl_cdc_tx_start, W, 1
+042E  63EC      	CPFSEQ gbl_cdc_tx_end, 1
+0430  63EB      	CPFSEQ gbl_cdc_tx_start, 1
+0432  D025      	BRA	label39
+0434  0102      	MOVLB 0x02
+0436  5128      	MOVF usb_cdc_ha_00089_1_buffer_size, W, 1
+0438  6127      	CPFSLT usb_cdc_ha_00089_1_count, 1
+043A  5129      	MOVF usb_cdc_ha_00089_1_buffer_size+D'1', W, 1
+043C  E020      	BZ	label39
+043E  0101      	MOVLB 0x01
+0440  29EB      	INCF gbl_cdc_tx_start, W, 1
+0442  0102      	MOVLB 0x02
+0444  6F26      	MOVWF usb_cdc_ha_00089_1_cdc_tx_next, 1
+0446  0E40      	MOVLW 0x40
+0448  6326      	CPFSEQ usb_cdc_ha_00089_1_cdc_tx_next, 1
+044A  D001      	BRA	label38
+044C  6B26      	CLRF usb_cdc_ha_00089_1_cdc_tx_next, 1
+044E            label38
+044E  0100      	MOVLB 0x00
+0450  EE00F060  	LFSR 0x00, gbl_cdc_tx_buffer
+0454  50E9      	MOVF FSR0L, W
+0456  0101      	MOVLB 0x01
+0458  51EB      	MOVF gbl_cdc_tx_start, W, 1
+045A  0102      	MOVLB 0x02
+045C  6F2F      	MOVWF CompTempVar2779, 1
+045E  512F      	MOVF CompTempVar2779, W, 1
+0460  26E9      	ADDWF FSR0L, F
+0462  50EF      	MOVF INDF0, W
+0464  6F30      	MOVWF CompTempVar2780, 1
+0466  512B      	MOVF usb_cdc_ha_00089_1_buffer+D'1', W, 1
+0468  6EEA      	MOVWF FSR0H
+046A  512A      	MOVF usb_cdc_ha_00089_1_buffer, W, 1
+046C  2527      	ADDWF usb_cdc_ha_00089_1_count, W, 1
+046E  6EE9      	MOVWF FSR0L
+0470  5130      	MOVF CompTempVar2780, W, 1
+0472  6EEF      	MOVWF INDF0
+0474  2B27      	INCF usb_cdc_ha_00089_1_count, F, 1
+0476  5126      	MOVF usb_cdc_ha_00089_1_cdc_tx_next, W, 1
+0478  0101      	MOVLB 0x01
+047A  6FEB      	MOVWF gbl_cdc_tx_start, 1
+047C  D7D6      	BRA	label37
+047E            label39
+047E  0E00      	MOVLW 0x00
+0480  0102      	MOVLB 0x02
+0482  6527      	CPFSGT usb_cdc_ha_00089_1_count, 1
+0484  D02B      	BRA	label42
+0486  512D      	MOVF usb_cdc_ha_00089_1_bd+D'1', W, 1
+0488  6EEA      	MOVWF FSR0H
+048A  292C      	INCF usb_cdc_ha_00089_1_bd, W, 1
+048C  6EE9      	MOVWF FSR0L
+048E  5127      	MOVF usb_cdc_ha_00089_1_count, W, 1
+0490  6EEF      	MOVWF INDF0
+0492  06E9      	DECF FSR0L, F
+0494  0E02      	MOVLW 0x02
+0496  26E9      	ADDWF FSR0L, F
+0498  2AE9      	INCF FSR0L, F
+049A  512A      	MOVF usb_cdc_ha_00089_1_buffer, W, 1
+049C  6F2F      	MOVWF CompTempVar2781, 1
+049E  512B      	MOVF usb_cdc_ha_00089_1_buffer+D'1', W, 1
+04A0  6EEF      	MOVWF INDF0
+04A2  06E9      	DECF FSR0L, F
+04A4  512F      	MOVF CompTempVar2781, W, 1
+04A6  6EEF      	MOVWF INDF0
+04A8  512C      	MOVF usb_cdc_ha_00089_1_bd, W, 1
+04AA  6EE9      	MOVWF FSR0L
+04AC  ACEF      	BTFSS INDF0,6
+04AE  D006      	BRA	label40
+04B0  512D      	MOVF usb_cdc_ha_00089_1_bd+D'1', W, 1
+04B2  6EEA      	MOVWF FSR0H
+04B4  512C      	MOVF usb_cdc_ha_00089_1_bd, W, 1
+04B6  6EE9      	MOVWF FSR0L
+04B8  9CEF      	BCF INDF0,6
+04BA  D005      	BRA	label41
+04BC            label40
+04BC  512D      	MOVF usb_cdc_ha_00089_1_bd+D'1', W, 1
+04BE  6EEA      	MOVWF FSR0H
+04C0  512C      	MOVF usb_cdc_ha_00089_1_bd, W, 1
+04C2  6EE9      	MOVWF FSR0L
+04C4  8CEF      	BSF INDF0,6
+04C6            label41
+04C6  512D      	MOVF usb_cdc_ha_00089_1_bd+D'1', W, 1
+04C8  6EEA      	MOVWF FSR0H
+04CA  512C      	MOVF usb_cdc_ha_00089_1_bd, W, 1
+04CC  6EE9      	MOVWF FSR0L
+04CE  9AEF      	BCF INDF0,5
+04D0  98EF      	BCF INDF0,4
+04D2  86EF      	BSF INDF0,3
+04D4  94EF      	BCF INDF0,2
+04D6  92EF      	BCF INDF0,1
+04D8  90EF      	BCF INDF0,0
+04DA  8EEF      	BSF INDF0,7
+04DC            label42
+04DC  B12E      	BTFSC usb_cdc_ha_00089_1_store_gie,0, 1
+04DE  8EF2      	BSF gbl_intcon,7
+04E0  A12E      	BTFSS usb_cdc_ha_00089_1_store_gie,0, 1
+04E2  9EF2      	BCF gbl_intcon,7
+04E4  0012      	RETURN
+04E6            ; } usb_cdc_handle_tx function end
+
+	ORG 0x000004E6
+04E6            memcpy8_00000
+04E6            ; { memcpy8 ; function begin
+04E6  5128      	MOVF memcpy8_00000_arg_dst, W, 1
+04E8  6F2D      	MOVWF memcpy8_00000_1_dst2, 1
+04EA  5129      	MOVF memcpy8_00000_arg_dst+D'1', W, 1
+04EC  6F2E      	MOVWF memcpy8_00000_1_dst2+D'1', 1
+04EE  512A      	MOVF memcpy8_00000_arg_src, W, 1
+04F0  6F2F      	MOVWF memcpy8_00000_1_src2, 1
+04F2  512B      	MOVF memcpy8_00000_arg_src+D'1', W, 1
+04F4  6F30      	MOVWF memcpy8_00000_1_src2+D'1', 1
+04F6            label43
+04F6  0E00      	MOVLW 0x00
+04F8  652C      	CPFSGT memcpy8_00000_arg_len, 1
+04FA  D012      	BRA	label44
+04FC  5130      	MOVF memcpy8_00000_1_src2+D'1', W, 1
+04FE  6EEA      	MOVWF FSR0H
+0500  512F      	MOVF memcpy8_00000_1_src2, W, 1
+0502  6EE9      	MOVWF FSR0L
+0504  4B2F      	INFSNZ memcpy8_00000_1_src2, F, 1
+0506  2B30      	INCF memcpy8_00000_1_src2+D'1', F, 1
+0508  50EF      	MOVF INDF0, W
+050A  6F31      	MOVWF CompTempVar411, 1
+050C  512E      	MOVF memcpy8_00000_1_dst2+D'1', W, 1
+050E  6EEA      	MOVWF FSR0H
+0510  512D      	MOVF memcpy8_00000_1_dst2, W, 1
+0512  6EE9      	MOVWF FSR0L
+0514  4B2D      	INFSNZ memcpy8_00000_1_dst2, F, 1
+0516  2B2E      	INCF memcpy8_00000_1_dst2+D'1', F, 1
+0518  5131      	MOVF CompTempVar411, W, 1
+051A  6EEF      	MOVWF INDF0
+051C  072C      	DECF memcpy8_00000_arg_len, F, 1
+051E  D7EB      	BRA	label43
+0520            label44
+0520  5128      	MOVF memcpy8_00000_arg_dst, W, 1
+0522  6F31      	MOVWF CompTempVarRet410, 1
+0524  5129      	MOVF memcpy8_00000_arg_dst+D'1', W, 1
+0526  6F32      	MOVWF CompTempVarRet410+D'1', 1
+0528  0012      	RETURN
+052A            ; } memcpy8 function end
+
+	ORG 0x0000052A
+052A            usb_prime__0008D
+052A            ; { usb_prime_ep0_out ; function begin
+052A  0E08      	MOVLW 0x08
+052C  0102      	MOVLB 0x02
+052E  6F01      	MOVWF gbl_bd0out+D'1', 1
+0530  0E80      	MOVLW 0x80
+0532  6F02      	MOVWF gbl_bd0out+D'2', 1
+0534  0E02      	MOVLW 0x02
+0536  6F03      	MOVWF gbl_bd0out+D'3', 1
+0538  8D00      	BSF gbl_bd0out,6, 1
+053A  9B00      	BCF gbl_bd0out,5, 1
+053C  9900      	BCF gbl_bd0out,4, 1
+053E  8700      	BSF gbl_bd0out,3, 1
+0540  9500      	BCF gbl_bd0out,2, 1
+0542  9300      	BCF gbl_bd0out,1, 1
+0544  9100      	BCF gbl_bd0out,0, 1
+0546  8F00      	BSF gbl_bd0out,7, 1
+0548  0012      	RETURN
+054A            ; } usb_prime_ep0_out function end
+
+	ORG 0x0000054A
+054A            usb_handle_0008E
+054A            ; { usb_handle_standard_request ; function begin
+054A  0E06      	MOVLW 0x06
+054C  6326      	CPFSEQ usb_handle_0008E_arg_sdp+D'1', 1
+054E  D001      	BRA	label45
+0550  D00F      	BRA	label49
+0552            label45
+0552  0E05      	MOVLW 0x05
+0554  6326      	CPFSEQ usb_handle_0008E_arg_sdp+D'1', 1
+0556  D001      	BRA	label46
+0558  D03C      	BRA	label52
+055A            label46
+055A  0E09      	MOVLW 0x09
+055C  6326      	CPFSEQ usb_handle_0008E_arg_sdp+D'1', 1
+055E  D001      	BRA	label47
+0560  D044      	BRA	label54
+0562            label47
+0562  0E0A      	MOVLW 0x0A
+0564  6326      	CPFSEQ usb_handle_0008E_arg_sdp+D'1', 1
+0566  D001      	BRA	label48
+0568  D04E      	BRA	label56
+056A            label48
+056A  5326      	MOVF usb_handle_0008E_arg_sdp+D'1', F, 1
+056C  E056      	BZ	label58
+056E  D05A      	BRA	label60
+0570            label49
+0570  5128      	MOVF usb_handle_0008E_arg_sdp+D'3', W, 1
+0572  6F2D      	MOVWF usb_handle_0008E_1_descrip_0008F, 1
+0574  5127      	MOVF usb_handle_0008E_arg_sdp+D'2', W, 1
+0576  6F2E      	MOVWF usb_handle_0008E_1_descrip_00090, 1
+0578  512D      	MOVF usb_handle_0008E_1_descrip_0008F, W, 1
+057A  6F2F      	MOVWF usb_get_de_00080_arg_descr_00081, 1
+057C  512E      	MOVF usb_handle_0008E_1_descrip_00090, W, 1
+057E  6F30      	MOVWF usb_get_de_00080_arg_descr_00082, 1
+0580  0E01      	MOVLW HIGH(gbl_delivery_ptr+D'0')
+0582  6F32      	MOVWF usb_get_de_00080_arg_rtn_d_00083+D'1', 1
+0584  0ED2      	MOVLW LOW(gbl_delivery_ptr+D'0')
+0586  6F31      	MOVWF usb_get_de_00080_arg_rtn_d_00083, 1
+0588  0E01      	MOVLW HIGH(gbl_delivery_bytes_to_send+D'0')
+058A  6F34      	MOVWF usb_get_de_00080_arg_rtn_d_00084+D'1', 1
+058C  0ECC      	MOVLW LOW(gbl_delivery_bytes_to_send+D'0')
+058E  6F33      	MOVWF usb_get_de_00080_arg_rtn_d_00084, 1
+0590  EC5CF001  	CALL usb_get_de_00080
+0594  0101      	MOVLB 0x01
+0596  53D2      	MOVF gbl_delivery_ptr, F, 1
+0598  E102      	BNZ	label50
+059A  53D3      	MOVF gbl_delivery_ptr+D'1', F, 1
+059C  E017      	BZ	label51
+059E            label50
+059E  0E03      	MOVLW 0x03
+05A0  6FE2      	MOVWF gbl_control_mode, 1
+05A2  0102      	MOVLB 0x02
+05A4  512B      	MOVF usb_handle_0008E_arg_sdp+D'6', W, 1
+05A6  0101      	MOVLB 0x01
+05A8  6FCE      	MOVWF gbl_delivery_bytes_max_send, 1
+05AA  0102      	MOVLB 0x02
+05AC  512C      	MOVF usb_handle_0008E_arg_sdp+D'7', W, 1
+05AE  0101      	MOVLB 0x01
+05B0  6FCF      	MOVWF gbl_delivery_bytes_max_send+D'1', 1
+05B2  6BD0      	CLRF gbl_delivery_bytes_sent, 1
+05B4  6BD1      	CLRF gbl_delivery_bytes_sent+D'1', 1
+05B6  0E08      	MOVLW 0x08
+05B8  6FE8      	MOVWF gbl_delivery_buffer_size, 1
+05BA  0E88      	MOVLW 0x88
+05BC  6FD4      	MOVWF gbl_delivery_buffer, 1
+05BE  0E02      	MOVLW 0x02
+05C0  6FD5      	MOVWF gbl_delivery_buffer+D'1', 1
+05C2  0102      	MOVLB 0x02
+05C4  9D04      	BCF gbl_bd0in,6, 1
+05C6  EC09F000  	CALL usb_send_d_0007A
+05CA  D02E      	BRA	label61
+05CC            label51
+05CC  EC5EF000  	CALL usb_stall__0007B
+05D0  D02B      	BRA	label61
+05D2            label52
+05D2  5127      	MOVF usb_handle_0008E_arg_sdp+D'2', W, 1
+05D4  0101      	MOVLB 0x01
+05D6  6FE1      	MOVWF gbl_usb_address, 1
+05D8  0E01      	MOVLW 0x01
+05DA  6FE9      	MOVWF gbl_usb_status, 1
+05DC  0E08      	MOVLW 0x08
+05DE  EF88F000  	GOTO	usb_send_e_00079
+05E2            label53
+05E2  0E06      	MOVLW 0x06
+05E4  0101      	MOVLB 0x01
+05E6  6FE2      	MOVWF gbl_control_mode, 1
+05E8  D01F      	BRA	label61
+05EA            label54
+05EA  0E06      	MOVLW 0x06
+05EC  0101      	MOVLB 0x01
+05EE  6FE2      	MOVWF gbl_control_mode, 1
+05F0  0E0C      	MOVLW 0x0C
+05F2  EF88F000  	GOTO	usb_send_e_00079
+05F6            label55
+05F6  0E03      	MOVLW 0x03
+05F8  0101      	MOVLB 0x01
+05FA  6FE0      	MOVWF gbl_usb_state, 1
+05FC  ECC2F001  	CALL usb_config_0008B
+0600  ECBEF001  	CALL usb_device_0008A
+0604  D011      	BRA	label61
+0606            label56
+0606  0E03      	MOVLW 0x03
+0608  0101      	MOVLB 0x01
+060A  6FE2      	MOVWF gbl_control_mode, 1
+060C  0E01      	MOVLW 0x01
+060E  0102      	MOVLB 0x02
+0610  6F2F      	MOVWF usb_send_o_0008C_arg_data, 1
+0612  0E00      	MOVLW 0x00
+0614  EF64F000  	GOTO	usb_send_o_0008C
+0618            label57
+0618  D007      	BRA	label61
+061A            label58
+061A  6B2F      	CLRF usb_send_o_0008C_arg_data, 1
+061C  0E04      	MOVLW 0x04
+061E  EF64F000  	GOTO	usb_send_o_0008C
+0622            label59
+0622  D002      	BRA	label61
+0624            label60
+0624  EC5EF000  	CALL usb_stall__0007B
+0628            label61
+0628  EF1EF004  	GOTO	label77
+062C            ; } usb_handle_standard_request function end
+
+	ORG 0x0000062C
+062C            usb_handle_0007F
+062C            ; { usb_handle_class_request ; function begin
+062C  0E20      	MOVLW 0x20
+062E  6326      	CPFSEQ usb_handle_0007F_arg_sdp+D'1', 1
+0630  D001      	BRA	label62
+0632  D008      	BRA	label64
+0634            label62
+0634  0E21      	MOVLW 0x21
+0636  6326      	CPFSEQ usb_handle_0007F_arg_sdp+D'1', 1
+0638  D001      	BRA	label63
+063A  D008      	BRA	label65
+063C            label63
+063C  0E22      	MOVLW 0x22
+063E  6326      	CPFSEQ usb_handle_0007F_arg_sdp+D'1', 1
+0640  D01A      	BRA	label67
+0642  D013      	BRA	label66
+0644            label64
+0644  0E02      	MOVLW 0x02
+0646  0101      	MOVLB 0x01
+0648  6FE2      	MOVWF gbl_control_mode, 1
+064A  D015      	BRA	label67
+064C            label65
+064C  0E04      	MOVLW 0x04
+064E  0101      	MOVLB 0x01
+0650  6FE2      	MOVWF gbl_control_mode, 1
+0652  0102      	MOVLB 0x02
+0654  6B2D      	CLRF usb_send_d_00078_arg_ep, 1
+0656  0E01      	MOVLW HIGH(gbl_class_data+D'0')
+0658  6F2F      	MOVWF usb_send_d_00078_arg_data+D'1', 1
+065A  0E87      	MOVLW LOW(gbl_class_data+D'0')
+065C  6F2E      	MOVWF usb_send_d_00078_arg_data, 1
+065E  0E08      	MOVLW 0x08
+0660  6F30      	MOVWF usb_send_d_00078_arg_send_count, 1
+0662  8131      	BSF usb_send_d_00078_arg_first,0, 1
+0664  ECAAF000  	CALL usb_send_d_00078
+0668  D006      	BRA	label67
+066A            label66
+066A  0E06      	MOVLW 0x06
+066C  0101      	MOVLB 0x01
+066E  6FE2      	MOVWF gbl_control_mode, 1
+0670  0E04      	MOVLW 0x04
+0672  EF88F000  	GOTO	usb_send_e_00079
+0676            label67
+0676  EF4BF004  	GOTO	label79
+067A            ; } usb_handle_class_request function end
+
+	ORG 0x0000067A
+067A            usb_handle_0007E
+067A            ; { usb_handle_ctrl_write_class ; function begin
+067A  0E20      	MOVLW 0x20
+067C  0101      	MOVLB 0x01
+067E  6360      	CPFSEQ gbl_usb_sdp+D'1', 1
+0680  D017      	BRA	label69
+0682  0E01      	MOVLW HIGH(gbl_class_data+D'0')
+0684  0102      	MOVLB 0x02
+0686  6F29      	MOVWF memcpy8_00000_arg_dst+D'1', 1
+0688  0E87      	MOVLW LOW(gbl_class_data+D'0')
+068A  6F28      	MOVWF memcpy8_00000_arg_dst, 1
+068C  5122      	MOVF usb_handle_0007E_arg_data, W, 1
+068E  6F2A      	MOVWF memcpy8_00000_arg_src, 1
+0690  5123      	MOVF usb_handle_0007E_arg_data+D'1', W, 1
+0692  6F2B      	MOVWF memcpy8_00000_arg_src+D'1', 1
+0694  5124      	MOVF usb_handle_0007E_arg_count, W, 1
+0696  6F2C      	MOVWF memcpy8_00000_arg_len, 1
+0698  EC73F002  	CALL memcpy8_00000
+069C  0E06      	MOVLW 0x06
+069E  0101      	MOVLB 0x01
+06A0  6FE2      	MOVWF gbl_control_mode, 1
+06A2  0E00      	MOVLW 0x00
+06A4  EF88F000  	GOTO	usb_send_e_00079
+06A8            label68
+06A8  0E01      	MOVLW HIGH(gbl_class_data+D'0')
+06AA  6F27      	MOVWF usb_handle_0007E_1_my_lc+D'1', 1
+06AC  0E87      	MOVLW LOW(gbl_class_data+D'0')
+06AE  6F26      	MOVWF usb_handle_0007E_1_my_lc, 1
+06B0            label69
+06B0  EF9DF004  	GOTO	label89
+06B4            ; } usb_handle_ctrl_write_class function end
+
+	ORG 0x000006B4
+06B4            usb_handle_0007D
+06B4            ; { usb_handle_ctrl_read_class ; function begin
+06B4  0E21      	MOVLW 0x21
+06B6  0101      	MOVLB 0x01
+06B8  6360      	CPFSEQ gbl_usb_sdp+D'1', 1
+06BA  0012      	RETURN
+06BC  0E05      	MOVLW 0x05
+06BE  6FE2      	MOVWF gbl_control_mode, 1
+06C0  0012      	RETURN
+06C2            ; } usb_handle_ctrl_read_class function end
+
+	ORG 0x000006C2
+06C2            usb_ep_dat_00088
+06C2            ; { usb_ep_data_in_callback ; function begin
+06C2  ECEDF001  	CALL usb_cdc_ha_00089
+06C6  EFC7F004  	GOTO	label100
+06CA            ; } usb_ep_data_in_callback function end
+
+	ORG 0x000006CA
+06CA            usb_ep_dat_00087
+06CA            ; { usb_ep_data_out_callback ; function begin
+06CA  0E03      	MOVLW 0x03
+06CC  6326      	CPFSEQ usb_ep_dat_00087_arg_end_point, 1
+06CE  0012      	RETURN
+06D0  6B2C      	CLRF usb_ep_dat_00087_2_count, 1
+06D2            label70
+06D2  5129      	MOVF usb_ep_dat_00087_arg_byte_count, W, 1
+06D4  612C      	CPFSLT usb_ep_dat_00087_2_count, 1
+06D6  512A      	MOVF usb_ep_dat_00087_arg_byte_count+D'1', W, 1
+06D8  B4D8      	BTFSC STATUS,Z
+06DA  0012      	RETURN
+06DC  0101      	MOVLB 0x01
+06DE  29EE      	INCF gbl_cdc_rx_end, W, 1
+06E0  0102      	MOVLB 0x02
+06E2  6F2B      	MOVWF usb_ep_dat_00087_1_cdc_rx_next, 1
+06E4  0E40      	MOVLW 0x40
+06E6  632B      	CPFSEQ usb_ep_dat_00087_1_cdc_rx_next, 1
+06E8  D001      	BRA	label71
+06EA  6B2B      	CLRF usb_ep_dat_00087_1_cdc_rx_next, 1
+06EC            label71
+06EC  0101      	MOVLB 0x01
+06EE  51ED      	MOVF gbl_cdc_rx_start, W, 1
+06F0  0102      	MOVLB 0x02
+06F2  632B      	CPFSEQ usb_ep_dat_00087_1_cdc_rx_next, 1
+06F4  D001      	BRA	label72
+06F6  D002      	BRA	label73
+06F8            label72
+06F8  0101      	MOVLB 0x01
+06FA  63ED      	CPFSEQ gbl_cdc_rx_start, 1
+06FC            label73
+06FC  D018      	BRA	label74
+06FE  0102      	MOVLB 0x02
+0700  5128      	MOVF usb_ep_dat_00087_arg_buffer+D'1', W, 1
+0702  6EEA      	MOVWF FSR0H
+0704  5127      	MOVF usb_ep_dat_00087_arg_buffer, W, 1
+0706  6EE9      	MOVWF FSR0L
+0708  512C      	MOVF usb_ep_dat_00087_2_count, W, 1
+070A  6F2D      	MOVWF CompTempVar2772, 1
+070C  512D      	MOVF CompTempVar2772, W, 1
+070E  26E9      	ADDWF FSR0L, F
+0710  50EF      	MOVF INDF0, W
+0712  6F2E      	MOVWF CompTempVar2773, 1
+0714  0100      	MOVLB 0x00
+0716  EE00F0A0  	LFSR 0x00, gbl_cdc_rx_buffer
+071A  50E9      	MOVF FSR0L, W
+071C  0101      	MOVLB 0x01
+071E  51EE      	MOVF gbl_cdc_rx_end, W, 1
+0720  26E9      	ADDWF FSR0L, F
+0722  0102      	MOVLB 0x02
+0724  512E      	MOVF CompTempVar2773, W, 1
+0726  6EEF      	MOVWF INDF0
+0728  512B      	MOVF usb_ep_dat_00087_1_cdc_rx_next, W, 1
+072A  0101      	MOVLB 0x01
+072C  6FEE      	MOVWF gbl_cdc_rx_end, 1
+072E            label74
+072E  0102      	MOVLB 0x02
+0730  2B2C      	INCF usb_ep_dat_00087_2_count, F, 1
+0732  D7CF      	BRA	label70
+0734            ; } usb_ep_data_out_callback function end
+
+	ORG 0x00000734
+0734            usb_handle_00075
+0734            ; { usb_handle_stall ; function begin
+0734  0012      	RETURN
+0736            ; } usb_handle_stall function end
+
+	ORG 0x00000736
+0736            usb_handle_00074
+0736            ; { usb_handle_reset ; function begin
+0736  0101      	MOVLB 0x01
+0738  6BE1      	CLRF gbl_usb_address, 1
+073A  6BE2      	CLRF gbl_control_mode, 1
+073C  6BE9      	CLRF gbl_usb_status, 1
+073E  9662      	BCF gbl_uir,3
+0740  9662      	BCF gbl_uir,3
+0742  9662      	BCF gbl_uir,3
+0744  9662      	BCF gbl_uir,3
+0746  0E08      	MOVLW 0x08
+0748  0102      	MOVLB 0x02
+074A  6F01      	MOVWF gbl_bd0out+D'1', 1
+074C  0E80      	MOVLW 0x80
+074E  6F02      	MOVWF gbl_bd0out+D'2', 1
+0750  0E02      	MOVLW 0x02
+0752  6F03      	MOVWF gbl_bd0out+D'3', 1
+0754  9D00      	BCF gbl_bd0out,6, 1
+0756  9B00      	BCF gbl_bd0out,5, 1
+0758  9900      	BCF gbl_bd0out,4, 1
+075A  9700      	BCF gbl_bd0out,3, 1
+075C  9500      	BCF gbl_bd0out,2, 1
+075E  9300      	BCF gbl_bd0out,1, 1
+0760  9100      	BCF gbl_bd0out,0, 1
+0762  8F00      	BSF gbl_bd0out,7, 1
+0764  0E08      	MOVLW 0x08
+0766  6F05      	MOVWF gbl_bd0in+D'1', 1
+0768  0E88      	MOVLW 0x88
+076A  6F06      	MOVWF gbl_bd0in+D'2', 1
+076C  0E02      	MOVLW 0x02
+076E  6F07      	MOVWF gbl_bd0in+D'3', 1
+0770  9D04      	BCF gbl_bd0in,6, 1
+0772  9B04      	BCF gbl_bd0in,5, 1
+0774  9904      	BCF gbl_bd0in,4, 1
+0776  9504      	BCF gbl_bd0in,2, 1
+0778  9304      	BCF gbl_bd0in,1, 1
+077A  9104      	BCF gbl_bd0in,0, 1
+077C  9F04      	BCF gbl_bd0in,7, 1
+077E  0012      	RETURN
+0780            ; } usb_handle_reset function end
+
+	ORG 0x00000780
+0780            usb_handle_00073
+0780            ; { usb_handle_transaction ; function begin
+0780  3063      	RRCF gbl_ustat, W
+0782  0102      	MOVLB 0x02
+0784  6F20      	MOVWF usb_handle_00073_1_end_point, 1
+0786  3320      	RRCF usb_handle_00073_1_end_point, F, 1
+0788  3320      	RRCF usb_handle_00073_1_end_point, F, 1
+078A  0E1F      	MOVLW 0x1F
+078C  1720      	ANDWF usb_handle_00073_1_end_point, F, 1
+078E  A463      	BTFSS gbl_ustat,2
+0790  D008      	BRA	label75
+0792  3104      	RRCF gbl_bd0in, W, 1
+0794  6F21      	MOVWF usb_handle_00073_1_pid, 1
+0796  3321      	RRCF usb_handle_00073_1_pid, F, 1
+0798  0E3F      	MOVLW 0x3F
+079A  1721      	ANDWF usb_handle_00073_1_pid, F, 1
+079C  0E0F      	MOVLW 0x0F
+079E  1721      	ANDWF usb_handle_00073_1_pid, F, 1
+07A0  D008      	BRA	label76
+07A2            label75
+07A2  3100      	RRCF gbl_bd0out, W, 1
+07A4  6F22      	MOVWF CompTempVar2702, 1
+07A6  3322      	RRCF CompTempVar2702, F, 1
+07A8  0E3F      	MOVLW 0x3F
+07AA  1722      	ANDWF CompTempVar2702, F, 1
+07AC  0E0F      	MOVLW 0x0F
+07AE  1522      	ANDWF CompTempVar2702, W, 1
+07B0  6F21      	MOVWF usb_handle_00073_1_pid, 1
+07B2            label76
+07B2  5320      	MOVF usb_handle_00073_1_end_point, F, 1
+07B4  A4D8      	BTFSS STATUS,Z
+07B6  D0C9      	BRA	label92
+07B8  0E0D      	MOVLW 0x0D
+07BA  6321      	CPFSEQ usb_handle_00073_1_pid, 1
+07BC  D06E      	BRA	label80
+07BE  0E01      	MOVLW HIGH(gbl_usb_sdp+D'0')
+07C0  6F29      	MOVWF memcpy8_00000_arg_dst+D'1', 1
+07C2  0E5F      	MOVLW LOW(gbl_usb_sdp+D'0')
+07C4  6F28      	MOVWF memcpy8_00000_arg_dst, 1
+07C6  0E02      	MOVLW HIGH(gbl_buffer_0_out+D'0')
+07C8  6F2B      	MOVWF memcpy8_00000_arg_src+D'1', 1
+07CA  0E80      	MOVLW LOW(gbl_buffer_0_out+D'0')
+07CC  6F2A      	MOVWF memcpy8_00000_arg_src, 1
+07CE  0E08      	MOVLW 0x08
+07D0  6F2C      	MOVWF memcpy8_00000_arg_len, 1
+07D2  EC73F002  	CALL memcpy8_00000
+07D6  EC95F002  	CALL usb_prime__0008D
+07DA  0E40      	MOVLW 0x40
+07DC  0101      	MOVLB 0x01
+07DE  155F      	ANDWF gbl_usb_sdp, W, 1
+07E0  0102      	MOVLB 0x02
+07E2  6F22      	MOVWF CompTempVar2705, 1
+07E4  6722      	TSTFSZ CompTempVar2705, 1
+07E6  D02B      	BRA	label78
+07E8  0E20      	MOVLW 0x20
+07EA  0101      	MOVLB 0x01
+07EC  155F      	ANDWF gbl_usb_sdp, W, 1
+07EE  0102      	MOVLB 0x02
+07F0  6F23      	MOVWF CompTempVar2706, 1
+07F2  6723      	TSTFSZ CompTempVar2706, 1
+07F4  D024      	BRA	label78
+07F6  0101      	MOVLB 0x01
+07F8  5166      	MOVF gbl_usb_sdp+D'7', W, 1
+07FA  0102      	MOVLB 0x02
+07FC  6F2C      	MOVWF usb_handle_0008E_arg_sdp+D'7', 1
+07FE  0101      	MOVLB 0x01
+0800  5165      	MOVF gbl_usb_sdp+D'6', W, 1
+0802  0102      	MOVLB 0x02
+0804  6F2B      	MOVWF usb_handle_0008E_arg_sdp+D'6', 1
+0806  0101      	MOVLB 0x01
+0808  5164      	MOVF gbl_usb_sdp+D'5', W, 1
+080A  0102      	MOVLB 0x02
+080C  6F2A      	MOVWF usb_handle_0008E_arg_sdp+D'5', 1
+080E  0101      	MOVLB 0x01
+0810  5163      	MOVF gbl_usb_sdp+D'4', W, 1
+0812  0102      	MOVLB 0x02
+0814  6F29      	MOVWF usb_handle_0008E_arg_sdp+D'4', 1
+0816  0101      	MOVLB 0x01
+0818  5162      	MOVF gbl_usb_sdp+D'3', W, 1
+081A  0102      	MOVLB 0x02
+081C  6F28      	MOVWF usb_handle_0008E_arg_sdp+D'3', 1
+081E  0101      	MOVLB 0x01
+0820  5161      	MOVF gbl_usb_sdp+D'2', W, 1
+0822  0102      	MOVLB 0x02
+0824  6F27      	MOVWF usb_handle_0008E_arg_sdp+D'2', 1
+0826  0101      	MOVLB 0x01
+0828  5160      	MOVF gbl_usb_sdp+D'1', W, 1
+082A  0102      	MOVLB 0x02
+082C  6F26      	MOVWF usb_handle_0008E_arg_sdp+D'1', 1
+082E  0101      	MOVLB 0x01
+0830  515F      	MOVF gbl_usb_sdp, W, 1
+0832  0102      	MOVLB 0x02
+0834  6F25      	MOVWF usb_handle_0008E_arg_sdp, 1
+0836  0E99      	MOVLW 0x99
+0838  EFA5F002  	GOTO	usb_handle_0008E
+083C            label77
+083C  D02C      	BRA	label79
+083E            label78
+083E  0E40      	MOVLW 0x40
+0840  0101      	MOVLB 0x01
+0842  155F      	ANDWF gbl_usb_sdp, W, 1
+0844  0102      	MOVLB 0x02
+0846  6F24      	MOVWF CompTempVar2708, 1
+0848  6724      	TSTFSZ CompTempVar2708, 1
+084A  D025      	BRA	label79
+084C  0101      	MOVLB 0x01
+084E  AB5F      	BTFSS gbl_usb_sdp,5, 1
+0850  D022      	BRA	label79
+0852  5166      	MOVF gbl_usb_sdp+D'7', W, 1
+0854  0102      	MOVLB 0x02
+0856  6F2C      	MOVWF usb_handle_0007F_arg_sdp+D'7', 1
+0858  0101      	MOVLB 0x01
+085A  5165      	MOVF gbl_usb_sdp+D'6', W, 1
+085C  0102      	MOVLB 0x02
+085E  6F2B      	MOVWF usb_handle_0007F_arg_sdp+D'6', 1
+0860  0101      	MOVLB 0x01
+0862  5164      	MOVF gbl_usb_sdp+D'5', W, 1
+0864  0102      	MOVLB 0x02
+0866  6F2A      	MOVWF usb_handle_0007F_arg_sdp+D'5', 1
+0868  0101      	MOVLB 0x01
+086A  5163      	MOVF gbl_usb_sdp+D'4', W, 1
+086C  0102      	MOVLB 0x02
+086E  6F29      	MOVWF usb_handle_0007F_arg_sdp+D'4', 1
+0870  0101      	MOVLB 0x01
+0872  5162      	MOVF gbl_usb_sdp+D'3', W, 1
+0874  0102      	MOVLB 0x02
+0876  6F28      	MOVWF usb_handle_0007F_arg_sdp+D'3', 1
+0878  0101      	MOVLB 0x01
+087A  5161      	MOVF gbl_usb_sdp+D'2', W, 1
+087C  0102      	MOVLB 0x02
+087E  6F27      	MOVWF usb_handle_0007F_arg_sdp+D'2', 1
+0880  0101      	MOVLB 0x01
+0882  5160      	MOVF gbl_usb_sdp+D'1', W, 1
+0884  0102      	MOVLB 0x02
+0886  6F26      	MOVWF usb_handle_0007F_arg_sdp+D'1', 1
+0888  0101      	MOVLB 0x01
+088A  515F      	MOVF gbl_usb_sdp, W, 1
+088C  0102      	MOVLB 0x02
+088E  6F25      	MOVWF usb_handle_0007F_arg_sdp, 1
+0890  0E99      	MOVLW 0x99
+0892  EF16F003  	GOTO	usb_handle_0007F
+0896            label79
+0896  9864      	BCF gbl_ucon,4
+0898  D0F0      	BRA	label108
+089A            label80
+089A  0E09      	MOVLW 0x09
+089C  6321      	CPFSEQ usb_handle_00073_1_pid, 1
+089E  D021      	BRA	label84
+08A0  0E03      	MOVLW 0x03
+08A2  0101      	MOVLB 0x01
+08A4  63E2      	CPFSEQ gbl_control_mode, 1
+08A6  D003      	BRA	label81
+08A8  EC09F000  	CALL usb_send_d_0007A
+08AC  D0E6      	BRA	label108
+08AE            label81
+08AE  0E06      	MOVLW 0x06
+08B0  63E2      	CPFSEQ gbl_control_mode, 1
+08B2  D00C      	BRA	label82
+08B4  6BE2      	CLRF gbl_control_mode, 1
+08B6  05E9      	DECF gbl_usb_status, W, 1
+08B8  A4D8      	BTFSS STATUS,Z
+08BA  D0DF      	BRA	label108
+08BC  0E02      	MOVLW 0x02
+08BE  6FE0      	MOVWF gbl_usb_state, 1
+08C0  51E1      	MOVF gbl_usb_address, W, 1
+08C2  010F      	MOVLB 0x0F
+08C4  6F5C      	MOVWF gbl_uaddr, 1
+08C6  0101      	MOVLB 0x01
+08C8  6BE9      	CLRF gbl_usb_status, 1
+08CA  D0D7      	BRA	label108
+08CC            label82
+08CC  0E05      	MOVLW 0x05
+08CE  63E2      	CPFSEQ gbl_control_mode, 1
+08D0  D002      	BRA	label83
+08D2  0000      	NOP
+08D4  D0D2      	BRA	label108
+08D6            label83
+08D6  0E04      	MOVLW 0x04
+08D8  63E2      	CPFSEQ gbl_control_mode, 1
+08DA  D0CF      	BRA	label108
+08DC  EC5AF003  	CALL usb_handle_0007D
+08E0  D0CC      	BRA	label108
+08E2            label84
+08E2  0E02      	MOVLW 0x02
+08E4  6321      	CPFSEQ usb_handle_00073_1_pid, 1
+08E6  D012      	BRA	label87
+08E8  0E03      	MOVLW 0x03
+08EA  0101      	MOVLB 0x01
+08EC  63E2      	CPFSEQ gbl_control_mode, 1
+08EE  D003      	BRA	label85
+08F0  EC09F000  	CALL usb_send_d_0007A
+08F4  D0C2      	BRA	label108
+08F6            label85
+08F6  0E04      	MOVLW 0x04
+08F8  63E2      	CPFSEQ gbl_control_mode, 1
+08FA  D003      	BRA	label86
+08FC  EC5AF003  	CALL usb_handle_0007D
+0900  D0BC      	BRA	label108
+0902            label86
+0902  0E06      	MOVLW 0x06
+0904  63E2      	CPFSEQ gbl_control_mode, 1
+0906  D0B9      	BRA	label108
+0908  6BE2      	CLRF gbl_control_mode, 1
+090A  D0B7      	BRA	label108
+090C            label87
+090C  0521      	DECF usb_handle_00073_1_pid, W, 1
+090E  A4D8      	BTFSS STATUS,Z
+0910  D0B4      	BRA	label108
+0912  0E05      	MOVLW 0x05
+0914  0101      	MOVLB 0x01
+0916  63E2      	CPFSEQ gbl_control_mode, 1
+0918  D002      	BRA	label88
+091A  6BE2      	CLRF gbl_control_mode, 1
+091C  D013      	BRA	label91
+091E            label88
+091E  0E02      	MOVLW 0x02
+0920  63E2      	CPFSEQ gbl_control_mode, 1
+0922  D00C      	BRA	label90
+0924  0E02      	MOVLW HIGH(gbl_buffer_0_out+D'0')
+0926  0102      	MOVLB 0x02
+0928  6F23      	MOVWF usb_handle_0007E_arg_data+D'1', 1
+092A  0E80      	MOVLW LOW(gbl_buffer_0_out+D'0')
+092C  6F22      	MOVWF usb_handle_0007E_arg_data, 1
+092E  5101      	MOVF gbl_bd0out+D'1', W, 1
+0930  6F24      	MOVWF usb_handle_0007E_arg_count, 1
+0932  6B25      	CLRF usb_handle_0007E_arg_count+D'1', 1
+0934  0E99      	MOVLW 0x99
+0936  EF3DF003  	GOTO	usb_handle_0007E
+093A            label89
+093A  D004      	BRA	label91
+093C            label90
+093C  0E03      	MOVLW 0x03
+093E  63E2      	CPFSEQ gbl_control_mode, 1
+0940  D001      	BRA	label91
+0942  6BE2      	CLRF gbl_control_mode, 1
+0944            label91
+0944  EC95F002  	CALL usb_prime__0008D
+0948  D098      	BRA	label108
+094A            label92
+094A  A463      	BTFSS gbl_ustat,2
+094C  D021      	BRA	label101
+094E  5320      	MOVF usb_handle_00073_1_end_point, F, 1
+0950  E101      	BNZ	label93
+0952  D00A      	BRA	label95
+0954            label93
+0954  0520      	DECF usb_handle_00073_1_end_point, W, 1
+0956  E00B      	BZ	label96
+0958  0E02      	MOVLW 0x02
+095A  6320      	CPFSEQ usb_handle_00073_1_end_point, 1
+095C  D001      	BRA	label94
+095E  D00A      	BRA	label97
+0960            label94
+0960  0E03      	MOVLW 0x03
+0962  6320      	CPFSEQ usb_handle_00073_1_end_point, 1
+0964  D00C      	BRA	label99
+0966  D009      	BRA	label98
+0968            label95
+0968  5105      	MOVF gbl_bd0in+D'1', W, 1
+096A  6F22      	MOVWF usb_handle_00073_88_count, 1
+096C  D008      	BRA	label99
+096E            label96
+096E  510D      	MOVF gbl_bd1in+D'1', W, 1
+0970  6F22      	MOVWF usb_handle_00073_88_count, 1
+0972  D005      	BRA	label99
+0974            label97
+0974  5115      	MOVF gbl_bd2in+D'1', W, 1
+0976  6F22      	MOVWF usb_handle_00073_88_count, 1
+0978  D002      	BRA	label99
+097A            label98
+097A  511D      	MOVF gbl_bd3in+D'1', W, 1
+097C  6F22      	MOVWF usb_handle_00073_88_count, 1
+097E            label99
+097E  5120      	MOVF usb_handle_00073_1_end_point, W, 1
+0980  6F23      	MOVWF usb_ep_dat_00088_arg_end_point, 1
+0982  5122      	MOVF usb_handle_00073_88_count, W, 1
+0984  6F24      	MOVWF usb_ep_dat_00088_arg_byte_count, 1
+0986  6B25      	CLRF usb_ep_dat_00088_arg_byte_count+D'1', 1
+0988  0E99      	MOVLW 0x99
+098A  EF61F003  	GOTO	usb_ep_dat_00088
+098E            label100
+098E  D075      	BRA	label108
+0990            label101
+0990  5320      	MOVF usb_handle_00073_1_end_point, F, 1
+0992  E00A      	BZ	label103
+0994  0520      	DECF usb_handle_00073_1_end_point, W, 1
+0996  E011      	BZ	label104
+0998  0E02      	MOVLW 0x02
+099A  6320      	CPFSEQ usb_handle_00073_1_end_point, 1
+099C  D001      	BRA	label102
+099E  D01A      	BRA	label105
+09A0            label102
+09A0  0E03      	MOVLW 0x03
+09A2  6320      	CPFSEQ usb_handle_00073_1_end_point, 1
+09A4  D030      	BRA	label107
+09A6  D023      	BRA	label106
+09A8            label103
+09A8  0E02      	MOVLW HIGH(gbl_bd0out+D'0')
+09AA  6F23      	MOVWF usb_handle_00073_97_bdstat+D'1', 1
+09AC  0E00      	MOVLW LOW(gbl_bd0out+D'0')
+09AE  6F22      	MOVWF usb_handle_00073_97_bdstat, 1
+09B0  0E02      	MOVLW HIGH(gbl_bd0out+D'1')
+09B2  6F25      	MOVWF usb_handle_00073_97_bdcount+D'1', 1
+09B4  0E01      	MOVLW LOW(gbl_bd0out+D'1')
+09B6  6F24      	MOVWF usb_handle_00073_97_bdcount, 1
+09B8  D026      	BRA	label107
+09BA            label104
+09BA  0E02      	MOVLW HIGH(gbl_bd1out+D'0')
+09BC  6F26      	MOVWF CompTempVar2714, 1
+09BE  0E08      	MOVLW LOW(gbl_bd1out+D'0')
+09C0  6F22      	MOVWF usb_handle_00073_97_bdstat, 1
+09C2  5126      	MOVF CompTempVar2714, W, 1
+09C4  6F23      	MOVWF usb_handle_00073_97_bdstat+D'1', 1
+09C6  0E02      	MOVLW HIGH(gbl_bd1out+D'1')
+09C8  6F26      	MOVWF CompTempVar2715, 1
+09CA  0E09      	MOVLW LOW(gbl_bd1out+D'1')
+09CC  6F24      	MOVWF usb_handle_00073_97_bdcount, 1
+09CE  5126      	MOVF CompTempVar2715, W, 1
+09D0  6F25      	MOVWF usb_handle_00073_97_bdcount+D'1', 1
+09D2  D019      	BRA	label107
+09D4            label105
+09D4  0E02      	MOVLW HIGH(gbl_bd2out+D'0')
+09D6  6F26      	MOVWF CompTempVar2716, 1
+09D8  0E10      	MOVLW LOW(gbl_bd2out+D'0')
+09DA  6F22      	MOVWF usb_handle_00073_97_bdstat, 1
+09DC  5126      	MOVF CompTempVar2716, W, 1
+09DE  6F23      	MOVWF usb_handle_00073_97_bdstat+D'1', 1
+09E0  0E02      	MOVLW HIGH(gbl_bd2out+D'1')
+09E2  6F26      	MOVWF CompTempVar2717, 1
+09E4  0E11      	MOVLW LOW(gbl_bd2out+D'1')
+09E6  6F24      	MOVWF usb_handle_00073_97_bdcount, 1
+09E8  5126      	MOVF CompTempVar2717, W, 1
+09EA  6F25      	MOVWF usb_handle_00073_97_bdcount+D'1', 1
+09EC  D00C      	BRA	label107
+09EE            label106
+09EE  0E02      	MOVLW HIGH(gbl_bd3out+D'0')
+09F0  6F26      	MOVWF CompTempVar2718, 1
+09F2  0E18      	MOVLW LOW(gbl_bd3out+D'0')
+09F4  6F22      	MOVWF usb_handle_00073_97_bdstat, 1
+09F6  5126      	MOVF CompTempVar2718, W, 1
+09F8  6F23      	MOVWF usb_handle_00073_97_bdstat+D'1', 1
+09FA  0E02      	MOVLW HIGH(gbl_bd3out+D'1')
+09FC  6F26      	MOVWF CompTempVar2719, 1
+09FE  0E19      	MOVLW LOW(gbl_bd3out+D'1')
+0A00  6F24      	MOVWF usb_handle_00073_97_bdcount, 1
+0A02  5126      	MOVF CompTempVar2719, W, 1
+0A04  6F25      	MOVWF usb_handle_00073_97_bdcount+D'1', 1
+0A06            label107
+0A06  5120      	MOVF usb_handle_00073_1_end_point, W, 1
+0A08  6F26      	MOVWF usb_ep_dat_00087_arg_end_point, 1
+0A0A  0101      	MOVLB 0x01
+0A0C  EE01F06F  	LFSR 0x00, gbl_ep_out_buffer_location
+0A10  50E9      	MOVF FSR0L, W
+0A12  0102      	MOVLB 0x02
+0A14  5120      	MOVF usb_handle_00073_1_end_point, W, 1
+0A16  6F2B      	MOVWF CompTempVar2726, 1
+0A18  90D8      	BCF STATUS,C
+0A1A  352B      	RLCF CompTempVar2726, W, 1
+0A1C  26E9      	ADDWF FSR0L, F
+0A1E  50EE      	MOVF POSTINC0, W
+0A20  6F27      	MOVWF usb_ep_dat_00087_arg_buffer, 1
+0A22  50EF      	MOVF INDF0, W
+0A24  6F28      	MOVWF usb_ep_dat_00087_arg_buffer+D'1', 1
+0A26  5125      	MOVF usb_handle_00073_97_bdcount+D'1', W, 1
+0A28  6EEA      	MOVWF FSR0H
+0A2A  5124      	MOVF usb_handle_00073_97_bdcount, W, 1
+0A2C  6EE9      	MOVWF FSR0L
+0A2E  50EF      	MOVF INDF0, W
+0A30  6F29      	MOVWF usb_ep_dat_00087_arg_byte_count, 1
+0A32  6B2A      	CLRF usb_ep_dat_00087_arg_byte_count+D'1', 1
+0A34  EC65F003  	CALL usb_ep_dat_00087
+0A38  0101      	MOVLB 0x01
+0A3A  EE01F07F  	LFSR 0x00, gbl_ep_out_buffer_size
+0A3E  50E9      	MOVF FSR0L, W
+0A40  0102      	MOVLB 0x02
+0A42  5120      	MOVF usb_handle_00073_1_end_point, W, 1
+0A44  6F26      	MOVWF CompTempVar2729, 1
+0A46  90D8      	BCF STATUS,C
+0A48  3726      	RLCF CompTempVar2729, F, 1
+0A4A  5126      	MOVF CompTempVar2729, W, 1
+0A4C  26E9      	ADDWF FSR0L, F
+0A4E  50EE      	MOVF POSTINC0, W
+0A50  6F27      	MOVWF CompTempVar2731, 1
+0A52  50EF      	MOVF INDF0, W
+0A54  6F28      	MOVWF CompTempVar2731+D'1', 1
+0A56  5125      	MOVF usb_handle_00073_97_bdcount+D'1', W, 1
+0A58  6EEA      	MOVWF FSR0H
+0A5A  5124      	MOVF usb_handle_00073_97_bdcount, W, 1
+0A5C  6EE9      	MOVWF FSR0L
+0A5E  5127      	MOVF CompTempVar2731, W, 1
+0A60  6EEF      	MOVWF INDF0
+0A62  5123      	MOVF usb_handle_00073_97_bdstat+D'1', W, 1
+0A64  6EEA      	MOVWF FSR0H
+0A66  5122      	MOVF usb_handle_00073_97_bdstat, W, 1
+0A68  6EE9      	MOVWF FSR0L
+0A6A  9CEF      	BCF INDF0,6
+0A6C  9AEF      	BCF INDF0,5
+0A6E  98EF      	BCF INDF0,4
+0A70  96EF      	BCF INDF0,3
+0A72  94EF      	BCF INDF0,2
+0A74  92EF      	BCF INDF0,1
+0A76  90EF      	BCF INDF0,0
+0A78  8EEF      	BSF INDF0,7
+0A7A            label108
+0A7A  EF4EF005  	GOTO	label110
+0A7E            ; } usb_handle_transaction function end
+
+	ORG 0x00000A7E
+0A7E            usb_SOF_ca_00076
+0A7E            ; { usb_SOF_callback ; function begin
+0A7E  ECEDF001  	CALL usb_cdc_ha_00089
+0A82  EF63F005  	GOTO	label114
+0A86            ; } usb_SOF_callback function end
+
+	ORG 0x00000A86
+0A86            usb_handle_00072
+0A86            ; { usb_handle_isr ; function begin
+0A86  A4A1      	BTFSS gbl_pir2,2
+0A88  D01F      	BRA	label115
+0A8A  94A1      	BCF gbl_pir2,2
+0A8C  A862      	BTFSS gbl_uir,4
+0A8E  D001      	BRA	label109
+0A90  9862      	BCF gbl_uir,4
+0A92            label109
+0A92  A662      	BTFSS gbl_uir,3
+0A94  D004      	BRA	label111
+0A96  0E99      	MOVLW 0x99
+0A98  EFC0F003  	GOTO	usb_handle_00073
+0A9C            label110
+0A9C  9662      	BCF gbl_uir,3
+0A9E            label111
+0A9E  A062      	BTFSS gbl_uir,0
+0AA0  D003      	BRA	label112
+0AA2  EC9BF003  	CALL usb_handle_00074
+0AA6  9062      	BCF gbl_uir,0
+0AA8            label112
+0AA8  AA62      	BTFSS gbl_uir,5
+0AAA  D003      	BRA	label113
+0AAC  EC9AF003  	CALL usb_handle_00075
+0AB0  9A62      	BCF gbl_uir,5
+0AB2            label113
+0AB2  AC62      	BTFSS gbl_uir,6
+0AB4  D009      	BRA	label115
+0AB6  010F      	MOVLB 0x0F
+0AB8  515D      	MOVF gbl_ufrml, W, 1
+0ABA  0102      	MOVLB 0x02
+0ABC  6F20      	MOVWF usb_SOF_ca_00076_arg_frame, 1
+0ABE  6B21      	CLRF usb_SOF_ca_00076_arg_frame+D'1', 1
+0AC0  0E99      	MOVLW 0x99
+0AC2  EF3FF005  	GOTO	usb_SOF_ca_00076
+0AC6            label114
+0AC6  9C62      	BCF gbl_uir,6
+0AC8            label115
+0AC8  EF55F009  	GOTO	label140
+0ACC            ; } usb_handle_isr function end
+
+	ORG 0x00000ACC
+0ACC            usb_setup_00000
+0ACC            ; { usb_setup ; function begin
+0ACC  0101      	MOVLB 0x01
+0ACE  6BE0      	CLRF gbl_usb_state, 1
+0AD0  9661      	BCF gbl_ucfg,3
+0AD2  8461      	BSF gbl_ucfg,2
+0AD4  8861      	BSF gbl_ucfg,4
+0AD6  9261      	BCF gbl_ucfg,1
+0AD8  9061      	BCF gbl_ucfg,0
+0ADA  010F      	MOVLB 0x0F
+0ADC  8953      	BSF gbl_uep0,4, 1
+0ADE  8553      	BSF gbl_uep0,2, 1
+0AE0  8353      	BSF gbl_uep0,1, 1
+0AE2  9753      	BCF gbl_uep0,3, 1
+0AE4  8A60      	BSF gbl_uie,5
+0AE6  8660      	BSF gbl_uie,3
+0AE8  8060      	BSF gbl_uie,0
+0AEA  84A0      	BSF gbl_pie2,2
+0AEC  8C60      	BSF gbl_uie,6
+0AEE  0012      	RETURN
+0AF0            ; } usb_setup function end
+
+	ORG 0x00000AF0
+0AF0            usb_enable_00077
+0AF0            ; { usb_enable_module ; function begin
+0AF0  6A62      	CLRF gbl_uir
+0AF2  8664      	BSF gbl_ucon,3
+0AF4  0E01      	MOVLW 0x01
+0AF6  0101      	MOVLB 0x01
+0AF8  6FE0      	MOVWF gbl_usb_state, 1
+0AFA  0012      	RETURN
+0AFC            ; } usb_enable_module function end
+
+	ORG 0x00000AFC
+0AFC            usb_config_00097
+0AFC            ; { usb_configure_structures ; function begin
+0AFC  0E12      	MOVLW 0x12
+0AFE  6E48      	MOVWF gbl_my_device_descriptor
+0B00  0E01      	MOVLW 0x01
+0B02  6E49      	MOVWF gbl_my_device_descriptor+D'1'
+0B04  0E10      	MOVLW 0x10
+0B06  6E4A      	MOVWF gbl_my_device_descriptor+D'2'
+0B08  0E01      	MOVLW 0x01
+0B0A  6E4B      	MOVWF gbl_my_device_descriptor+D'3'
+0B0C  0E02      	MOVLW 0x02
+0B0E  6E4C      	MOVWF gbl_my_device_descriptor+D'4'
+0B10  6A4D      	CLRF gbl_my_device_descriptor+D'5'
+0B12  6A4E      	CLRF gbl_my_device_descriptor+D'6'
+0B14  0E08      	MOVLW 0x08
+0B16  6E4F      	MOVWF gbl_my_device_descriptor+D'7'
+0B18  0EBF      	MOVLW 0xBF
+0B1A  6E50      	MOVWF gbl_my_device_descriptor+D'8'
+0B1C  0E12      	MOVLW 0x12
+0B1E  6E51      	MOVWF gbl_my_device_descriptor+D'9'
+0B20  0E10      	MOVLW 0x10
+0B22  6E52      	MOVWF gbl_my_device_descriptor+D'10'
+0B24  0EF0      	MOVLW 0xF0
+0B26  6E53      	MOVWF gbl_my_device_descriptor+D'11'
+0B28  6A54      	CLRF gbl_my_device_descriptor+D'12'
+0B2A  0E01      	MOVLW 0x01
+0B2C  6E55      	MOVWF gbl_my_device_descriptor+D'13'
+0B2E  6E56      	MOVWF gbl_my_device_descriptor+D'14'
+0B30  0E02      	MOVLW 0x02
+0B32  6E57      	MOVWF gbl_my_device_descriptor+D'15'
+0B34  6A58      	CLRF gbl_my_device_descriptor+D'16'
+0B36  0E01      	MOVLW 0x01
+0B38  6E59      	MOVWF gbl_my_device_descriptor+D'17'
+0B3A  0E09      	MOVLW 0x09
+0B3C  0100      	MOVLB 0x00
+0B3E  6FEA      	MOVWF gbl_my_config, 1
+0B40  0E02      	MOVLW 0x02
+0B42  6FEB      	MOVWF gbl_my_config+D'1', 1
+0B44  0E43      	MOVLW 0x43
+0B46  6FEC      	MOVWF gbl_my_config+D'2', 1
+0B48  6BED      	CLRF gbl_my_config+D'3', 1
+0B4A  0E02      	MOVLW 0x02
+0B4C  6FEE      	MOVWF gbl_my_config+D'4', 1
+0B4E  0E01      	MOVLW 0x01
+0B50  6FEF      	MOVWF gbl_my_config+D'5', 1
+0B52  6BF0      	CLRF gbl_my_config+D'6', 1
+0B54  0E80      	MOVLW 0x80
+0B56  6FF1      	MOVWF gbl_my_config+D'7', 1
+0B58  0E64      	MOVLW 0x64
+0B5A  6FF2      	MOVWF gbl_my_config+D'8', 1
+0B5C  0E09      	MOVLW 0x09
+0B5E  6FF3      	MOVWF gbl_my_comm_interface, 1
+0B60  0E04      	MOVLW 0x04
+0B62  6FF4      	MOVWF gbl_my_comm_interface+D'1', 1
+0B64  6BF5      	CLRF gbl_my_comm_interface+D'2', 1
+0B66  6BF6      	CLRF gbl_my_comm_interface+D'3', 1
+0B68  0E01      	MOVLW 0x01
+0B6A  6FF7      	MOVWF gbl_my_comm_interface+D'4', 1
+0B6C  0E02      	MOVLW 0x02
+0B6E  6FF8      	MOVWF gbl_my_comm_interface+D'5', 1
+0B70  6FF9      	MOVWF gbl_my_comm_interface+D'6', 1
+0B72  0E01      	MOVLW 0x01
+0B74  6FFA      	MOVWF gbl_my_comm_interface+D'7', 1
+0B76  6BFB      	CLRF gbl_my_comm_interface+D'8', 1
+0B78  0E05      	MOVLW 0x05
+0B7A  6E5A      	MOVWF gbl_my_header
+0B7C  0E24      	MOVLW 0x24
+0B7E  6E5B      	MOVWF gbl_my_header+D'1'
+0B80  6A5C      	CLRF gbl_my_header+D'2'
+0B82  0E10      	MOVLW 0x10
+0B84  6E5D      	MOVWF gbl_my_header+D'3'
+0B86  0E01      	MOVLW 0x01
+0B88  6E5E      	MOVWF gbl_my_header+D'4'
+0B8A  0E04      	MOVLW 0x04
+0B8C  0101      	MOVLB 0x01
+0B8E  6FBE      	MOVWF gbl_my_ACM, 1
+0B90  0E24      	MOVLW 0x24
+0B92  6FBF      	MOVWF gbl_my_ACM+D'1', 1
+0B94  0E02      	MOVLW 0x02
+0B96  6FC0      	MOVWF gbl_my_ACM+D'2', 1
+0B98  6FC1      	MOVWF gbl_my_ACM+D'3', 1
+0B9A  0E05      	MOVLW 0x05
+0B9C  6FA4      	MOVWF gbl_my_union, 1
+0B9E  0E24      	MOVLW 0x24
+0BA0  6FA5      	MOVWF gbl_my_union+D'1', 1
+0BA2  0E06      	MOVLW 0x06
+0BA4  6FA6      	MOVWF gbl_my_union+D'2', 1
+0BA6  6BA7      	CLRF gbl_my_union+D'3', 1
+0BA8  0E01      	MOVLW 0x01
+0BAA  6FA8      	MOVWF gbl_my_union+D'4', 1
+0BAC  0E05      	MOVLW 0x05
+0BAE  6FA9      	MOVWF gbl_my_call_mgt, 1
+0BB0  0E24      	MOVLW 0x24
+0BB2  6FAA      	MOVWF gbl_my_call_mgt+D'1', 1
+0BB4  0E01      	MOVLW 0x01
+0BB6  6FAB      	MOVWF gbl_my_call_mgt+D'2', 1
+0BB8  6BAC      	CLRF gbl_my_call_mgt+D'3', 1
+0BBA  0E01      	MOVLW 0x01
+0BBC  6FAD      	MOVWF gbl_my_call_mgt+D'4', 1
+0BBE  0E07      	MOVLW 0x07
+0BC0  6F8F      	MOVWF gbl_my_notification_ep, 1
+0BC2  0E05      	MOVLW 0x05
+0BC4  6F90      	MOVWF gbl_my_notification_ep+D'1', 1
+0BC6  0E82      	MOVLW 0x82
+0BC8  6F91      	MOVWF gbl_my_notification_ep+D'2', 1
+0BCA  0E03      	MOVLW 0x03
+0BCC  6F92      	MOVWF gbl_my_notification_ep+D'3', 1
+0BCE  0E08      	MOVLW 0x08
+0BD0  6F93      	MOVWF gbl_my_notification_ep+D'4', 1
+0BD2  6B94      	CLRF gbl_my_notification_ep+D'5', 1
+0BD4  0E02      	MOVLW 0x02
+0BD6  6F95      	MOVWF gbl_my_notification_ep+D'6', 1
+0BD8  0E09      	MOVLW 0x09
+0BDA  6F56      	MOVWF gbl_my_data_interface, 1
+0BDC  0E04      	MOVLW 0x04
+0BDE  6F57      	MOVWF gbl_my_data_interface+D'1', 1
+0BE0  0E01      	MOVLW 0x01
+0BE2  6F58      	MOVWF gbl_my_data_interface+D'2', 1
+0BE4  6B59      	CLRF gbl_my_data_interface+D'3', 1
+0BE6  0E02      	MOVLW 0x02
+0BE8  6F5A      	MOVWF gbl_my_data_interface+D'4', 1
+0BEA  0E0A      	MOVLW 0x0A
+0BEC  6F5B      	MOVWF gbl_my_data_interface+D'5', 1
+0BEE  6B5C      	CLRF gbl_my_data_interface+D'6', 1
+0BF0  6B5D      	CLRF gbl_my_data_interface+D'7', 1
+0BF2  6B5E      	CLRF gbl_my_data_interface+D'8', 1
+0BF4  0E07      	MOVLW 0x07
+0BF6  6F96      	MOVWF gbl_my_data_out_ep, 1
+0BF8  0E05      	MOVLW 0x05
+0BFA  6F97      	MOVWF gbl_my_data_out_ep+D'1', 1
+0BFC  0E03      	MOVLW 0x03
+0BFE  6F98      	MOVWF gbl_my_data_out_ep+D'2', 1
+0C00  0E02      	MOVLW 0x02
+0C02  6F99      	MOVWF gbl_my_data_out_ep+D'3', 1
+0C04  0E08      	MOVLW 0x08
+0C06  6F9A      	MOVWF gbl_my_data_out_ep+D'4', 1
+0C08  6B9B      	CLRF gbl_my_data_out_ep+D'5', 1
+0C0A  6B9C      	CLRF gbl_my_data_out_ep+D'6', 1
+0C0C  0E07      	MOVLW 0x07
+0C0E  6F9D      	MOVWF gbl_my_data_in_ep, 1
+0C10  0E05      	MOVLW 0x05
+0C12  6F9E      	MOVWF gbl_my_data_in_ep+D'1', 1
+0C14  0E83      	MOVLW 0x83
+0C16  6F9F      	MOVWF gbl_my_data_in_ep+D'2', 1
+0C18  0E02      	MOVLW 0x02
+0C1A  6FA0      	MOVWF gbl_my_data_in_ep+D'3', 1
+0C1C  0E08      	MOVLW 0x08
+0C1E  6FA1      	MOVWF gbl_my_data_in_ep+D'4', 1
+0C20  6BA2      	CLRF gbl_my_data_in_ep+D'5', 1
+0C22  6BA3      	CLRF gbl_my_data_in_ep+D'6', 1
+0C24  0100      	MOVLB 0x00
+0C26  51F2      	MOVF gbl_my_config+D'8', W, 1
+0C28  6E0D      	MOVWF gbl_complete_serial_config_00000+D'8'
+0C2A  51F1      	MOVF gbl_my_config+D'7', W, 1
+0C2C  6E0C      	MOVWF gbl_complete_serial_config_00000+D'7'
+0C2E  51F0      	MOVF gbl_my_config+D'6', W, 1
+0C30  6E0B      	MOVWF gbl_complete_serial_config_00000+D'6'
+0C32  51EF      	MOVF gbl_my_config+D'5', W, 1
+0C34  6E0A      	MOVWF gbl_complete_serial_config_00000+D'5'
+0C36  51EE      	MOVF gbl_my_config+D'4', W, 1
+0C38  6E09      	MOVWF gbl_complete_serial_config_00000+D'4'
+0C3A  51ED      	MOVF gbl_my_config+D'3', W, 1
+0C3C  6E08      	MOVWF gbl_complete_serial_config_00000+D'3'
+0C3E  51EC      	MOVF gbl_my_config+D'2', W, 1
+0C40  6E07      	MOVWF gbl_complete_serial_config_00000+D'2'
+0C42  51EB      	MOVF gbl_my_config+D'1', W, 1
+0C44  6E06      	MOVWF gbl_complete_serial_config_00000+D'1'
+0C46  51EA      	MOVF gbl_my_config, W, 1
+0C48  6E05      	MOVWF gbl_complete_serial_config_00000
+0C4A  51FB      	MOVF gbl_my_comm_interface+D'8', W, 1
+0C4C  6E16      	MOVWF gbl_complete_serial_config_00000+D'17'
+0C4E  51FA      	MOVF gbl_my_comm_interface+D'7', W, 1
+0C50  6E15      	MOVWF gbl_complete_serial_config_00000+D'16'
+0C52  51F9      	MOVF gbl_my_comm_interface+D'6', W, 1
+0C54  6E14      	MOVWF gbl_complete_serial_config_00000+D'15'
+0C56  51F8      	MOVF gbl_my_comm_interface+D'5', W, 1
+0C58  6E13      	MOVWF gbl_complete_serial_config_00000+D'14'
+0C5A  51F7      	MOVF gbl_my_comm_interface+D'4', W, 1
+0C5C  6E12      	MOVWF gbl_complete_serial_config_00000+D'13'
+0C5E  51F6      	MOVF gbl_my_comm_interface+D'3', W, 1
+0C60  6E11      	MOVWF gbl_complete_serial_config_00000+D'12'
+0C62  51F5      	MOVF gbl_my_comm_interface+D'2', W, 1
+0C64  6E10      	MOVWF gbl_complete_serial_config_00000+D'11'
+0C66  51F4      	MOVF gbl_my_comm_interface+D'1', W, 1
+0C68  6E0F      	MOVWF gbl_complete_serial_config_00000+D'10'
+0C6A  51F3      	MOVF gbl_my_comm_interface, W, 1
+0C6C  6E0E      	MOVWF gbl_complete_serial_config_00000+D'9'
+0C6E  505E      	MOVF gbl_my_header+D'4', W
+0C70  6E1B      	MOVWF gbl_complete_serial_config_00000+D'22'
+0C72  505D      	MOVF gbl_my_header+D'3', W
+0C74  6E1A      	MOVWF gbl_complete_serial_config_00000+D'21'
+0C76  505C      	MOVF gbl_my_header+D'2', W
+0C78  6E19      	MOVWF gbl_complete_serial_config_00000+D'20'
+0C7A  505B      	MOVF gbl_my_header+D'1', W
+0C7C  6E18      	MOVWF gbl_complete_serial_config_00000+D'19'
+0C7E  505A      	MOVF gbl_my_header, W
+0C80  6E17      	MOVWF gbl_complete_serial_config_00000+D'18'
+0C82  0101      	MOVLB 0x01
+0C84  51C1      	MOVF gbl_my_ACM+D'3', W, 1
+0C86  6E1F      	MOVWF gbl_complete_serial_config_00000+D'26'
+0C88  51C0      	MOVF gbl_my_ACM+D'2', W, 1
+0C8A  6E1E      	MOVWF gbl_complete_serial_config_00000+D'25'
+0C8C  51BF      	MOVF gbl_my_ACM+D'1', W, 1
+0C8E  6E1D      	MOVWF gbl_complete_serial_config_00000+D'24'
+0C90  51BE      	MOVF gbl_my_ACM, W, 1
+0C92  6E1C      	MOVWF gbl_complete_serial_config_00000+D'23'
+0C94  51A8      	MOVF gbl_my_union+D'4', W, 1
+0C96  6E24      	MOVWF gbl_complete_serial_config_00000+D'31'
+0C98  51A7      	MOVF gbl_my_union+D'3', W, 1
+0C9A  6E23      	MOVWF gbl_complete_serial_config_00000+D'30'
+0C9C  51A6      	MOVF gbl_my_union+D'2', W, 1
+0C9E  6E22      	MOVWF gbl_complete_serial_config_00000+D'29'
+0CA0  51A5      	MOVF gbl_my_union+D'1', W, 1
+0CA2  6E21      	MOVWF gbl_complete_serial_config_00000+D'28'
+0CA4  51A4      	MOVF gbl_my_union, W, 1
+0CA6  6E20      	MOVWF gbl_complete_serial_config_00000+D'27'
+0CA8  51AD      	MOVF gbl_my_call_mgt+D'4', W, 1
+0CAA  6E29      	MOVWF gbl_complete_serial_config_00000+D'36'
+0CAC  51AC      	MOVF gbl_my_call_mgt+D'3', W, 1
+0CAE  6E28      	MOVWF gbl_complete_serial_config_00000+D'35'
+0CB0  51AB      	MOVF gbl_my_call_mgt+D'2', W, 1
+0CB2  6E27      	MOVWF gbl_complete_serial_config_00000+D'34'
+0CB4  51AA      	MOVF gbl_my_call_mgt+D'1', W, 1
+0CB6  6E26      	MOVWF gbl_complete_serial_config_00000+D'33'
+0CB8  51A9      	MOVF gbl_my_call_mgt, W, 1
+0CBA  6E25      	MOVWF gbl_complete_serial_config_00000+D'32'
+0CBC  5195      	MOVF gbl_my_notification_ep+D'6', W, 1
+0CBE  6E30      	MOVWF gbl_complete_serial_config_00000+D'43'
+0CC0  5194      	MOVF gbl_my_notification_ep+D'5', W, 1
+0CC2  6E2F      	MOVWF gbl_complete_serial_config_00000+D'42'
+0CC4  5193      	MOVF gbl_my_notification_ep+D'4', W, 1
+0CC6  6E2E      	MOVWF gbl_complete_serial_config_00000+D'41'
+0CC8  5192      	MOVF gbl_my_notification_ep+D'3', W, 1
+0CCA  6E2D      	MOVWF gbl_complete_serial_config_00000+D'40'
+0CCC  5191      	MOVF gbl_my_notification_ep+D'2', W, 1
+0CCE  6E2C      	MOVWF gbl_complete_serial_config_00000+D'39'
+0CD0  5190      	MOVF gbl_my_notification_ep+D'1', W, 1
+0CD2  6E2B      	MOVWF gbl_complete_serial_config_00000+D'38'
+0CD4  518F      	MOVF gbl_my_notification_ep, W, 1
+0CD6  6E2A      	MOVWF gbl_complete_serial_config_00000+D'37'
+0CD8  515E      	MOVF gbl_my_data_interface+D'8', W, 1
+0CDA  6E39      	MOVWF gbl_complete_serial_config_00000+D'52'
+0CDC  515D      	MOVF gbl_my_data_interface+D'7', W, 1
+0CDE  6E38      	MOVWF gbl_complete_serial_config_00000+D'51'
+0CE0  515C      	MOVF gbl_my_data_interface+D'6', W, 1
+0CE2  6E37      	MOVWF gbl_complete_serial_config_00000+D'50'
+0CE4  515B      	MOVF gbl_my_data_interface+D'5', W, 1
+0CE6  6E36      	MOVWF gbl_complete_serial_config_00000+D'49'
+0CE8  515A      	MOVF gbl_my_data_interface+D'4', W, 1
+0CEA  6E35      	MOVWF gbl_complete_serial_config_00000+D'48'
+0CEC  5159      	MOVF gbl_my_data_interface+D'3', W, 1
+0CEE  6E34      	MOVWF gbl_complete_serial_config_00000+D'47'
+0CF0  5158      	MOVF gbl_my_data_interface+D'2', W, 1
+0CF2  6E33      	MOVWF gbl_complete_serial_config_00000+D'46'
+0CF4  5157      	MOVF gbl_my_data_interface+D'1', W, 1
+0CF6  6E32      	MOVWF gbl_complete_serial_config_00000+D'45'
+0CF8  5156      	MOVF gbl_my_data_interface, W, 1
+0CFA  6E31      	MOVWF gbl_complete_serial_config_00000+D'44'
+0CFC  519C      	MOVF gbl_my_data_out_ep+D'6', W, 1
+0CFE  6E40      	MOVWF gbl_complete_serial_config_00000+D'59'
+0D00  519B      	MOVF gbl_my_data_out_ep+D'5', W, 1
+0D02  6E3F      	MOVWF gbl_complete_serial_config_00000+D'58'
+0D04  519A      	MOVF gbl_my_data_out_ep+D'4', W, 1
+0D06  6E3E      	MOVWF gbl_complete_serial_config_00000+D'57'
+0D08  5199      	MOVF gbl_my_data_out_ep+D'3', W, 1
+0D0A  6E3D      	MOVWF gbl_complete_serial_config_00000+D'56'
+0D0C  5198      	MOVF gbl_my_data_out_ep+D'2', W, 1
+0D0E  6E3C      	MOVWF gbl_complete_serial_config_00000+D'55'
+0D10  5197      	MOVF gbl_my_data_out_ep+D'1', W, 1
+0D12  6E3B      	MOVWF gbl_complete_serial_config_00000+D'54'
+0D14  5196      	MOVF gbl_my_data_out_ep, W, 1
+0D16  6E3A      	MOVWF gbl_complete_serial_config_00000+D'53'
+0D18  51A3      	MOVF gbl_my_data_in_ep+D'6', W, 1
+0D1A  6E47      	MOVWF gbl_complete_serial_config_00000+D'66'
+0D1C  51A2      	MOVF gbl_my_data_in_ep+D'5', W, 1
+0D1E  6E46      	MOVWF gbl_complete_serial_config_00000+D'65'
+0D20  51A1      	MOVF gbl_my_data_in_ep+D'4', W, 1
+0D22  6E45      	MOVWF gbl_complete_serial_config_00000+D'64'
+0D24  51A0      	MOVF gbl_my_data_in_ep+D'3', W, 1
+0D26  6E44      	MOVWF gbl_complete_serial_config_00000+D'63'
+0D28  519F      	MOVF gbl_my_data_in_ep+D'2', W, 1
+0D2A  6E43      	MOVWF gbl_complete_serial_config_00000+D'62'
+0D2C  519E      	MOVF gbl_my_data_in_ep+D'1', W, 1
+0D2E  6E42      	MOVWF gbl_complete_serial_config_00000+D'61'
+0D30  519D      	MOVF gbl_my_data_in_ep, W, 1
+0D32  6E41      	MOVWF gbl_complete_serial_config_00000+D'60'
+0D34  0012      	RETURN
+0D36            ; } usb_configure_structures function end
+
+	ORG 0x00000D36
+0D36            usb_cdc_tx_00093
+0D36            ; { usb_cdc_tx_empty ; function begin
+0D36  0101      	MOVLB 0x01
+0D38  6BFB      	CLRF CompTempVarRet2789, 1
+0D3A  51EC      	MOVF gbl_cdc_tx_end, W, 1
+0D3C  63EB      	CPFSEQ gbl_cdc_tx_start, 1
+0D3E  0012      	RETURN
+0D40  2BFB      	INCF CompTempVarRet2789, F, 1
+0D42  0012      	RETURN
+0D44            ; } usb_cdc_tx_empty function end
+
+	ORG 0x00000D44
+0D44            usb_cdc_se_00095
+0D44            ; { usb_cdc_setup ; function begin
+0D44  0E01      	MOVLW HIGH(gbl_class_data+D'0')
+0D46  0101      	MOVLB 0x01
+0D48  6FF6      	MOVWF usb_cdc_se_00095_1_my_lc+D'1', 1
+0D4A  0E87      	MOVLW LOW(gbl_class_data+D'0')
+0D4C  6FF5      	MOVWF usb_cdc_se_00095_1_my_lc, 1
+0D4E  51F6      	MOVF usb_cdc_se_00095_1_my_lc+D'1', W, 1
+0D50  6EEA      	MOVWF FSR0H
+0D52  51F5      	MOVF usb_cdc_se_00095_1_my_lc, W, 1
+0D54  6EE9      	MOVWF FSR0L
+0D56  0E03      	MOVLW 0x03
+0D58  26E9      	ADDWF FSR0L, F
+0D5A  0E00      	MOVLW 0x00
+0D5C  6FF7      	MOVWF CompTempVar2797, 1
+0D5E  6FF8      	MOVWF CompTempVar2797+D'1', 1
+0D60  0E09      	MOVLW 0x09
+0D62  6FF9      	MOVWF CompTempVar2797+D'2', 1
+0D64  0E60      	MOVLW 0x60
+0D66  6EEF      	MOVWF INDF0
+0D68  06E9      	DECF FSR0L, F
+0D6A  51F9      	MOVF CompTempVar2797+D'2', W, 1
+0D6C  6EEF      	MOVWF INDF0
+0D6E  06E9      	DECF FSR0L, F
+0D70  51F8      	MOVF CompTempVar2797+D'1', W, 1
+0D72  6EEF      	MOVWF INDF0
+0D74  06E9      	DECF FSR0L, F
+0D76  51F7      	MOVF CompTempVar2797, W, 1
+0D78  6EEF      	MOVWF INDF0
+0D7A  51F5      	MOVF usb_cdc_se_00095_1_my_lc, W, 1
+0D7C  6EE9      	MOVWF FSR0L
+0D7E  0E04      	MOVLW 0x04
+0D80  26E9      	ADDWF FSR0L, F
+0D82  0E00      	MOVLW 0x00
+0D84  6EEF      	MOVWF INDF0
+0D86  51F5      	MOVF usb_cdc_se_00095_1_my_lc, W, 1
+0D88  6EE9      	MOVWF FSR0L
+0D8A  0E06      	MOVLW 0x06
+0D8C  26E9      	ADDWF FSR0L, F
+0D8E  0E08      	MOVLW 0x08
+0D90  6EEF      	MOVWF INDF0
+0D92  51F5      	MOVF usb_cdc_se_00095_1_my_lc, W, 1
+0D94  6EE9      	MOVWF FSR0L
+0D96  0E05      	MOVLW 0x05
+0D98  26E9      	ADDWF FSR0L, F
+0D9A  0E00      	MOVLW 0x00
+0D9C  6EEF      	MOVWF INDF0
+0D9E  0012      	RETURN
+0DA0            ; } usb_cdc_setup function end
+
+	ORG 0x00000DA0
+0DA0            usb_cdc_pu_00091
+0DA0            ; { usb_cdc_putc ; function begin
+0DA0  29EC      	INCF gbl_cdc_tx_end, W, 1
+0DA2  6FFD      	MOVWF usb_cdc_pu_00091_1_cdc_tx_next, 1
+0DA4  0E40      	MOVLW 0x40
+0DA6  63FD      	CPFSEQ usb_cdc_pu_00091_1_cdc_tx_next, 1
+0DA8  D001      	BRA	label116
+0DAA  6BFD      	CLRF usb_cdc_pu_00091_1_cdc_tx_next, 1
+0DAC            label116
+0DAC  BEF2      	BTFSC gbl_intcon,7
+0DAE  D004      	BRA	label117
+0DB0  51EB      	MOVF gbl_cdc_tx_start, W, 1
+0DB2  63FD      	CPFSEQ usb_cdc_pu_00091_1_cdc_tx_next, 1
+0DB4  D001      	BRA	label117
+0DB6  0012      	RETURN
+0DB8            label117
+0DB8  51EB      	MOVF gbl_cdc_tx_start, W, 1
+0DBA  63FD      	CPFSEQ usb_cdc_pu_00091_1_cdc_tx_next, 1
+0DBC  D001      	BRA	label118
+0DBE  D7FC      	BRA	label117
+0DC0            label118
+0DC0  91FE      	BCF usb_cdc_pu_00091_1_my_store_gie,0, 1
+0DC2  BEF2      	BTFSC gbl_intcon,7
+0DC4  81FE      	BSF usb_cdc_pu_00091_1_my_store_gie,0, 1
+0DC6            label119
+0DC6  9EF2      	BCF gbl_intcon,7
+0DC8  BEF2      	BTFSC gbl_intcon,7
+0DCA  D7FD      	BRA	label119
+0DCC  0100      	MOVLB 0x00
+0DCE  EE00F060  	LFSR 0x00, gbl_cdc_tx_buffer
+0DD2  50E9      	MOVF FSR0L, W
+0DD4  0101      	MOVLB 0x01
+0DD6  51EC      	MOVF gbl_cdc_tx_end, W, 1
+0DD8  26E9      	ADDWF FSR0L, F
+0DDA  51FC      	MOVF usb_cdc_pu_00091_arg_c, W, 1
+0DDC  6EEF      	MOVWF INDF0
+0DDE  51FD      	MOVF usb_cdc_pu_00091_1_cdc_tx_next, W, 1
+0DE0  6FEC      	MOVWF gbl_cdc_tx_end, 1
+0DE2  B1FE      	BTFSC usb_cdc_pu_00091_1_my_store_gie,0, 1
+0DE4  8EF2      	BSF gbl_intcon,7
+0DE6  A1FE      	BTFSS usb_cdc_pu_00091_1_my_store_gie,0, 1
+0DE8  9EF2      	BCF gbl_intcon,7
+0DEA  0012      	RETURN
+0DEC            ; } usb_cdc_putc function end
+
+	ORG 0x00000DEC
+0DEC            FC_CAL_ADC_0004F
+0DEC            ; { FC_CAL_ADC_Sample ; function begin
+0DEC            label120
+0DEC  B2C2      	BTFSC gbl_adcon0,1
+0DEE  D7FE      	BRA	label120
+0DF0  53F4      	MOVF FC_CAL_ADC_0004F_arg_Sample_Mode, F, 1
+0DF2  E013      	BZ	label121
+0DF4  50C4      	MOVF gbl_adresh, W
+0DF6  6FF5      	MOVWF FC_CAL_ADC_0004F_1_iRetVal, 1
+0DF8  6BF6      	CLRF FC_CAL_ADC_0004F_1_iRetVal+D'1', 1
+0DFA  37F5      	RLCF FC_CAL_ADC_0004F_1_iRetVal, F, 1
+0DFC  37F6      	RLCF FC_CAL_ADC_0004F_1_iRetVal+D'1', F, 1
+0DFE  37F5      	RLCF FC_CAL_ADC_0004F_1_iRetVal, F, 1
+0E00  37F6      	RLCF FC_CAL_ADC_0004F_1_iRetVal+D'1', F, 1
+0E02  0EFC      	MOVLW 0xFC
+0E04  17F5      	ANDWF FC_CAL_ADC_0004F_1_iRetVal, F, 1
+0E06  30C3      	RRCF gbl_adresl, W
+0E08  6FF7      	MOVWF CompTempVar2649, 1
+0E0A  33F7      	RRCF CompTempVar2649, F, 1
+0E0C  3BF7      	SWAPF CompTempVar2649, F, 1
+0E0E  0E03      	MOVLW 0x03
+0E10  17F7      	ANDWF CompTempVar2649, F, 1
+0E12  51F7      	MOVF CompTempVar2649, W, 1
+0E14  13F5      	IORWF FC_CAL_ADC_0004F_1_iRetVal, F, 1
+0E16  53F6      	MOVF FC_CAL_ADC_0004F_1_iRetVal+D'1', F, 1
+0E18  D003      	BRA	label122
+0E1A            label121
+0E1A  50C4      	MOVF gbl_adresh, W
+0E1C  6FF5      	MOVWF FC_CAL_ADC_0004F_1_iRetVal, 1
+0E1E  6BF6      	CLRF FC_CAL_ADC_0004F_1_iRetVal+D'1', 1
+0E20            label122
+0E20  0E02      	MOVLW 0x02
+0E22  10C2      	IORWF gbl_adcon0, W
+0E24  6EC2      	MOVWF gbl_adcon0
+0E26  51F5      	MOVF FC_CAL_ADC_0004F_1_iRetVal, W, 1
+0E28  6FF7      	MOVWF CompTempVarRet2646, 1
+0E2A  51F6      	MOVF FC_CAL_ADC_0004F_1_iRetVal+D'1', W, 1
+0E2C  6FF8      	MOVWF CompTempVarRet2646+D'1', 1
+0E2E  0012      	RETURN
+0E30            ; } FC_CAL_ADC_Sample function end
+
+	ORG 0x00000E30
+0E30            FC_CAL_ADC_0004E
+0E30            ; { FC_CAL_ADC_Enable ; function begin
+0E30  6AC1      	CLRF gbl_adcon1
+0E32  0E07      	MOVLW 0x07
+0E34  63F4      	CPFSEQ FC_CAL_ADC_0004E_arg_Channel, 1
+0E36  D001      	BRA	label123
+0E38  D004      	BRA	label124
+0E3A            label123
+0E3A  0E08      	MOVLW 0x08
+0E3C  63F4      	CPFSEQ FC_CAL_ADC_0004E_arg_Channel, 1
+0E3E  D014      	BRA	label126
+0E40  D009      	BRA	label125
+0E42            label124
+0E42  0E08      	MOVLW 0x08
+0E44  6FF1      	MOVWF gbl_tris_mask, 1
+0E46  0E0F      	MOVLW HIGH(gbl_trisc+D'0')
+0E48  6FD7      	MOVWF gbl_tris_reg+D'1', 1
+0E4A  0E94      	MOVLW LOW(gbl_trisc+D'0')
+0E4C  6FD6      	MOVWF gbl_tris_reg, 1
+0E4E  0E80      	MOVLW 0x80
+0E50  6EC1      	MOVWF gbl_adcon1
+0E52  D00A      	BRA	label126
+0E54            label125
+0E54  0E40      	MOVLW 0x40
+0E56  6FF1      	MOVWF gbl_tris_mask, 1
+0E58  0E0F      	MOVLW HIGH(gbl_trisc+D'0')
+0E5A  6FF8      	MOVWF CompTempVar2640, 1
+0E5C  0E94      	MOVLW LOW(gbl_trisc+D'0')
+0E5E  6FD6      	MOVWF gbl_tris_reg, 1
+0E60  51F8      	MOVF CompTempVar2640, W, 1
+0E62  6FD7      	MOVWF gbl_tris_reg+D'1', 1
+0E64  0E01      	MOVLW 0x01
+0E66  6E7F      	MOVWF gbl_anselh
+0E68            label126
+0E68  0E07      	MOVLW 0x07
+0E6A  15F5      	ANDWF FC_CAL_ADC_0004E_arg_Conv_Speed, W, 1
+0E6C  6EC0      	MOVWF gbl_adcon2
+0E6E  53F6      	MOVF FC_CAL_ADC_0004E_arg_Vref, F, 1
+0E70  E00A      	BZ	label127
+0E72  0E03      	MOVLW 0x03
+0E74  15F6      	ANDWF FC_CAL_ADC_0004E_arg_Vref, W, 1
+0E76  6FF8      	MOVWF CompTempVar2641, 1
+0E78  37F8      	RLCF CompTempVar2641, F, 1
+0E7A  37F8      	RLCF CompTempVar2641, F, 1
+0E7C  0EFC      	MOVLW 0xFC
+0E7E  17F8      	ANDWF CompTempVar2641, F, 1
+0E80  51F8      	MOVF CompTempVar2641, W, 1
+0E82  10C1      	IORWF gbl_adcon1, W
+0E84  6EC1      	MOVWF gbl_adcon1
+0E86            label127
+0E86  51D7      	MOVF gbl_tris_reg+D'1', W, 1
+0E88  6EEA      	MOVWF FSR0H
+0E8A  51D6      	MOVF gbl_tris_reg, W, 1
+0E8C  6EE9      	MOVWF FSR0L
+0E8E  50EF      	MOVF INDF0, W
+0E90  6FF0      	MOVWF gbl_old_tris, 1
+0E92  51F1      	MOVF gbl_tris_mask, W, 1
+0E94  11F0      	IORWF gbl_old_tris, W, 1
+0E96  6FF8      	MOVWF CompTempVar2643, 1
+0E98  6EEF      	MOVWF INDF0
+0E9A  51F4      	MOVF FC_CAL_ADC_0004E_arg_Channel, W, 1
+0E9C  6FF9      	MOVWF CompTempVar2645, 1
+0E9E  37F9      	RLCF CompTempVar2645, F, 1
+0EA0  37F9      	RLCF CompTempVar2645, F, 1
+0EA2  0EFC      	MOVLW 0xFC
+0EA4  17F9      	ANDWF CompTempVar2645, F, 1
+0EA6  51F9      	MOVF CompTempVar2645, W, 1
+0EA8  0901      	IORLW 0x01
+0EAA  6FF8      	MOVWF CompTempVar2644, 1
+0EAC  51F8      	MOVF CompTempVar2644, W, 1
+0EAE  6EC2      	MOVWF gbl_adcon0
+0EB0  51F7      	MOVF FC_CAL_ADC_0004E_arg_T_Charge, W, 1
+0EB2  6FF8      	MOVWF delay_us_00000_arg_del, 1
+0EB4  EC06F000  	CALL delay_us_00000
+0EB8  0E02      	MOVLW 0x02
+0EBA  10C2      	IORWF gbl_adcon0, W
+0EBC  6EC2      	MOVWF gbl_adcon0
+0EBE  0012      	RETURN
+0EC0            ; } FC_CAL_ADC_Enable function end
+
+	ORG 0x00000EC0
+0EC0            FC_CAL_ADC_0004D
+0EC0            ; { FC_CAL_ADC_Disable ; function begin
+0EC0  0101      	MOVLB 0x01
+0EC2  51D7      	MOVF gbl_tris_reg+D'1', W, 1
+0EC4  6EEA      	MOVWF FSR0H
+0EC6  51D6      	MOVF gbl_tris_reg, W, 1
+0EC8  6EE9      	MOVWF FSR0L
+0ECA  51F0      	MOVF gbl_old_tris, W, 1
+0ECC  6EEF      	MOVWF INDF0
+0ECE  6A7E      	CLRF gbl_ansel
+0ED0  6AC2      	CLRF gbl_adcon0
+0ED2  6A7F      	CLRF gbl_anselh
+0ED4  0012      	RETURN
+0ED6            ; } FC_CAL_ADC_Disable function end
+
+	ORG 0x00000ED6
+0ED6            FCI_GETLEN_0003D
+0ED6            ; { FCI_GETLENGTH ; function begin
+0ED6  6BFE      	CLRF FCI_GETLEN_0003D_1_tmp, 1
+0ED8            label128
+0ED8  51FD      	MOVF FCI_GETLEN_0003D_arg_iStr1_len, W, 1
+0EDA  61FE      	CPFSLT FCI_GETLEN_0003D_1_tmp, 1
+0EDC  D009      	BRA	label129
+0EDE  51FC      	MOVF FCI_GETLEN_0003D_arg_sStr1+D'1', W, 1
+0EE0  6EEA      	MOVWF FSR0H
+0EE2  51FB      	MOVF FCI_GETLEN_0003D_arg_sStr1, W, 1
+0EE4  25FE      	ADDWF FCI_GETLEN_0003D_1_tmp, W, 1
+0EE6  6EE9      	MOVWF FSR0L
+0EE8  52EF      	MOVF INDF0, F
+0EEA  E002      	BZ	label129
+0EEC  2BFE      	INCF FCI_GETLEN_0003D_1_tmp, F, 1
+0EEE  D7F4      	BRA	label128
+0EF0            label129
+0EF0  51FE      	MOVF FCI_GETLEN_0003D_1_tmp, W, 1
+0EF2  6FFF      	MOVWF CompTempVarRet1856, 1
+0EF4  0012      	RETURN
+0EF6            ; } FCI_GETLENGTH function end
+
+	ORG 0x00000EF6
+0EF6            FCD_08f42__0005E
+0EF6            ; { FCD_08f42_adc_base__GetInt ; function begin
+0EF6  0E08      	MOVLW 0x08
+0EF8  0101      	MOVLB 0x01
+0EFA  6FF4      	MOVWF FC_CAL_ADC_0004E_arg_Channel, 1
+0EFC  0E03      	MOVLW 0x03
+0EFE  6FF5      	MOVWF FC_CAL_ADC_0004E_arg_Conv_Speed, 1
+0F00  6BF6      	CLRF FC_CAL_ADC_0004E_arg_Vref, 1
+0F02  0E28      	MOVLW 0x28
+0F04  6FF7      	MOVWF FC_CAL_ADC_0004E_arg_T_Charge, 1
+0F06  EC18F007  	CALL FC_CAL_ADC_0004E
+0F0A  0E01      	MOVLW 0x01
+0F0C  6FF4      	MOVWF FC_CAL_ADC_0004F_arg_Sample_Mode, 1
+0F0E  ECF6F006  	CALL FC_CAL_ADC_0004F
+0F12  51F7      	MOVF CompTempVarRet2646, W, 1
+0F14  6FF2      	MOVWF FCD_08f42__0005E_1_FCR_RETVAL, 1
+0F16  51F8      	MOVF CompTempVarRet2646+D'1', W, 1
+0F18  6FF3      	MOVWF FCD_08f42__0005E_1_FCR_RETVAL+D'1', 1
+0F1A  EC60F007  	CALL FC_CAL_ADC_0004D
+0F1E  51F2      	MOVF FCD_08f42__0005E_1_FCR_RETVAL, W, 1
+0F20  6FF4      	MOVWF CompTempVarRet2674, 1
+0F22  51F3      	MOVF FCD_08f42__0005E_1_FCR_RETVAL+D'1', W, 1
+0F24  6FF5      	MOVWF CompTempVarRet2674+D'1', 1
+0F26  0012      	RETURN
+0F28            ; } FCD_08f42_adc_base__GetInt function end
+
+	ORG 0x00000F28
+0F28            FCD_08f41__0006F
+0F28            ; { FCD_08f41_adc_base__GetInt ; function begin
+0F28  0E07      	MOVLW 0x07
+0F2A  0101      	MOVLB 0x01
+0F2C  6FF4      	MOVWF FC_CAL_ADC_0004E_arg_Channel, 1
+0F2E  0E03      	MOVLW 0x03
+0F30  6FF5      	MOVWF FC_CAL_ADC_0004E_arg_Conv_Speed, 1
+0F32  6BF6      	CLRF FC_CAL_ADC_0004E_arg_Vref, 1
+0F34  0E28      	MOVLW 0x28
+0F36  6FF7      	MOVWF FC_CAL_ADC_0004E_arg_T_Charge, 1
+0F38  EC18F007  	CALL FC_CAL_ADC_0004E
+0F3C  0E01      	MOVLW 0x01
+0F3E  6FF4      	MOVWF FC_CAL_ADC_0004F_arg_Sample_Mode, 1
+0F40  ECF6F006  	CALL FC_CAL_ADC_0004F
+0F44  51F7      	MOVF CompTempVarRet2646, W, 1
+0F46  6FF2      	MOVWF FCD_08f41__0006F_1_FCR_RETVAL, 1
+0F48  51F8      	MOVF CompTempVarRet2646+D'1', W, 1
+0F4A  6FF3      	MOVWF FCD_08f41__0006F_1_FCR_RETVAL+D'1', 1
+0F4C  EC60F007  	CALL FC_CAL_ADC_0004D
+0F50  51F2      	MOVF FCD_08f41__0006F_1_FCR_RETVAL, W, 1
+0F52  6FF4      	MOVWF CompTempVarRet2698, 1
+0F54  51F3      	MOVF FCD_08f41__0006F_1_FCR_RETVAL+D'1', W, 1
+0F56  6FF5      	MOVWF CompTempVarRet2698+D'1', 1
+0F58  0012      	RETURN
+0F5A            ; } FCD_08f41_adc_base__GetInt function end
+
+	ORG 0x00000F5A
+0F5A            FCD_056e1__000A1
+0F5A            ; { FCD_056e1_v5__usbserial0__Initialise ; function begin
+0F5A  0101      	MOVLB 0x01
+0F5C  6BF2      	CLRF FCD_056e1__000A1_1_FCL_DEL_000A2, 1
+0F5E  6BF3      	CLRF FCD_056e1__000A1_1_FCL_DEL_000A2+D'1', 1
+0F60  EC7EF005  	CALL usb_config_00097
+0F64            label130
+0F64  9EF2      	BCF gbl_intcon,7
+0F66  BEF2      	BTFSC gbl_intcon,7
+0F68  D7FD      	BRA	label130
+0F6A  ECA2F006  	CALL usb_cdc_se_00095
+0F6E  EC66F005  	CALL usb_setup_00000
+0F72  8CF2      	BSF gbl_intcon,6
+0F74  8EF2      	BSF gbl_intcon,7
+0F76  EC78F005  	CALL usb_enable_00077
+0F7A            label131
+0F7A  53EF      	MOVF gbl_CDC_USB_status, F, 1
+0F7C  E0FE      	BZ	label131
+0F7E  6BF4      	CLRF FCD_056e1__000A1_1_FCR_RETVAL, 1
+0F80  51F4      	MOVF FCD_056e1__000A1_1_FCR_RETVAL, W, 1
+0F82  6FF5      	MOVWF CompTempVarRet2816, 1
+0F84  0012      	RETURN
+0F86            ; } FCD_056e1_v5__usbserial0__Initialise function end
+
+	ORG 0x00000F86
+0F86            FCD_056e1__00098
+0F86            ; { FCD_056e1_v5__usbserial0__SendString ; function begin
+0F86  6BF6      	CLRF FCD_056e1__00098_1_FCL_TIMEOUT, 1
+0F88  6BF7      	CLRF FCD_056e1__00098_1_FCL_TIMEOUT+D'1', 1
+0F8A  51F2      	MOVF FCD_056e1__00098_arg_FCL_DATA, W, 1
+0F8C  6FFB      	MOVWF FCI_GETLEN_0003D_arg_sStr1, 1
+0F8E  51F3      	MOVF FCD_056e1__00098_arg_FCL_DATA+D'1', W, 1
+0F90  6FFC      	MOVWF FCI_GETLEN_0003D_arg_sStr1+D'1', 1
+0F92  51F4      	MOVF FCD_056e1__00098_arg_FCLsz_DATA, W, 1
+0F94  6FFD      	MOVWF FCI_GETLEN_0003D_arg_iStr1_len, 1
+0F96  EC6BF007  	CALL FCI_GETLEN_0003D
+0F9A  51FF      	MOVF CompTempVarRet1856, W, 1
+0F9C  6FF8      	MOVWF FCD_056e1__00098_1_FCL_LENGTH, 1
+0F9E            label132
+0F9E  EC9BF006  	CALL usb_cdc_tx_00093
+0FA2  53FB      	MOVF CompTempVarRet2789, F, 1
+0FA4  E10C      	BNZ	label134
+0FA6  0E7D      	MOVLW 0x7D
+0FA8  5DF7      	SUBWF FCD_056e1__00098_1_FCL_TIMEOUT+D'1', W, 1
+0FAA  E102      	BNZ	label133
+0FAC  0E00      	MOVLW 0x00
+0FAE  5DF6      	SUBWF FCD_056e1__00098_1_FCL_TIMEOUT, W, 1
+0FB0            label133
+0FB0  E206      	BC	label134
+0FB2  53F6      	MOVF FCD_056e1__00098_1_FCL_TIMEOUT, F, 1
+0FB4  53F7      	MOVF FCD_056e1__00098_1_FCL_TIMEOUT+D'1', F, 1
+0FB6  2BF6      	INCF FCD_056e1__00098_1_FCL_TIMEOUT, F, 1
+0FB8  B4D8      	BTFSC STATUS,Z
+0FBA  2BF7      	INCF FCD_056e1__00098_1_FCL_TIMEOUT+D'1', F, 1
+0FBC  D7F0      	BRA	label132
+0FBE            label134
+0FBE  0E00      	MOVLW 0x00
+0FC0  63F6      	CPFSEQ FCD_056e1__00098_1_FCL_TIMEOUT, 1
+0FC2  D006      	BRA	label135
+0FC4  0E7D      	MOVLW 0x7D
+0FC6  63F7      	CPFSEQ FCD_056e1__00098_1_FCL_TIMEOUT+D'1', 1
+0FC8  D003      	BRA	label135
+0FCA  0E01      	MOVLW 0x01
+0FCC  6FFB      	MOVWF CompTempVarRet2802, 1
+0FCE  0012      	RETURN
+0FD0            label135
+0FD0  6BFA      	CLRF FCD_056e1__00098_1_n, 1
+0FD2            label136
+0FD2  51F3      	MOVF FCD_056e1__00098_arg_FCL_DATA+D'1', W, 1
+0FD4  6EEA      	MOVWF FSR0H
+0FD6  51F2      	MOVF FCD_056e1__00098_arg_FCL_DATA, W, 1
+0FD8  25FA      	ADDWF FCD_056e1__00098_1_n, W, 1
+0FDA  6EE9      	MOVWF FSR0L
+0FDC  52EF      	MOVF INDF0, F
+0FDE  E00E      	BZ	label137
+0FE0  51F8      	MOVF FCD_056e1__00098_1_FCL_LENGTH, W, 1
+0FE2  61FA      	CPFSLT FCD_056e1__00098_1_n, 1
+0FE4  D00B      	BRA	label137
+0FE6  51F3      	MOVF FCD_056e1__00098_arg_FCL_DATA+D'1', W, 1
+0FE8  6EEA      	MOVWF FSR0H
+0FEA  51F2      	MOVF FCD_056e1__00098_arg_FCL_DATA, W, 1
+0FEC  25FA      	ADDWF FCD_056e1__00098_1_n, W, 1
+0FEE  6EE9      	MOVWF FSR0L
+0FF0  50EF      	MOVF INDF0, W
+0FF2  6FFC      	MOVWF usb_cdc_pu_00091_arg_c, 1
+0FF4  ECD0F006  	CALL usb_cdc_pu_00091
+0FF8  2BFA      	INCF FCD_056e1__00098_1_n, F, 1
+0FFA  D7EB      	BRA	label136
+0FFC            label137
+0FFC  6BF9      	CLRF FCD_056e1__00098_1_FCR_RETVAL, 1
+0FFE  51F9      	MOVF FCD_056e1__00098_1_FCR_RETVAL, W, 1
+1000  6FFB      	MOVWF CompTempVarRet2802, 1
+1002  0012      	RETURN
+1004            ; } FCD_056e1_v5__usbserial0__SendString function end
+
+	ORG 0x00001004
+1004            main
+1004            ; { main ; function begin
+1004  6A7E      	CLRF gbl_ansel
+1006  6A7F      	CLRF gbl_anselh
+1008  ECADF007  	CALL FCD_056e1__000A1
+100C            label138
+100C  EC94F007  	CALL FCD_08f41__0006F
+1010  51F4      	MOVF CompTempVarRet2698, W, 1
+1012  6FC8      	MOVWF gbl_FCV_READINPUT, 1
+1014  51F5      	MOVF CompTempVarRet2698+D'1', W, 1
+1016  6FC9      	MOVWF gbl_FCV_READINPUT+D'1', 1
+1018  53C8      	MOVF gbl_FCV_READINPUT, F, 1
+101A  51C9      	MOVF gbl_FCV_READINPUT+D'1', W, 1
+101C  6FF3      	MOVWF CompTempVar2820, 1
+101E  90D8      	BCF STATUS,C
+1020  37C8      	RLCF gbl_FCV_READINPUT, F, 1
+1022  37F3      	RLCF CompTempVar2820, F, 1
+1024  0E01      	MOVLW 0x01
+1026  13C8      	IORWF gbl_FCV_READINPUT, F, 1
+1028  51F3      	MOVF CompTempVar2820, W, 1
+102A  0910      	IORLW 0x10
+102C  6FF2      	MOVWF CompTempVar2818, 1
+102E  51F2      	MOVF CompTempVar2818, W, 1
+1030  6FC9      	MOVWF gbl_FCV_READINPUT+D'1', 1
+1032  51C8      	MOVF gbl_FCV_READINPUT, W, 1
+1034  6FCA      	MOVWF gbl_FCV_OUTSTRING, 1
+1036  51C9      	MOVF gbl_FCV_READINPUT+D'1', W, 1
+1038  6FCB      	MOVWF gbl_FCV_OUTSTRING+D'1', 1
+103A  0E01      	MOVLW HIGH(gbl_FCV_OUTSTRING+D'0')
+103C  6FF3      	MOVWF FCD_056e1__00098_arg_FCL_DATA+D'1', 1
+103E  0ECA      	MOVLW LOW(gbl_FCV_OUTSTRING+D'0')
+1040  6FF2      	MOVWF FCD_056e1__00098_arg_FCL_DATA, 1
+1042  0E02      	MOVLW 0x02
+1044  6FF4      	MOVWF FCD_056e1__00098_arg_FCLsz_DATA, 1
+1046  6BF5      	CLRF FCD_056e1__00098_arg_FCLsz_DATA+D'1', 1
+1048  ECC3F007  	CALL FCD_056e1__00098
+104C  EC7BF007  	CALL FCD_08f42__0005E
+1050  51F4      	MOVF CompTempVarRet2674, W, 1
+1052  6FC8      	MOVWF gbl_FCV_READINPUT, 1
+1054  51F5      	MOVF CompTempVarRet2674+D'1', W, 1
+1056  6FC9      	MOVWF gbl_FCV_READINPUT+D'1', 1
+1058  53C8      	MOVF gbl_FCV_READINPUT, F, 1
+105A  51C9      	MOVF gbl_FCV_READINPUT+D'1', W, 1
+105C  6FF3      	MOVWF CompTempVar2828, 1
+105E  90D8      	BCF STATUS,C
+1060  37C8      	RLCF gbl_FCV_READINPUT, F, 1
+1062  37F3      	RLCF CompTempVar2828, F, 1
+1064  0E01      	MOVLW 0x01
+1066  13C8      	IORWF gbl_FCV_READINPUT, F, 1
+1068  51F3      	MOVF CompTempVar2828, W, 1
+106A  0910      	IORLW 0x10
+106C  6FF2      	MOVWF CompTempVar2826, 1
+106E  51F2      	MOVF CompTempVar2826, W, 1
+1070  6FC9      	MOVWF gbl_FCV_READINPUT+D'1', 1
+1072  51C8      	MOVF gbl_FCV_READINPUT, W, 1
+1074  6FCA      	MOVWF gbl_FCV_OUTSTRING, 1
+1076  51C9      	MOVF gbl_FCV_READINPUT+D'1', W, 1
+1078  6FCB      	MOVWF gbl_FCV_OUTSTRING+D'1', 1
+107A  0E01      	MOVLW HIGH(gbl_FCV_OUTSTRING+D'0')
+107C  6FF3      	MOVWF FCD_056e1__00098_arg_FCL_DATA+D'1', 1
+107E  0ECA      	MOVLW LOW(gbl_FCV_OUTSTRING+D'0')
+1080  6FF2      	MOVWF FCD_056e1__00098_arg_FCL_DATA, 1
+1082  0E02      	MOVLW 0x02
+1084  6FF4      	MOVWF FCD_056e1__00098_arg_FCLsz_DATA, 1
+1086  6BF5      	CLRF FCD_056e1__00098_arg_FCLsz_DATA+D'1', 1
+1088  ECC3F007  	CALL FCD_056e1__00098
+108C  D7BF      	BRA	label138
+108E            ; } main function end
+
+	ORG 0x0000108E
+108E            _startup
+108E  0ED5      	MOVLW 0xD5
+1090  0100      	MOVLB 0x00
+1092  6FFC      	MOVWF gbl_14_LSR, 1
+1094  0EC4      	MOVLW 0xC4
+1096  6FFD      	MOVWF gbl_14_LSR+D'1', 1
+1098  0EBB      	MOVLW 0xBB
+109A  6FFE      	MOVWF gbl_14_LSR+D'2', 1
+109C  0EDC      	MOVLW 0xDC
+109E  6FFF      	MOVWF gbl_14_LSR+D'3', 1
+10A0  0101      	MOVLB 0x01
+10A2  6BAE      	CLRF gbl_15_gbl_aSig, 1
+10A4  6BAF      	CLRF gbl_15_gbl_aSig+D'1', 1
+10A6  6BB0      	CLRF gbl_15_gbl_aSig+D'2', 1
+10A8  6BB1      	CLRF gbl_15_gbl_aSig+D'3', 1
+10AA  6BB2      	CLRF gbl_15_gbl_bSig, 1
+10AC  6BB3      	CLRF gbl_15_gbl_bSig+D'1', 1
+10AE  6BB4      	CLRF gbl_15_gbl_bSig+D'2', 1
+10B0  6BB5      	CLRF gbl_15_gbl_bSig+D'3', 1
+10B2  6BB6      	CLRF gbl_15_gbl_zSig, 1
+10B4  6BB7      	CLRF gbl_15_gbl_zSig+D'1', 1
+10B6  6BB8      	CLRF gbl_15_gbl_zSig+D'2', 1
+10B8  6BB9      	CLRF gbl_15_gbl_zSig+D'3', 1
+10BA  6BDA      	CLRF gbl_15_gbl_aExp, 1
+10BC  6BDB      	CLRF gbl_15_gbl_bExp, 1
+10BE  6BC6      	CLRF gbl_15_gbl_zExp, 1
+10C0  6BC7      	CLRF gbl_15_gbl_zExp+D'1', 1
+10C2  6BDC      	CLRF gbl_15_gbl_aSign, 1
+10C4  6BDD      	CLRF gbl_15_gbl_bSign, 1
+10C6  6BDE      	CLRF gbl_15_gbl_zSign, 1
+10C8  6BDF      	CLRF gbl_15_gbl_zSigZero, 1
+10CA  6BBA      	CLRF gbl_15_gbl_ret, 1
+10CC  6BBB      	CLRF gbl_15_gbl_ret+D'1', 1
+10CE  6BBC      	CLRF gbl_15_gbl_ret+D'2', 1
+10D0  6BBD      	CLRF gbl_15_gbl_ret+D'3', 1
+10D2  6BD8      	CLRF gbl_float_rounding_mode, 1
+10D4  6BD9      	CLRF gbl_float_exception_flags, 1
+10D6  6A5F      	CLRF gbl_float_detect_tininess
+10D8  0E28      	MOVLW 0x28
+10DA  6F2E      	MOVWF gbl_MX_USBNAME, 1
+10DC  0E03      	MOVLW 0x03
+10DE  6F2F      	MOVWF gbl_MX_USBNAME+D'1', 1
+10E0  0E46      	MOVLW 0x46
+10E2  6F30      	MOVWF gbl_MX_USBNAME+D'2', 1
+10E4  6B31      	CLRF gbl_MX_USBNAME+D'3', 1
+10E6  0E6C      	MOVLW 0x6C
+10E8  6F32      	MOVWF gbl_MX_USBNAME+D'4', 1
+10EA  6B33      	CLRF gbl_MX_USBNAME+D'5', 1
+10EC  0E6F      	MOVLW 0x6F
+10EE  6F34      	MOVWF gbl_MX_USBNAME+D'6', 1
+10F0  6B35      	CLRF gbl_MX_USBNAME+D'7', 1
+10F2  0E77      	MOVLW 0x77
+10F4  6F36      	MOVWF gbl_MX_USBNAME+D'8', 1
+10F6  6B37      	CLRF gbl_MX_USBNAME+D'9', 1
+10F8  0E63      	MOVLW 0x63
+10FA  6F38      	MOVWF gbl_MX_USBNAME+D'10', 1
+10FC  6B39      	CLRF gbl_MX_USBNAME+D'11', 1
+10FE  0E6F      	MOVLW 0x6F
+1100  6F3A      	MOVWF gbl_MX_USBNAME+D'12', 1
+1102  6B3B      	CLRF gbl_MX_USBNAME+D'13', 1
+1104  0E64      	MOVLW 0x64
+1106  6F3C      	MOVWF gbl_MX_USBNAME+D'14', 1
+1108  6B3D      	CLRF gbl_MX_USBNAME+D'15', 1
+110A  0E65      	MOVLW 0x65
+110C  6F3E      	MOVWF gbl_MX_USBNAME+D'16', 1
+110E  6B3F      	CLRF gbl_MX_USBNAME+D'17', 1
+1110  0E20      	MOVLW 0x20
+1112  6F40      	MOVWF gbl_MX_USBNAME+D'18', 1
+1114  6B41      	CLRF gbl_MX_USBNAME+D'19', 1
+1116  0E55      	MOVLW 0x55
+1118  6F42      	MOVWF gbl_MX_USBNAME+D'20', 1
+111A  6B43      	CLRF gbl_MX_USBNAME+D'21', 1
+111C  0E53      	MOVLW 0x53
+111E  6F44      	MOVWF gbl_MX_USBNAME+D'22', 1
+1120  6B45      	CLRF gbl_MX_USBNAME+D'23', 1
+1122  0E42      	MOVLW 0x42
+1124  6F46      	MOVWF gbl_MX_USBNAME+D'24', 1
+1126  6B47      	CLRF gbl_MX_USBNAME+D'25', 1
+1128  0E20      	MOVLW 0x20
+112A  6F48      	MOVWF gbl_MX_USBNAME+D'26', 1
+112C  6B49      	CLRF gbl_MX_USBNAME+D'27', 1
+112E  0E53      	MOVLW 0x53
+1130  6F4A      	MOVWF gbl_MX_USBNAME+D'28', 1
+1132  6B4B      	CLRF gbl_MX_USBNAME+D'29', 1
+1134  0E65      	MOVLW 0x65
+1136  6F4C      	MOVWF gbl_MX_USBNAME+D'30', 1
+1138  6B4D      	CLRF gbl_MX_USBNAME+D'31', 1
+113A  0E72      	MOVLW 0x72
+113C  6F4E      	MOVWF gbl_MX_USBNAME+D'32', 1
+113E  6B4F      	CLRF gbl_MX_USBNAME+D'33', 1
+1140  0E69      	MOVLW 0x69
+1142  6F50      	MOVWF gbl_MX_USBNAME+D'34', 1
+1144  6B51      	CLRF gbl_MX_USBNAME+D'35', 1
+1146  0E61      	MOVLW 0x61
+1148  6F52      	MOVWF gbl_MX_USBNAME+D'36', 1
+114A  6B53      	CLRF gbl_MX_USBNAME+D'37', 1
+114C  0E6C      	MOVLW 0x6C
+114E  6F54      	MOVWF gbl_MX_USBNAME+D'38', 1
+1150  6B55      	CLRF gbl_MX_USBNAME+D'39', 1
+1152  0E2E      	MOVLW 0x2E
+1154  6F00      	MOVWF gbl_MX_USBMFR, 1
+1156  0E03      	MOVLW 0x03
+1158  6F01      	MOVWF gbl_MX_USBMFR+D'1', 1
+115A  0E4D      	MOVLW 0x4D
+115C  6F02      	MOVWF gbl_MX_USBMFR+D'2', 1
+115E  6B03      	CLRF gbl_MX_USBMFR+D'3', 1
+1160  0E61      	MOVLW 0x61
+1162  6F04      	MOVWF gbl_MX_USBMFR+D'4', 1
+1164  6B05      	CLRF gbl_MX_USBMFR+D'5', 1
+1166  0E74      	MOVLW 0x74
+1168  6F06      	MOVWF gbl_MX_USBMFR+D'6', 1
+116A  6B07      	CLRF gbl_MX_USBMFR+D'7', 1
+116C  0E72      	MOVLW 0x72
+116E  6F08      	MOVWF gbl_MX_USBMFR+D'8', 1
+1170  6B09      	CLRF gbl_MX_USBMFR+D'9', 1
+1172  0E69      	MOVLW 0x69
+1174  6F0A      	MOVWF gbl_MX_USBMFR+D'10', 1
+1176  6B0B      	CLRF gbl_MX_USBMFR+D'11', 1
+1178  0E78      	MOVLW 0x78
+117A  6F0C      	MOVWF gbl_MX_USBMFR+D'12', 1
+117C  6B0D      	CLRF gbl_MX_USBMFR+D'13', 1
+117E  0E20      	MOVLW 0x20
+1180  6F0E      	MOVWF gbl_MX_USBMFR+D'14', 1
+1182  6B0F      	CLRF gbl_MX_USBMFR+D'15', 1
+1184  0E4D      	MOVLW 0x4D
+1186  6F10      	MOVWF gbl_MX_USBMFR+D'16', 1
+1188  6B11      	CLRF gbl_MX_USBMFR+D'17', 1
+118A  0E75      	MOVLW 0x75
+118C  6F12      	MOVWF gbl_MX_USBMFR+D'18', 1
+118E  6B13      	CLRF gbl_MX_USBMFR+D'19', 1
+1190  0E6C      	MOVLW 0x6C
+1192  6F14      	MOVWF gbl_MX_USBMFR+D'20', 1
+1194  6B15      	CLRF gbl_MX_USBMFR+D'21', 1
+1196  0E74      	MOVLW 0x74
+1198  6F16      	MOVWF gbl_MX_USBMFR+D'22', 1
+119A  6B17      	CLRF gbl_MX_USBMFR+D'23', 1
+119C  0E69      	MOVLW 0x69
+119E  6F18      	MOVWF gbl_MX_USBMFR+D'24', 1
+11A0  6B19      	CLRF gbl_MX_USBMFR+D'25', 1
+11A2  0E6D      	MOVLW 0x6D
+11A4  6F1A      	MOVWF gbl_MX_USBMFR+D'26', 1
+11A6  6B1B      	CLRF gbl_MX_USBMFR+D'27', 1
+11A8  0E65      	MOVLW 0x65
+11AA  6F1C      	MOVWF gbl_MX_USBMFR+D'28', 1
+11AC  6B1D      	CLRF gbl_MX_USBMFR+D'29', 1
+11AE  0E64      	MOVLW 0x64
+11B0  6F1E      	MOVWF gbl_MX_USBMFR+D'30', 1
+11B2  6B1F      	CLRF gbl_MX_USBMFR+D'31', 1
+11B4  0E69      	MOVLW 0x69
+11B6  6F20      	MOVWF gbl_MX_USBMFR+D'32', 1
+11B8  6B21      	CLRF gbl_MX_USBMFR+D'33', 1
+11BA  0E61      	MOVLW 0x61
+11BC  6F22      	MOVWF gbl_MX_USBMFR+D'34', 1
+11BE  6B23      	CLRF gbl_MX_USBMFR+D'35', 1
+11C0  0E20      	MOVLW 0x20
+11C2  6F24      	MOVWF gbl_MX_USBMFR+D'36', 1
+11C4  6B25      	CLRF gbl_MX_USBMFR+D'37', 1
+11C6  0E4C      	MOVLW 0x4C
+11C8  6F26      	MOVWF gbl_MX_USBMFR+D'38', 1
+11CA  6B27      	CLRF gbl_MX_USBMFR+D'39', 1
+11CC  0E74      	MOVLW 0x74
+11CE  6F28      	MOVWF gbl_MX_USBMFR+D'40', 1
+11D0  6B29      	CLRF gbl_MX_USBMFR+D'41', 1
+11D2  0E64      	MOVLW 0x64
+11D4  6F2A      	MOVWF gbl_MX_USBMFR+D'42', 1
+11D6  6B2B      	CLRF gbl_MX_USBMFR+D'43', 1
+11D8  0E2E      	MOVLW 0x2E
+11DA  6F2C      	MOVWF gbl_MX_USBMFR+D'44', 1
+11DC  6B2D      	CLRF gbl_MX_USBMFR+D'45', 1
+11DE  0E0A      	MOVLW 0x0A
+11E0  0100      	MOVLB 0x00
+11E2  6FE0      	MOVWF gbl_MX_SERIAL, 1
+11E4  0E03      	MOVLW 0x03
+11E6  6FE1      	MOVWF gbl_MX_SERIAL+D'1', 1
+11E8  0E30      	MOVLW 0x30
+11EA  6FE2      	MOVWF gbl_MX_SERIAL+D'2', 1
+11EC  6BE3      	CLRF gbl_MX_SERIAL+D'3', 1
+11EE  0E30      	MOVLW 0x30
+11F0  6FE4      	MOVWF gbl_MX_SERIAL+D'4', 1
+11F2  6BE5      	CLRF gbl_MX_SERIAL+D'5', 1
+11F4  0E30      	MOVLW 0x30
+11F6  6FE6      	MOVWF gbl_MX_SERIAL+D'6', 1
+11F8  6BE7      	CLRF gbl_MX_SERIAL+D'7', 1
+11FA  0E31      	MOVLW 0x31
+11FC  6FE8      	MOVWF gbl_MX_SERIAL+D'8', 1
+11FE  6BE9      	CLRF gbl_MX_SERIAL+D'9', 1
+1200  0E02      	MOVLW HIGH(gbl_buffer_0_in+D'0')
+1202  0101      	MOVLB 0x01
+1204  6FE3      	MOVWF CompGblVar60, 1
+1206  0E88      	MOVLW LOW(gbl_buffer_0_in+D'0')
+1208  6F67      	MOVWF gbl_ep_in_buffer_location, 1
+120A  51E3      	MOVF CompGblVar60, W, 1
+120C  6F68      	MOVWF gbl_ep_in_buffer_location+D'1', 1
+120E  6B69      	CLRF gbl_ep_in_buffer_location+D'2', 1
+1210  6B6A      	CLRF gbl_ep_in_buffer_location+D'3', 1
+1212  0E02      	MOVLW HIGH(gbl_buffer_2_in+D'0')
+1214  6FE4      	MOVWF CompGblVar61, 1
+1216  0E90      	MOVLW LOW(gbl_buffer_2_in+D'0')
+1218  6F6B      	MOVWF gbl_ep_in_buffer_location+D'4', 1
+121A  51E4      	MOVF CompGblVar61, W, 1
+121C  6F6C      	MOVWF gbl_ep_in_buffer_location+D'5', 1
+121E  0E02      	MOVLW HIGH(gbl_buffer_3_in+D'0')
+1220  6FE5      	MOVWF CompGblVar62, 1
+1222  0EA0      	MOVLW LOW(gbl_buffer_3_in+D'0')
+1224  6F6D      	MOVWF gbl_ep_in_buffer_location+D'6', 1
+1226  51E5      	MOVF CompGblVar62, W, 1
+1228  6F6E      	MOVWF gbl_ep_in_buffer_location+D'7', 1
+122A  0E02      	MOVLW HIGH(gbl_buffer_0_out+D'0')
+122C  6FE6      	MOVWF CompGblVar63, 1
+122E  0E80      	MOVLW LOW(gbl_buffer_0_out+D'0')
+1230  6F6F      	MOVWF gbl_ep_out_buffer_location, 1
+1232  51E6      	MOVF CompGblVar63, W, 1
+1234  6F70      	MOVWF gbl_ep_out_buffer_location+D'1', 1
+1236  6B71      	CLRF gbl_ep_out_buffer_location+D'2', 1
+1238  6B72      	CLRF gbl_ep_out_buffer_location+D'3', 1
+123A  6B73      	CLRF gbl_ep_out_buffer_location+D'4', 1
+123C  6B74      	CLRF gbl_ep_out_buffer_location+D'5', 1
+123E  0E02      	MOVLW HIGH(gbl_buffer_3_out+D'0')
+1240  6FE7      	MOVWF CompGblVar64, 1
+1242  0E98      	MOVLW LOW(gbl_buffer_3_out+D'0')
+1244  6F75      	MOVWF gbl_ep_out_buffer_location+D'6', 1
+1246  51E7      	MOVF CompGblVar64, W, 1
+1248  6F76      	MOVWF gbl_ep_out_buffer_location+D'7', 1
+124A  0E08      	MOVLW 0x08
+124C  6F77      	MOVWF gbl_ep_in_buffer_size, 1
+124E  6B78      	CLRF gbl_ep_in_buffer_size+D'1', 1
+1250  6B79      	CLRF gbl_ep_in_buffer_size+D'2', 1
+1252  6B7A      	CLRF gbl_ep_in_buffer_size+D'3', 1
+1254  0E08      	MOVLW 0x08
+1256  6F7B      	MOVWF gbl_ep_in_buffer_size+D'4', 1
+1258  6B7C      	CLRF gbl_ep_in_buffer_size+D'5', 1
+125A  0E08      	MOVLW 0x08
+125C  6F7D      	MOVWF gbl_ep_in_buffer_size+D'6', 1
+125E  6B7E      	CLRF gbl_ep_in_buffer_size+D'7', 1
+1260  0E08      	MOVLW 0x08
+1262  6F7F      	MOVWF gbl_ep_out_buffer_size, 1
+1264  6B80      	CLRF gbl_ep_out_buffer_size+D'1', 1
+1266  6B81      	CLRF gbl_ep_out_buffer_size+D'2', 1
+1268  6B82      	CLRF gbl_ep_out_buffer_size+D'3', 1
+126A  6B83      	CLRF gbl_ep_out_buffer_size+D'4', 1
+126C  6B84      	CLRF gbl_ep_out_buffer_size+D'5', 1
+126E  0E08      	MOVLW 0x08
+1270  6F85      	MOVWF gbl_ep_out_buffer_size+D'6', 1
+1272  6B86      	CLRF gbl_ep_out_buffer_size+D'7', 1
+1274  6BE0      	CLRF gbl_usb_state, 1
+1276  6BEB      	CLRF gbl_cdc_tx_start, 1
+1278  6BEC      	CLRF gbl_cdc_tx_end, 1
+127A  6BED      	CLRF gbl_cdc_rx_start, 1
+127C  6BEE      	CLRF gbl_cdc_rx_end, 1
+127E  0E04      	MOVLW 0x04
+1280  6FC2      	MOVWF gbl_string_00, 1
+1282  0E03      	MOVLW 0x03
+1284  6FC3      	MOVWF gbl_string_00+D'1', 1
+1286  0E09      	MOVLW 0x09
+1288  6FC4      	MOVWF gbl_string_00+D'2', 1
+128A  0E04      	MOVLW 0x04
+128C  6FC5      	MOVWF gbl_string_00+D'3', 1
+128E  6BEF      	CLRF gbl_CDC_USB_status, 1
+1290  EF02F008  	GOTO	main
+	ORG 0x00001294
+1294            interrupt
+1294            ; { interrupt ; function begin
+1294  CFEAF001  	MOVFF FSR0H,  Int1Context
+1298  CFE9F002  	MOVFF FSR0L,  Int1Context+D'1'
+129C  CFF4F003  	MOVFF PRODH,  Int1Context+D'2'
+12A0  CFF3F004  	MOVFF PRODL,  Int1Context+D'3'
+12A4  0E99      	MOVLW 0x99
+12A6  EF43F005  	GOTO	usb_handle_00072
+12AA            label140
+12AA  C004FFF3  	MOVFF Int1Context+D'3',  PRODL
+12AE  C003FFF4  	MOVFF Int1Context+D'2',  PRODH
+12B2  C002FFE9  	MOVFF Int1Context+D'1',  FSR0L
+12B6  C001FFEA  	MOVFF Int1Context,  FSR0H
+12BA  0011      	RETFIE 1
+12BC            ; } interrupt function end
+
+	ORG 0x00300000
+300000  3238      	DW 0x3238
+300002  1E1F      	DW 0x1E1F
+300004  8808      	DW 0x8808
+300006  C003      	DW 0xC003
+300008  E003      	DW 0xE003
+30000A  FFFF      	DW 0xFFFF
+30000C  FFFF      	DW 0xFFFF
