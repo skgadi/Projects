@@ -1,0 +1,35 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Ball%
+, Thames%
+\BCBL {}\ \BBA {} Phelps%
+}{%
+Ball%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Deborah2008}
+\APACinsertmetastar {%
+Deborah2008}%
+\begin{APACrefauthors}%
+Ball, D\BPBI L.%
+, Thames, M\BPBI H.%
+\BCBL {}\ \BBA {} Phelps, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Content Knowledge for Teaching} {Content knowledge for
+  teaching}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Teacher Education}{59}{5}{389-407}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1177/0022487108324554}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1177/0022487108324554} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

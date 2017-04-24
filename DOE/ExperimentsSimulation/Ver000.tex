@@ -1,0 +1,60 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+
+%\usepackage[round]{natbib}
+\usepackage{apacite}
+\usepackage{url} % not crucial - just used below for the URL 
+
+
+  \title{\bf Title}
+\author{S. K. Gadi\thanks{Author to whom all correspondence should be addressed.} \\
+	%Facultad de Ingeniería Mecánica y Eléctrica,\\ 
+	FIME, Universidad Autónoma de Coahuila,\\ Torreón, México.
+	\and
+	Author 2 \\
+	Department of ZZZ, University of WWW}
+
+
+\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+	One of the challenges in teaching the subject Design of Experiments is to come up with a proper numerical example. In this article, authors present a methodology to generate a numerical example for multifactorial experiments. Also, it presents a simple algorithm, which can be implemented in any programming language to generate unique models.
+\end{abstract}
+\keywords{Experimental design; educational tool; generating examples}
+\section{Introduction}
+The subject experimental design is part of various undergraduate and graduate curriculum, ranging from the engineering to the biological sciences. Learning statistics or mathematics in general is effective by solving a number of numerical examples. It is teacher's task to generate them \cite{Deborah2008}.
+\par
+Teachers spend a lot of time in generating an appropriate examples, which meet all the characteristics they want to highlight. In this article we present a methodology to generate such example for the subject experimental design. The algorithm is described in the section ((???)). Readers interested only in the implementation of algorithm may skip the mathematical construction presented in the section ((???)).
+\par
+One of the objectives in the experimental design is to find the factors which optimize the responses of a physical process. Solving problems in this subject involves performing various experiments with a different combinations of factors. Conducting experiments on a real system for the classroom purpose is not always feasible due to any the following limitations.
+\begin{enumerate}
+	\item The cost of conducting experiments on a real system is not always negligible.
+	\item A considerable amount of time may take for each experiment.
+	\item The combination of factor associated for optimum response is constant for a physical system. Therefore, teachers may not provide a fresh problem.
+\end{enumerate}
+\par
+A computer program generating responses is a good alternative to mimic the physical systems. Hence, a numerical example for an experimental design is mathematical model representing a physical process. This model is a set of static functions (i.e. it does not have derivative or integral terms) which maps the factors to the responses. A multi-response system can be represented as
+\begin{eqnarray}
+y_i &=& f_i(x_1, x_2, x_3	, \dots, x_n) + \xi_i \label{Eqn:Function}
+\end{eqnarray}
+\noindent where $y_i$, $i\in \{1,2,3, \dots, m\}$ are the responses, $x_j$, $j\in \{1,2,3, \dots, n\}$ are the factors, $f_i$, $i\in \{1,2,3, \dots, m\}$ are the nonlinear functions mapping the $n$ factors to the $m$ responses and $\xi_i$, $i\in \{1,2,3, \dots, m\}$ are the noise.
+\par
+All the factors, $x_j$, are constrained by upper and lower limits. The numerical examples should produce an optimal responses, $y_i$, for a set of factors within its limits. Construction of a one such example is presented in the next section.
+\section{Construction of an example}
+A second order polynomial function (i.e. a quadratic function) can serve the purpose of providing a unique optimal point. However, it doesn't represent a real physical system due to the following limitations.
+\begin{enumerate}
+	\item Response surface methodology uses a second order fit algorithm. Hence, the process of reaching optimal solution becomes trivial.
+	\item A quadratic function is having a property that its slope increases as it moves far from the optimal point. This property trivializes the process of selecting a new base value.
+\end{enumerate}
+\par
+Keeping above limitation in mind, it is proposed that the derivative of a sigmoid function is a suitable curve. 
+
+\bibliographystyle{apacite}%unsrtnat}
+\bibliography{refs}
+\end{document}
