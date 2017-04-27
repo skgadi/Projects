@@ -12,7 +12,7 @@ N_s = 128; % Number of cells connected in series
 
 a = 1.5; % Ideality factor
 
-R_s = 1e-3;
+R_s = 1e-3*128;
 R_p = 1000;
 
 k = physconst('Boltzmann');
@@ -20,4 +20,3 @@ q = 1.60217662e-19;
 
 
 T = 273+40;
-V_t = N_s*k*T/q;
