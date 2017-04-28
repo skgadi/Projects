@@ -20,3 +20,8 @@ q = 1.60217662e-19;
 
 
 T = 273+40;
+V_t = N_s*k/q*T;
+
+% % % Calculations of I_0
+Delta_T = (T - T_n);
+I_0 = (I_sc_n + K_I * Delta_T )/(exp((V_oc_n + K_V*Delta_T)/(a*V_t))-1);
