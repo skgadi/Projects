@@ -41,13 +41,23 @@ One of the objectives in the experimental design is to find the factors which op
 \par
 A computer program generating responses is a good alternative to mimic the physical systems. Hence, a numerical example for an experimental design is mathematical model representing a physical process. This model is a set of static functions (i.e. it does not have derivative or integral terms) which maps the factors to the responses. A multi-response system can be represented as
 \begin{eqnarray}
-y_i &=& f_i(x_1, x_2, x_3	, \dots, x_n) + \xi_i \label{Eqn:Function}
+y_i &=& f_i(x_1, x_2, x_3, \dots, x_n) + \xi_i \label{Eqn:Function}
 \end{eqnarray}
 \noindent where $y_i$, $i\in \{1,2,3, \dots, m\}$ are the responses, $x_j$, $j\in \{1,2,3, \dots, n\}$ are the factors, $f_i$, $i\in \{1,2,3, \dots, m\}$ are the nonlinear functions mapping the $n$ factors to the $m$ responses and $\xi_i$, $i\in \{1,2,3, \dots, m\}$ are the noise.
 \par
-All the factors, $x_j$, are constrained by upper and lower limits. The numerical examples should produce an optimal responses, $y_i$, for a set of factors within its limits. Construction of a one such example is presented in the next section.
-\section{Construction of an example}
-A second order polynomial function (i.e. a quadratic function) can serve the purpose of providing a unique optimal point. However, it doesn't represent a real physical system due to the following limitations.
+All the factors, $x_j$, are constrained by upper and lower limits. The numerical examples should produce an unique optimal responses, $y_i$, for a set of factors within its limits. Also, it should be guaranteed that there exists no other peaks in the surface. A convex function meets our requirements. Construction of a one such mathematical function is presented in the next section.
+\section{Construction of an convex function to suit our requirements}
+A second order polynomial function, such as
+\begin{eqnarray}
+y_i &=& -\sum_{i=1}^{i=n}{x_i^2} \label{Eqn:PolyFunction}
+\end{eqnarray}
+is a convex function, which serve the purpose of providing a unique optimal point. Figure~\ref{Fig:TwoVariablePolynomial} depicts (\ref{Eqn:PolyFunction}) for the two variables case. However, it doesn't represent a real physical system due to the following limitations.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{MATLAB/poly-2-var}
+	\label{Fig:TwoVariablePolynomial}
+	\caption{second}
+\end{figure}
 \begin{enumerate}
 	\item Response surface methodology uses a second order fit algorithm. Hence, the process of reaching optimal solution becomes trivial.
 	\item A quadratic function is having a property that its slope increases as it moves far from the optimal point. This property trivializes the process of selecting a new base value.

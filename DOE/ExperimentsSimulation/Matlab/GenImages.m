@@ -84,11 +84,22 @@ x1 = x;
 % zlabel('$y$','Interpreter','latex');
 
 
+% 
+% [X, X1] = meshgrid(x, x1);
+% SigM = 1./(1 + exp(-X+0.5*X1));
+% SigM1 = 1./(1 + exp(-X1));
+% Y = SigM .* (1 - SigM) + SigM1 .* (1 - SigM1);
+% surf (X, X1, Y, 'edgecolor', 'none')
+% xlabel('$x_1$','Interpreter','latex');
+% ylabel('$x_2$','Interpreter','latex');
+% zlabel('$y$','Interpreter','latex');
+
+
 
 [X, X1] = meshgrid(x, x1);
-SigM = 1./(1 + exp(-X-0.5*X1-0.5*X1^2));
-SigM1 = 1./(1 + exp(-X1));
-Y = SigM .* (1 - SigM) + SigM1 .* (1 - SigM1);
+% SigM = 1./(1 + exp(-X+0.5*X1));
+% SigM1 = 1./(1 + exp(-X1));
+Y = -1/1.0*(X.^2+X1.^2);
 surf (X, X1, Y, 'edgecolor', 'none')
 xlabel('$x_1$','Interpreter','latex');
 ylabel('$x_2$','Interpreter','latex');
