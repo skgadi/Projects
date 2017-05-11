@@ -1,10 +1,16 @@
 set(0,'DefaultTextFontname', 'CMU Serif')
 set(0,'DefaultAxesFontName', 'CMU Serif')
-x = -5 : 0.01 : 5;
+x = -10 : 0.01 : 10;
 x1 = x;
-
+% % % % One variable sigmoid based convex function
 % Sigmoid = 1./(1 + exp(-x));
-% % plot(x, Sigmoid);
+% plot(x, Sigmoid);
+DiffOfSig = Sigmoid .* (1 - Sigmoid);
+plot(x, DiffOfSig);
+xlabel('$x$','Interpreter','latex', 'FontSize', 20);
+ylabel('$y$','Interpreter','latex', 'FontSize', 20);
+set(gca,'fontsize',15)
+
 % DiffOfSig = Sigmoid .* (1 - Sigmoid);
 % plot(x, DiffOfSig);
 % [X, X1] = meshgrid(x,x1);
@@ -95,12 +101,22 @@ x1 = x;
 % zlabel('$y$','Interpreter','latex');
 
 
+% % % % Quadratic polynomial
+% [X, X1] = meshgrid(x, x1);
+% Y = -1/1.0*(X.^2+X1.^2);
+% surf (X, X1, Y, 'edgecolor', 'none')
+% xlabel('$x_1$','Interpreter','latex');
+% ylabel('$x_2$','Interpreter','latex');
+% zlabel('$y$','Interpreter','latex');
 
-[X, X1] = meshgrid(x, x1);
-% SigM = 1./(1 + exp(-X+0.5*X1));
+% % % % Sigmoid based convex function
+% [X, X1] = meshgrid(x, x1);
+% SigM = 1./(1 + exp(-X));
 % SigM1 = 1./(1 + exp(-X1));
-Y = -1/1.0*(X.^2+X1.^2);
-surf (X, X1, Y, 'edgecolor', 'none')
-xlabel('$x_1$','Interpreter','latex');
-ylabel('$x_2$','Interpreter','latex');
-zlabel('$y$','Interpreter','latex');
+% Y = SigM .* (1 - SigM) + SigM1 .* (1 - SigM1);
+% surf (X, X1, Y, 'edgecolor', 'none')
+% xlabel('$x_1$','Interpreter','latex', 'FontSize', 20);
+% ylabel('$x_2$','Interpreter','latex', 'FontSize', 20);
+% zlabel('$y$','Interpreter','latex', 'FontSize', 20);
+% set(gca,'fontsize',15)
+
