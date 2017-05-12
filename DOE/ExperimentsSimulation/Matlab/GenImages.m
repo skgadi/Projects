@@ -5,11 +5,11 @@ x1 = x;
 % % % % One variable sigmoid based convex function
 % Sigmoid = 1./(1 + exp(-x));
 % plot(x, Sigmoid);
-DiffOfSig = Sigmoid .* (1 - Sigmoid);
-plot(x, DiffOfSig);
-xlabel('$x$','Interpreter','latex', 'FontSize', 20);
-ylabel('$y$','Interpreter','latex', 'FontSize', 20);
-set(gca,'fontsize',15)
+% DiffOfSig = Sigmoid .* (1 - Sigmoid);
+% plot(x, DiffOfSig);
+% xlabel('$x$','Interpreter','latex', 'FontSize', 20);
+% ylabel('$y$','Interpreter','latex', 'FontSize', 20);
+% set(gca,'fontsize',15)
 
 % DiffOfSig = Sigmoid .* (1 - Sigmoid);
 % plot(x, DiffOfSig);
@@ -90,15 +90,29 @@ set(gca,'fontsize',15)
 % zlabel('$y$','Interpreter','latex');
 
 
-% 
+% % % Future version
 % [X, X1] = meshgrid(x, x1);
-% SigM = 1./(1 + exp(-X+0.5*X1));
+% SigM = 1./(1 + exp(-X));
 % SigM1 = 1./(1 + exp(-X1));
-% Y = SigM .* (1 - SigM) + SigM1 .* (1 - SigM1);
+% Y =  exp(X+X1.^2)./(exp(X+X1.^2)+1).^2 ...
+%     +exp(X1+X.^2)./(exp(X1+X.^2)+1).^2;
 % surf (X, X1, Y, 'edgecolor', 'none')
 % xlabel('$x_1$','Interpreter','latex');
 % ylabel('$x_2$','Interpreter','latex');
 % zlabel('$y$','Interpreter','latex');
+
+% % % Normal distribution
+x = -5 : 0.01 : 5;
+x1 = x;
+[X, X1] = meshgrid(x, x1);
+SigM = 1./(1 + exp(-X));
+SigM1 = 1./(1 + exp(-X1));
+Y = exp(-(X.^2+X1.^2));
+surf (X, X1, Y, 'edgecolor', 'none')
+xlabel('$x_1$','Interpreter','latex');
+ylabel('$x_2$','Interpreter','latex');
+zlabel('$y$','Interpreter','latex');
+
 
 
 % % % % Quadratic polynomial
@@ -118,5 +132,7 @@ set(gca,'fontsize',15)
 % xlabel('$x_1$','Interpreter','latex', 'FontSize', 20);
 % ylabel('$x_2$','Interpreter','latex', 'FontSize', 20);
 % zlabel('$y$','Interpreter','latex', 'FontSize', 20);
-% set(gca,'fontsize',15)
+
+
+set(gca,'fontsize',15)
 
