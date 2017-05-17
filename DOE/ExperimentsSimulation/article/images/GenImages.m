@@ -91,17 +91,17 @@ x1 = x;
 
 
 % % % Future version
-% [X, X1] = meshgrid(x, x1);
-% SigM = 1./(1 + exp(-X));
-% SigM1 = 1./(1 + exp(-X1));
-% Y =  exp(X+2*sign(X1).*X1.^2)./(exp(X+2*sign(X1).*X1.^2)+1).^2 ...
-%     + exp(X1+2*sign(X).*X.^2)./(exp(X1+2*sign(X).*X.^2)+1).^2;
-% surf (X, X1, Y, 'edgecolor', 'none')
-% xlabel('$x_1$','Interpreter','latex');
-% ylabel('$x_2$','Interpreter','latex');
-% zlabel('$y$','Interpreter','latex');
+[X, X1] = meshgrid(x, x1);
+SigM = 1./(1 + exp(-X));
+SigM1 = 1./(1 + exp(-X1));
+Y =  exp(X+2*sign(X1).*X1.^2)./(exp(X+2*sign(X1).*X1.^2)+1).^2 ...
+    + exp(X1+2*sign(X).*X.^2)./(exp(X1+2*sign(X).*X.^2)+1).^2;
+surf (X, X1, Y, 'edgecolor', 'none')
+xlabel('$x_1$','Interpreter','latex');
+ylabel('$x_2$','Interpreter','latex');
+zlabel('$y$','Interpreter','latex');
 
-% % Normal distribution
+% % % Normal distribution
 % x = -5 : 0.01 : 5;
 % x1 = x;
 % [X, X1] = meshgrid(x, x1);
@@ -116,12 +116,12 @@ x1 = x;
 
 
 % % % % Quadratic polynomial
-[X, X1] = meshgrid(x, x1);
-Y = -1/1.0*(X.^2+X1.^2);
-surf (X, X1, Y, 'edgecolor', 'none')
-xlabel('$x_1$','Interpreter','latex');
-ylabel('$x_2$','Interpreter','latex');
-zlabel('$y$','Interpreter','latex');
+% [X, X1] = meshgrid(x, x1);
+% Y = -1/1.0*(X.^2+X1.^2);
+% surf (X, X1, Y, 'edgecolor', 'none')
+% xlabel('$x_1$','Interpreter','latex');
+% ylabel('$x_2$','Interpreter','latex');
+% zlabel('$y$','Interpreter','latex');
 
 % % % % Sigmoid based convex function
 % [X, X1] = meshgrid(x, x1);
