@@ -20,7 +20,20 @@
 
 %\usepackage[round]{natbib}
 %\usepackage{apacite}
-\usepackage{url} % not crucial - just used below for the URL 
+\usepackage{url}
+
+% For the flow charts
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, calc}
+\tikzstyle{startstop} = [rectangle, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=3.5cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=2.5cm, text width=4.5cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{dottedarrow} = [thick, dotted,->,>=stealth]
+
+
 
 %\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
 
@@ -197,45 +210,35 @@ In the next section a method is presented to adapt the function $C_4$ defined at
 Noise is added.
 A scaled version of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}) is
 \begin{eqnarray}
-	f(.) &:=& F_L + \frac{F_I}{2} \nonumber \\
-	&+&\frac{F_I}{2}\sum_{i=1}^{n}{\exp[-\left(z_i + a\sin\left(\sum_{i=1}^{n} z_i\right)\right)^2]}, \label{Eqn:AdaptedFunction} \\
-	\Xi &:=& 0.5 (\xi + 1) \label{Eqn:ChangeOfRandomVar} \\
-	F_I &:=& (F_U-F_L)\Xi \label{Eqn:FunctionInterval} \\
+	f&&(x_1, x_2, x_3, \dots, x_n) = \nonumber \\
+	F&&(z_1, z_2, z_3, \dots, z_n) := F_1 +  \nonumber \\
+	&& \frac{F_2}{n}\left[\sum_{i=1}^{n}{\exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]} + K_R\Xi\right], \label{Eqn:AdaptedFunction}
+\end{eqnarray}
+\begin{eqnarray}
+	F_1 &:=& F_L+\alpha F_I\Xi, \label{Eqn:F_1Equation} \\
+	F_2 &:=& (1-2\alpha)F_I\Xi, \label{Eqn:F_2Equation} \\
+	F_I &:=& (F_U-F_L), \label{Eqn:FunctionInterval} \\
+	\Xi &:=& 0.5 (\xi + 1), \label{Eqn:ChangeOfRandomVar} \\
+	\Sigma_z &:=& \sum_{i=1}^{n} z_i, \label{Eqn:SigmaZ} \\
 	z_i &:=& \frac{K_D(x_i-x_i^M)}{x_i^I}, \label{Eqn:ZiDefinition} \\
 	x_i^I &:=& x_i^U - x_i^L, \label{Eqn:InterDefinition} \\
-	x_i^M &:=& x_i^L + 0.5(1-\beta)x_i^I+\beta x_i^I\label{Eqn:FactorAtMaximumValue}
+	x_i^M &:=& x_i^L + \beta x_i^I+(1-2\beta)x_i^I\Xi, \label{Eqn:FactorAtMaximumValue}
 \end{eqnarray}
-where  $i \in \{1, 2, 3, \dots, n\}$, $\xi$ is a random variable with the properties $E(\xi)=0$ and $|\xi|<1$, $\Xi$ is a random variable with the properties $E(\xi)=0.5$ and $|\xi|<1$,  $E(.)$ is the expected value. $[F_L, F_U]$ is the function range, $K_R$ is a noise factor, $K_D$ is difficulty factor, $x_i^M$ is the location of peak, $x_i^L$ and $x_i^U$ are lower and upper limit of the $i^{\text{th}}$ factor, 
-
-The function $f(x_1, x_2, x_3, \dots, x_n)$ preserves all the following mathematical properties of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}).
+\begin{eqnarray}
+	0 < \alpha < 0.5, \label{Eqn:ConstraintsForAlpha} \\
+	0 < \beta < 0.5, \label{Eqn:ConstraintsForBeta}
+\end{eqnarray}
+where  $i \in \{1, 2, 3, \dots, n\}$, $\xi$ is a random variable with the properties $E(\xi)=0$ and $|\xi|\le 1$, $\Xi$ is a random variable with the properties $E(\Xi)=0.5$ and $0 \le \xi \le 1$,  $E(.)$ is the expected value. $[F_L, F_U]$ is the function range, $K_R$ is a noise factor, $K_D$ is difficulty factor, $x_i^M$ are the optimal combination of factors where the function $g$ reaches its maximum value, $x_i^L$ and $x_i^U$ are lower and upper limit of the $i^{\text{th}}$ factor, $\alpha$ and $\beta$ are padding constants for limiting the maximum value of the function $f$ and limiting the optimal combination within the desired region respectively.
+\par
+The function $F(z_1, z_2, z_3, \dots, z_n)$ of (\ref{Eqn:AdaptedFunction}) preserves all the following mathematical properties of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}).
 \begin{enumerate}
+	\item Gradient is not proportional to the distance from its optimum combination.
 	\item Has unique maximum value at $z_1 = z_2 = z_3 = \dots = z_n = 0$ i.e. at $x_i=x_i^M, \forall i\in\{1, 2, 3, \dots, n\}$, provided that $a<\frac{1}{n}$
+	\item It is not a concave function.
+	\item The optimal value of an arbitrary factor is not constant throughout the factorial space.
 \end{enumerate}
 \par
-It can be observed that the convex function, $C_4$, proposed in (\ref{Eqn:Novelmodel}) the previous section has a maximum value $C_4^{M}=2n$ at $x_i=0, \forall i\in\{1, 2, 3, \dots, n\}$, where $n$ is number of factors. 
-\par
-
-\par
-$x_i^L$ and $x_i^U$ are the lower and upper limit for the $i^{\text{th}}$ factor. $x_i^M$ are the values for which $f$ obtains maximum value.
-\begin{eqnarray}
-	F(x_1, x_2, x_3, ..., x_n) = \sum_{i=1}^{i=n}{\frac{\me^{(x_i-x_i^M)}}{[\me^{(x_i-x_i^M)}+1]^2}}. \label{Eqn:DiffSigmoidMultiChangeMaxPoint}
-\end{eqnarray}
-A maximum value of $F_M$ is obtained by taking
-\begin{eqnarray}
-	F(x_1, x_2, x_3, ..., x_n) = \frac{4F_M}{n}\sum_{i=1}^{i=n}{\frac{\me^{(x_i-x_i^M)}}{[\me^{(x_i-x_i^M)}+1]^2}}. \label{Eqn:DiffSigmoidMultiChangeMaxValue}
-\end{eqnarray}
-\par
-The maximum value, $F_M$, can be obtained by
-\begin{eqnarray}
-	F_M = F_L + \xi(F_U-F_L) \label{Eqn:MaxValueSelection}
-\end{eqnarray}
-where $F_L$ is lower limit, $F_M$ is upper limit $\xi$ is a constant random value, which helps to generate a new $F_M$ ever time the above function is invoked.
-\par
-The range of interest is between $x_i^L$ and $x_i^U$. A maximum value should be between these limits. Also, it is recommended not to move maximum values to the extremes. Hence we propose
-\begin{eqnarray}
-	x_i^M = x_i^L + \frac{\xi(1-\alpha)(x_i^U-x_i^L)}{2} \label{Eqn:MaxPointSelection}
-\end{eqnarray}
-where $0<\alpha <1$ is a constant and $0<\xi\le 1$ is a constant random number. $\alpha$ determines the region where maximum value may fall. The random value, $\xi$, allows to select a new point each time this function is invoked.
+In the next section, an algorithm is presented to show implementation procedure.
 \section{Algorithm}
 \label{Sec:Algorithm}
 \begin{figure}
@@ -245,6 +248,60 @@ where $0<\alpha <1$ is a constant and $0<\xi\le 1$ is a constant random number. 
 	\caption{Flowchart}
 \end{figure}
 Figure~\ref{Fig:Flowchart} shows the proposed algorithm.
+
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[node distance = 7mm]
+		\node (Start) [startstop] {START};
+		\node (Define) [process, below of=Start, below = -1.5mm] {DEFINE $\alpha, \beta, a, F_L, F_U$~AND $K_D$};
+		\node (Calculate01) [process, below of=Define, below = 0.5mm] {CALCULATE $F_I, F_1$ AND $F_2$ USING (\ref{Eqn:F_1Equation}), (\ref{Eqn:F_2Equation}) AND (\ref{Eqn:FunctionInterval})};
+		\node (Input01) [io, below of=Calculate01, below = 1.0mm] {INPUT $n$};
+		\node (Input02) [io, below of=Input01, below = -1mm, text width=4.25cm] {INPUT $x_i^L$~AND~$x_i^U$};
+		\node (Calculate02) [process, below of=Input02, below = -1mm] {CALCULATE $x_i^M$ USING (\ref{Eqn:FactorAtMaximumValue})};
+		\node (Input03) [io, below of=Calculate02, below = -0.5mm, text width=3.8cm] {INPUT $x_i$};
+		\node (Calculate03) [process, below of=Input03, below = -1mm] {RESET $\Sigma_z=0$};
+		\node (Calculate04) [process, below of=Calculate03, below = -1mm] {CALCULATE $z_i$ AND $\Sigma_z = \Sigma_z + z_i$};
+		\node (Calculate05) [process, below of=Calculate04, below = 0.5mm] {RESET $F=F_1$};
+		\node (Calculate06) [process, below of=Calculate05, below = -1mm] {CALCULATE\\  $F=F+\frac{F_2}{n} \exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]$};
+		\node (Calculate07) [process, below of=Calculate06, below = 3mm] {CALCULATE\\ $F=F+\frac{F_2K_R\Xi}{n}$};
+		\node (Output03) [io, below of=Calculate07, below = 1mm, text width=3.4cm] {OUTPUT $F$};
+		\node (Decision01) [decision, below of=Output03, below = -1mm, text width=2cm] {CONTINUE FOR\\ANOTHER?};
+		\node (Stop) [startstop, below of=Decision01, below = 13mm] {STOP};
+
+		\node (ForBox01) [dottedbox, left of=Input02, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox02) [dottedbox, left of=Calculate02, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox03) [dottedbox, left of=Input03, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox04) [dottedbox, left of=Calculate04, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox05) [dottedbox, left of=Calculate06, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+
+ 		%\node (stop) [startstop, below of=calculate1, below = 0mm] {STOP};
+		\draw [arrow] (Start) -- (Define);
+		\draw [arrow] (Define) -- (Calculate01);
+		\draw [arrow] (Calculate01) -- (Input01);
+		\draw [arrow] (Input01) -- (Input02);
+		\draw [arrow] (Input02) -- (Calculate02);
+		\draw [arrow] (Calculate02) -- (Input03);
+		\draw [arrow] (Input03) -- (Calculate03);
+		\draw [arrow] (Calculate03) -- (Calculate04);
+		\draw [arrow] (Calculate04) -- (Calculate05);
+		\draw [arrow] (Calculate05) -- (Calculate06);
+		\draw [arrow] (Calculate06) -- (Calculate07);
+		\draw [arrow] (Calculate07) -- (Output03);
+		\draw [arrow] (Output03) -- (Decision01);
+		\draw [arrow] (Decision01) -- node[anchor=west]{No}(Stop);
+		\draw [arrow] ($ (Decision01.east) $) node[anchor=south west]{Yes} ++ -- (+2.5,-14.75) |- ($ (Input03.north) + (0mm,2mm) $);
+
+		\draw [dottedarrow] (ForBox01) -- (Input02);
+		\draw [dottedarrow] (ForBox02) -- (Calculate02);
+		\draw [dottedarrow] (ForBox03) -- (Input03);
+		\draw [dottedarrow] (ForBox04) -- (Calculate04);
+		\draw [dottedarrow] (ForBox05) -- (Calculate06);
+	\end{tikzpicture}
+	\label{Fig:AlgorithmInFlowchart}
+\caption{Flowchart}
+\end{figure}
+
 \section{Application}
 \label{Sec:Application}
 \section{Conclusion}

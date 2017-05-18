@@ -186,14 +186,16 @@ x2 = -10 : 0.01 : 10;
 Inter1 = (max(x1)-min(x1));
 Inter2 = (max(x2)-min(x2));
 % % Function value scaling
+alpha = 0.2;
 F_L = 0;
 F_U = 10;
-F_I = (F_U-F_L)*rand();
-
+F_I = (F_U-F_L);
+F_1 = F_I*alpha*rand();
+F_2 = F_I*(1-2\alpha)*rand();
 % % Factors scaling
-beta = 0.8;
-x1_m = min(x1) + Inter1*(1 - beta)/2 + ( rand(1)*beta*Inter1);
-x2_m = min(x2) + Inter2*(1 - beta)/2 + ( rand(1)*beta*Inter2);
+beta = 0.2;
+x1_m = min(x1) + Inter1*beta + rand()*(1-2*beta)*Inter1;
+x2_m = min(x2) + Inter2*beta + rand()*(1-2*beta)*Inter2;
 [X1, X2] = meshgrid(x1, x2);
 % Fun1 = - ((X1+0.5*0.9*sin(10*X1./Inter1+10*X2./Inter2)).^2)/(2*(Inter1/10)^2);
 % Fun2 = - ((X2+0.5*0.9*sin(10*X1./Inter1+10*X2./Inter2)).^2)/(2*(Inter2/10)^2);
@@ -201,7 +203,7 @@ XX1 = (X1 -x1_m)/Inter1*5;
 XX2 = (X2 -x2_m)/Inter2*5;
 Fun1 = - ((XX1+0.5*0.9*sin(XX1 + XX2)).^2);
 Fun2 = - ((XX2+0.5*0.9*sin(XX1 + XX2)).^2)*5;
-Y =	F_L + (F_I)/2 * (exp(Fun1) + exp(Fun2)+0.1*gskrand(size(Fun1)));
+Y =	F_1 + (F_2)/2 * (exp(Fun1) + exp(Fun2)+0.1*gskrand(size(Fun1)));
 surf (X1, X2, Y, 'edgecolor', 'none')
 xlabel('$x_1$','Interpreter','latex');
 ylabel('$x_2$','Interpreter','latex');
