@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.20)  16 MAY 2017 20:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.20)  17 MAY 2017 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1696,7 +1696,7 @@ Package epstopdf Info: Source file: <images/poly-2-var.eps>
 (epstopdf)                    size: 77131 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/poly-2-var-eps-conv
 erted-to.pdf images/poly-2-var.eps>
-(epstopdf)             \includegraphics on input line 95.
+(epstopdf)             \includegraphics on input line 96.
 Package epstopdf Info: Output file is already uptodate.
 
 <images/poly-2-var-eps-converted-to.pdf, id=11, 421.575pt x 316.18124pt>
@@ -1704,7 +1704,7 @@ File: images/poly-2-var-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/poly-2-var-eps-converted-to.pdf>
 Package pdftex.def Info: images/poly-2-var-eps-converted-to.pdf used on input l
-ine 95.
+ine 96.
 (pdftex.def)             Requested size: 237.59789pt x 178.19887pt.
 Package epstopdf Info: Source file: <images/2GussianFunction.eps>
 (epstopdf)                    date: 2017-05-16 15:24:52
@@ -1715,7 +1715,7 @@ df>
 (epstopdf)                    size: 48195 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/2GussianFunction-ep
 s-converted-to.pdf images/2GussianFunction.eps>
-(epstopdf)             \includegraphics on input line 111.
+(epstopdf)             \includegraphics on input line 112.
 Package epstopdf Info: Output file is already uptodate.
 
 <images/2GussianFunction-eps-converted-to.pdf, id=12, 421.575pt x 316.18124pt>
@@ -1723,84 +1723,76 @@ File: images/2GussianFunction-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/2GussianFunction-eps-converted-to.pdf>
 Package pdftex.def Info: images/2GussianFunction-eps-converted-to.pdf used on i
-nput line 111.
+nput line 112.
 (pdftex.def)             Requested size: 237.59789pt x 178.19887pt.
-Package epstopdf Info: Source file: <images/1FactorsSigmoid.eps>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 57253 bytes
-(epstopdf)             Output file: <images/1FactorsSigmoid-eps-converted-to.pd
-f>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 21135 bytes
-(epstopdf)             Command: <repstopdf --outfile=images/1FactorsSigmoid-eps
--converted-to.pdf images/1FactorsSigmoid.eps>
-(epstopdf)             \includegraphics on input line 123.
+Package epstopdf Info: Source file: <images/2GussianFunctionModified.eps>
+(epstopdf)                    date: 2017-05-17 15:05:20
+(epstopdf)                    size: 74426 bytes
+(epstopdf)             Output file: <images/2GussianFunctionModified-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2017-05-17 15:09:35
+(epstopdf)                    size: 68536 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/2GussianFunctionMod
+ified-eps-converted-to.pdf images/2GussianFunctionModified.eps>
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/1FactorsSigmoid-eps-converted-to.pdf, id=13, 587.19376pt x 438.63875pt>
-File: images/1FactorsSigmoid-eps-converted-to.pdf Graphic file (type pdf)
-<use images/1FactorsSigmoid-eps-converted-to.pdf>
-Package pdftex.def Info: images/1FactorsSigmoid-eps-converted-to.pdf used on in
-put line 123.
-(pdftex.def)             Requested size: 237.59789pt x 177.48708pt.
-Package epstopdf Info: Source file: <images/2FactorsSigmoid.eps>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 117434 bytes
-(epstopdf)             Output file: <images/2FactorsSigmoid-eps-converted-to.pd
-f>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 107639 bytes
-(epstopdf)             Command: <repstopdf --outfile=images/2FactorsSigmoid-eps
--converted-to.pdf images/2FactorsSigmoid.eps>
-(epstopdf)             \includegraphics on input line 129.
-Package epstopdf Info: Output file is already uptodate.
-
-<images/2FactorsSigmoid-eps-converted-to.pdf, id=14, 587.19376pt x 438.63875pt>
-File: images/2FactorsSigmoid-eps-converted-to.pdf Graphic file (type pdf)
-<use images/2FactorsSigmoid-eps-converted-to.pdf>
-Package pdftex.def Info: images/2FactorsSigmoid-eps-converted-to.pdf used on in
-put line 129.
-(pdftex.def)             Requested size: 237.59789pt x 177.48708pt.
+<images/2GussianFunctionModified-eps-converted-to.pdf, id=13, 421.575pt x 316.1
+8124pt>
+File: images/2GussianFunctionModified-eps-converted-to.pdf Graphic file (type p
+df)
+ <use images/2GussianFunctionModified-eps-converted-to.pdf>
+Package pdftex.def Info: images/2GussianFunctionModified-eps-converted-to.pdf u
+sed on input line 124.
+(pdftex.def)             Requested size: 237.59789pt x 178.19887pt.
  [2 <./images/poly-2-var-eps-converted-to.pdf> <./images/2GussianFunction-eps-c
 onverted-to.pdf>]
-Package epstopdf Info: Source file: <images/2FactorsSigmoidFuture.eps>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 86776 bytes
-(epstopdf)             Output file: <images/2FactorsSigmoidFuture-eps-converted
--to.pdf>
-(epstopdf)                    date: 2017-05-16 15:24:52
-(epstopdf)                    size: 79629 bytes
-(epstopdf)             Command: <repstopdf --outfile=images/2FactorsSigmoidFutu
-re-eps-converted-to.pdf images/2FactorsSigmoidFuture.eps>
-(epstopdf)             \includegraphics on input line 163.
+Overfull \hbox (5.40213pt too wide) in paragraph at lines 148--150
+\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 f\OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cm
+m/m/it/10 ; [] ; n\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . It can be ob-served that
+ $\OML/cmm/m/it/10 ^^AC[] \OT1/cmr/m/n/10 =
+ []
+
+Package epstopdf Info: Source file: <images/2FactorsModifiedSine.eps>
+(epstopdf)                    date: 2017-05-17 15:06:54
+(epstopdf)                    size: 97113 bytes
+(epstopdf)             Output file: <images/2FactorsModifiedSine-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2017-05-17 15:07:02
+(epstopdf)                    size: 89067 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/2FactorsModifiedSin
+e-eps-converted-to.pdf images/2FactorsModifiedSine.eps>
+(epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/2FactorsSigmoidFuture-eps-converted-to.pdf, id=39, 421.575pt x 316.1812
-4pt>
-File: images/2FactorsSigmoidFuture-eps-converted-to.pdf Graphic file (type pdf)
-
- <use images/2FactorsSigmoidFuture-eps-converted-to.pdf>
-Package pdftex.def Info: images/2FactorsSigmoidFuture-eps-converted-to.pdf used
- on input line 163.
+<images/2FactorsModifiedSine-eps-converted-to.pdf, id=39, 421.575pt x 316.18124
+pt>
+File: images/2FactorsModifiedSine-eps-converted-to.pdf Graphic file (type pdf)
+ <use images/2FactorsModifiedSine-eps-converted-to.pdf>
+Package pdftex.def Info: images/2FactorsModifiedSine-eps-converted-to.pdf used 
+on input line 155.
 (pdftex.def)             Requested size: 237.59789pt x 178.19887pt.
- [3 <./images/1FactorsSigmoid-eps-converted-to.pdf> <./images/2FactorsSigmoid-e
-ps-converted-to.pdf> <./images/2FactorsSigmoidFuture-eps-converted-to.pdf>]
-<images/flow-chart.pdf, id=60, 282.30469pt x 418.56375pt>
+ [3 <./images/2GussianFunctionModified-eps-converted-to.pdf> <./images/2Factors
+ModifiedSine-eps-converted-to.pdf>] <images/flow-chart.pdf, id=55, 282.30469pt 
+x 418.56375pt>
 File: images/flow-chart.pdf Graphic file (type pdf)
 
 <use images/flow-chart.pdf>
-Package pdftex.def Info: images/flow-chart.pdf used on input line 195.
+Package pdftex.def Info: images/flow-chart.pdf used on input line 243.
 (pdftex.def)             Requested size: 237.59789pt x 352.2873pt.
- (./Ver000.bbl) [4 <./images/flow-chart.pdf>]
+ (./Ver000.bbl [4]) [5
+
+ <./images/flow-chart.pdf>]
 (./Ver000.aux) ) 
 Here is how much of TeX's memory you used:
- 10921 strings out of 493014
- 194254 string characters out of 6137015
- 226843 words of memory out of 5000000
- 14353 multiletter control sequences out of 15000+600000
+ 10929 strings out of 493014
+ 194413 string characters out of 6137015
+ 233959 words of memory out of 5000000
+ 14362 multiletter control sequences out of 15000+600000
  14580 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,14n,42p,10412b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,14n,42p,10412b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbs
 y10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texliv
@@ -1809,16 +1801,17 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2016/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmmi7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
-<c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti8.pfb>
-Output written on Ver000.pdf (4 pages, 569542 bytes).
+/cmmi8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2016/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti8.pfb>
+Output written on Ver000.pdf (5 pages, 538574 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

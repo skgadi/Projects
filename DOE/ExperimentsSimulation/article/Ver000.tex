@@ -89,16 +89,17 @@ All the factors, $x_i$, are constrained by upper and lower limits. The numerical
 The proposed algorithm presents the case of single response, which can be adopted to multi-response.
 \section{Construction of a mathematical function to suit our requirements}
 \label{Sec:Construction}
+In this section possible candidates for the function $f_i$  are discussed. The selected candidate function is then adapted to meet our further requirements in the next section.
 \subsection{Quadratic concave function}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.48\textwidth]{images/poly-2-var}
 	\label{Fig:TwoVariablePolynomial}
-	\caption{A second order polynomial convex function}
+	\caption{Quadratic concave function $y=C_1(x_1, x_2)$.}
 \end{figure}
 A second order polynomial function, such as
 \begin{eqnarray}
-F(x_1, x_2, x_3, \dots, x_n) &=& -\sum_{i=1}^{n}{x_i^2} \label{Eqn:PolyFunction}
+C_1(x_1, x_2, x_3, \dots, x_n) &:=& -\sum_{i=1}^{n}{x_i^2} \label{Eqn:PolyFunction}
 \end{eqnarray}
 is a concave function, which serve the purpose of providing a unique optimal point. Figure~\ref{Fig:TwoVariablePolynomial} depicts (\ref{Eqn:PolyFunction}) for the two variables case. However, it doesn't meet the requirements of a good example because to the following limitations.
 \begin{enumerate}
@@ -110,65 +111,112 @@ is a concave function, which serve the purpose of providing a unique optimal poi
 	\centering
 	\includegraphics[width=0.48\textwidth]{images/2GussianFunction}
 	\label{Fig:TwoVarGaussian}
-	\caption{Two variable Gaussian distribution function}
+	\caption{Two variable Gaussian function $y=C_2(x_1, x_2)$.}
 \end{figure}
 The multivariable Gussian function
 \begin{eqnarray}
-	F(x_1, x_2, x_3, \dots, x_n) = \prod_{i=1}^{n}{\me^{-x_i^2}} \label{Eqn:MultiFactorialNormal}
+	C_2(x_1, x_2, x_3, \dots, x_n) := \prod_{i=1}^{n}{\me^{-x_i^2}} \label{Eqn:MultiFactorialNormal}
 \end{eqnarray}
 is a concave function, hence, it has a unique maximum value. The slope of this function is not linearly related with the distance from its optimal point. The concave functions have property that the response of all the points between any two arbitrary points always grater than the responses at these arbitrary points \cite{antoniou2007practical}. A non-concave function gives additional challenge in solving the optimization problem. 
-\subsection{Sigmoid convex function}
+\subsection{Modified version of Gaussian function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/1FactorsSigmoid}
-	\label{Fig:OneVarSigmoid}
-	\caption{One variable convex function}
+	\includegraphics[width=0.48\textwidth]{images/2GussianFunctionModified}
+	\label{Fig:2GussianFunctionModified}
+	\caption{Modified version of Gaussian function $y=C_3(x_1, x_2)$.}
 \end{figure}
+Keeping above limitations in mind, a modified version of Gussian function is proposed as
+\begin{eqnarray}
+	C_3(x_1, x_2, x_3, ..., x_n) := \sum_{i=1}^{n}{\me^{-x_i^2}}. \label{Eqn:ModifiedGuassian}
+\end{eqnarray}
+\par
+Figure~\ref{Fig:2GussianFunctionModified} depicts (\ref{Eqn:ModifiedGuassian}) for the case of two variables. A symmetric matrix is called negative definite when all its eigenvalues are negative. A function can be said concave, if Hessian matrix associated with it is negative definite \cite{bernstein1962some}. Hessian matrix for (\ref{Eqn:ModifiedGuassian}) is 
+\begin{eqnarray}
+	H_{i,j} = \pdv[2]{C_3}{x_i} =
+	\begin{cases}
+		2\me^{-x_i^2}(2x_i^2-1)	,	& \text{if } i = j\\
+		0						,	& \text{otherwise}
+	\end{cases} \label{Eqn:HessianMatrix}
+\end{eqnarray}
+where $i, j \in \{1, 2, 3, \dots, n\}$.
+\par
+The above equation shows that the Hessian matrix, $H$, is a diagonal matrix. In a diagonal matrix each element on the principal diagonal is an eigenvalue. So, we can comment that this matrix is not a negative definite because there exist positive elements for $|x_i|>\sqrt{\frac{1}{2}}$.
+\par
+In a function gradient is zero at the peaks, dips and saddle points. The gradient vector of (\ref{Eqn:ModifiedGuassian}) is
+\begin{eqnarray}
+	\Delta C_{3_i} = \pdv{C_3}{x_i} = -2x_i\me^{-x_i^2} \label{Eqn:GradientModifiedGuassian}
+\end{eqnarray}
+where $i \in \{1, 2, 3, \dots, n\}$. It can be observed that $\Delta C_{3_i} = 0$ implies $x_i =0$ or $x_i=\pm\infty$. Hence, it is guaranteed that there exists only one peak at $x_1 = x_2 = x_3 = \dots = x_n = 0$.
+\par
+In this function, the optimum value for a arbitrary factor $x_i$ is unaffected with the other factors. This is not recommended because it trivializes the multi-factorial problems.
+\subsection{A novel mathematical function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/2FactorsSigmoid}
-	\label{Fig:MultiVarSigmoid}
-	\caption{Two variable convex function}
+	\includegraphics[width=0.48\textwidth]{images/2FactorsModifiedSine}
+	\label{Fig:TwoVarNovelFunc}
+	\caption{The proposed fucntion $y=C_4(x_1, x_2)$ for $a = 0.45$.}
 \end{figure}
-Keeping above limitations in mind, a sigmoid based convex function is proposed. One variable sigmoid function is
+The following mathematical function is proposed by introducing a new nonlinear term to the above model.
 \begin{eqnarray}
-S(x) = \frac{1}{1-\me^{-x}} \label{Eqn:Sigmoid}
-\end{eqnarray}
-and its derivative is
-\begin{eqnarray}
-F(x) = S'(x) = \frac{\me^x}{(\me^{x}+1)^2} = S(x)(1-S(x)). \label{Eqn:DiffSigmoid}
+	C_4(.) := \sum_{i=1}^{n}{\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2]} \label{Eqn:Novelmodel}
 \end{eqnarray}
 \par
-The function $F$ is plotted in Figure~\ref{Fig:OneVarSigmoid}. The function $F$ can be extended to a $n$ variables case as
+Figure~\ref{Fig:TwoVarNovelFunc} depicts $C_4$ for a two variable case with $a=0.45$. The gradient of $C_4$ is
 \begin{eqnarray}
-F(x_1, x_2, x_3, ..., x_n) = \sum_{i=1}^{n}{\frac{\me^x_i}{(\me^{x_i}+1)^2}}. \label{Eqn:DiffSigmoidMulti}
+	\Delta C_{4_i} &=& \pdv{C_4}{x_i} \nonumber\\
+	&=& -2\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2] \times \nonumber\\
+	&& \left[ x_i + a\sin\left(\sum_{i=1}^{n} x_i\right) \right] \left[1 + a\cos\left(\sum_{i=1}^{n} x_i\right) \right] \label{Eqn:GradientNovelFunc}
 \end{eqnarray}
-\par
-Figure~\ref{Fig:MultiVarSigmoid} shows sigmoid based function for two variables. A function can be said concave, if Hessian matrix associated with it is negative definite \cite{bernstein1962some}. Hessian matrix for (\ref{Eqn:DiffSigmoidMulti}) is 
+where $i \in \{1, 2, 3, \dots, n\}$. Peaks, dips or saddle points form at 
 \begin{eqnarray}
-H_{i,j} = \pdv[2]{F}{x_i} =
-\begin{cases}
-\frac{\me^{x_i}(\me^{2x_i}-4\me^{x_i}+1)}{(\me^{x_i}+1)^2},& \text{if } i = j\\
-0,              & \text{otherwise.}
-\end{cases} \label{Eqn:HessianMatrix}
+	\Delta C_{4_i}=0 \label{Eqn:GradientNovelEqn}
 \end{eqnarray}
+Only one peak is required, other peaks, dips and saddle points should be suppressed. Equation (\ref{Eqn:GradientNovelEqn}) can be solved by solving the following three equations.
+\begin{eqnarray}
+	\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2]=0 \label{Eqn:GradientNovelEqn1} \\
+	x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)=0 \label{Eqn:GradientNovelSol2} \\
+	1 + a\cos\left(\sum_{i=1}^{n} x_i\right)=0 \label{Eqn:GradientNovelEqn3}
+\end{eqnarray}
+The solution for (\ref{Eqn:GradientNovelEqn1}) is $|x_i|=\infty$, which can be ignored. The solution for (\ref{Eqn:GradientNovelEqn3}) is
+\begin{eqnarray}
+	\sum_{i=1}^{n} x_i &=& \cos[-1](\frac{-1}{a}) \label{Eqn:GradientNovelSol3}
+\end{eqnarray}
+Selecting a value $|a|<1$, we can suppress all the real solutions of (\ref{Eqn:GradientNovelSol3}). Equation (\ref{Eqn:GradientNovelSol2}) can be rewritten as 
+\begin{eqnarray}
+	x_i = -a\sin\left(\sum_{i=1}^{n} x_i\right) \label{Eqn:GradientNovelSol2ReWr1}
+\end{eqnarray}
+which implies that the solution lies at $x_1 = x_2 = x_3 = \dots = x_n$. Hence (\ref{Eqn:GradientNovelSol2ReWr1}) can be rewritten it as
+\begin{eqnarray}
+	nx_i + na\sin(nx_i) = 0 \label{Eqn:GradientNovelSol2ReWr2}
+\end{eqnarray}
+Since $|\sin(p)|<p$ for all the values of $p$ except for $p = 0$, the solution can be limited to only one point $x_1 = x_2 = x_3 = \dots = x_n=0$ provided that $|na|<1$. Considering a positive value for $a$, we guarantee only one peak at origin for $a<\frac{1}{n}$.
 \par
-It can be observed that the Hessian matrix, $H_{i,j}$, is not a negative definite because this diagonal matrix is positive definite for $x_i<\ln({2-\sqrt{3}})$ and $x_i<\ln({2+\sqrt{3}})$.
-\par
-The Hessian matrix, $H_{i,j}$ is having a not a negative definite because it is a diagonal matrix and the diagnal values are positive. Hence, $F$ is a convex function, i.e. has a unique maximum value with no other peaks. In the next section a method is presented to adapt $F$ to generate random experiments within given limits.
-\par
-Not using normal distribution because we can tune this further to get a non-symmetric equation.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.48\textwidth]{images/2FactorsSigmoidFuture}
-	\label{Fig:TwoVarFutureFunc}
-	\caption{Two variable function future}
-\end{figure}
-\section{Adapting convex function}
+In the next section a method is presented to adapt the function $C_4$ defined at (\ref{Eqn:Novelmodel}) to generate random experiments.
+\section{Adapting the proposed function}
 \label{Sec:Adapting}
-It can be observed that the convex function, $F$, proposed in the previous section has a maximum value $F_{max}=0.25n$ at $x_i=0, \forall i\in\{1, 2, 3, \dots, n\}$, where $n$ is number of factors. Also, it can be noted that the response $F$ reaches close to zero when $x_i$
+Noise is added.
+A scaled version of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}) is
+\begin{eqnarray}
+	f(.) &:=& F_L + \frac{F_I}{2} \nonumber \\
+	&+&\frac{F_I}{2}\sum_{i=1}^{n}{\exp[-\left(z_i + a\sin\left(\sum_{i=1}^{n} z_i\right)\right)^2]}, \label{Eqn:AdaptedFunction} \\
+	\Xi &:=& 0.5 (\xi + 1) \label{Eqn:ChangeOfRandomVar} \\
+	F_I &:=& (F_U-F_L)\Xi \label{Eqn:FunctionInterval} \\
+	z_i &:=& \frac{K_D(x_i-x_i^M)}{x_i^I}, \label{Eqn:ZiDefinition} \\
+	x_i^I &:=& x_i^U - x_i^L, \label{Eqn:InterDefinition} \\
+	x_i^M &:=& x_i^L + 0.5(1-\beta)x_i^I+\beta x_i^I\label{Eqn:FactorAtMaximumValue}
+\end{eqnarray}
+where  $i \in \{1, 2, 3, \dots, n\}$, $\xi$ is a random variable with the properties $E(\xi)=0$ and $|\xi|<1$, $\Xi$ is a random variable with the properties $E(\xi)=0.5$ and $|\xi|<1$,  $E(.)$ is the expected value. $[F_L, F_U]$ is the function range, $K_R$ is a noise factor, $K_D$ is difficulty factor, $x_i^M$ is the location of peak, $x_i^L$ and $x_i^U$ are lower and upper limit of the $i^{\text{th}}$ factor, 
+
+The function $f(x_1, x_2, x_3, \dots, x_n)$ preserves all the following mathematical properties of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}).
+\begin{enumerate}
+	\item Has unique maximum value at $z_1 = z_2 = z_3 = \dots = z_n = 0$ i.e. at $x_i=x_i^M, \forall i\in\{1, 2, 3, \dots, n\}$, provided that $a<\frac{1}{n}$
+\end{enumerate}
 \par
-$x_i^L$ and $x_i^U$ are the lower and upper limit of a factor. Let $X_i^M$ be the values where $F$ obtains maximum value.
+It can be observed that the convex function, $C_4$, proposed in (\ref{Eqn:Novelmodel}) the previous section has a maximum value $C_4^{M}=2n$ at $x_i=0, \forall i\in\{1, 2, 3, \dots, n\}$, where $n$ is number of factors. 
+\par
+
+\par
+$x_i^L$ and $x_i^U$ are the lower and upper limit for the $i^{\text{th}}$ factor. $x_i^M$ are the values for which $f$ obtains maximum value.
 \begin{eqnarray}
 	F(x_1, x_2, x_3, ..., x_n) = \sum_{i=1}^{i=n}{\frac{\me^{(x_i-x_i^M)}}{[\me^{(x_i-x_i^M)}+1]^2}}. \label{Eqn:DiffSigmoidMultiChangeMaxPoint}
 \end{eqnarray}
@@ -202,7 +250,8 @@ Figure~\ref{Fig:Flowchart} shows the proposed algorithm.
 \section{Conclusion}
 \label{Sec:Conclusion}
 The mathematical construction is given in detail, which helps others to adapt to meet any additional requirements.
-
+\par
+It is developed for maximum values, but can be adapted to the minimum by putting negative to the function and scaling accordingly.
 %\bibliographystyle{apacite}%unsrtnat}
 %\bibliographystyle{spbasic}      % basic style, author-year citations
 %\bibliographystyle{spmpsci}      % mathematics and physical sciences
