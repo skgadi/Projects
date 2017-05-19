@@ -35,6 +35,11 @@
 
 
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest, samples=65} %Set this value to 65 for the final version
+%\usepgfplotslibrary{dateplot} 
+
+
 %\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
 
 \begin{document}
@@ -106,9 +111,26 @@ In this section possible candidates for the function $f_i$  are discussed. The s
 \subsection{Quadratic concave function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/poly-2-var}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=0.45\textwidth,
+			height = 7.5cm,
+			colormap/cool,
+			xlabel=$x_1$,
+			ylabel=$x_2$,
+			zlabel=$C_1$,
+			]
+			\addplot3[
+			mesh,
+			%samples=10,
+			domain=-10:10,
+			]
+			{-x^2-y^2};
+			%\addlegendentry{$\frac{sin(r)}{r}$}
+		\end{axis}
+	\end{tikzpicture}
 	\label{Fig:TwoVariablePolynomial}
-	\caption{Quadratic concave function $y=C_1(x_1, x_2)$.}
+	\caption{Quadratic concave function $C_1(x_1, x_2)$.}
 \end{figure}
 A second order polynomial function, such as
 \begin{eqnarray}
@@ -122,9 +144,25 @@ is a concave function, which serve the purpose of providing a unique optimal poi
 \subsection{Multivariable Gaussian function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/2GussianFunction}
+	\begin{tikzpicture}
+	\begin{axis}[
+		width=0.45\textwidth,
+		height = 7.5cm,
+		colormap/cool,
+		xlabel=$x_1$,
+		ylabel=$x_2$,
+		zlabel=$C_2$,
+		]
+		\addplot3[
+		surf,
+		%samples = 10,
+		domain=-1.75:1.75,
+		]
+		{exp(-x^2-y^2)};
+	\end{axis}
+	\end{tikzpicture}
 	\label{Fig:TwoVarGaussian}
-	\caption{Two variable Gaussian function $y=C_2(x_1, x_2)$.}
+	\caption{Two variable Gaussian function $C_2(x_1, x_2)$.}
 \end{figure}
 The multivariable Gussian function
 \begin{eqnarray}
@@ -134,9 +172,25 @@ is a concave function, hence, it has a unique maximum value. The slope of this f
 \subsection{Modified version of Gaussian function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/2GussianFunctionModified}
+	\begin{tikzpicture}
+	\begin{axis}[
+		width=0.45\textwidth,
+		height = 7.5cm,
+		colormap/cool,
+		xlabel=$x_1$,
+		ylabel=$x_2$,
+		zlabel=$C_3$,
+		]
+		\addplot3[
+		surf,
+		%samples = 50,
+		domain=-2.5:2.5,
+		]
+		{exp(-x^2)+exp(-y^2)};
+	\end{axis}
+	\end{tikzpicture}
 	\label{Fig:2GussianFunctionModified}
-	\caption{Modified version of Gaussian function $y=C_3(x_1, x_2)$.}
+	\caption{Modified version of Gaussian function $C_3(x_1, x_2)$.}
 \end{figure}
 Keeping above limitations in mind, a modified version of Gussian function is proposed as
 \begin{eqnarray}
@@ -165,16 +219,32 @@ In this function, the optimum value for a arbitrary factor $x_i$ is unaffected w
 \subsection{A novel mathematical function}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.48\textwidth]{images/2FactorsModifiedSine}
+	\begin{tikzpicture}
+	\begin{axis}[
+		width=0.45\textwidth,
+		height = 7.5cm,
+		colormap/cool,
+		xlabel=$x_1$,
+		ylabel=$x_2$,
+		zlabel=$C_4$,
+		]
+		\addplot3[
+		surf,
+		%samples = 50,
+		domain=-2.5:2.5,
+		]
+		{exp(-(x+0.49*sin(deg(x+y)))^2)+exp(-(y+0.49*sin(deg(x+y)))^2)};
+	\end{axis}
+	\end{tikzpicture}
 	\label{Fig:TwoVarNovelFunc}
-	\caption{The proposed fucntion $y=C_4(x_1, x_2)$ for $a = 0.45$.}
+	\caption{The proposed fucntion $C_4(x_1, x_2)$ for $a = 0.49$.}
 \end{figure}
 The following mathematical function is proposed by introducing a new nonlinear term to the above model.
 \begin{eqnarray}
 	C_4(.) := \sum_{i=1}^{n}{\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2]} \label{Eqn:Novelmodel}
 \end{eqnarray}
 \par
-Figure~\ref{Fig:TwoVarNovelFunc} depicts $C_4$ for a two variable case with $a=0.45$. The gradient of $C_4$ is
+Figure~\ref{Fig:TwoVarNovelFunc} depicts $C_4$ for a two variable case with $a=0.49$. The gradient of $C_4$ is
 \begin{eqnarray}
 	\Delta C_{4_i} &=& \pdv{C_4}{x_i} \nonumber\\
 	&=& -2\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2] \times \nonumber\\
