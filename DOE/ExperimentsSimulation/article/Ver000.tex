@@ -24,10 +24,10 @@
 
 % For the flow charts
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows, calc}
+\usetikzlibrary{shapes.geometric, arrows, calc, positioning}
 \tikzstyle{startstop} = [rectangle, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=3.5cm, minimum height=0.5cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, minimum width=2.5cm, text width=4.5cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=3.75cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=2.5cm, text width=4cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
@@ -212,7 +212,7 @@ A scaled version of the function $C_4$ proposed in (\ref{Eqn:Novelmodel}) is
 \begin{eqnarray}
 	f&&(x_1, x_2, x_3, \dots, x_n) = \nonumber \\
 	F&&(z_1, z_2, z_3, \dots, z_n) := F_1 +  \nonumber \\
-	&& \frac{F_2}{n}\left[\sum_{i=1}^{n}{\exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]} + K_R\Xi\right], \label{Eqn:AdaptedFunction}
+	&& \frac{F_2}{n}\left[\sum_{i=1}^{n}{\exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]} + K_R\xi\right], \label{Eqn:AdaptedFunction}
 \end{eqnarray}
 \begin{eqnarray}
 	F_1 &:=& F_L+\alpha F_I\Xi, \label{Eqn:F_1Equation} \\
@@ -241,45 +241,41 @@ The function $F(z_1, z_2, z_3, \dots, z_n)$ of (\ref{Eqn:AdaptedFunction}) prese
 In the next section, an algorithm is presented to show implementation procedure.
 \section{Algorithm}
 \label{Sec:Algorithm}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.48\textwidth]{images/flow-chart}
-	\label{Fig:Flowchart}
-	\caption{Flowchart}
-\end{figure}
-Figure~\ref{Fig:Flowchart} shows the proposed algorithm.
+Figure~\ref{Fig:AlgorithmInFlowchart} shows the proposed algorithm.
 
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}[node distance = 7mm]
+	\begin{tikzpicture}[node distance = 3mm, auto]
 		\node (Start) [startstop] {START};
-		\node (Define) [process, below of=Start, below = -1.5mm] {DEFINE $\alpha, \beta, a, F_L, F_U$~AND $K_D$};
-		\node (Calculate01) [process, below of=Define, below = 0.5mm] {CALCULATE $F_I, F_1$ AND $F_2$ USING (\ref{Eqn:F_1Equation}), (\ref{Eqn:F_2Equation}) AND (\ref{Eqn:FunctionInterval})};
-		\node (Input01) [io, below of=Calculate01, below = 1.0mm] {INPUT $n$};
-		\node (Input02) [io, below of=Input01, below = -1mm, text width=4.25cm] {INPUT $x_i^L$~AND~$x_i^U$};
-		\node (Calculate02) [process, below of=Input02, below = -1mm] {CALCULATE $x_i^M$ USING (\ref{Eqn:FactorAtMaximumValue})};
-		\node (Input03) [io, below of=Calculate02, below = -0.5mm, text width=3.8cm] {INPUT $x_i$};
-		\node (Calculate03) [process, below of=Input03, below = -1mm] {RESET $\Sigma_z=0$};
-		\node (Calculate04) [process, below of=Calculate03, below = -1mm] {CALCULATE $z_i$ AND $\Sigma_z = \Sigma_z + z_i$};
-		\node (Calculate05) [process, below of=Calculate04, below = 0.5mm] {RESET $F=F_1$};
-		\node (Calculate06) [process, below of=Calculate05, below = -1mm] {CALCULATE\\  $F=F+\frac{F_2}{n} \exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]$};
-		\node (Calculate07) [process, below of=Calculate06, below = 3mm] {CALCULATE\\ $F=F+\frac{F_2K_R\Xi}{n}$};
-		\node (Output03) [io, below of=Calculate07, below = 1mm, text width=3.4cm] {OUTPUT $F$};
-		\node (Decision01) [decision, below of=Output03, below = -1mm, text width=2cm] {CONTINUE FOR\\ANOTHER?};
-		\node (Stop) [startstop, below of=Decision01, below = 13mm] {STOP};
+		\node (Define) [process, below = of Start] {DEFINE $\alpha, \beta, F_L, F_U, K_D$~AND $K_R$};
+		\node (Calculate01) [process, below =of Define] {CALCULATE\\$F_I, F_1$ AND $F_2$\\USING (\ref{Eqn:F_1Equation}), (\ref{Eqn:F_2Equation}) AND (\ref{Eqn:FunctionInterval})};
+		\node (Input01) [io, below = of Calculate01, text width=3cm] {INPUT $n$};
+		\node (Calculate01a) [process, below = of Input01] {CALCULATE $a=\frac{0.99}{n}$};
+		\node (Input02) [io, below = of Calculate01a] {INPUT $x_i^L$~AND~$x_i^U$};
+		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (\ref{Eqn:InterDefinition}) AND (\ref{Eqn:FactorAtMaximumValue})};
+		\node (Input03) [io, below = of Calculate02, text width=3.25cm] {INPUT $x_i$};
+		\node (Calculate03) [process, below = of Input03] {RESET $\Sigma_z=0$};
+		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (\ref{Eqn:ZiDefinition}) AND\\UPDATE $\Sigma_z = \Sigma_z + z_i$};
+		\node (Calculate05) [process, below = of Calculate04] {RESET $F=F_1$};
+		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\  $F=F+\frac{F_2}{n} \exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]$};
+		\node (Calculate07) [process, below = of Calculate06] {UPDATE	\\ $F=F+\frac{F_2K_R\xi}{n}$};
+		\node (Output03) [io, below = of Calculate07, text width=3cm] {OUTPUT $F$};
+		\node (Decision01) [decision, below = of Output03, text width=2.5cm] {CONTINUE\\EXPERIMENTS?};
+		\node (Stop) [startstop, below = of Decision01] {STOP};
 
-		\node (ForBox01) [dottedbox, left of=Input02, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
-		\node (ForBox02) [dottedbox, left of=Calculate02, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
-		\node (ForBox03) [dottedbox, left of=Input03, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
-		\node (ForBox04) [dottedbox, left of=Calculate04, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
-		\node (ForBox05) [dottedbox, left of=Calculate06, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox01) [dottedbox, left = of Input02, left = 5mm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		%\node (ForBox02) [dottedbox, left of=Calculate02, left = 2.25cm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox03) [dottedbox, left = of Input03, left = 5mm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox04) [dottedbox, left = of Calculate04, left = 5mm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
+		\node (ForBox05) [dottedbox, left = of Calculate06, left = 5mm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
 
  		%\node (stop) [startstop, below of=calculate1, below = 0mm] {STOP};
 		\draw [arrow] (Start) -- (Define);
 		\draw [arrow] (Define) -- (Calculate01);
 		\draw [arrow] (Calculate01) -- (Input01);
-		\draw [arrow] (Input01) -- (Input02);
+		\draw [arrow] (Input01) -- (Calculate01a);
+		\draw [arrow] (Calculate01a) -- (Input02);
 		\draw [arrow] (Input02) -- (Calculate02);
 		\draw [arrow] (Calculate02) -- (Input03);
 		\draw [arrow] (Input03) -- (Calculate03);
@@ -290,10 +286,11 @@ Figure~\ref{Fig:Flowchart} shows the proposed algorithm.
 		\draw [arrow] (Calculate07) -- (Output03);
 		\draw [arrow] (Output03) -- (Decision01);
 		\draw [arrow] (Decision01) -- node[anchor=west]{No}(Stop);
-		\draw [arrow] ($ (Decision01.east) $) node[anchor=south west]{Yes} ++ -- (+2.5,-14.75) |- ($ (Input03.north) + (0mm,2mm) $);
+		\draw [arrow] ($ (Decision01.east) $)node[anchor=north west]{Yes}  -- ++(0.6,0.00) |- ($ (Input03.north) + (0mm,2mm) $);
 
 		\draw [dottedarrow] (ForBox01) -- (Input02);
-		\draw [dottedarrow] (ForBox02) -- (Calculate02);
+		%\draw [dottedarrow] (ForBox02) -- (Calculate02);
+		\draw [dottedarrow] ($(ForBox01.east) + (1mm,0mm)$) |- (Calculate02);
 		\draw [dottedarrow] (ForBox03) -- (Input03);
 		\draw [dottedarrow] (ForBox04) -- (Calculate04);
 		\draw [dottedarrow] (ForBox05) -- (Calculate06);
