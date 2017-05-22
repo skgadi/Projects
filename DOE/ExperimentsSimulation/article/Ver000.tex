@@ -1,4 +1,3 @@
-
 \RequirePackage{fix-cm}
 %
 \RequirePackage{amsmath}
@@ -6,7 +5,7 @@
 %\documentclass{svjour3}                     % onecolumn (standard format)
 %\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
 %\documentclass[smallextended]{svjour3}       % onecolumn (second format)
-\documentclass[twocolumn]{svjour3}          % twocolumn
+ \documentclass[twocolumn]{svjour3}          % twocolumn
 %\documentclass[letterpaper, 12pt, twocolumn]{article}
 
 %\usepackage[margin=1in]{geometry}
@@ -14,7 +13,7 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
-\usepackage{physics}
+%\usepackage{physics}
 \newcommand{\me}{\mathrm{e}}
 \usepackage{amsmath}
 
@@ -25,10 +24,10 @@
 % For the flow charts
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, calc, positioning}
-\tikzstyle{startstop} = [rectangle, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=3.75cm, minimum height=0.5cm, text centered, draw=black]
-\tikzstyle{process} = [rectangle, minimum width=2.5cm, text width=4cm, minimum height=0.5cm, text centered, draw=black]
-\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{startstop} = [rectangle, thick, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, thick, trapezium left angle=70, trapezium right angle=110, text width=3.75cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, thick, minimum width=2.5cm, text width=4cm, minimum height=0.5cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, thick, minimum width=3cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{dottedarrow} = [thick, dotted,->,>=stealth]
@@ -36,7 +35,8 @@
 
 
 \usepackage{pgfplots}
-\pgfplotsset{compat=newest, samples=65} %Set this value to 65 for the final version
+\usepgfplotslibrary{patchplots}
+\pgfplotsset{compat=newest, samples=60} %Set this value to 65 for the final version
 %\usepgfplotslibrary{dateplot} 
 
 
@@ -81,9 +81,9 @@ One of the challenges in teaching the subject, Design of Experiments, is to come
 \end{abstract}
 \keywords{Experimental design; educational tool; generating examples}
 \section{Introduction}
-Experimental design is applied in almost all the fields involving experimentation \cite{fisher1937design,quinn2002experimental,montgomery2008design,antony2014design}. It is part of various undergraduate and graduate curriculum, ranging from the engineering to the biological sciences. In general the objective of experimental design is to minimize cost and time of the experiments and maximize the yield. Improper design of experiment may lead to inaccurate or false conclusions, as well as a loss of money, material and time \cite{Festing2003341}.
+Experimental design is applied in almost all the fields involving experimentation \cite{fisher1937design,quinn2002experimental,montgomery2008design,antony2014design}. It is part of various undergraduate and graduate curriculum, ranging from the engineering to the biological sciences. In general, the objective of experimental design is to minimize cost and time of the experiments and maximize the yield. Improper design of experiment may lead to inaccurate or false conclusions, as well as a loss of money, material and time \cite{Festing2003341}.
 \par
-Learning statistics or mathematics in general is effective by solving a number of numerical examples \cite{zhu1987learning}. It helps the students to develop insight in the topics \cite{renkl1997learning}. Teachers may involve students in finding experiments to teach the topic \cite{Hunter1977Some,fried2006mathematics,Hiebert82}. However, it is teacher's task to generate examples for the classroom and for the practise \cite{Deborah2008}.
+Learning statistics or mathematics in general is effective by solving a number of numerical examples \cite{zhu1987learning}. It helps the students to develop insight in the topics \cite{renkl1997learning}. Teachers may involve students in finding experiments to teach the topic \cite{Hunter1977Some,fried2006mathematics,Hiebert82}. However, it is teacher's task to generate examples for the classroom and for the practice \cite{Deborah2008}.
 \par
 Solving optimization problems, finding mathematical model etc. in experimental design involves performing various experiments with a different combinations of the factors. Conducting experiments on a real system for the classroom purpose is not always feasible due to any the following limitations.
 \begin{enumerate}
@@ -92,7 +92,7 @@ Solving optimization problems, finding mathematical model etc. in experimental d
 	\item The combination of factors associated for optimum response is constant for a physical system. Therefore, teachers may not provide a fresh problem.
 \end{enumerate}
 \par
-Hence, a computer program generating responses for the given input factors is a good alternative to mimic the physical systems. In this article we present a methodology to generate numerical examples which simulate experiments. The objective is to generate unique process for the limits selected by the user, which ouputs experimental data for the given combinations of the factors. Teachers may adopt this methodology in generating numerical examples, which highlight all the characteristics they want to present to the classroom, give as practice exercise and conduct exams.
+Hence, a computer program generating responses for the given input factors is a good alternative to mimic the physical systems. In this article a methodology is presented to generate numerical examples which simulate experiments. The objective is to generate unique process for the limits selected by the user, which outputs experimental data for the given combinations of the factors. Teachers may adopt this methodology in generating numerical examples, which highlight all the characteristics they want to present to the classroom, give as practice exercise and conduct exams.
 \par
 The proposed algorithm is described in Section \ref{Sec:Algorithm}. Readers interested only in the implementation of algorithm may skip the mathematical construction presented in Section \ref{Sec:Construction} and \ref{Sec:Adapting}.
 \par
@@ -102,7 +102,7 @@ y_j &=& f_j(x_1, x_2, x_3, \dots, x_n) + \xi_j \label{Eqn:Function}
 \end{eqnarray}
 \noindent where $y_j$, $j\in \{1,2,3, \dots, m\}$ are the responses, $x_i$, $i\in \{1,2,3, \dots, n\}$ are the factors, $f_j$, $j\in \{1,2,3, \dots, m\}$ are the nonlinear functions mapping the $n$ factors to the $m$ responses and $\xi_i$, $i\in \{1,2,3, \dots, m\}$ are the noise.
 \par
-All the factors, $x_i$, are constrained by upper and lower limits. The numerical examples should produce an unique optimal responses, $y_j^M$, for a set of factors within its limits. Construction of a one such mathematical function is presented in the next section.
+All the factors, $x_i$, are constrained by upper and lower limits. The numerical examples should produce a unique optimal responses, $y_j^M$, for a set of factors within its limits. Construction of a one such mathematical function is presented in the next section.
 \par
 The proposed algorithm presents the case of single response, which can be adopted to multi-response.
 \section{Construction of a mathematical function to suit our requirements}
@@ -113,7 +113,7 @@ In this section possible candidates for the function $f_i$  are discussed. The s
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
-			width=0.45\textwidth,
+			width=0.465\textwidth,	
 			height = 7.5cm,
 			colormap/cool,
 			xlabel=$x_1$,
@@ -121,7 +121,7 @@ In this section possible candidates for the function $f_i$  are discussed. The s
 			zlabel=$C_1$,
 			]
 			\addplot3[
-			mesh,
+			surf,
 			%samples=10,
 			domain=-10:10,
 			]
@@ -129,14 +129,14 @@ In this section possible candidates for the function $f_i$  are discussed. The s
 			%\addlegendentry{$\frac{sin(r)}{r}$}
 		\end{axis}
 	\end{tikzpicture}
-	\label{Fig:TwoVariablePolynomial}
 	\caption{Quadratic concave function $C_1(x_1, x_2)$.}
+	\label{Fig:TwoVariablePolynomial}
 \end{figure}
 A second order polynomial function, such as
 \begin{eqnarray}
 C_1(x_1, x_2, x_3, \dots, x_n) &:=& -\sum_{i=1}^{n}{x_i^2} \label{Eqn:PolyFunction}
 \end{eqnarray}
-is a concave function, which serve the purpose of providing a unique optimal point. Figure~\ref{Fig:TwoVariablePolynomial} depicts (\ref{Eqn:PolyFunction}) for the two variables case. However, it doesn't meet the requirements of a good example because to the following limitations.
+is a concave function, which serve the purpose of providing a unique optimal point. Fig.~\ref{Fig:TwoVariablePolynomial} depicts (\ref{Eqn:PolyFunction}) for the two variables case. However, it doesn't meet the requirements of a good example because to the following limitations.
 \begin{enumerate}
 	\item Response surface methodology uses a second order fit algorithm. Hence, the process of reaching optimal solution becomes trivial.
 	\item A quadratic function is having a property that its slope increases as it moves far from the optimal point. This property trivializes the process of selecting a new base value.
@@ -146,7 +146,7 @@ is a concave function, which serve the purpose of providing a unique optimal poi
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
-		width=0.45\textwidth,
+		width=0.50\textwidth,	
 		height = 7.5cm,
 		colormap/cool,
 		xlabel=$x_1$,
@@ -161,8 +161,8 @@ is a concave function, which serve the purpose of providing a unique optimal poi
 		{exp(-x^2-y^2)};
 	\end{axis}
 	\end{tikzpicture}
-	\label{Fig:TwoVarGaussian}
 	\caption{Two variable Gaussian function $C_2(x_1, x_2)$.}
+	\label{Fig:TwoVarGaussian}
 \end{figure}
 The multivariable Gussian function
 \begin{eqnarray}
@@ -174,7 +174,7 @@ is a concave function, hence, it has a unique maximum value. The slope of this f
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
-		width=0.45\textwidth,
+		width=0.50\textwidth,	
 		height = 7.5cm,
 		colormap/cool,
 		xlabel=$x_1$,
@@ -188,18 +188,22 @@ is a concave function, hence, it has a unique maximum value. The slope of this f
 		]
 		{exp(-x^2)+exp(-y^2)};
 	\end{axis}
-	\end{tikzpicture}
-	\label{Fig:2GussianFunctionModified}
+	\end{tikzpicture}	
 	\caption{Modified version of Gaussian function $C_3(x_1, x_2)$.}
+	\label{Fig:2GussianFunctionModified}
 \end{figure}
+
+
+
+
 Keeping above limitations in mind, a modified version of Gussian function is proposed as
 \begin{eqnarray}
 	C_3(x_1, x_2, x_3, ..., x_n) := \sum_{i=1}^{n}{\me^{-x_i^2}}. \label{Eqn:ModifiedGuassian}
 \end{eqnarray}
 \par
-Figure~\ref{Fig:2GussianFunctionModified} depicts (\ref{Eqn:ModifiedGuassian}) for the case of two variables. A symmetric matrix is called negative definite when all its eigenvalues are negative. A function can be said concave, if Hessian matrix associated with it is negative definite \cite{bernstein1962some}. Hessian matrix for (\ref{Eqn:ModifiedGuassian}) is 
+Fig.~\ref{Fig:2GussianFunctionModified} depicts (\ref{Eqn:ModifiedGuassian}) for the case of two variables. A symmetric matrix is called negative definite when all its eigenvalues are negative. A function can be said concave, if Hessian matrix associated with it is negative definite \cite{bernstein1962some}. Hessian matrix for (\ref{Eqn:ModifiedGuassian}) is 
 \begin{eqnarray}
-	H_{i,j} = \pdv[2]{C_3}{x_i} =
+	H_{i,j} = \frac{\partial^2 C_3}{{\partial x_i}^2} =
 	\begin{cases}
 		2\me^{-x_i^2}(2x_i^2-1)	,	& \text{if } i = j\\
 		0						,	& \text{otherwise}
@@ -211,9 +215,9 @@ The above equation shows that the Hessian matrix, $H$, is a diagonal matrix. In 
 \par
 In a function gradient is zero at the peaks, dips and saddle points. The gradient vector of (\ref{Eqn:ModifiedGuassian}) is
 \begin{eqnarray}
-	\Delta C_{3_i} = \pdv{C_3}{x_i} = -2x_i\me^{-x_i^2} \label{Eqn:GradientModifiedGuassian}
+	\Delta C_{3_i} = \frac{\partial C_3}{\partial x_i} = -2x_i\me^{-x_i^2} \label{Eqn:GradientModifiedGuassian}
 \end{eqnarray}
-where $i \in \{1, 2, 3, \dots, n\}$. It can be observed that $\Delta C_{3_i} = 0$ implies $x_i =0$ or $x_i=\pm\infty$. Hence, it is guaranteed that there exists only one peak at $x_1 = x_2 = x_3 = \dots = x_n = 0$.
+where $i \in \{1, 2, 3, \dots, n\}$. $\Delta C_{3_i} = 0$ implies $x_i =0$ or $x_i=\pm\infty$. Hence, it is guaranteed that there exists only one peak at $x_1 = x_2 = x_3 = \dots = x_n = 0$.
 \par
 In this function, the optimum value for a arbitrary factor $x_i$ is unaffected with the other factors. This is not recommended because it trivializes the multi-factorial problems.
 \subsection{A novel mathematical function}
@@ -221,7 +225,7 @@ In this function, the optimum value for a arbitrary factor $x_i$ is unaffected w
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
-		width=0.45\textwidth,
+		width=0.50\textwidth,	
 		height = 7.5cm,
 		colormap/cool,
 		xlabel=$x_1$,
@@ -236,17 +240,17 @@ In this function, the optimum value for a arbitrary factor $x_i$ is unaffected w
 		{exp(-(x+0.49*sin(deg(x+y)))^2)+exp(-(y+0.49*sin(deg(x+y)))^2)};
 	\end{axis}
 	\end{tikzpicture}
-	\label{Fig:TwoVarNovelFunc}
 	\caption{The proposed fucntion $C_4(x_1, x_2)$ for $a = 0.49$.}
+	\label{Fig:TwoVarNovelFunc}
 \end{figure}
 The following mathematical function is proposed by introducing a new nonlinear term to the above model.
 \begin{eqnarray}
 	C_4(.) := \sum_{i=1}^{n}{\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2]} \label{Eqn:Novelmodel}
 \end{eqnarray}
 \par
-Figure~\ref{Fig:TwoVarNovelFunc} depicts $C_4$ for a two variable case with $a=0.49$. The gradient of $C_4$ is
+Fig.~\ref{Fig:TwoVarNovelFunc} depicts $C_4$ for a two variable case with $a=0.49$. The gradient of $C_4$ is
 \begin{eqnarray}
-	\Delta C_{4_i} &=& \pdv{C_4}{x_i} \nonumber\\
+	\Delta C_{4_i} &=& \frac{\partial C_4}{\partial x_i} \nonumber\\
 	&=& -2\exp[-\left(x_i + a\sin\left(\sum_{i=1}^{n} x_i\right)\right)^2] \times \nonumber\\
 	&& \left[ x_i + a\sin\left(\sum_{i=1}^{n} x_i\right) \right] \left[1 + a\cos\left(\sum_{i=1}^{n} x_i\right) \right] \label{Eqn:GradientNovelFunc}
 \end{eqnarray}
@@ -311,9 +315,6 @@ The function $F(z_1, z_2, z_3, \dots, z_n)$ of (\ref{Eqn:AdaptedFunction}) prese
 In the next section, an algorithm is presented to show implementation procedure.
 \section{Algorithm}
 \label{Sec:Algorithm}
-Figure~\ref{Fig:AlgorithmInFlowchart} shows the proposed algorithm.
-
-
 \begin{figure}
 	\centering
 	\begin{tikzpicture}[node distance = 3mm, auto]
@@ -321,7 +322,7 @@ Figure~\ref{Fig:AlgorithmInFlowchart} shows the proposed algorithm.
 		\node (Define) [process, below = of Start] {DEFINE $\alpha, \beta, F_L, F_U, K_D$~AND $K_R$};
 		\node (Calculate01) [process, below =of Define] {CALCULATE\\$F_I, F_1$ AND $F_2$\\USING (\ref{Eqn:F_1Equation}), (\ref{Eqn:F_2Equation}) AND (\ref{Eqn:FunctionInterval})};
 		\node (Input01) [io, below = of Calculate01, text width=3cm] {INPUT $n$};
-		\node (Calculate01a) [process, below = of Input01] {CALCULATE $a=\frac{0.99}{n}$};
+		\node (Calculate01a) [process, below = of Input01] {CALCULATE $a=\frac{0.95}{n}$};
 		\node (Input02) [io, below = of Calculate01a] {INPUT $x_i^L$~AND~$x_i^U$};
 		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (\ref{Eqn:InterDefinition}) AND (\ref{Eqn:FactorAtMaximumValue})};
 		\node (Input03) [io, below = of Calculate02, text width=3.25cm] {INPUT $x_i$};
@@ -331,7 +332,7 @@ Figure~\ref{Fig:AlgorithmInFlowchart} shows the proposed algorithm.
 		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\  $F=F+\frac{F_2}{n} \exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]$};
 		\node (Calculate07) [process, below = of Calculate06] {UPDATE	\\ $F=F+\frac{F_2K_R\xi}{n}$};
 		\node (Output03) [io, below = of Calculate07, text width=3cm] {OUTPUT $F$};
-		\node (Decision01) [decision, below = of Output03, text width=2.5cm] {CONTINUE\\EXPERIMENTS?};
+		\node (Decision01) [decision, below = of Output03, text width=2.55cm] {CONTINUE\\EXPERIMENTS?};
 		\node (Stop) [startstop, below = of Decision01] {STOP};
 
 		\node (ForBox01) [dottedbox, left = of Input02, left = 5mm] {REPEAT $n$ TIMES FOR $i=1$ TO $n$};
@@ -365,14 +366,52 @@ Figure~\ref{Fig:AlgorithmInFlowchart} shows the proposed algorithm.
 		\draw [dottedarrow] (ForBox04) -- (Calculate04);
 		\draw [dottedarrow] (ForBox05) -- (Calculate06);
 	\end{tikzpicture}
+	\caption{Flowchart}
 	\label{Fig:AlgorithmInFlowchart}
-\caption{Flowchart}
 \end{figure}
-
+Fig.~\ref{Fig:AlgorithmInFlowchart} shows the flowchart of the proposed algorithm. The values of $\alpha$ and $\beta$ should be less than 0.5. It is recommended to use $\alpha = \beta = 0.2$. $F_L$ and $F_U$ are lower and upper limits of the values generated in the experiments. Hence, user should select the values such that $F_L<F_U$. $K_D$ is the difficulty factor, the bigger the value is assigned, the harder it gets to reach the optimum value. It is recommended to use a value $K_D=5$. The noise factor $K_R$ introduces noise into the system.
+\par
+Using the equations and inequalities given from (\ref{Eqn:AdaptedFunction}) to (\ref{Eqn:ConstraintsForBeta}), the algorithm generates responses for the given $x_i$ inputs.
 \section{Application}
 \label{Sec:Application}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+		width=0.50\textwidth,	
+		view={0}{90}
+		]
+		\addplot3[contour gnuplot ={number=40,
+			labels=false,
+		},
+		domain = 0:100,
+		domain y = -1:1,
+		%thick,
+		]
+		{193.0429025 + 137.9330151 *( exp(-(0.05 *(x-25.29101312) + 0.475*sin(deg(0.05 *(x-25.29101312) + 2.5* (y - 0.35586306))))^2) +
+			exp(-(2.5* (y - 0.35586306) + 0.475*sin(deg(0.05 *(x-25.29101312) + 2.5 *(y - 0.35586306))))^2) )
+		};
+		\addplot3 coordinates {
+			(28.125, -0.4375, 320.3734872)
+			(65.10367211, -0.562123929, 199.7015173)
+			(46.82534862, -0.328866958, 262.9029596)
+			(33.05522139, -0.038774837, 361.565507)
+			(22.34726992, 0.299065229, 447.3591635)
+			(25.01398522, 0.271862773, 455.5853246)
+		};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{The proposed fucntion $C_4(x_1, x_2)$ for $a = 0.49$.}
+	\label{Fig:Application2Variable}
+\end{figure}
+The proposed algorithm shown in Fig.~\ref{Fig:AlgorithmInFlowchart} is implemented in the programing language JavaScript, which is complemented with a graphical user interface (GUI) designed in HTML and CSS. This application is used in the classroom for teaching Response Surface Methodology (RSM) to the master students of Biological Sciences Faculty, Universidad Autónoma de Coahuila, Torreón.
+\par
+This application is executed with $n=2$, $\alpha = \beta = 0.2$, $F_L = 100$, $F_U=600$, $K_D = 5$, $K_R = 0.1$, $x_1^L=0$, $x_1^U=100$, $x_2^L=-1$, and $x_2^U=1$. The application calculated $a= 0.475$, $F_1 = 193.043$, $F_2= 275.866$, $x_1^I=100$, $x_2^I=2$, $x_1^M=25.291$, and $x_2^M=0.356$. Fig.~\ref{Fig:Application2Variable} shows the contour plot of the function $f(x_1,x_2)$ generated with these constants. The RSM is applied to find the optimal values of $x_1$ and $x_2$, results of each iteration are also superimposed over the contours.
+%\cite{Multifac29:online}.
 \section{Conclusion}
 \label{Sec:Conclusion}
+
 The mathematical construction is given in detail, which helps others to adapt to meet any additional requirements.
 \par
 It is developed for maximum values, but can be adapted to the minimum by putting negative to the function and scaling accordingly.
