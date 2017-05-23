@@ -1,1 +1,1 @@
-unset surface; set cntrparam levels 40; set contour; set table "Ver000_contourtmp0.table"; splot "Ver000_contourtmp0.dat";
+unset surface; set cntrparam levels 20; set contour; set table "Ver000_contourtmp0.table"; splot "Ver000_contourtmp0.dat";
