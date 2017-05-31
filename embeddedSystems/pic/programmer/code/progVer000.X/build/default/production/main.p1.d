@@ -1,0 +1,23 @@
+ build/default/production/main.d  \
+ build/default/production/main.p1:  \
+ main.c  \
+picLibs/usb_ch9.h  \
+picLibs/app_device_cdc_basic.h  \
+picLibs/leds.h  \
+picLibs/usb_config.h  \
+libs/programming.h  \
+main.h  \
+picLibs/usb_device.h  \
+picLibs/usb_hal.h  \
+picLibs/usb.h  \
+picLibs/usb_hal_pic18.h  \
+picLibs/buttons.h  \
+picLibs/usb_hal.h  \
+picLibs/usb_config.h  \
+libs/GenericTypeDefs.h  \
+picLibs/system.h  \
+picLibs/io_mapping.h  \
+picLibs/usb_common.h  \
+picLibs/app_led_usb_status.h  \
+picLibs/usb_device_cdc.h  \
+picLibs/fixed_address_memory.h 
