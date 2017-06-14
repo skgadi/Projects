@@ -124,7 +124,8 @@ extern "C" {
 
 
 #include "libs/GenericTypeDefs.h"
-#include "libs/programming.h"    
+//#include "libs/programming.h"
+#include "libs/progPIC18F26K40.h"
     
 #ifdef	__cplusplus
 }

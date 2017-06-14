@@ -1,5 +1,5 @@
 
-# 1 "libs/programming.c"
+# 1 "libs/progPIC18F26K40.c"
 
 
 # 55 "libs/../main.h"
@@ -5650,186 +5650,132 @@ VOID PIC18F26K40_loadPC (DWORD_VAL);
 VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
 VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
 
-# 17 "libs/programming.h"
-typedef DWORD_VAL MEMORY_ADDRESS;
-
-# 60
-BYTE readEepromByte(MEMORY_ADDRESS x);
-VOID setTrisToOut (VOID);
-VOID enterLowVoltageICSP(VOID);
-VOID exitLowVoltageICSP(VOID);
-VOID enterHighVoltageICSP(VOID);
-VOID exitHighVoltageICSP(VOID);
-VOID generateWritePulses(UINT command, UINT payLoadMsb, UINT payLoadLsb);
-WORD_VAL generateReadPulses (UINT command);
-VOID enterICSP(VOID);
-VOID exitICSP(VOID);
-BYTE writeEepromByte(MEMORY_ADDRESS address, BYTE data);
-
-# 4 "libs/programming.c"
-VOID setTrisToOut (VOID) {
+# 4 "libs/progPIC18F26K40.c"
+VOID PIC18F26K40_setTrisToOut (VOID) {
+TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC6 = 0;
-TRISCbits.TRISC4 = 0;
-TRISBbits.TRISB6 = 0;
-TRISBbits.TRISB5 = 0;
+TRISCbits.TRISC5 = 0;
 }
 
-VOID enterLowVoltageICSP(VOID) {
-setTrisToOut ();
+VOID PIC18F26K40_enterLowVoltageProg (VOID) {
+PIC18F26K40_setTrisToOut ();
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
 
+LATCbits.LATC7 = 0;
 LATCbits.LATC6 = 0;
-LATCbits.LATC4 = 0;
-LATBbits.LATB6 = 0;
-LATBbits.LATB5 = 0;
-_delay((unsigned long)((1)*(12000000/4000.0)));
-LATBbits.LATB5 = 1;
-(_delay((unsigned long)((2)*(12000000/4000000.0))));
+LATCbits.LATC5 = 0;
+(_delay((unsigned long)((250)*(12000000/4000000.0))));
+
+DWORD_VAL code;
+code.Val = (0x4d434850);
+PIC18F26K40_sendByte(code.v[3], MSBTOLSB);
+PIC18F26K40_sendByte(code.v[2], MSBTOLSB);
+PIC18F26K40_sendByte(code.v[1], MSBTOLSB);
+PIC18F26K40_sendByte(code.v[0], MSBTOLSB);
+}
+
+VOID PIC18F26K40_exitLowVoltageProg (VOID) {
+TRISCbits.TRISC7 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+LATCbits.LATC7 = 1;
+}
+
+VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction) {
+PIC18F26K40_setTrisToOut ();
+BYTE i, j;
+for (i = 0; i < 8; i++) {
+if (direction)
+j = i;
+else
+j = 7-i;
+LATCbits.LATC5 = 1;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+if ((info >> j) & 0x01)
 LATCbits.LATC6 = 1;
-(_delay((unsigned long)((2)*(12000000/4000000.0))));
-}
-
-VOID exitLowVoltageICSP(VOID) {
-setTrisToOut ();
-LATCbits.LATC4 = 0;
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((0)*(12000000/4000000.0))));
+else
 LATCbits.LATC6 = 0;
-(_delay((unsigned long)((0)*(12000000/4000000.0))));
-LATBbits.LATB5 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+LATCbits.LATC5 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
 }
-VOID enterHighVoltageICSP(VOID){
-
-}
-
-VOID exitHighVoltageICSP(VOID) {
-
 }
 
-VOID enterICSP(VOID) {
-if (TRUE)
-enterLowVoltageICSP();
+DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC) {
+if (IncreasePC)
+PIC18F26K40_sendByte(0xFE, MSBTOLSB);
 else
-enterHighVoltageICSP();
-}
-VOID exitICSP(VOID){
-if (TRUE)
-exitLowVoltageICSP();
+PIC18F26K40_sendByte(0xFC, MSBTOLSB);
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+DWORD_VAL data;
+data.Val = 0x000000;
+BYTE i, j;
+TRISCbits.TRISC6 = 1;
+for (i = 0; i < 23; i++) {
+if (direction)
+j = i;
 else
-exitHighVoltageICSP();
+j = 22-i;
+LATCbits.LATC5 = 1;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+if (PORTCbits.RC6 == 1)
+data.Val = data.Val | ((DWORD)(0x1<<j));
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+LATCbits.LATC5 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
 }
+LATCbits.LATC5 = 1;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+LATCbits.LATC5 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
 
-VOID generateWritePulses(UINT command, UINT payLoadMsb, UINT payLoadLsb) {
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-for (BYTE i = 0; i < 4; i++) {
-LATBbits.LATB6 = 1;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-if ((command >> i) & 0x01)
-LATCbits.LATC4 = 1;
-else
-LATCbits.LATC4 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-}
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-for (BYTE i = 0; i < 8; i++) {
-LATBbits.LATB6 = 1;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-if ((payLoadLsb >> i) & 0x01)
-LATCbits.LATC4 = 1;
-else
-LATCbits.LATC4 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-}
-for (BYTE i = 0; i < 8; i++) {
-LATBbits.LATB6 = 1;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-if ((payLoadMsb >> i) & 0x01)
-LATCbits.LATC4 = 1;
-else
-LATCbits.LATC4 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-}
-}
-
-WORD_VAL generateReadPulses (UINT command) {
-WORD_VAL OUT;
-OUT.Val = 0x0000;
-for (BYTE i = 0; i < 4; i++) {
-LATBbits.LATB6 = 1;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-if ((command >> i) & 0x01)
-LATCbits.LATC4 = 1;
-else
-LATCbits.LATC4 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-}
-TRISCbits.TRISC4 = 1;
-for (BYTE i = 0; i < 16; i++) {
-LATBbits.LATB6 = 1;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-if (PORTCbits.RC4 == 1)
-OUT.Val = OUT.Val | ((WORD)(0x0001<<i));
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((1)*(12000000/4000000.0))));
-}
-TRISCbits.TRISC4 = 0;
-return OUT;
+TRISCbits.TRISC6 = 0;
+return data;
 }
 
 
-BYTE readEepromByte(MEMORY_ADDRESS address) {
-enterICSP();
-generateWritePulses(0, 0x9E, 0xA6);
-generateWritePulses(0, 0x9C, 0xA6);
-generateWritePulses(0, 0x0E, address.v[0]);
-generateWritePulses(0, 0x6E, 0xA9);
-generateWritePulses(0, 0x0E, address.v[1]);
-generateWritePulses(0, 0x6E, 0xAA);
-generateWritePulses(0, 0x80, 0xA6);
-generateWritePulses(0, 0x50, 0xA8);
-generateWritePulses(0, 0x6E, 0xF5);
-generateWritePulses(0, 0x00, 0x00);
-WORD_VAL Data = generateReadPulses (0x02);
-exitICSP();
-return Data.v[1];
+VOID PIC18F26K40_loadPC (DWORD_VAL address) {
+DWORD_VAL tempAddress;
+tempAddress.Val= (address.Val<<1);
+tempAddress.bits.b0 = 0;
+tempAddress.bits.b23 = 0;
+PIC18F26K40_sendByte(0x80, MSBTOLSB);
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+PIC18F26K40_sendByte(tempAddress.v[2], MSBTOLSB);
+PIC18F26K40_sendByte(tempAddress.v[1], MSBTOLSB);
+PIC18F26K40_sendByte(tempAddress.v[0], MSBTOLSB);
 }
 
-BYTE writeEepromByte(MEMORY_ADDRESS address, BYTE data) {
-UINT i=0;
-BYTE Success = 0x00;
-enterICSP();
-generateWritePulses(0, 0x9E, 0xA6);
-generateWritePulses(0, 0x9C, 0xA6);
-generateWritePulses(0, 0x0E, address.v[0]);
-generateWritePulses(0, 0x6E, 0xA9);
-generateWritePulses(0, 0x0E, address.v[1]);
-generateWritePulses(0, 0x6E, 0xAA);
-generateWritePulses(0, 0x0E, data);
-generateWritePulses(0, 0x6E, 0xA8);
-generateWritePulses(0, 0x84, 0xA6);
-generateWritePulses(0, 0x82, 0xA6);
-generateWritePulses(0, 0x00, 0x00);
-generateWritePulses(0, 0x00, 0x00);
-do {
-generateWritePulses(0, 0x50, 0xA6);
-generateWritePulses(0, 0x6E, 0xF5);
-generateWritePulses(0, 0x00, 0x00);
-WORD_VAL Data = generateReadPulses (0x02);
-if (Data.v[1] == 0x00)
-Success = TRUE;
-i++;
-} while ((!Success) && (i<5));
-LATBbits.LATB6 = 0;
-(_delay((unsigned long)((100)*(12000000/4000000.0))));
-generateWritePulses(0, 0x94, 0xA6);
-exitICSP();
-return Success;
+VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC) {
+DWORD_VAL tempData;
+tempData.Val = (data.Val <<1 );
+tempData.bits.b0 = 0;
+if (IncreasePC==TRUE)
+PIC18F26K40_sendByteMsbToLsb(0x02);
+else
+PIC18F26K40_sendByteMsbToLsb(0x00);
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+PIC18F26K40_sendByteMsbToLsb(tempData.v[2]);
+PIC18F26K40_sendByteMsbToLsb(tempData.v[1]);
+PIC18F26K40_sendByteMsbToLsb(tempData.v[0]);
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+
+PIC18F26K40_sendByteMsbToLsb(0xE0);
+_delay((unsigned long)((6)*(12000000/4000.0)));
+
+# 121
+}
+
+VOID PIC18F26K40_sendByteMsbToLsb(BYTE info) {
+PIC18F26K40_setTrisToOut ();
+for (INT8 i = 7; i >= 0; i--) {
+LATCbits.LATC5 = 1;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+if ((info >> i) & 0x01)
+LATCbits.LATC6 = 1;
+else
+LATCbits.LATC6 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+LATCbits.LATC5 = 0;
+(_delay((unsigned long)((1)*(12000000/4000000.0))));
+}
 }

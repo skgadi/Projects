@@ -5637,21 +5637,18 @@ unsigned char b63:1;
 } bits;
 } QWORD_VAL;
 
-# 17 "libs/programming.h"
-typedef DWORD_VAL MEMORY_ADDRESS;
+# 17 "libs/progPIC18F26K40.h"
+typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
 
-# 60
-BYTE readEepromByte(MEMORY_ADDRESS x);
-VOID setTrisToOut (VOID);
-VOID enterLowVoltageICSP(VOID);
-VOID exitLowVoltageICSP(VOID);
-VOID enterHighVoltageICSP(VOID);
-VOID exitHighVoltageICSP(VOID);
-VOID generateWritePulses(UINT command, UINT payLoadMsb, UINT payLoadLsb);
-WORD_VAL generateReadPulses (UINT command);
-VOID enterICSP(VOID);
-VOID exitICSP(VOID);
-BYTE writeEepromByte(MEMORY_ADDRESS address, BYTE data);
+# 61
+VOID PIC18F26K40_setTrisToOut (VOID);
+VOID PIC18F26K40_enterLowVoltageProg (VOID);
+VOID PIC18F26K40_exitLowVoltageProg (VOID);
+VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction);
+DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC);
+VOID PIC18F26K40_loadPC (DWORD_VAL);
+VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
+VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
 
 # 12 "main.c"
 void main(void) {

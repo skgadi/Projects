@@ -5,7 +5,6 @@ picLibs/usb_ch9.h  \
 picLibs/app_device_cdc_basic.h  \
 picLibs/leds.h  \
 picLibs/usb_config.h  \
-libs/programming.h  \
 main.h  \
 picLibs/usb_device.h  \
 picLibs/usb_hal.h  \
@@ -13,6 +12,7 @@ picLibs/usb.h  \
 picLibs/usb_hal_pic18.h  \
 picLibs/buttons.h  \
 picLibs/usb_hal.h  \
+libs/progPIC18F26K40.h  \
 picLibs/usb_config.h  \
 libs/GenericTypeDefs.h  \
 picLibs/system.h  \

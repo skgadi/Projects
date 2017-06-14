@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.20)  6 JUN 2017 19:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.20)  6 JUN 2017 19:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**./Ver000.tex
-(./Ver000.tex
+**./Ver001.tex
+(./Ver001.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (c:/texlive/2016/texmf-dist/tex/latex/base/fix-cm.sty
@@ -990,8 +990,8 @@ tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
 (c:/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patch
-plots.code.tex) (./Ver000.aux)
-\openout1 = `Ver000.aux'.
+plots.code.tex) (./Ver001.aux)
+\openout1 = `Ver001.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
@@ -1090,29 +1090,29 @@ Underfull \hbox (badness 4013) in paragraph at lines 76--76
 [1{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] [2]
+Underfull \vbox (badness 1817) has occurred while \output is active []
 
- [2]
-[3]
-\openout3 = `Ver000_contourtmp0.dat'.
+ [3]
+\openout3 = `Ver001_contourtmp0.dat'.
 
-\openout3 = `Ver000_contourtmp0.script'.
+\openout3 = `Ver001_contourtmp0.script'.
 
-runsystem(gnuplot "Ver000_contourtmp0.script")...executed.
+runsystem(gnuplot "Ver001_contourtmp0.script")...executed.
 
-PGFPlots: reading {Ver000_contourtmp0.table}
- [4] (./Ver000.bbl [5]) [6
+PGFPlots: reading {Ver001_contourtmp0.table}
 
-] (./Ver000.aux) ) 
+[4] (./Ver001.bbl [5]) [6
+
+] (./Ver001.aux) ) 
 Here is how much of TeX's memory you used:
- 25238 strings out of 493014
- 638037 string characters out of 6137015
- 888164 words of memory out of 5000000
- 28343 multiletter control sequences out of 15000+600000
- 14580 words of font info for 55 fonts, out of 8000000 for 9000
+ 25296 strings out of 493014
+ 639355 string characters out of 6137015
+ 4138616 words of memory out of 5000000
+ 28401 multiletter control sequences out of 15000+600000
+ 13975 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,14n,129p,735b,2170s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,14n,129p,854b,2223s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texl
@@ -1129,7 +1129,7 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti8.pfb>
-Output written on Ver000.pdf (6 pages, 249106 bytes).
+Output written on Ver001.pdf (6 pages, 749903 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream

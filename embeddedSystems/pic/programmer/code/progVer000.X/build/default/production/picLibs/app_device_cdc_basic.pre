@@ -5637,21 +5637,18 @@ unsigned char b63:1;
 } bits;
 } QWORD_VAL;
 
-# 17 "picLibs/../libs/programming.h"
-typedef DWORD_VAL MEMORY_ADDRESS;
+# 17 "picLibs/../libs/progPIC18F26K40.h"
+typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
 
-# 60
-BYTE readEepromByte(MEMORY_ADDRESS x);
-VOID setTrisToOut (VOID);
-VOID enterLowVoltageICSP(VOID);
-VOID exitLowVoltageICSP(VOID);
-VOID enterHighVoltageICSP(VOID);
-VOID exitHighVoltageICSP(VOID);
-VOID generateWritePulses(UINT command, UINT payLoadMsb, UINT payLoadLsb);
-WORD_VAL generateReadPulses (UINT command);
-VOID enterICSP(VOID);
-VOID exitICSP(VOID);
-BYTE writeEepromByte(MEMORY_ADDRESS address, BYTE data);
+# 61
+VOID PIC18F26K40_setTrisToOut (VOID);
+VOID PIC18F26K40_enterLowVoltageProg (VOID);
+VOID PIC18F26K40_exitLowVoltageProg (VOID);
+VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction);
+DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC);
+VOID PIC18F26K40_loadPC (DWORD_VAL);
+VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
+VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
 
 # 37 "picLibs/app_led_usb_status.h"
 void APP_LEDUpdateUSBStatus(void);
@@ -5729,30 +5726,46 @@ switch(readBuffer[i])
 # 141
 case 0x0A:
 case 0x0D:
-writeBuffer[i] = readBuffer[i];
+putrsUSBUSART("\n\r");
+
 break;
 case 0x41: {
-putrsUSBUSART("A pressed\n\r");
-MEMORY_ADDRESS eepromAddress;
-eepromAddress.Val = 0x00;
-writeEepromByte(eepromAddress, 7);
+
+# 152
+DWORD_VAL a;
+a.Val = 0x310000;
+PIC18F26K40_enterLowVoltageProg();
+PIC18F26K40_loadPC(a);
+a.Val = 0x05;
+putrsUSBUSART("0x05 is placed at 0x00310000\n\r");
+PIC18F26K40_loadDataIntoNVM(a, FALSE);
+PIC18F26K40_exitLowVoltageProg();
+
 break;
 }
 default: {
-MEMORY_ADDRESS eepromAddress;
-eepromAddress.Val = readBuffer[i]-0x30;
-writeBuffer[i] = readEepromByte(eepromAddress)+0x30;
+
+# 167
+DWORD_VAL a;
+a.Val = 0x310000;
+PIC18F26K40_enterLowVoltageProg();
+PIC18F26K40_loadPC(a);
+a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+PIC18F26K40_exitLowVoltageProg();
+writeBuffer[i] = a.v[0]+0x30;
+
+# 177
 break;
 }
 
-# 166
+# 187
 }
 }
 
 if(numBytesRead > 0)
 {
 
-# 174
+# 195
 putUSBUSART(writeBuffer,numBytesRead);
 }
 }

@@ -6,13 +6,13 @@ picLibs/../picLibs/app_device_cdc_basic.h  \
 picLibs/app_device_cdc_basic.h  \
 picLibs/leds.h  \
 picLibs/usb_config.h  \
-picLibs/../libs/programming.h  \
 picLibs/../picLibs/usb_device.h  \
 picLibs/../picLibs/usb.h  \
 picLibs/usb_hal.h  \
 picLibs/usb.h  \
 picLibs/usb_hal_pic18.h  \
 picLibs/buttons.h  \
+picLibs/../libs/progPIC18F26K40.h  \
 picLibs/../picLibs/usb_config.h  \
 picLibs/usb_config.h  \
 picLibs/../libs/GenericTypeDefs.h  \

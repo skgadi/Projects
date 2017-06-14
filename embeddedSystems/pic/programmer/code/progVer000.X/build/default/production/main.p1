@@ -4051,18 +4051,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 277: unsigned char b63:1;
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
-[; ;programming.h: 17: typedef DWORD_VAL MEMORY_ADDRESS;
-[; ;programming.h: 60: BYTE readEepromByte(MEMORY_ADDRESS x);
-[; ;programming.h: 61: VOID setTrisToOut (VOID);
-[; ;programming.h: 62: VOID enterLowVoltageICSP(VOID);
-[; ;programming.h: 63: VOID exitLowVoltageICSP(VOID);
-[; ;programming.h: 64: VOID enterHighVoltageICSP(VOID);
-[; ;programming.h: 65: VOID exitHighVoltageICSP(VOID);
-[; ;programming.h: 66: VOID generateWritePulses(UINT command, UINT payLoadMsb, UINT payLoadLsb);
-[; ;programming.h: 67: WORD_VAL generateReadPulses (UINT command);
-[; ;programming.h: 68: VOID enterICSP(VOID);
-[; ;programming.h: 69: VOID exitICSP(VOID);
-[; ;programming.h: 70: BYTE writeEepromByte(MEMORY_ADDRESS address, BYTE data);
+[; ;progPIC18F26K40.h: 17: typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
+[; ;progPIC18F26K40.h: 61: VOID PIC18F26K40_setTrisToOut (VOID);
+[; ;progPIC18F26K40.h: 62: VOID PIC18F26K40_enterLowVoltageProg (VOID);
+[; ;progPIC18F26K40.h: 63: VOID PIC18F26K40_exitLowVoltageProg (VOID);
+[; ;progPIC18F26K40.h: 64: VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction);
+[; ;progPIC18F26K40.h: 65: DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC);
+[; ;progPIC18F26K40.h: 66: VOID PIC18F26K40_loadPC (DWORD_VAL);
+[; ;progPIC18F26K40.h: 67: VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
+[; ;progPIC18F26K40.h: 68: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "12 main.c
 [v _main `(v ~T0 @X0 1 ef ]

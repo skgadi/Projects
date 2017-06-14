@@ -1,40 +1,31 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"842 picLibs/../picLibs/usb_device_cdc.h
-[s S375 `uc -> 7 `i ]
-[n S375 . _byte ]
-"846
-[s S376 `ul 1 `uc 1 `uc 1 `uc 1 ]
-[n S376 . dwDTERate bCharFormat bParityType bDataBits ]
-"839
-[u S374 `S375 1 `S376 1 ]
-[n S374 _LINE_CODING . . ]
-"952
-[v _line_coding `S374 ~T0 @X0 0 e ]
-"82 picLibs/app_device_cdc_basic.c
-[c E3621 0 1 2 4 8 16 32 .. ]
-[n E3621 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
-"2046 picLibs/../picLibs/usb_device.h
-[v _USBDeviceState `VE3621 ~T0 @X0 0 e ]
-"1419 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f14k50.h
-[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S56 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
-"1418
-[u S55 `S56 1 ]
-[n S55 . . ]
-"1429
-[v _UCONbits `VS55 ~T0 @X0 0 e@3940 ]
-"99 picLibs/app_device_cdc_basic.c
-[c E3304 0 1 .. ]
-[n E3304 . BUTTON_NONE BUTTON_S1  ]
-"51 picLibs\buttons.h
-[v _BUTTON_IsPressed `(uc ~T0 @X0 0 ef1`E3304 ]
-"946 picLibs/../picLibs/usb_device_cdc.h
-[v _cdc_trf_state `uc ~T0 @X0 0 e ]
-"779
-[v _putrsUSBUSART `(v ~T0 @X0 0 ef1`*Cuc ]
-"653
-[v _getsUSBUSART `(uc ~T0 @X0 0 ef2`*uc`uc ]
-"141 picLibs/../libs/GenericTypeDefs.h
+"3152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f14k50.h
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"3162
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"3151
+[u S132 `S133 1 `S134 1 ]
+[n S132 . . . ]
+"3173
+[v _TRISCbits `VS132 ~T0 @X0 0 e@3988 ]
+[v F3296 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18.h
+[v __delay `JF3296 ~T0 @X0 0 e ]
+[p i __delay ]
+"2823 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f14k50.h
+[s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S118 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2833
+[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S119 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"2822
+[u S117 `S118 1 `S119 1 ]
+[n S117 . . . ]
+"2844
+[v _LATCbits `VS117 ~T0 @X0 0 e@3979 ]
+"141 libs/../libs/GenericTypeDefs.h
 [s S393 `us 1 `us 1 ]
 [n S393 . LW HW ]
 "146
@@ -58,27 +49,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 "135
 [u S392 `ul 1 `us -> 2 `i `uc -> 4 `i `S393 1 `S394 1 `S395 1 `S396 1 ]
 [n S392 _DWORD_VAL Val w v word byte wordUnion bits ]
-"62 picLibs/../libs/progPIC18F26K40.h
-[v _PIC18F26K40_enterLowVoltageProg `(v ~T0 @X0 0 ef ]
-"66
-[v _PIC18F26K40_loadPC `(v ~T0 @X0 0 ef1`S392 ]
-"158 picLibs/app_device_cdc_basic.c
-[c E4064 0 1 .. ]
-[n E4064 _BOOL FALSE TRUE  ]
-"67 picLibs/../libs/progPIC18F26K40.h
-[v _PIC18F26K40_loadDataIntoNVM `(v ~T0 @X0 0 ef2`S392`E4064 ]
-"63
-[v _PIC18F26K40_exitLowVoltageProg `(v ~T0 @X0 0 ef ]
-"171 picLibs/app_device_cdc_basic.c
+"21 libs/progPIC18F26K40.c
 [c E4265 0 1 .. ]
 [n E4265 _SEND_DIRECTION MSBTOLSB LSBTOMSB  ]
-"65 picLibs/../libs/progPIC18F26K40.h
-[v _PIC18F26K40_readThreeBytes `(S392 ~T0 @X0 0 ef2`E4265`E4064 ]
-"695 picLibs/../picLibs/usb_device_cdc.h
-[v _putUSBUSART `(v ~T0 @X0 0 ef2`*uc`uc ]
-"831
-[v _CDCTxService `(v ~T0 @X0 0 ef ]
-"55 picLibs/../main.h
+"64 libs/../libs/progPIC18F26K40.h
+[v _PIC18F26K40_sendByte `(v ~T0 @X0 0 ef2`uc`E4265 ]
+"53 libs/progPIC18F26K40.c
+[c E4064 0 1 .. ]
+[n E4064 _BOOL FALSE TRUE  ]
+"2421 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f14k50.h
+[s S102 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S102 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2431
+[s S103 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S103 . AN4 AN5 AN6 AN7 . AN8 AN9 ]
+"2440
+[s S104 :6 `uc 1 :1 `uc 1 ]
+[n S104 . . NOT_SS ]
+"2444
+[s S105 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S105 . C12INP C12IN1M C12IN2M C12IN3M C12OUT CCP1 nSS ]
+"2453
+[s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . INT0 INT1 INT2 PGM SRQ T0CKI T13CKI T1OSCO ]
+"2463
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S107 . VREFP VREFM CVREF . T1OSCI ]
+"2470
+[s S108 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S108 . . P1D P1C P1B P1A SS SDO ]
+"2479
+[s S109 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S109 . . CCP2 PA1 ]
+"2484
+[s S110 :1 `uc 1 :1 `uc 1 ]
+[n S110 . . PA2 ]
+"2420
+[u S101 `S102 1 `S103 1 `S104 1 `S105 1 `S106 1 `S107 1 `S108 1 `S109 1 `S110 1 ]
+[n S101 . . . . . . . . . . ]
+"2489
+[v _PORTCbits `VS101 ~T0 @X0 0 e@3970 ]
+"68 libs/../libs/progPIC18F26K40.h
+[v _PIC18F26K40_sendByteMsbToLsb `(v ~T0 @X0 0 ef1`uc ]
+"55 libs/../main.h
 [p x CPUDIV=NOCLKDIV ]
 "56
 [p x USBDIV=OFF ]
@@ -4119,303 +4132,435 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;progPIC18F26K40.h: 66: VOID PIC18F26K40_loadPC (DWORD_VAL);
 [; ;progPIC18F26K40.h: 67: VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
 [; ;progPIC18F26K40.h: 68: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
-[; ;app_led_usb_status.h: 37: void APP_LEDUpdateUSBStatus(void);
-"36 picLibs/app_device_cdc_basic.c
-[v _buttonPressed `uc ~T0 @X0 1 s ]
-[; ;app_device_cdc_basic.c: 36: static bool buttonPressed;
-"37
-[v _buttonMessage `uc ~T0 @X0 -> 0 `x s ]
-[i _buttonMessage
-:U ..
--> 66 `c
--> 117 `c
--> 116 `c
--> 116 `c
--> 111 `c
--> 110 `c
--> 32 `c
--> 112 `c
--> 114 `c
--> 101 `c
--> 115 `c
--> 115 `c
--> 101 `c
--> 100 `c
--> 46 `c
--> 13 `c
--> 10 `c
--> 0 `c
-..
-]
-[; ;app_device_cdc_basic.c: 37: static char buttonMessage[] = "Button pressed.\r\n";
-"38
-[v _readBuffer `uc ~T0 @X0 -> 64 `i s ]
-[; ;app_device_cdc_basic.c: 38: static uint8_t readBuffer[64];
-"39
-[v _writeBuffer `uc ~T0 @X0 -> 64 `i s ]
-[; ;app_device_cdc_basic.c: 39: static uint8_t writeBuffer[64];
-"53
-[v _APP_DeviceCDCBasicDemoInitialize `(v ~T0 @X0 1 ef ]
-"54
+"4 libs/progPIC18F26K40.c
+[v _PIC18F26K40_setTrisToOut `(v ~T0 @X0 1 ef ]
 {
-[; ;app_device_cdc_basic.c: 53: void APP_DeviceCDCBasicDemoInitialize()
-[; ;app_device_cdc_basic.c: 54: {
-[e :U _APP_DeviceCDCBasicDemoInitialize ]
+[; ;progPIC18F26K40.c: 4: VOID PIC18F26K40_setTrisToOut (VOID) {
+[e :U _PIC18F26K40_setTrisToOut ]
 [f ]
-[; ;app_device_cdc_basic.c: 55: line_coding.bCharFormat = 0;
-"55
-[e = . . _line_coding 1 1 -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 56: line_coding.bDataBits = 8;
-"56
-[e = . . _line_coding 1 3 -> -> 8 `i `uc ]
-[; ;app_device_cdc_basic.c: 57: line_coding.bParityType = 0;
-"57
-[e = . . _line_coding 1 2 -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 58: line_coding.dwDTERate = 9600;
-"58
-[e = . . _line_coding 1 0 -> -> -> 9600 `i `l `ul ]
-[; ;app_device_cdc_basic.c: 60: buttonPressed = 0;
-"60
-[e = _buttonPressed -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 61: }
-"61
+[; ;progPIC18F26K40.c: 5: TRISCbits.TRISC7 = 0;
+"5
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 6: TRISCbits.TRISC6 = 0;
+"6
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 7: TRISCbits.TRISC5 = 0;
+"7
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 8: }
+"8
 [e :UE 401 ]
 }
-"77
-[v _APP_DeviceCDCBasicDemoTasks `(v ~T0 @X0 1 ef ]
-"78
+"10
+[v _PIC18F26K40_enterLowVoltageProg `(v ~T0 @X0 1 ef ]
 {
-[; ;app_device_cdc_basic.c: 77: void APP_DeviceCDCBasicDemoTasks()
-[; ;app_device_cdc_basic.c: 78: {
-[e :U _APP_DeviceCDCBasicDemoTasks ]
+[; ;progPIC18F26K40.c: 10: VOID PIC18F26K40_enterLowVoltageProg (VOID) {
+[e :U _PIC18F26K40_enterLowVoltageProg ]
 [f ]
-[; ;app_device_cdc_basic.c: 82: if( USBDeviceState < CONFIGURED_STATE )
-"82
-[e $ ! < -> _USBDeviceState `i -> . `E3621 6 `i 403  ]
-[; ;app_device_cdc_basic.c: 83: {
-"83
-{
-[; ;app_device_cdc_basic.c: 84: return;
-"84
-[e $UE 402  ]
-"85
-}
-[e :U 403 ]
-[; ;app_device_cdc_basic.c: 85: }
-[; ;app_device_cdc_basic.c: 91: if( UCONbits.SUSPND== 1 )
-"91
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 404  ]
-[; ;app_device_cdc_basic.c: 92: {
-"92
-{
-[; ;app_device_cdc_basic.c: 93: return;
-"93
-[e $UE 402  ]
-"94
-}
-[e :U 404 ]
-[; ;app_device_cdc_basic.c: 94: }
-[; ;app_device_cdc_basic.c: 99: if(BUTTON_IsPressed(BUTTON_S1) == 1)
-"99
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E3304 1 `i -> 1 `i 405  ]
-[; ;app_device_cdc_basic.c: 100: {
-"100
-{
-[; ;app_device_cdc_basic.c: 104: if(buttonPressed == 0)
-"104
-[e $ ! == -> _buttonPressed `i -> 0 `i 406  ]
-[; ;app_device_cdc_basic.c: 105: {
-"105
-{
-[; ;app_device_cdc_basic.c: 108: if((cdc_trf_state == 0) == 1)
-"108
-[e $ ! == -> == -> _cdc_trf_state `i -> 0 `i `i -> 1 `i 407  ]
-[; ;app_device_cdc_basic.c: 109: {
-"109
-{
-[; ;app_device_cdc_basic.c: 110: putrsUSBUSART(buttonMessage);
-"110
-[e ( _putrsUSBUSART (1 -> &U _buttonMessage `*Cuc ]
-[; ;app_device_cdc_basic.c: 111: buttonPressed = 1;
-"111
-[e = _buttonPressed -> -> 1 `i `uc ]
-"112
-}
-[e :U 407 ]
-"113
-}
-[e :U 406 ]
-"114
-}
-[; ;app_device_cdc_basic.c: 112: }
-[; ;app_device_cdc_basic.c: 113: }
-[; ;app_device_cdc_basic.c: 114: }
-[e $U 408  ]
-"115
-[e :U 405 ]
-[; ;app_device_cdc_basic.c: 115: else
-[; ;app_device_cdc_basic.c: 116: {
-"116
-{
-[; ;app_device_cdc_basic.c: 120: buttonPressed = 0;
-"120
-[e = _buttonPressed -> -> 0 `i `uc ]
-"121
-}
-[e :U 408 ]
-[; ;app_device_cdc_basic.c: 121: }
-[; ;app_device_cdc_basic.c: 126: if( (cdc_trf_state == 0) == 1)
-"126
-[e $ ! == -> == -> _cdc_trf_state `i -> 0 `i `i -> 1 `i 409  ]
-[; ;app_device_cdc_basic.c: 127: {
-"127
-{
-"128
-[v _i `uc ~T0 @X0 1 a ]
-"129
-[v _numBytesRead `uc ~T0 @X0 1 a ]
-[; ;app_device_cdc_basic.c: 128: uint8_t i;
-[; ;app_device_cdc_basic.c: 129: uint8_t numBytesRead;
-[; ;app_device_cdc_basic.c: 131: numBytesRead = getsUSBUSART(readBuffer, sizeof(readBuffer));
-"131
-[e = _numBytesRead ( _getsUSBUSART (2 , &U _readBuffer -> -> # _readBuffer `ui `uc ]
-[; ;app_device_cdc_basic.c: 134: for(i=0; i<numBytesRead; i++)
-"134
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 413  ]
-"135
-[e :U 410 ]
-[; ;app_device_cdc_basic.c: 135: {
-{
-[; ;app_device_cdc_basic.c: 136: switch(readBuffer[i])
-"136
-[e $U 415  ]
-[; ;app_device_cdc_basic.c: 137: {
-"137
-{
-[; ;app_device_cdc_basic.c: 141: case 0x0A:
-"141
-[e :U 416 ]
-"142
-[e :U 417 ]
-[; ;app_device_cdc_basic.c: 142: case 0x0D:
-[; ;app_device_cdc_basic.c: 143: putrsUSBUSART("\n\r");
-"143
-[e ( _putrsUSBUSART (1 :s 1C ]
-[; ;app_device_cdc_basic.c: 145: break;
-"145
-[e $U 414  ]
-[; ;app_device_cdc_basic.c: 146: case 0x41: {
-"146
-[e :U 418 ]
-{
-"152
-[v _a `S392 ~T0 @X0 1 a ]
-[; ;app_device_cdc_basic.c: 152: DWORD_VAL a;
-[; ;app_device_cdc_basic.c: 153: a.Val = 0x310000;
-"153
-[e = . _a 0 -> -> 3211264 `l `ul ]
-[; ;app_device_cdc_basic.c: 154: PIC18F26K40_enterLowVoltageProg();
-"154
-[e ( _PIC18F26K40_enterLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 155: PIC18F26K40_loadPC(a);
-"155
-[e ( _PIC18F26K40_loadPC (1 _a ]
-[; ;app_device_cdc_basic.c: 156: a.Val = 0x05;
-"156
-[e = . _a 0 -> -> -> 5 `i `l `ul ]
-[; ;app_device_cdc_basic.c: 157: putrsUSBUSART("0x05 is placed at 0x00310000\n\r");
-"157
-[e ( _putrsUSBUSART (1 :s 2C ]
-[; ;app_device_cdc_basic.c: 158: PIC18F26K40_loadDataIntoNVM(a, FALSE);
-"158
-[e ( _PIC18F26K40_loadDataIntoNVM (2 , _a . `E4064 0 ]
-[; ;app_device_cdc_basic.c: 159: PIC18F26K40_exitLowVoltageProg();
-"159
-[e ( _PIC18F26K40_exitLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 161: break;
-"161
-[e $U 414  ]
-"162
-}
-[; ;app_device_cdc_basic.c: 162: }
-[; ;app_device_cdc_basic.c: 163: default: {
-"163
-[e :U 419 ]
-{
-"167
-[v _a `S392 ~T0 @X0 1 a ]
-[; ;app_device_cdc_basic.c: 167: DWORD_VAL a;
-[; ;app_device_cdc_basic.c: 168: a.Val = 0x310000;
-"168
-[e = . _a 0 -> -> 3211264 `l `ul ]
-[; ;app_device_cdc_basic.c: 169: PIC18F26K40_enterLowVoltageProg();
-"169
-[e ( _PIC18F26K40_enterLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 170: PIC18F26K40_loadPC(a);
-"170
-[e ( _PIC18F26K40_loadPC (1 _a ]
-[; ;app_device_cdc_basic.c: 171: a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
-"171
-[e = _a ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
-[; ;app_device_cdc_basic.c: 172: PIC18F26K40_exitLowVoltageProg();
-"172
-[e ( _PIC18F26K40_exitLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 173: writeBuffer[i] = a.v[0]+0x30;
-"173
-[e = *U + &U _writeBuffer * -> _i `ux -> -> # *U &U _writeBuffer `ui `ux -> + -> *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux `i -> 48 `i `uc ]
-[; ;app_device_cdc_basic.c: 177: break;
-"177
-[e $U 414  ]
-"178
-}
-"187
-}
-[; ;app_device_cdc_basic.c: 178: }
-[; ;app_device_cdc_basic.c: 187: }
-[e $U 414  ]
-"136
-[e :U 415 ]
-[e [\ *U + &U _readBuffer * -> _i `ux -> -> # *U &U _readBuffer `ui `ux , $ -> -> 10 `i `uc 416
- , $ -> -> 13 `i `uc 417
- , $ -> -> 65 `i `uc 418
- 419 ]
-"187
-[e :U 414 ]
-"188
-}
-"134
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 413 ]
-[e $ < -> _i `i -> _numBytesRead `i 410  ]
-[e :U 411 ]
-"188
-}
-[; ;app_device_cdc_basic.c: 188: }
-[; ;app_device_cdc_basic.c: 190: if(numBytesRead > 0)
-"190
-[e $ ! > -> _numBytesRead `i -> 0 `i 420  ]
-[; ;app_device_cdc_basic.c: 191: {
-"191
-{
-[; ;app_device_cdc_basic.c: 195: putUSBUSART(writeBuffer,numBytesRead);
-"195
-[e ( _putUSBUSART (2 , &U _writeBuffer _numBytesRead ]
-"196
-}
-[e :U 420 ]
-"197
-}
-[e :U 409 ]
-[; ;app_device_cdc_basic.c: 196: }
-[; ;app_device_cdc_basic.c: 197: }
-[; ;app_device_cdc_basic.c: 199: CDCTxService();
-"199
-[e ( _CDCTxService ..  ]
-[; ;app_device_cdc_basic.c: 200: }
-"200
+[; ;progPIC18F26K40.c: 11: PIC18F26K40_setTrisToOut ();
+"11
+[e ( _PIC18F26K40_setTrisToOut ..  ]
+[; ;progPIC18F26K40.c: 12: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"12
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 14: LATCbits.LATC7 = 0;
+"14
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 15: LATCbits.LATC6 = 0;
+"15
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 16: LATCbits.LATC5 = 0;
+"16
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 17: (_delay((unsigned long)((250)*(12000000/4000000.0))));
+"17
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"19
+[v _code `S392 ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 19: DWORD_VAL code;
+[; ;progPIC18F26K40.c: 20: code.Val = (0x4d434850);
+"20
+[e = . _code 0 -> -> 1296255056 `l `ul ]
+[; ;progPIC18F26K40.c: 21: PIC18F26K40_sendByte(code.v[3], MSBTOLSB);
+"21
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _code 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _code 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 22: PIC18F26K40_sendByte(code.v[2], MSBTOLSB);
+"22
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _code 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _code 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 23: PIC18F26K40_sendByte(code.v[1], MSBTOLSB);
+"23
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _code 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _code 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 24: PIC18F26K40_sendByte(code.v[0], MSBTOLSB);
+"24
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _code 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _code 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 25: }
+"25
 [e :UE 402 ]
 }
-[a 2C 48 120 48 53 32 105 115 32 112 108 97 99 101 100 32 97 116 32 48 120 48 48 51 49 48 48 48 48 10 13 0 ]
-[a 1C 10 13 0 ]
+"27
+[v _PIC18F26K40_exitLowVoltageProg `(v ~T0 @X0 1 ef ]
+{
+[; ;progPIC18F26K40.c: 27: VOID PIC18F26K40_exitLowVoltageProg (VOID) {
+[e :U _PIC18F26K40_exitLowVoltageProg ]
+[f ]
+[; ;progPIC18F26K40.c: 28: TRISCbits.TRISC7 = 0;
+"28
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 29: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"29
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 30: LATCbits.LATC7 = 1;
+"30
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 31: }
+"31
+[e :UE 403 ]
+}
+"33
+[v _PIC18F26K40_sendByte `(v ~T0 @X0 1 ef2`uc`E4265 ]
+{
+[; ;progPIC18F26K40.c: 33: VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction) {
+[e :U _PIC18F26K40_sendByte ]
+[v _info `uc ~T0 @X0 1 r1 ]
+[v _direction `E4265 ~T0 @X0 1 r2 ]
+[f ]
+[; ;progPIC18F26K40.c: 34: PIC18F26K40_setTrisToOut ();
+"34
+[e ( _PIC18F26K40_setTrisToOut ..  ]
+"35
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 35: BYTE i, j;
+[; ;progPIC18F26K40.c: 36: for (i = 0; i < 8; i++) {
+"36
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 405  ]
+[e $U 406  ]
+[e :U 405 ]
+{
+[; ;progPIC18F26K40.c: 37: if (direction)
+"37
+[e $ ! != -> _direction `i -> -> -> 0 `i `E4265 `i 408  ]
+[; ;progPIC18F26K40.c: 38: j = i;
+"38
+[e = _j _i ]
+[e $U 409  ]
+"39
+[e :U 408 ]
+[; ;progPIC18F26K40.c: 39: else
+[; ;progPIC18F26K40.c: 40: j = 7-i;
+"40
+[e = _j -> - -> 7 `i -> _i `i `uc ]
+[e :U 409 ]
+[; ;progPIC18F26K40.c: 41: LATCbits.LATC5 = 1;
+"41
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 42: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"42
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 43: if ((info >> j) & 0x01)
+"43
+[e $ ! != & >> -> _info `i _j -> 1 `i -> 0 `i 410  ]
+[; ;progPIC18F26K40.c: 44: LATCbits.LATC6 = 1;
+"44
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[e $U 411  ]
+"45
+[e :U 410 ]
+[; ;progPIC18F26K40.c: 45: else
+[; ;progPIC18F26K40.c: 46: LATCbits.LATC6 = 0;
+"46
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[e :U 411 ]
+[; ;progPIC18F26K40.c: 47: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"47
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 48: LATCbits.LATC5 = 0;
+"48
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 49: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"49
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"50
+}
+"36
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 405  ]
+[e :U 406 ]
+"50
+}
+[; ;progPIC18F26K40.c: 50: }
+[; ;progPIC18F26K40.c: 51: }
+"51
+[e :UE 404 ]
+}
+"53
+[v _PIC18F26K40_readThreeBytes `(S392 ~T0 @X0 1 ef2`E4265`E4064 ]
+{
+[; ;progPIC18F26K40.c: 53: DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC) {
+[e :U _PIC18F26K40_readThreeBytes ]
+[v _direction `E4265 ~T0 @X0 1 r1 ]
+[v _IncreasePC `E4064 ~T0 @X0 1 r2 ]
+[f ]
+[; ;progPIC18F26K40.c: 54: if (IncreasePC)
+"54
+[e $ ! != -> _IncreasePC `i -> -> -> 0 `i `E4064 `i 413  ]
+[; ;progPIC18F26K40.c: 55: PIC18F26K40_sendByte(0xFE, MSBTOLSB);
+"55
+[e ( _PIC18F26K40_sendByte (2 , -> -> 254 `i `uc . `E4265 0 ]
+[e $U 414  ]
+"56
+[e :U 413 ]
+[; ;progPIC18F26K40.c: 56: else
+[; ;progPIC18F26K40.c: 57: PIC18F26K40_sendByte(0xFC, MSBTOLSB);
+"57
+[e ( _PIC18F26K40_sendByte (2 , -> -> 252 `i `uc . `E4265 0 ]
+[e :U 414 ]
+[; ;progPIC18F26K40.c: 58: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"58
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"59
+[v _data `S392 ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 59: DWORD_VAL data;
+[; ;progPIC18F26K40.c: 60: data.Val = 0x000000;
+"60
+[e = . _data 0 -> -> -> 0 `i `l `ul ]
+"61
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 61: BYTE i, j;
+[; ;progPIC18F26K40.c: 62: TRISCbits.TRISC6 = 1;
+"62
+[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 63: for (i = 0; i < 23; i++) {
+"63
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 23 `i 415  ]
+[e $U 416  ]
+[e :U 415 ]
+{
+[; ;progPIC18F26K40.c: 64: if (direction)
+"64
+[e $ ! != -> _direction `i -> -> -> 0 `i `E4265 `i 418  ]
+[; ;progPIC18F26K40.c: 65: j = i;
+"65
+[e = _j _i ]
+[e $U 419  ]
+"66
+[e :U 418 ]
+[; ;progPIC18F26K40.c: 66: else
+[; ;progPIC18F26K40.c: 67: j = 22-i;
+"67
+[e = _j -> - -> 22 `i -> _i `i `uc ]
+[e :U 419 ]
+[; ;progPIC18F26K40.c: 68: LATCbits.LATC5 = 1;
+"68
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 69: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"69
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 70: if (PORTCbits.RC6 == 1)
+"70
+[e $ ! == -> . . _PORTCbits 0 6 `i -> 1 `i 420  ]
+[; ;progPIC18F26K40.c: 71: data.Val = data.Val | ((DWORD)(0x1<<j));
+"71
+[e = . _data 0 | . _data 0 -> << -> 1 `i _j `ul ]
+[e :U 420 ]
+[; ;progPIC18F26K40.c: 72: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"72
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 73: LATCbits.LATC5 = 0;
+"73
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 74: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"74
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"75
+}
+"63
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 23 `i 415  ]
+[e :U 416 ]
+"75
+}
+[; ;progPIC18F26K40.c: 75: }
+[; ;progPIC18F26K40.c: 76: LATCbits.LATC5 = 1;
+"76
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 77: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"77
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 78: LATCbits.LATC5 = 0;
+"78
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 79: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"79
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 81: TRISCbits.TRISC6 = 0;
+"81
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 82: return data;
+"82
+[e ) _data ]
+[e $UE 412  ]
+[; ;progPIC18F26K40.c: 83: }
+"83
+[e :UE 412 ]
+}
+"86
+[v _PIC18F26K40_loadPC `(v ~T0 @X0 1 ef1`S392 ]
+{
+[; ;progPIC18F26K40.c: 86: VOID PIC18F26K40_loadPC (DWORD_VAL address) {
+[e :U _PIC18F26K40_loadPC ]
+[v _address `S392 ~T0 @X0 1 r1 ]
+[f ]
+"87
+[v _tempAddress `S392 ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 87: DWORD_VAL tempAddress;
+[; ;progPIC18F26K40.c: 88: tempAddress.Val= (address.Val<<1);
+"88
+[e = . _tempAddress 0 << . _address 0 -> 1 `i ]
+[; ;progPIC18F26K40.c: 89: tempAddress.bits.b0 = 0;
+"89
+[e = . . _tempAddress 6 0 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 90: tempAddress.bits.b23 = 0;
+"90
+[e = . . _tempAddress 6 23 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 91: PIC18F26K40_sendByte(0x80, MSBTOLSB);
+"91
+[e ( _PIC18F26K40_sendByte (2 , -> -> 128 `i `uc . `E4265 0 ]
+[; ;progPIC18F26K40.c: 92: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"92
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 93: PIC18F26K40_sendByte(tempAddress.v[2], MSBTOLSB);
+"93
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _tempAddress 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _tempAddress 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 94: PIC18F26K40_sendByte(tempAddress.v[1], MSBTOLSB);
+"94
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _tempAddress 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _tempAddress 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 95: PIC18F26K40_sendByte(tempAddress.v[0], MSBTOLSB);
+"95
+[e ( _PIC18F26K40_sendByte (2 , *U + &U . _tempAddress 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _tempAddress 2 `ui `ux . `E4265 0 ]
+[; ;progPIC18F26K40.c: 96: }
+"96
+[e :UE 421 ]
+}
+"98
+[v _PIC18F26K40_loadDataIntoNVM `(v ~T0 @X0 1 ef2`S392`E4064 ]
+{
+[; ;progPIC18F26K40.c: 98: VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC) {
+[e :U _PIC18F26K40_loadDataIntoNVM ]
+[v _data `S392 ~T0 @X0 1 r1 ]
+[v _IncreasePC `E4064 ~T0 @X0 1 r2 ]
+[f ]
+"99
+[v _tempData `S392 ~T0 @X0 1 a ]
+[; ;progPIC18F26K40.c: 99: DWORD_VAL tempData;
+[; ;progPIC18F26K40.c: 100: tempData.Val = (data.Val <<1 );
+"100
+[e = . _tempData 0 << . _data 0 -> 1 `i ]
+[; ;progPIC18F26K40.c: 101: tempData.bits.b0 = 0;
+"101
+[e = . . _tempData 6 0 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 102: if (IncreasePC==TRUE)
+"102
+[e $ ! == -> _IncreasePC `i -> . `E4064 1 `i 423  ]
+[; ;progPIC18F26K40.c: 103: PIC18F26K40_sendByteMsbToLsb(0x02);
+"103
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 -> -> 2 `i `uc ]
+[e $U 424  ]
+"104
+[e :U 423 ]
+[; ;progPIC18F26K40.c: 104: else
+[; ;progPIC18F26K40.c: 105: PIC18F26K40_sendByteMsbToLsb(0x00);
+"105
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 -> -> 0 `i `uc ]
+[e :U 424 ]
+[; ;progPIC18F26K40.c: 106: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"106
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 107: PIC18F26K40_sendByteMsbToLsb(tempData.v[2]);
+"107
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 *U + &U . _tempData 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _tempData 2 `ui `ux ]
+[; ;progPIC18F26K40.c: 108: PIC18F26K40_sendByteMsbToLsb(tempData.v[1]);
+"108
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 *U + &U . _tempData 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _tempData 2 `ui `ux ]
+[; ;progPIC18F26K40.c: 109: PIC18F26K40_sendByteMsbToLsb(tempData.v[0]);
+"109
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 *U + &U . _tempData 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _tempData 2 `ui `ux ]
+[; ;progPIC18F26K40.c: 110: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"110
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 112: PIC18F26K40_sendByteMsbToLsb(0xE0);
+"112
+[e ( _PIC18F26K40_sendByteMsbToLsb (1 -> -> 224 `i `uc ]
+[; ;progPIC18F26K40.c: 113: _delay((unsigned long)((6)*(12000000/4000.0)));
+"113
+[e ( __delay (1 -> * -> -> 6 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
+[; ;progPIC18F26K40.c: 121: }
+"121
+[e :UE 422 ]
+}
+"123
+[v _PIC18F26K40_sendByteMsbToLsb `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;progPIC18F26K40.c: 123: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info) {
+[e :U _PIC18F26K40_sendByteMsbToLsb ]
+[v _info `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;progPIC18F26K40.c: 124: PIC18F26K40_setTrisToOut ();
+"124
+[e ( _PIC18F26K40_setTrisToOut ..  ]
+[; ;progPIC18F26K40.c: 125: for (INT8 i = 7; i >= 0; i--) {
+"125
+{
+[v _i `c ~T0 @X0 1 a ]
+[e = _i -> -> 7 `i `c ]
+[e $ >= -> _i `i -> 0 `i 426  ]
+[e $U 427  ]
+[e :U 426 ]
+{
+[; ;progPIC18F26K40.c: 126: LATCbits.LATC5 = 1;
+"126
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 127: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"127
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 128: if ((info >> i) & 0x01)
+"128
+[e $ ! != & >> -> _info `i _i -> 1 `i -> 0 `i 429  ]
+[; ;progPIC18F26K40.c: 129: LATCbits.LATC6 = 1;
+"129
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[e $U 430  ]
+"130
+[e :U 429 ]
+[; ;progPIC18F26K40.c: 130: else
+[; ;progPIC18F26K40.c: 131: LATCbits.LATC6 = 0;
+"131
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[e :U 430 ]
+[; ;progPIC18F26K40.c: 132: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"132
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 133: LATCbits.LATC5 = 0;
+"133
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 134: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"134
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"135
+}
+"125
+[e -- _i -> -> 1 `i `c ]
+[e $ >= -> _i `i -> 0 `i 426  ]
+[e :U 427 ]
+"135
+}
+[; ;progPIC18F26K40.c: 135: }
+[; ;progPIC18F26K40.c: 136: }
+"136
+[e :UE 425 ]
+}

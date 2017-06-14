@@ -1,20 +1,19 @@
- build/default/production/libs/programming.d  \
- build/default/production/libs/programming.p1:  \
- libs/programming.c  \
+ build/default/production/libs/progPIC18F26K40.d  \
+ build/default/production/libs/progPIC18F26K40.p1:  \
+ libs/progPIC18F26K40.c  \
 libs/../picLibs/usb_hal.h  \
 libs/../picLibs/app_device_cdc_basic.h  \
 picLibs/leds.h  \
 picLibs/usb_config.h  \
-libs/programming.h  \
 libs/../picLibs/usb_device.h  \
 libs/../picLibs/usb.h  \
 picLibs/usb_hal.h  \
 picLibs/usb_hal_pic18.h  \
 picLibs/buttons.h  \
 libs/../libs/progPIC18F26K40.h  \
+libs/progPIC18F26K40.h  \
 libs/../picLibs/usb_config.h  \
 libs/../libs/GenericTypeDefs.h  \
-libs/GenericTypeDefs.h  \
 picLibs/system.h  \
 libs/../main.h  \
 libs/../picLibs/usb_ch9.h  \

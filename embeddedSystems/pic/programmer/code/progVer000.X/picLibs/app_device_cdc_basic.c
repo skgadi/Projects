@@ -140,19 +140,40 @@ void APP_DeviceCDCBasicDemoTasks()
                  */
                 case 0x0A:
                 case 0x0D:
-                    writeBuffer[i] = readBuffer[i];
+                    putrsUSBUSART("\n\r");
+                    /*writeBuffer[i] = readBuffer[i];*/
                     break;
                 case 0x41: {
+                    /*PIC18F26K40_enterLowVoltageProg();
                     putrsUSBUSART("A pressed\n\r");
                     MEMORY_ADDRESS eepromAddress;
                     eepromAddress.Val = 0x00;
-                    writeEepromByte(eepromAddress, 7);
+                    writeEepromByte(eepromAddress, 7);*/
+                    DWORD_VAL a;
+                    a.Val = 0x310000;
+                    PIC18F26K40_enterLowVoltageProg();
+                    PIC18F26K40_loadPC(a);
+                    a.Val = 0x05;
+                    putrsUSBUSART("0x05 is placed at 0x00310000\n\r");
+                    PIC18F26K40_loadDataIntoNVM(a, FALSE);
+                    PIC18F26K40_exitLowVoltageProg();
+                    //putrsUSBUSART("0x07 is placed at 0x00310000\n\r");
                     break;
                 }
                 default: {
-                    MEMORY_ADDRESS eepromAddress;
+                    /*MEMORY_ADDRESS eepromAddress;
                     eepromAddress.Val = readBuffer[i]-0x30;
-                    writeBuffer[i] = readEepromByte(eepromAddress)+0x30;
+                    writeBuffer[i] = readEepromByte(eepromAddress)+0x30;*/
+                    DWORD_VAL a;
+                    a.Val = 0x310000;
+                    PIC18F26K40_enterLowVoltageProg();
+                    PIC18F26K40_loadPC(a);
+                    a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+                    PIC18F26K40_exitLowVoltageProg();
+                    writeBuffer[i] = a.v[0]+0x30;
+                    /*writeBuffer[i+1] = a.v[1]+0x30;
+                    writeBuffer[i+2] = a.v[0]+0x30;*/
+                    //putrsUSBUSART("Heyyyy\n\r");
                     break;
                 }
                 /* If we receive something else, then echo it plus one
