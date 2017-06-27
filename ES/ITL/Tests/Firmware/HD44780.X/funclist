@@ -1,0 +1,19 @@
+_Lcd_ConstText: CODE, 3444 0 104
+_Lcd_WriteChar: CODE, 3728 0 70
+_Lcd_Init: CODE, 3252 0 192
+__stringdata: SMALLCONST, 1547 0 42
+_Lcd_Command: CODE, 2974 0 278
+_Lcd_Text: CODE, 3548 0 98
+_dpowers: SMALLCONST, 1537 0 10
+_Lcd_Delay5us: CODE, 3978 0 18
+_main: CODE, 2176 0 516
+_Delay_ms: CODE, 3864 0 44
+__initialization: CODE, 4012 0 0
+___lwdiv: CODE, 3646 0 82
+_Lcd_CharCP: CODE, 2692 0 282
+_isdigit: CODE, 3946 0 32
+_sprintf: CODE, 1590 0 586
+___lwmod: CODE, 3798 0 66
+_Lcd_Delay5500us: CODE, 3996 0 16
+___wmul: CODE, 3908 0 38
+Total: 2474

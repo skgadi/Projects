@@ -1,0 +1,426 @@
+Microchip MPLAB XC8 Compiler V1.38 ()
+
+Linker command line:
+
+-W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.38\dat\en_msgs.txt -cs \
+  -h+dist/default/production\Test886_01.X.production.sym \
+  --cmf=dist/default/production\Test886_01.X.production.cmf -z -Q16F886 \
+  -oC:\Users\gadis\AppData\Local\Temp\s8eg.2 \
+  -Mdist/default/production/Test886_01.X.production.map -E1 -ver=XC8 \
+  -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
+  -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
+  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
+  -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ASFR0=00h-01Fh \
+  -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
+  -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
+  -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
+  -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
+  -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+  -DENTRY=2 -k C:\Users\gadis\AppData\Local\Temp\s8eg.obj \
+  dist/default/production\Test886_01.X.production.obj 
+
+Object code version is 3.11
+
+Machine type is 16F886
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\gadis\AppData\Local\Temp\s8eg.obj
+                end_init                             12       12        3        8       0
+                reset_vec                             0        0        3        0       0
+dist/default/production\Test886_01.X.production.obj
+                cinit                                15       15        7        8       0
+                intentry                              4        4        E        8       0
+                text3                                1C       1C       1A        8       0
+                text2                                36       36       18        8       0
+                text1                                4E       4E       15        8       0
+                maintext                             63       63        3        8       0
+                cstackCOMMON                         70       70        4       70       1
+                bssCOMMON                            74       74        3       70       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                             12       12        3         0
+                cinit                                15       15        7         0
+                intentry                              4        4        E         0
+                reset_vec                             0        0        3         0
+                text3                                1C       1C       1A         0
+                text2                                36       36       18         0
+                text1                                4E       4E       15         0
+                maintext                             63       63        3         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   COMMON         
+                cstackCOMMON                         70       70        4         1
+                bssCOMMON                            74       74        3         1
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000003  000003         0       0  CODE        2
+                intentry                       000004  000062  000066         8       0  CODE        2
+                cstackCOMMON                   000070  000007  000077        70       1  COMMON      1
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            20-6F           50           1
+        BANK1            A0-EF           50           1
+        BANK2            110-16F           60           1
+        BANK3            190-1EF           60           1
+        CODE             03-03            1           2
+                         66-1FFF          800
+        COMMON           77-7D            7           1
+        CONFIG           2007-2008            2           2
+        CONST            03-03            1           2
+                         66-1FFF          100
+        EEDATA           2100-21FF          100           2
+        ENTRY            03-03            1           2
+                         66-1FFF          100
+        IDLOC            2000-2003            4           2
+        RAM              20-6F           50           1
+                         A0-EF           50
+                         110-16F           60
+                         190-1EF           60
+        SFR0             00-1F           20           1
+        SFR1             80-9F           20           1
+        SFR2             100-10F           10           1
+        SFR3             180-18F           10           1
+        STACK            110-16F           60           1
+        STRCODE          03-03            1           2
+                         66-1FFF         1F9A
+        STRING           03-03            1           2
+                         66-1FFF          100
+
+                                  Symbol Table
+
+TMR0_ISR@CountCallBack               bssCOMMON    74
+_INTCONbits                          (abs)        0B
+_INTERRUPT_InterruptManager          text1        4E
+_OPTION_REG                          (abs)        81
+_OSCCON                              (abs)        8F
+_OSCTUNE                             (abs)        90
+_PORTA                               (abs)        05
+_PORTAbits                           (abs)        05
+_TMR0                                (abs)        01
+_TMR0_CallBack                       text3        1C
+_TMR0_ISR                            text2        36
+_TRISA                               (abs)        85
+_TRISB                               (abs)        86
+_TRISC                               (abs)        87
+_TRISE                               (abs)        89
+_WPUB                                (abs)        95
+__Habs1                              abs1         00
+__Hbank0                             bank0        00
+__Hbank1                             bank1        00
+__Hbank2                             bank2        00
+__Hbank3                             bank3        00
+__HbssCOMMON                         bssCOMMON    00
+__Hcinit                             cinit        1C
+__Hclrtext                           clrtext      00
+__Hcode                              code         00
+__Hcommon                            common       00
+__Hconfig                            config       00
+__HcstackCOMMON                      cstackCOMMON 00
+__Heeprom_data                       eeprom_data  00
+__Hend_init                          end_init     15
+__Hfunctab                           functab      00
+__Hidloc                             idloc        00
+__Hinit                              init         12
+__Hintentry                          intentry     12
+__Hmaintext                          maintext     00
+__Hpowerup                           powerup      00
+__Hram                               ram          00
+__Hreset_vec                         reset_vec    03
+__Hsfr0                              sfr0         00
+__Hsfr1                              sfr1         00
+__Hsfr2                              sfr2         00
+__Hsfr3                              sfr3         00
+__Hspace_0                           (abs)        66
+__Hspace_1                           (abs)        77
+__Hspace_2                           (abs)        00
+__Hspace_3                           (abs)        00
+__Hstack                             stack        00
+__Hstrings                           strings      00
+__Htext                              text         00
+__Labs1                              abs1         00
+__Lbank0                             bank0        00
+__Lbank1                             bank1        00
+__Lbank2                             bank2        00
+__Lbank3                             bank3        00
+__LbssCOMMON                         bssCOMMON    00
+__Lcinit                             cinit        15
+__Lclrtext                           clrtext      00
+__Lcode                              code         00
+__Lcommon                            common       00
+__Lconfig                            config       00
+__LcstackCOMMON                      cstackCOMMON 00
+__Leeprom_data                       eeprom_data  00
+__Lend_init                          end_init     12
+__Lfunctab                           functab      00
+__Lidloc                             idloc        00
+__Linit                              init         12
+__Lintentry                          intentry     04
+__Lmaintext                          maintext     00
+__Lpowerup                           powerup      00
+__Lram                               ram          00
+__Lreset_vec                         reset_vec    00
+__Lsfr0                              sfr0         00
+__Lsfr1                              sfr1         00
+__Lsfr2                              sfr2         00
+__Lsfr3                              sfr3         00
+__Lspace_0                           (abs)        00
+__Lspace_1                           (abs)        00
+__Lspace_2                           (abs)        00
+__Lspace_3                           (abs)        00
+__Lstack                             stack        00
+__Lstrings                           strings      00
+__Ltext                              text         00
+__S0                                 (abs)        66
+__S1                                 (abs)        77
+__S2                                 (abs)        00
+__S3                                 (abs)        00
+___int_sp                            stack        00
+___latbits                           (abs)        02
+___sp                                stack        00
+__end_of_INTERRUPT_InterruptManager  text1        63
+__end_of_TMR0_CallBack               text3        36
+__end_of_TMR0_ISR                    text2        4E
+__end_of__initialization             cinit        18
+__end_of_main                        maintext     66
+__initialization                     cinit        15
+__pbssCOMMON                         bssCOMMON    74
+__pcstackCOMMON                      cstackCOMMON 70
+__pintentry                          intentry     04
+__pmaintext                          maintext     63
+__ptext1                             text1        4E
+__ptext2                             text2        36
+__ptext3                             text3        1C
+__size_of_INTERRUPT_InterruptManager (abs)        00
+__size_of_TMR0_CallBack              (abs)        00
+__size_of_TMR0_ISR                   (abs)        00
+__size_of_main                       (abs)        00
+_main                                maintext     63
+_timer0ReloadVal                     bssCOMMON    76
+btemp                                (abs)        7E
+end_of_initialization                cinit        18
+interrupt_function                   intentry     04
+intlevel0                            functab      00
+intlevel1                            functab      00
+intlevel2                            functab      00
+intlevel3                            functab      00
+intlevel4                            functab      00
+intlevel5                            functab      00
+ltemp                                (abs)        7E
+ltemp0                               (abs)        7E
+ltemp1                               (abs)        82
+ltemp2                               (abs)        86
+ltemp3                               (abs)        80
+reset_vec                            reset_vec    00
+saved_w                              (abs)        7E
+stackhi                              (abs)        00
+stacklo                              (abs)        00
+start                                init         12
+start_initialization                 cinit        15
+ttemp                                (abs)        7E
+ttemp0                               (abs)        7E
+ttemp1                               (abs)        81
+ttemp2                               (abs)        84
+ttemp3                               (abs)        87
+ttemp4                               (abs)        7F
+wtemp                                (abs)        7E
+wtemp0                               (abs)        7E
+wtemp1                               (abs)        80
+wtemp2                               (abs)        82
+wtemp3                               (abs)        84
+wtemp4                               (abs)        86
+wtemp5                               (abs)        88
+wtemp6                               (abs)        7F
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 11 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _INTERRUPT_InterruptManager *****************
+ Defined at:
+		line 51 in file "gsk_files/interrupt_manager.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          4       0       0       0       0
+      Totals:         4       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_TMR0_ISR
+ This function is called by:
+		Interrupt level 1
+ This function uses a non-reentrant model
+
+
+ *************** function _TMR0_ISR *****************
+ Defined at:
+		line 105 in file "gsk_files/tmr0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_TMR0_CallBack
+ This function is called by:
+		_INTERRUPT_InterruptManager
+ This function uses a non-reentrant model
+
+
+ *************** function _TMR0_CallBack *****************
+ Defined at:
+		line 127 in file "gsk_files/tmr0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_TMR0_ISR
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+gsk_files/interrupt_manager.c
+		_INTERRUPT_InterruptManager		CODE           	004E	0000	22
+
+gsk_files/interrupt_manager.c estimated size: 22
+
+gsk_files/tmr0.c
+		_TMR0_CallBack 		CODE           	001C	0000	27
+		_TMR0_ISR      		CODE           	0036	0000	25
+
+gsk_files/tmr0.c estimated size: 52
+
+shared
+		__initialization		CODE           	0015	0000	4
+
+shared estimated size: 4
+
+main.c
+		_main          		CODE           	0063	0000	4
+
+main.c estimated size: 4
+

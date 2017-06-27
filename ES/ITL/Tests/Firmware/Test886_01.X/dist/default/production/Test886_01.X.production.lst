@@ -1,0 +1,927 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.38 build -256452561 
+                                                                                               Sun Jul 24 16:52:53 2016
+
+Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
+     1                           	processor	16F886
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	intentry,global,class=CODE,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	dabs	1,0x7E,2
+    13  0000                     	;# 
+    14  0001                     	;# 
+    15  0002                     	;# 
+    16  0003                     	;# 
+    17  0004                     	;# 
+    18  0005                     	;# 
+    19  0006                     	;# 
+    20  0007                     	;# 
+    21  0009                     	;# 
+    22  000A                     	;# 
+    23  000B                     	;# 
+    24  000C                     	;# 
+    25  000D                     	;# 
+    26  000E                     	;# 
+    27  000E                     	;# 
+    28  000F                     	;# 
+    29  0010                     	;# 
+    30  0011                     	;# 
+    31  0012                     	;# 
+    32  0013                     	;# 
+    33  0014                     	;# 
+    34  0015                     	;# 
+    35  0015                     	;# 
+    36  0016                     	;# 
+    37  0017                     	;# 
+    38  0018                     	;# 
+    39  0019                     	;# 
+    40  001A                     	;# 
+    41  001B                     	;# 
+    42  001B                     	;# 
+    43  001C                     	;# 
+    44  001D                     	;# 
+    45  001E                     	;# 
+    46  001F                     	;# 
+    47  0081                     	;# 
+    48  0085                     	;# 
+    49  0086                     	;# 
+    50  0087                     	;# 
+    51  0089                     	;# 
+    52  008C                     	;# 
+    53  008D                     	;# 
+    54  008E                     	;# 
+    55  008F                     	;# 
+    56  0090                     	;# 
+    57  0091                     	;# 
+    58  0092                     	;# 
+    59  0093                     	;# 
+    60  0093                     	;# 
+    61  0093                     	;# 
+    62  0094                     	;# 
+    63  0095                     	;# 
+    64  0096                     	;# 
+    65  0097                     	;# 
+    66  0098                     	;# 
+    67  0099                     	;# 
+    68  009A                     	;# 
+    69  009B                     	;# 
+    70  009C                     	;# 
+    71  009D                     	;# 
+    72  009E                     	;# 
+    73  009F                     	;# 
+    74  0105                     	;# 
+    75  0107                     	;# 
+    76  0108                     	;# 
+    77  0109                     	;# 
+    78  010C                     	;# 
+    79  010C                     	;# 
+    80  010D                     	;# 
+    81  010E                     	;# 
+    82  010F                     	;# 
+    83  0185                     	;# 
+    84  0187                     	;# 
+    85  0188                     	;# 
+    86  0189                     	;# 
+    87  018C                     	;# 
+    88  018D                     	;# 
+    89  0000                     	;# 
+    90  0001                     	;# 
+    91  0002                     	;# 
+    92  0003                     	;# 
+    93  0004                     	;# 
+    94  0005                     	;# 
+    95  0006                     	;# 
+    96  0007                     	;# 
+    97  0009                     	;# 
+    98  000A                     	;# 
+    99  000B                     	;# 
+   100  000C                     	;# 
+   101  000D                     	;# 
+   102  000E                     	;# 
+   103  000E                     	;# 
+   104  000F                     	;# 
+   105  0010                     	;# 
+   106  0011                     	;# 
+   107  0012                     	;# 
+   108  0013                     	;# 
+   109  0014                     	;# 
+   110  0015                     	;# 
+   111  0015                     	;# 
+   112  0016                     	;# 
+   113  0017                     	;# 
+   114  0018                     	;# 
+   115  0019                     	;# 
+   116  001A                     	;# 
+   117  001B                     	;# 
+   118  001B                     	;# 
+   119  001C                     	;# 
+   120  001D                     	;# 
+   121  001E                     	;# 
+   122  001F                     	;# 
+   123  0081                     	;# 
+   124  0085                     	;# 
+   125  0086                     	;# 
+   126  0087                     	;# 
+   127  0089                     	;# 
+   128  008C                     	;# 
+   129  008D                     	;# 
+   130  008E                     	;# 
+   131  008F                     	;# 
+   132  0090                     	;# 
+   133  0091                     	;# 
+   134  0092                     	;# 
+   135  0093                     	;# 
+   136  0093                     	;# 
+   137  0093                     	;# 
+   138  0094                     	;# 
+   139  0095                     	;# 
+   140  0096                     	;# 
+   141  0097                     	;# 
+   142  0098                     	;# 
+   143  0099                     	;# 
+   144  009A                     	;# 
+   145  009B                     	;# 
+   146  009C                     	;# 
+   147  009D                     	;# 
+   148  009E                     	;# 
+   149  009F                     	;# 
+   150  0105                     	;# 
+   151  0107                     	;# 
+   152  0108                     	;# 
+   153  0109                     	;# 
+   154  010C                     	;# 
+   155  010C                     	;# 
+   156  010D                     	;# 
+   157  010E                     	;# 
+   158  010F                     	;# 
+   159  0185                     	;# 
+   160  0187                     	;# 
+   161  0188                     	;# 
+   162  0189                     	;# 
+   163  018C                     	;# 
+   164  018D                     	;# 
+   165  0000                     	;# 
+   166  0001                     	;# 
+   167  0002                     	;# 
+   168  0003                     	;# 
+   169  0004                     	;# 
+   170  0005                     	;# 
+   171  0006                     	;# 
+   172  0007                     	;# 
+   173  0009                     	;# 
+   174  000A                     	;# 
+   175  000B                     	;# 
+   176  000C                     	;# 
+   177  000D                     	;# 
+   178  000E                     	;# 
+   179  000E                     	;# 
+   180  000F                     	;# 
+   181  0010                     	;# 
+   182  0011                     	;# 
+   183  0012                     	;# 
+   184  0013                     	;# 
+   185  0014                     	;# 
+   186  0015                     	;# 
+   187  0015                     	;# 
+   188  0016                     	;# 
+   189  0017                     	;# 
+   190  0018                     	;# 
+   191  0019                     	;# 
+   192  001A                     	;# 
+   193  001B                     	;# 
+   194  001B                     	;# 
+   195  001C                     	;# 
+   196  001D                     	;# 
+   197  001E                     	;# 
+   198  001F                     	;# 
+   199  0081                     	;# 
+   200  0085                     	;# 
+   201  0086                     	;# 
+   202  0087                     	;# 
+   203  0089                     	;# 
+   204  008C                     	;# 
+   205  008D                     	;# 
+   206  008E                     	;# 
+   207  008F                     	;# 
+   208  0090                     	;# 
+   209  0091                     	;# 
+   210  0092                     	;# 
+   211  0093                     	;# 
+   212  0093                     	;# 
+   213  0093                     	;# 
+   214  0094                     	;# 
+   215  0095                     	;# 
+   216  0096                     	;# 
+   217  0097                     	;# 
+   218  0098                     	;# 
+   219  0099                     	;# 
+   220  009A                     	;# 
+   221  009B                     	;# 
+   222  009C                     	;# 
+   223  009D                     	;# 
+   224  009E                     	;# 
+   225  009F                     	;# 
+   226  0105                     	;# 
+   227  0107                     	;# 
+   228  0108                     	;# 
+   229  0109                     	;# 
+   230  010C                     	;# 
+   231  010C                     	;# 
+   232  010D                     	;# 
+   233  010E                     	;# 
+   234  010F                     	;# 
+   235  0185                     	;# 
+   236  0187                     	;# 
+   237  0188                     	;# 
+   238  0189                     	;# 
+   239  018C                     	;# 
+   240  018D                     	;# 
+   241  0000                     	;# 
+   242  0001                     	;# 
+   243  0002                     	;# 
+   244  0003                     	;# 
+   245  0004                     	;# 
+   246  0005                     	;# 
+   247  0006                     	;# 
+   248  0007                     	;# 
+   249  0009                     	;# 
+   250  000A                     	;# 
+   251  000B                     	;# 
+   252  000C                     	;# 
+   253  000D                     	;# 
+   254  000E                     	;# 
+   255  000E                     	;# 
+   256  000F                     	;# 
+   257  0010                     	;# 
+   258  0011                     	;# 
+   259  0012                     	;# 
+   260  0013                     	;# 
+   261  0014                     	;# 
+   262  0015                     	;# 
+   263  0015                     	;# 
+   264  0016                     	;# 
+   265  0017                     	;# 
+   266  0018                     	;# 
+   267  0019                     	;# 
+   268  001A                     	;# 
+   269  001B                     	;# 
+   270  001B                     	;# 
+   271  001C                     	;# 
+   272  001D                     	;# 
+   273  001E                     	;# 
+   274  001F                     	;# 
+   275  0081                     	;# 
+   276  0085                     	;# 
+   277  0086                     	;# 
+   278  0087                     	;# 
+   279  0089                     	;# 
+   280  008C                     	;# 
+   281  008D                     	;# 
+   282  008E                     	;# 
+   283  008F                     	;# 
+   284  0090                     	;# 
+   285  0091                     	;# 
+   286  0092                     	;# 
+   287  0093                     	;# 
+   288  0093                     	;# 
+   289  0093                     	;# 
+   290  0094                     	;# 
+   291  0095                     	;# 
+   292  0096                     	;# 
+   293  0097                     	;# 
+   294  0098                     	;# 
+   295  0099                     	;# 
+   296  009A                     	;# 
+   297  009B                     	;# 
+   298  009C                     	;# 
+   299  009D                     	;# 
+   300  009E                     	;# 
+   301  009F                     	;# 
+   302  0105                     	;# 
+   303  0107                     	;# 
+   304  0108                     	;# 
+   305  0109                     	;# 
+   306  010C                     	;# 
+   307  010C                     	;# 
+   308  010D                     	;# 
+   309  010E                     	;# 
+   310  010F                     	;# 
+   311  0185                     	;# 
+   312  0187                     	;# 
+   313  0188                     	;# 
+   314  0189                     	;# 
+   315  018C                     	;# 
+   316  018D                     	;# 
+   317  0000                     	;# 
+   318  0001                     	;# 
+   319  0002                     	;# 
+   320  0003                     	;# 
+   321  0004                     	;# 
+   322  0005                     	;# 
+   323  0006                     	;# 
+   324  0007                     	;# 
+   325  0009                     	;# 
+   326  000A                     	;# 
+   327  000B                     	;# 
+   328  000C                     	;# 
+   329  000D                     	;# 
+   330  000E                     	;# 
+   331  000E                     	;# 
+   332  000F                     	;# 
+   333  0010                     	;# 
+   334  0011                     	;# 
+   335  0012                     	;# 
+   336  0013                     	;# 
+   337  0014                     	;# 
+   338  0015                     	;# 
+   339  0015                     	;# 
+   340  0016                     	;# 
+   341  0017                     	;# 
+   342  0018                     	;# 
+   343  0019                     	;# 
+   344  001A                     	;# 
+   345  001B                     	;# 
+   346  001B                     	;# 
+   347  001C                     	;# 
+   348  001D                     	;# 
+   349  001E                     	;# 
+   350  001F                     	;# 
+   351  0081                     	;# 
+   352  0085                     	;# 
+   353  0086                     	;# 
+   354  0087                     	;# 
+   355  0089                     	;# 
+   356  008C                     	;# 
+   357  008D                     	;# 
+   358  008E                     	;# 
+   359  008F                     	;# 
+   360  0090                     	;# 
+   361  0091                     	;# 
+   362  0092                     	;# 
+   363  0093                     	;# 
+   364  0093                     	;# 
+   365  0093                     	;# 
+   366  0094                     	;# 
+   367  0095                     	;# 
+   368  0096                     	;# 
+   369  0097                     	;# 
+   370  0098                     	;# 
+   371  0099                     	;# 
+   372  009A                     	;# 
+   373  009B                     	;# 
+   374  009C                     	;# 
+   375  009D                     	;# 
+   376  009E                     	;# 
+   377  009F                     	;# 
+   378  0105                     	;# 
+   379  0107                     	;# 
+   380  0108                     	;# 
+   381  0109                     	;# 
+   382  010C                     	;# 
+   383  010C                     	;# 
+   384  010D                     	;# 
+   385  010E                     	;# 
+   386  010F                     	;# 
+   387  0185                     	;# 
+   388  0187                     	;# 
+   389  0188                     	;# 
+   390  0189                     	;# 
+   391  018C                     	;# 
+   392  018D                     	;# 
+   393  000B                     _INTCONbits	set	11
+   394  0005                     _PORTA	set	5
+   395  0005                     _PORTAbits	set	5
+   396  0001                     _TMR0	set	1
+   397  0081                     _OPTION_REG	set	129
+   398  008F                     _OSCCON	set	143
+   399  0090                     _OSCTUNE	set	144
+   400  0085                     _TRISA	set	133
+   401  0086                     _TRISB	set	134
+   402  0087                     _TRISC	set	135
+   403  0089                     _TRISE	set	137
+   404  0095                     _WPUB	set	149
+   405                           
+   406                           	psect	cinit
+   407  0015                     start_initialization:	
+   408                           ; #config settings
+   409                           
+   410  0015                     __initialization:	
+   411                           
+   412                           ; Clear objects allocated to COMMON
+   413  0015  01F4               	clrf	__pbssCOMMON& (0+127)
+   414  0016  01F5               	clrf	(__pbssCOMMON+1)& (0+127)
+   415  0017  01F6               	clrf	(__pbssCOMMON+2)& (0+127)
+   416  0018                     end_of_initialization:	
+   417                           ;End of C runtime variable initialization code
+   418                           
+   419  0018                     __end_of__initialization:	
+   420  0018  0183               	clrf	3
+   421  0019  120A  118A  2863   	ljmp	_main	;jump to C main() function
+   422                           
+   423                           	psect	bssCOMMON
+   424  0074                     __pbssCOMMON:	
+   425  0074                     TMR0_ISR@CountCallBack:	
+   426  0074                     	ds	2
+   427  0076                     _timer0ReloadVal:	
+   428  0076                     	ds	1
+   429                           
+   430                           	psect	cstackCOMMON
+   431  0070                     __pcstackCOMMON:	
+   432  0070                     ?_TMR0_CallBack:	
+   433  0070                     ??_TMR0_CallBack:	
+   434                           ; 1 bytes @ 0x0
+   435                           
+   436  0070                     ?_main:	
+   437                           ; 1 bytes @ 0x0
+   438                           
+   439  0070                     ?_TMR0_ISR:	
+   440                           ; 1 bytes @ 0x0
+   441                           
+   442  0070                     ??_TMR0_ISR:	
+   443                           ; 1 bytes @ 0x0
+   444                           
+   445  0070                     ?_INTERRUPT_InterruptManager:	
+   446                           ; 1 bytes @ 0x0
+   447                           
+   448  0070                     ??_INTERRUPT_InterruptManager:	
+   449                           ; 1 bytes @ 0x0
+   450                           
+   451                           
+   452                           ; 1 bytes @ 0x0
+   453  0070                     	ds	4
+   454  0074                     ??_main:	
+   455                           
+   456                           	psect	maintext
+   457  0063                     __pmaintext:	
+   458                           ; 1 bytes @ 0x4
+   459 ;;
+   460 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   461 ;;
+   462 ;; *************** function _main *****************
+   463 ;; Defined at:
+   464 ;;		line 11 in file "main.c"
+   465 ;; Parameters:    Size  Location     Type
+   466 ;;		None
+   467 ;; Auto vars:     Size  Location     Type
+   468 ;;		None
+   469 ;; Return value:  Size  Location     Type
+   470 ;;                  1    wreg      void 
+   471 ;; Registers used:
+   472 ;;		None
+   473 ;; Tracked objects:
+   474 ;;		On entry : B00/0
+   475 ;;		On exit  : 0/0
+   476 ;;		Unchanged: 0/0
+   477 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   478 ;;      Params:         0       0       0       0       0
+   479 ;;      Locals:         0       0       0       0       0
+   480 ;;      Temps:          0       0       0       0       0
+   481 ;;      Totals:         0       0       0       0       0
+   482 ;;Total ram usage:        0 bytes
+   483 ;; Hardware stack levels required when called:    3
+   484 ;; This function calls:
+   485 ;;		Nothing
+   486 ;; This function is called by:
+   487 ;;		Startup code after reset
+   488 ;; This function uses a non-reentrant model
+   489 ;;
+   490                           
+   491                           
+   492                           ;psect for function _main
+   493  0063                     _main:	
+   494                           
+   495                           ;main.c: 12: return;
+   496                           
+   497                           ;incstack = 0
+   498                           ; Regs used in _main: []
+   499  0063  120A  118A  2812   	ljmp	start
+   500  0066                     __end_of_main:	
+   501                           
+   502                           	psect	text1
+   503  004E                     __ptext1:	
+   504 ;; *************** function _INTERRUPT_InterruptManager *****************
+   505 ;; Defined at:
+   506 ;;		line 51 in file "gsk_files/interrupt_manager.c"
+   507 ;; Parameters:    Size  Location     Type
+   508 ;;		None
+   509 ;; Auto vars:     Size  Location     Type
+   510 ;;		None
+   511 ;; Return value:  Size  Location     Type
+   512 ;;                  1    wreg      void 
+   513 ;; Registers used:
+   514 ;;		wreg, status,2, status,0, pclath, cstack
+   515 ;; Tracked objects:
+   516 ;;		On entry : 0/0
+   517 ;;		On exit  : 0/0
+   518 ;;		Unchanged: 0/0
+   519 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   520 ;;      Params:         0       0       0       0       0
+   521 ;;      Locals:         0       0       0       0       0
+   522 ;;      Temps:          4       0       0       0       0
+   523 ;;      Totals:         4       0       0       0       0
+   524 ;;Total ram usage:        4 bytes
+   525 ;; Hardware stack levels used:    1
+   526 ;; Hardware stack levels required when called:    2
+   527 ;; This function calls:
+   528 ;;		_TMR0_ISR
+   529 ;; This function is called by:
+   530 ;;		Interrupt level 1
+   531 ;; This function uses a non-reentrant model
+   532 ;;
+   533                           
+   534                           
+   535                           ;psect for function _INTERRUPT_InterruptManager
+   536  004E                     _INTERRUPT_InterruptManager:	
+   537                           
+   538                           ;interrupt_manager.c: 54: if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
+   539  004E  1A8B               	btfsc	11,5	;volatile
+   540  004F  1D0B               	btfss	11,2	;volatile
+   541  0050  2856               	goto	i1l83
+   542                           
+   543                           ;interrupt_manager.c: 55: {
+   544                           ;interrupt_manager.c: 56: TMR0_ISR();
+   545  0051  120A  118A  2036  120A  118A  	fcall	_TMR0_ISR
+   546  0056                     i1l83:	
+   547                           ;interrupt_manager.c: 58: else
+   548                           ;interrupt_manager.c: 59: {
+   549                           
+   550                           ;interrupt_manager.c: 57: }
+   551                           
+   552  0056  0873               	movf	??_INTERRUPT_InterruptManager+3,w
+   553  0057  1283               	bcf	3,5	;RP0=0, select bank0
+   554  0058  1303               	bcf	3,6	;RP1=0, select bank0
+   555  0059  00FF               	movwf	127
+   556  005A  0872               	movf	??_INTERRUPT_InterruptManager+2,w
+   557  005B  008A               	movwf	10
+   558  005C  0871               	movf	??_INTERRUPT_InterruptManager+1,w
+   559  005D  0084               	movwf	4
+   560  005E  0E70               	swapf	??_INTERRUPT_InterruptManager^(0+-128),w
+   561  005F  0083               	movwf	3
+   562  0060  0EFE               	swapf	126,f
+   563  0061  0E7E               	swapf	126,w
+   564  0062  0009               	retfie
+   565  0063                     __end_of_INTERRUPT_InterruptManager:	
+   566                           
+   567                           	psect	intentry
+   568  0004                     __pintentry:	
+   569                           ;incstack = 0
+   570                           ; Regs used in _INTERRUPT_InterruptManager: [wreg+status,2+status,0+pclath+cstack]
+   571                           
+   572  0004                     interrupt_function:	
+   573  007E                     saved_w	set	btemp
+   574  0004  00FE               	movwf	btemp
+   575  0005  0E03               	swapf	3,w
+   576  0006  00F0               	movwf	??_INTERRUPT_InterruptManager
+   577  0007  0804               	movf	4,w
+   578  0008  00F1               	movwf	??_INTERRUPT_InterruptManager+1
+   579  0009  080A               	movf	10,w
+   580  000A  00F2               	movwf	??_INTERRUPT_InterruptManager+2
+   581  000B  1283               	bcf	3,5	;RP0=0, select bank0
+   582  000C  1303               	bcf	3,6	;RP1=0, select bank0
+   583  000D  087F               	movf	btemp+1,w
+   584  000E  00F3               	movwf	??_INTERRUPT_InterruptManager+3
+   585  000F  120A  118A  284E   	ljmp	_INTERRUPT_InterruptManager
+   586                           
+   587                           	psect	text2
+   588  0036                     __ptext2:	
+   589 ;; *************** function _TMR0_ISR *****************
+   590 ;; Defined at:
+   591 ;;		line 105 in file "gsk_files/tmr0.c"
+   592 ;; Parameters:    Size  Location     Type
+   593 ;;		None
+   594 ;; Auto vars:     Size  Location     Type
+   595 ;;		None
+   596 ;; Return value:  Size  Location     Type
+   597 ;;                  1    wreg      void 
+   598 ;; Registers used:
+   599 ;;		wreg, status,2, status,0, pclath, cstack
+   600 ;; Tracked objects:
+   601 ;;		On entry : 0/0
+   602 ;;		On exit  : 0/0
+   603 ;;		Unchanged: 0/0
+   604 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   605 ;;      Params:         0       0       0       0       0
+   606 ;;      Locals:         0       0       0       0       0
+   607 ;;      Temps:          0       0       0       0       0
+   608 ;;      Totals:         0       0       0       0       0
+   609 ;;Total ram usage:        0 bytes
+   610 ;; Hardware stack levels used:    1
+   611 ;; Hardware stack levels required when called:    1
+   612 ;; This function calls:
+   613 ;;		_TMR0_CallBack
+   614 ;; This function is called by:
+   615 ;;		_INTERRUPT_InterruptManager
+   616 ;; This function uses a non-reentrant model
+   617 ;;
+   618                           
+   619                           
+   620                           ;psect for function _TMR0_ISR
+   621  0036                     _TMR0_ISR:	
+   622                           
+   623                           ;tmr0.c: 107: static volatile unsigned int CountCallBack = 0;
+   624                           ;tmr0.c: 110: INTCONbits.TMR0IF = 0;
+   625                           
+   626                           ;incstack = 0
+   627                           ; Regs used in _TMR0_ISR: [wreg+status,2+status,0+pclath+cstack]
+   628  0036  110B               	bcf	11,2	;volatile
+   629                           
+   630                           ;tmr0.c: 112: TMR0 = timer0ReloadVal;
+   631  0037  0876               	movf	_timer0ReloadVal,w	;volatile
+   632  0038  1283               	bcf	3,5	;RP0=0, select bank0
+   633  0039  1303               	bcf	3,6	;RP1=0, select bank0
+   634  003A  0081               	movwf	1	;volatile
+   635                           
+   636                           ;tmr0.c: 115: if (++CountCallBack >= 64102)
+   637  003B  3001               	movlw	1
+   638  003C  07F4               	addwf	TMR0_ISR@CountCallBack,f	;volatile
+   639  003D  1803               	skipnc
+   640  003E  0AF5               	incf	TMR0_ISR@CountCallBack+1,f	;volatile
+   641  003F  3000               	movlw	0
+   642  0040  07F5               	addwf	TMR0_ISR@CountCallBack+1,f	;volatile
+   643  0041  30FA               	movlw	250
+   644  0042  0275               	subwf	TMR0_ISR@CountCallBack+1,w	;volatile
+   645  0043  3066               	movlw	102
+   646  0044  1903               	skipnz
+   647  0045  0274               	subwf	TMR0_ISR@CountCallBack,w	;volatile
+   648  0046  1C03               	skipc
+   649  0047  0008               	return
+   650                           
+   651                           ;tmr0.c: 116: {
+   652                           ;tmr0.c: 118: TMR0_CallBack();
+   653  0048  120A  118A  201C   	fcall	_TMR0_CallBack
+   654                           
+   655                           ;tmr0.c: 121: CountCallBack = 0;
+   656  004B  01F4               	clrf	TMR0_ISR@CountCallBack	;volatile
+   657  004C  01F5               	clrf	TMR0_ISR@CountCallBack+1	;volatile
+   658  004D  0008               	return
+   659  004E                     __end_of_TMR0_ISR:	
+   660                           
+   661                           	psect	text3
+   662  001C                     __ptext3:	
+   663 ;; *************** function _TMR0_CallBack *****************
+   664 ;; Defined at:
+   665 ;;		line 127 in file "gsk_files/tmr0.c"
+   666 ;; Parameters:    Size  Location     Type
+   667 ;;		None
+   668 ;; Auto vars:     Size  Location     Type
+   669 ;;		None
+   670 ;; Return value:  Size  Location     Type
+   671 ;;                  1    wreg      void 
+   672 ;; Registers used:
+   673 ;;		wreg
+   674 ;; Tracked objects:
+   675 ;;		On entry : 0/0
+   676 ;;		On exit  : 0/0
+   677 ;;		Unchanged: 0/0
+   678 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   679 ;;      Params:         0       0       0       0       0
+   680 ;;      Locals:         0       0       0       0       0
+   681 ;;      Temps:          0       0       0       0       0
+   682 ;;      Totals:         0       0       0       0       0
+   683 ;;Total ram usage:        0 bytes
+   684 ;; Hardware stack levels used:    1
+   685 ;; This function calls:
+   686 ;;		Nothing
+   687 ;; This function is called by:
+   688 ;;		_TMR0_ISR
+   689 ;; This function uses a non-reentrant model
+   690 ;;
+   691                           
+   692                           
+   693                           ;psect for function _TMR0_CallBack
+   694  001C                     _TMR0_CallBack:	
+   695                           
+   696                           ;tmr0.c: 131: TRISA = 0xff;
+   697                           
+   698                           ;incstack = 0
+   699                           ; Regs used in _TMR0_CallBack: [wreg]
+   700  001C  30FF               	movlw	255
+   701  001D  1683               	bsf	3,5	;RP0=1, select bank1
+   702  001E  1303               	bcf	3,6	;RP1=0, select bank1
+   703  001F  0085               	movwf	5	;volatile
+   704                           
+   705                           ;tmr0.c: 132: if (PORTAbits.RA4 == 0) {
+   706  0020  1283               	bcf	3,5	;RP0=0, select bank0
+   707  0021  1303               	bcf	3,6	;RP1=0, select bank0
+   708  0022  1A05               	btfsc	5,4	;volatile
+   709  0023  282D               	goto	i1l549
+   710                           
+   711                           ;tmr0.c: 133: TRISA = 0xC0;
+   712  0024  30C0               	movlw	192
+   713  0025  1683               	bsf	3,5	;RP0=1, select bank1
+   714  0026  1303               	bcf	3,6	;RP1=0, select bank1
+   715  0027  0085               	movwf	5	;volatile
+   716                           
+   717                           ;tmr0.c: 134: PORTA=0X3F;
+   718  0028  303F               	movlw	63
+   719  0029  1283               	bcf	3,5	;RP0=0, select bank0
+   720  002A  1303               	bcf	3,6	;RP1=0, select bank0
+   721  002B  0085               	movwf	5	;volatile
+   722                           
+   723                           ;tmr0.c: 135: } else {
+   724  002C  0008               	return
+   725  002D                     i1l549:	
+   726                           
+   727                           ;tmr0.c: 136: TRISA = 0xC0;
+   728  002D  30C0               	movlw	192
+   729  002E  1683               	bsf	3,5	;RP0=1, select bank1
+   730  002F  1303               	bcf	3,6	;RP1=0, select bank1
+   731  0030  0085               	movwf	5	;volatile
+   732                           
+   733                           ;tmr0.c: 137: PORTA=0XC0;
+   734  0031  30C0               	movlw	192
+   735  0032  1283               	bcf	3,5	;RP0=0, select bank0
+   736  0033  1303               	bcf	3,6	;RP1=0, select bank0
+   737  0034  0085               	movwf	5	;volatile
+   738  0035  0008               	return
+   739  0036                     __end_of_TMR0_CallBack:	
+   740  007E                     btemp	set	126	;btemp
+   741  007E                     wtemp	set	126
+   742  007E                     wtemp0	set	126
+   743  0080                     wtemp1	set	128
+   744  0082                     wtemp2	set	130
+   745  0084                     wtemp3	set	132
+   746  0086                     wtemp4	set	134
+   747  0088                     wtemp5	set	136
+   748  007F                     wtemp6	set	127
+   749  007E                     ttemp	set	126
+   750  007E                     ttemp0	set	126
+   751  0081                     ttemp1	set	129
+   752  0084                     ttemp2	set	132
+   753  0087                     ttemp3	set	135
+   754  007F                     ttemp4	set	127
+   755  007E                     ltemp	set	126
+   756  007E                     ltemp0	set	126
+   757  0082                     ltemp1	set	130
+   758  0086                     ltemp2	set	134
+   759  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         3
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      4       7
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (1) _INTERRUPT_InterruptManager                           4     4      0       0
+                                              0 COMMON     4     4      0
+                           _TMR0_ISR
+ ---------------------------------------------------------------------------------
+ (2) _TMR0_ISR                                             0     0      0       0
+                      _TMR0_CallBack
+ ---------------------------------------------------------------------------------
+ (3) _TMR0_CallBack                                        0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ _INTERRUPT_InterruptManager (ROOT)
+   _TMR0_ISR
+     _TMR0_CallBack
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      4       7       1       50.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       7       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       7      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.38 build -256452561 
+Symbol Table                                                                                   Sun Jul 24 16:52:53 2016
+
+                    _timer0ReloadVal 0076                                  fsr0 0004  
+                               i1l83 0056                                 _TMR0 0001  
+                               _WPUB 0095                                 _main 0063  
+                               btemp 007E                                 ltemp 007E  
+                               start 0012                                 ttemp 007E  
+                               wtemp 007E                                ?_main 0070  
+                              i1l549 002D                                _PORTA 0005  
+                              _TRISA 0085                                _TRISB 0086  
+                              _TRISC 0087                                _TRISE 0089  
+                   __end_of_TMR0_ISR 004E                                pclath 000A  
+                              ltemp0 007E                                ltemp1 0082  
+                              ltemp2 0086                                ltemp3 0080  
+                              ttemp0 007E                                ttemp1 0081  
+                              ttemp2 0084                                ttemp3 0087  
+                              ttemp4 007F                                status 0003  
+                              wtemp0 007E                                wtemp1 0080  
+                              wtemp2 0082                                wtemp3 0084  
+                              wtemp4 0086                                wtemp5 0088  
+                              wtemp6 007F                      __initialization 0015  
+                       __end_of_main 0066          ?_INTERRUPT_InterruptManager 0070  
+                             ??_main 0074                               _OSCCON 008F  
+                             saved_w 007E                __end_of_TMR0_CallBack 0036  
+            __end_of__initialization 0018                       __pcstackCOMMON 0070  
+                          ?_TMR0_ISR 0070                TMR0_ISR@CountCallBack 0074  
+                         __pmaintext 0063                           ??_TMR0_ISR 0070  
+                         __pintentry 0004                              _OSCTUNE 0090  
+                            __ptext1 004E                              __ptext2 0036  
+                            __ptext3 001C                 end_of_initialization 0018  
+                          _PORTAbits 0005                    __size_of_TMR0_ISR 0018  
+                start_initialization 0015               __size_of_TMR0_CallBack 001A  
+                        __pbssCOMMON 0074                            ___latbits 0002  
+       ??_INTERRUPT_InterruptManager 0070                        _TMR0_CallBack 001C  
+                  interrupt_function 0004  __size_of_INTERRUPT_InterruptManager 0015  
+                           _TMR0_ISR 0036                       ?_TMR0_CallBack 0070  
+                      __size_of_main 0003   __end_of_INTERRUPT_InterruptManager 0063  
+         _INTERRUPT_InterruptManager 004E                           _INTCONbits 000B  
+                    ??_TMR0_CallBack 0070                             intlevel1 0000  
+                         _OPTION_REG 0081  

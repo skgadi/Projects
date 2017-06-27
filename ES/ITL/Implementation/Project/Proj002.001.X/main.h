@@ -1,0 +1,149 @@
+/* 
+ * File:   main.h
+ * Author: gadis
+ *
+ * Created on October 3, 2016, 2:00 PM
+ */
+
+#ifndef MAIN_H
+#define	MAIN_H
+
+#ifdef	__cplusplus
+extern "C" {
+#endif
+//--------------------ONLY FOR DEBUG PURPOSE
+#define DISPLAY_TO_LCD
+//#define ACTIVATE_SIMULATION
+#define START_TIME_OF_SIMULATION 80000
+#define SET_IOS_ON
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+//--------------------Change by user
+#define LOAD_TIME_FROM_RTC_EVERY_x_MINUTES 3*60
+    
+    //STATE 2 ON and BLINK state
+#define STATE2_BLINK_FOR_LAST_x_S 2
+#define STATE2_ON_TIME_IN_MS 50
+#define STATE2_OFF_TIME_IN_MS 50
+    
+    //AUDIO STATE
+    //Make sure sum of the following is a multiple of 1000
+#define AUDIO_NORMAL_TONE_ON_TIME_IN_MS 50
+#define AUDIO_NORMAL_TONE_OFF_TIME_IN_MS 50
+    
+#define AUDIO_SPL_TONE_FOR_LAST_x_S 3
+#define AUDIO_SPL_TONE_ON_TIME_IN_MS 50
+#define AUDIO_SPL_TONE_OFF_TIME_IN_MS 50
+    
+#ifndef DISPLAY_TO_LCD
+#define WAIT_A_MILLI_SECOND() (__delay_us(999)) //Adjust this number to calibrate second.
+#else
+#define WAIT_A_MILLI_SECOND() (__delay_us(0))
+#endif
+    
+#define READ_GPS_AFTER_x_S_AFTER_SWITCHING_ON 1200//A maximum of 65535
+    
+    
+    
+//--------------------FIRMWARE CONSTANTS
+#define TOTAL_NO_OF_STATES 30
+#define MAX_NO_OF_TYPES_OF_CYCLES 3
+#define NO_OF_TYPES_OF_STATES 3 //Different types of states. Eg. ON, ON AND BLINK, and AUDIO
+#define MAX_NO_OF_STATES 30
+#define NO_OF_PORTS_IN_USE 2
+#define SIZE_OF_EACH_PORT 8
+#define SECONDS_IN_A_DAY 86400
+
+    
+
+#define _XTAL_FREQ 4000000
+// PIC16F886 Configuration Bit Settings
+
+// 'C' source line config statements
+
+// CONFIG1
+#pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1/CLKIN)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
+#pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
+#pragma config MCLRE = ON       // RE3/MCLR pin function select bit (RE3/MCLR pin function is MCLR)
+#pragma config CP = OFF         // Code Protection bit (Program memory code protection is disabled)
+#pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
+#pragma config BOREN = OFF      // Brown Out Reset Selection bits (BOR disabled)
+#pragma config IESO = ON        // Internal External Switchover bit (Internal/External Switchover mode is enabled)
+#pragma config FCMEN = ON       // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is enabled)
+#pragma config LVP = OFF        // Low Voltage Programming Enable bit (RB3 pin has digital I/O, HV on MCLR must be used for programming)
+
+// CONFIG2
+#pragma config BOR4V = BOR21V   // Brown-out Reset Selection bit (Brown-out Reset set to 2.1V)
+#pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+
+#include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <math.h>
+#include "libs/GenericTypeDefs.h"
+#include "libs/HD44780.h"
+#include "libs/eeprom.h"
+#include "libs/gsk_RTC_GPS.h"
+#include "libs/gsk_i2c.h"
+#include "libs/gsk_algo_funcs.h"
+//#include "libs/gsk_usart.h"
+
+    
+    
+    
+    
+    
+    
+//eeprom char aC_D =0x00;eeprom char aC[3][3] = {{1, 81, 127},{1, 81, 127},{1, 81, 127},};eeprom char aSTATE_BREAKS[3] = {8,15,30,};eeprom char aSTATES[30][7]= {{10,0x08,0x09,0x02,0x00,0x00,0x00},{3,0x0C,0x09,0x00,0x00,0x00,0x00},{10,0x01,0x09,0x00,0x20,0x00,0x00},{3,0x01,0x0D,0x00,0x00,0x00,0x00},{10,0x09,0x08,0x10,0x00,0x00,0x00},{3,0x09,0x0A,0x00,0x00,0x00,0x00},{10,0x09,0x01,0x00,0x00,0x20,0x00},{3,0x09,0x11,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},};
+eeprom char EE_C_D =0x00;eeprom char EE_C[3][3] = {{1, 81, 127},{0, 39, 15},{0, 117, 47},};eeprom char EE_STATE_BREAKS[3] = {8,15,30,};eeprom char EE_STATES[30][7]= {{10,0x08,0x09,0x02,0x00,0x00,0x00},{3,0x0C,0x09,0x00,0x00,0x00,0x00},{10,0x01,0x09,0x00,0x20,0x00,0x00},{3,0x01,0x0D,0x00,0x00,0x00,0x00},{10,0x09,0x08,0x10,0x00,0x00,0x00},{3,0x09,0x0A,0x00,0x00,0x00,0x00},{10,0x09,0x01,0x00,0x00,0x20,0x00},{3,0x09,0x11,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{10,0x00,0x00,0x00,0x00,0x00,0x00},{3,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},{0,0x00,0x00,0x00,0x00,0x00,0x00},};
+    
+extern volatile UINT8 STATE_PERIODS[MAX_NO_OF_STATES] @(0x1CC) = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+};
+extern volatile UINT8 STATE_1[MAX_NO_OF_STATES][NO_OF_PORTS_IN_USE] @(0xA0)  = {
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+};
+extern volatile UINT8 STATE_2[MAX_NO_OF_STATES][NO_OF_PORTS_IN_USE] @(0x110) = {
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+};
+extern volatile UINT8 STATE_3[MAX_NO_OF_STATES][NO_OF_PORTS_IN_USE] @(0x190)  = {
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+    {0,0},{0,0},{0,0},{0,0},{0,0}, {0,0},{0,0},{0,0},{0,0},{0,0},
+};
+//UINT8 STATE_3[100];
+extern volatile INT32 C[MAX_NO_OF_TYPES_OF_CYCLES] @(0x20) ={0,0,0};
+extern volatile UINT8 STATE_BREAKS[MAX_NO_OF_TYPES_OF_CYCLES] = {0,0,0};
+extern volatile UINT16 STATE_CUMULATIVE_PERIODS[3] = {0,0,0};
+extern volatile INT8 C_D=0;
+extern volatile INT32 S = 0;
+//extern volatile INT32 S_IN_USE = 0x00;
+extern volatile UINT8 CYCLE_TYPE = 0x00;
+extern volatile UINT8 PREV_CYCLE_TYPE = MAX_NO_OF_TYPES_OF_CYCLES-1;
+extern volatile UINT8 CONFIG0 = 0x00;
+//extern volatile UINT8 
+    
+#ifdef	__cplusplus
+}
+#endif
+
+#endif	/* MAIN_H */
+

@@ -1,0 +1,1 @@
+ build/default/production/libs/gsk_MCP7940N.d  build/default/production/libs/gsk_MCP7940N.p1:  libs/gsk_MCP7940N.c libs/gsk_MCP7940N.h libs/../libs/gsk_MCP7940N.h libs/../libs/HD44780.h libs/../libs/gsk_i2c.h libs/../main.h

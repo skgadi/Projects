@@ -1,0 +1,19 @@
+ build/default/production/app/app_device_custom_hid.d  \
+ build/default/production/app/app_device_custom_hid.p1:  \
+ app/app_device_custom_hid.c  \
+framework/usb/inc/usb_common.h  \
+framework/usb/inc/usb_device_hid.h  \
+bsp/adc.h  \
+app/system_config/system.h  \
+app/system_config.h  \
+framework/usb/inc/usb_ch9.h  \
+app/usb_config.h  \
+bsp/buttons.h  \
+framework/usb/inc/usb_hal_pic18.h  \
+app/system_config/io_mapping.h  \
+framework/usb/inc/usb_device.h  \
+bsp/power.h  \
+framework/usb/inc/usb_hal.h  \
+bsp/leds.h  \
+framework/usb/inc/usb.h  \
+app/system_config/fixed_address_memory.h 
