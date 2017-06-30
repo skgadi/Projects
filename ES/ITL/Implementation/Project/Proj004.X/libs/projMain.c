@@ -7,7 +7,7 @@ void Timer0_10ms (void) {
         LATB ^= 0xFF;
     }
     if (GLOBAL_I%5000==0) {
-        GPS_SWITCH = !GPS_SWITCH;
+        //GPS_SWITCH = !GPS_SWITCH;
       /*  char Time[] = "------";
         ReadGPSTime(Time);
         Lcd_Text(2,1, Time);*/
@@ -45,4 +45,8 @@ void Timer1_1s (void) {
     Lcd_Text(2,1, Time);*/
         //}
     //}
+}
+
+void ReadFromEeprom () {
+    
 }

@@ -13869,6 +13869,47 @@ unsigned char b63:1;
 } bits;
 } QWORD_VAL;
 
+# 19 "libs/ProjectTypeDefs.h"
+typedef union _GSK_WEEK {
+unsigned char val:7;
+struct {
+unsigned char Sunday:1;
+unsigned char Monday:1;
+unsigned char Tuesday:1;
+unsigned char Wednesday:1;
+unsigned char Thursday:1;
+unsigned char Friday:1;
+unsigned char Saturday:1;
+};
+} GSK_WEEK;
+
+typedef UINT8 GSK_CYCLE_TYPE;
+
+typedef union _GSK_CYCLE {
+struct {
+UINT16 PERIOD;
+UINT8 START_STATE;
+UINT8 END_STATE;
+};
+} GSK_CYCLE;
+
+typedef union _GSK_EVENT
+{
+struct {
+UINT16 START_TIME;
+UINT16 END_TIME;
+GSK_WEEK SELECTED_WEEKS;
+};
+} GSK_EVENT;
+
+typedef union _GSK_STATE
+{
+struct {
+UINT8 PERIOD;
+UINT8 PORTS[2];
+};
+} GSK_STATE;
+
 # 58 "libs/HD44780.h"
 void Lcd_Init(void);
 void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
@@ -13894,14 +13935,25 @@ INT8 GetDay (char *Date);
 BOOL ValidateDateTime (char *Date, char *Time);
 void ValidateDateTime1 (char Date[], char Time[]);
 
-# 25 "libs/projMain.h"
+# 29 "libs/projMain.h"
 UINT8 GLOBAL_CENTURY = 20;
+
 
 INT GLOBAL_I =0;
 INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
 void Timer1_1s (void);
 void Timer3_1ms (void);
+
+
+GSK_EVENT EVENTS[24];
+GSK_STATE STATES[160];
+GSK_CYCLE CYCLES[17];
+
+
+
+
+asm("\tpsect eeprom_data,class=EEDATA,noexec"); asm("\tdb\t" "1" "," "2" "," "3" "," "4" "," "5" "," " "," ___mkstr() "," ___mkstr());
 
 # 4 "libs/gps.c"
 void ShowRawData (void){
