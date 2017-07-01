@@ -13950,11 +13950,6 @@ GSK_EVENT EVENTS[24];
 GSK_STATE STATES[160];
 GSK_CYCLE CYCLES[17];
 
-
-
-
-asm("\tpsect eeprom_data,class=EEDATA,noexec"); asm("\tdb\t" "1" "," "2" "," "3" "," "4" "," "5" "," " "," ___mkstr() "," ___mkstr());
-
 # 53 "main.c"
 void main(void)
 {

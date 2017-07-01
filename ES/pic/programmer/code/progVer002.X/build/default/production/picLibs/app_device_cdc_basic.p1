@@ -4286,7 +4286,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 "131
 [v _a `S392 ~T0 @X0 1 a ]
-[; ;app_device_cdc_basic.c: 131: DWORD_VAL a;
+[v _Data `S392 ~T0 @X0 1 a ]
+[; ;app_device_cdc_basic.c: 131: DWORD_VAL a, Data;
 [; ;app_device_cdc_basic.c: 132: switch (readBuffer[0]) {
 "132
 [e $U 412  ]
@@ -4396,148 +4397,217 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;app_device_cdc_basic.c: 167: a.v[0] = readBuffer[3];
 "167
 [e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 168: PIC18F26K40_loadPC(a);
+[; ;app_device_cdc_basic.c: 168: Data.v[3] = 0x00;
 "168
-[e ( _PIC18F26K40_loadPC (1 _a ]
-[; ;app_device_cdc_basic.c: 169: a.v[3] = 0x0;
+[e = *U + &U . _Data 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 169: Data.v[2] = 0x0;
 "169
-[e = *U + &U . _a 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 170: a.v[2] = 0x0;
+[e = *U + &U . _Data 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 170: Data.v[1] = readBuffer[4];
 "170
-[e = *U + &U . _a 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 171: a.v[1] = readBuffer[4];
+[e = *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 171: Data.v[0] = readBuffer[5];
 "171
-[e = *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 172: a.v[0] = readBuffer[5];
+[e = *U + &U . _Data 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 172: PIC18F26K40_loadPC(a);
 "172
-[e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 173: PIC18F26K40_loadDataIntoNVM(a, FALSE, EXTERNALLY);
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 173: PIC18F26K40_loadDataIntoNVM(Data, FALSE, EXTERNALLY);
 "173
-[e ( _PIC18F26K40_loadDataIntoNVM (3 , , _a . `E4064 0 . `E4269 1 ]
-[; ;app_device_cdc_basic.c: 174: a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+[e ( _PIC18F26K40_loadDataIntoNVM (3 , , _Data . `E4064 0 . `E4269 1 ]
+[; ;app_device_cdc_basic.c: 174: PIC18F26K40_loadPC(a);
 "174
-[e = _a ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
-[; ;app_device_cdc_basic.c: 175: if ((a.v[0] == readBuffer[5]) && (a.v[1] == readBuffer[4]))
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 175: Data = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
 "175
-[e $ ! && == -> *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i == -> *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i 416  ]
-[; ;app_device_cdc_basic.c: 176: writeBuffer[0] = 0x01;
+[e = _Data ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
+[; ;app_device_cdc_basic.c: 176: if ((Data.v[0] == readBuffer[5]) && (Data.v[1] == readBuffer[4]))
 "176
+[e $ ! && == -> *U + &U . _Data 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i == -> *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i 416  ]
+[; ;app_device_cdc_basic.c: 177: writeBuffer[0] = 0x01;
+"177
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 1 `i `uc ]
 [e $U 417  ]
-"177
-[e :U 416 ]
-[; ;app_device_cdc_basic.c: 177: else
-[; ;app_device_cdc_basic.c: 178: writeBuffer[0] = 0x00;
 "178
+[e :U 416 ]
+[; ;app_device_cdc_basic.c: 178: else
+[; ;app_device_cdc_basic.c: 179: writeBuffer[0] = 0x00;
+"179
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
 [e :U 417 ]
-[; ;app_device_cdc_basic.c: 179: PIC18F26K40_exitLowVoltageProg();
-"179
-[e ( _PIC18F26K40_exitLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 180: break;
+[; ;app_device_cdc_basic.c: 180: PIC18F26K40_exitLowVoltageProg();
 "180
-[e $U 411  ]
-[; ;app_device_cdc_basic.c: 181: case 0x33:
-"181
-[e :U 418 ]
-[; ;app_device_cdc_basic.c: 182: PIC18F26K40_enterLowVoltageProg();
-"182
-[e ( _PIC18F26K40_enterLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 183: break;
-"183
-[e $U 411  ]
-[; ;app_device_cdc_basic.c: 184: case 0x34:
-"184
-[e :U 419 ]
-[; ;app_device_cdc_basic.c: 185: PIC18F26K40_exitLowVoltageProg();
-"185
 [e ( _PIC18F26K40_exitLowVoltageProg ..  ]
-[; ;app_device_cdc_basic.c: 186: break;
-"186
+[; ;app_device_cdc_basic.c: 181: break;
+"181
 [e $U 411  ]
-[; ;app_device_cdc_basic.c: 187: case 0x35:
+[; ;app_device_cdc_basic.c: 182: case 0x33:
+"182
+[e :U 418 ]
+[; ;app_device_cdc_basic.c: 183: PIC18F26K40_enterLowVoltageProg();
+"183
+[e ( _PIC18F26K40_enterLowVoltageProg ..  ]
+[; ;app_device_cdc_basic.c: 184: break;
+"184
+[e $U 411  ]
+[; ;app_device_cdc_basic.c: 185: case 0x34:
+"185
+[e :U 419 ]
+[; ;app_device_cdc_basic.c: 186: PIC18F26K40_exitLowVoltageProg();
+"186
+[e ( _PIC18F26K40_exitLowVoltageProg ..  ]
+[; ;app_device_cdc_basic.c: 187: break;
 "187
-[e :U 420 ]
-[; ;app_device_cdc_basic.c: 188: a.v[3] = 0;
+[e $U 411  ]
+[; ;app_device_cdc_basic.c: 188: case 0x35:
 "188
-[e = *U + &U . _a 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 189: a.v[2] = readBuffer[1];
+[e :U 420 ]
+[; ;app_device_cdc_basic.c: 189: a.v[3] = 0;
 "189
-[e = *U + &U . _a 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 190: a.v[1] = readBuffer[2];
-"190
-[e = *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 191: a.v[0] = readBuffer[3];
-"191
-[e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 192: PIC18F26K40_loadPC(a);
-"192
-[e ( _PIC18F26K40_loadPC (1 _a ]
-[; ;app_device_cdc_basic.c: 193: a.v[3] = 0x0;
-"193
 [e = *U + &U . _a 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 194: a.v[2] = 0x0;
+[; ;app_device_cdc_basic.c: 190: a.v[2] = readBuffer[1];
+"190
+[e = *U + &U . _a 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 191: a.v[1] = readBuffer[2];
+"191
+[e = *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 192: a.v[0] = readBuffer[3];
+"192
+[e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 193: Data.v[3] = 0x00;
+"193
+[e = *U + &U . _Data 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 194: Data.v[2] = 0x0;
 "194
-[e = *U + &U . _a 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_cdc_basic.c: 195: a.v[1] = readBuffer[4];
+[e = *U + &U . _Data 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 195: Data.v[1] = readBuffer[4];
 "195
-[e = *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 196: a.v[0] = readBuffer[5];
+[e = *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 196: Data.v[0] = readBuffer[5];
 "196
-[e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 197: PIC18F26K40_loadDataIntoNVM(a, FALSE, EXTERNALLY);
+[e = *U + &U . _Data 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 197: PIC18F26K40_loadPC(a);
 "197
-[e ( _PIC18F26K40_loadDataIntoNVM (3 , , _a . `E4064 0 . `E4269 1 ]
-[; ;app_device_cdc_basic.c: 198: a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 198: PIC18F26K40_loadDataIntoNVM(a, FALSE, EXTERNALLY);
 "198
-[e = _a ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
-[; ;app_device_cdc_basic.c: 199: if ((a.v[0] == readBuffer[5]) && (a.v[1] == readBuffer[4]))
+[e ( _PIC18F26K40_loadDataIntoNVM (3 , , _a . `E4064 0 . `E4269 1 ]
+[; ;app_device_cdc_basic.c: 199: PIC18F26K40_loadPC(a);
 "199
-[e $ ! && == -> *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i == -> *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i 421  ]
-[; ;app_device_cdc_basic.c: 200: writeBuffer[0] = 0x01;
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 200: a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
 "200
+[e = _a ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
+[; ;app_device_cdc_basic.c: 201: if ((Data.v[0] == readBuffer[5]) && (Data.v[1] == readBuffer[4]))
+"201
+[e $ ! && == -> *U + &U . _Data 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i == -> *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux `i -> *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux `i 421  ]
+[; ;app_device_cdc_basic.c: 202: writeBuffer[0] = 0x01;
+"202
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 1 `i `uc ]
 [e $U 422  ]
-"201
+"203
 [e :U 421 ]
-[; ;app_device_cdc_basic.c: 201: else
-[; ;app_device_cdc_basic.c: 202: writeBuffer[0] = 0x00;
-"202
+[; ;app_device_cdc_basic.c: 203: else
+[; ;app_device_cdc_basic.c: 204: writeBuffer[0] = 0x00;
+"204
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
 [e :U 422 ]
-[; ;app_device_cdc_basic.c: 203: writeBuffer[1] = readBuffer[0];
-"203
-[e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 204: writeBuffer[2] = readBuffer[1];
-"204
-[e = *U + &U _writeBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 205: writeBuffer[3] = readBuffer[2];
+[; ;app_device_cdc_basic.c: 205: writeBuffer[1] = readBuffer[0];
 "205
-[e = *U + &U _writeBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 206: writeBuffer[4] = readBuffer[3];
+[e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 206: writeBuffer[2] = readBuffer[1];
 "206
-[e = *U + &U _writeBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 207: writeBuffer[5] = readBuffer[4];
+[e = *U + &U _writeBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 207: writeBuffer[3] = readBuffer[2];
 "207
-[e = *U + &U _writeBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 208: writeBuffer[6] = readBuffer[5];
+[e = *U + &U _writeBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 208: writeBuffer[4] = readBuffer[3];
 "208
-[e = *U + &U _writeBuffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 209: break;
+[e = *U + &U _writeBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 209: writeBuffer[5] = readBuffer[4];
 "209
-[e $U 411  ]
-[; ;app_device_cdc_basic.c: 210: default:
+[e = *U + &U _writeBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 210: writeBuffer[6] = readBuffer[5];
 "210
-[e :U 423 ]
-[; ;app_device_cdc_basic.c: 211: writeBuffer[0] = readBuffer[0];
+[e = *U + &U _writeBuffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 211: break;
 "211
-[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
-[; ;app_device_cdc_basic.c: 212: writeBuffer[1] = readBuffer[1];
+[e $U 411  ]
+[; ;app_device_cdc_basic.c: 212: case 0x36:
 "212
-[e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[e :U 423 ]
+[; ;app_device_cdc_basic.c: 213: for (UINT8 gsk_i=0; gsk_i<10; gsk_i++){
 "213
+{
+[v _gsk_i `uc ~T0 @X0 1 a ]
+[e = _gsk_i -> -> 0 `i `uc ]
+[e $ < -> _gsk_i `i -> 10 `i 424  ]
+[e $U 425  ]
+[e :U 424 ]
+{
+[; ;app_device_cdc_basic.c: 214: a.v[3] = 0;
+"214
+[e = *U + &U . _a 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 215: a.v[2] = gsk_i;
+"215
+[e = *U + &U . _a 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux _gsk_i ]
+[; ;app_device_cdc_basic.c: 216: a.v[1] = 0x00;
+"216
+[e = *U + &U . _a 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 217: a.v[0] = 0x31;
+"217
+[e = *U + &U . _a 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _a 2 `ui `ux -> -> 49 `i `uc ]
+[; ;app_device_cdc_basic.c: 218: Data.v[3] = 0x00;
+"218
+[e = *U + &U . _Data 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 219: Data.v[2] = 0x00;
+"219
+[e = *U + &U . _Data 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 220: Data.v[1] = gsk_i;
+"220
+[e = *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux _gsk_i ]
+[; ;app_device_cdc_basic.c: 221: Data.v[0] = 0x00;
+"221
+[e = *U + &U . _Data 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_cdc_basic.c: 222: PIC18F26K40_loadPC(a);
+"222
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 223: PIC18F26K40_loadDataIntoNVM(a, FALSE, INTERNALLY);
+"223
+[e ( _PIC18F26K40_loadDataIntoNVM (3 , , _a . `E4064 0 . `E4269 0 ]
+[; ;app_device_cdc_basic.c: 224: PIC18F26K40_loadPC(a);
+"224
+[e ( _PIC18F26K40_loadPC (1 _a ]
+[; ;app_device_cdc_basic.c: 225: Data = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+"225
+[e = _Data ( _PIC18F26K40_readThreeBytes (2 , . `E4265 0 . `E4064 0 ]
+[; ;app_device_cdc_basic.c: 226: writeBuffer[gsk_i] = Data.v[1];
+"226
+[e = *U + &U _writeBuffer * -> _gsk_i `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U . _Data 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Data 2 `ui `ux ]
+"227
 }
-[; ;app_device_cdc_basic.c: 213: }
+"213
+[e ++ _gsk_i -> -> 1 `i `uc ]
+[e $ < -> _gsk_i `i -> 10 `i 424  ]
+[e :U 425 ]
+"227
+}
+[; ;app_device_cdc_basic.c: 227: }
+[; ;app_device_cdc_basic.c: 228: break;
+"228
+[e $U 411  ]
+[; ;app_device_cdc_basic.c: 229: default:
+"229
+[e :U 427 ]
+[; ;app_device_cdc_basic.c: 230: writeBuffer[0] = readBuffer[0];
+"230
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+[; ;app_device_cdc_basic.c: 231: writeBuffer[1] = readBuffer[1];
+"231
+[e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux *U + &U _readBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _readBuffer `ui `ux ]
+"232
+}
+[; ;app_device_cdc_basic.c: 232: }
 [e $U 411  ]
 "132
 [e :U 412 ]
@@ -4547,24 +4617,25 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 51 `i `uc 418
  , $ -> -> 52 `i `uc 419
  , $ -> -> 53 `i `uc 420
- 423 ]
-"213
+ , $ -> -> 54 `i `uc 423
+ 427 ]
+"232
 [e :U 411 ]
-[; ;app_device_cdc_basic.c: 214: putUSBUSART(writeBuffer,numBytesRead);
-"214
-[e ( _putUSBUSART (2 , &U _writeBuffer _numBytesRead ]
-"215
+[; ;app_device_cdc_basic.c: 233: putUSBUSART(writeBuffer,15);
+"233
+[e ( _putUSBUSART (2 , &U _writeBuffer -> -> 15 `i `uc ]
+"234
 }
 [e :U 410 ]
-"216
+"235
 }
 [e :U 409 ]
-[; ;app_device_cdc_basic.c: 215: }
-[; ;app_device_cdc_basic.c: 216: }
-[; ;app_device_cdc_basic.c: 217: CDCTxService();
-"217
+[; ;app_device_cdc_basic.c: 234: }
+[; ;app_device_cdc_basic.c: 235: }
+[; ;app_device_cdc_basic.c: 236: CDCTxService();
+"236
 [e ( _CDCTxService ..  ]
-[; ;app_device_cdc_basic.c: 218: }
-"218
+[; ;app_device_cdc_basic.c: 237: }
+"237
 [e :UE 402 ]
 }

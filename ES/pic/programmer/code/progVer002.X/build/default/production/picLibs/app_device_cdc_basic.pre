@@ -5716,7 +5716,7 @@ uint8_t i;
 uint8_t numBytesRead;
 numBytesRead = getsUSBUSART(readBuffer, sizeof(readBuffer));
 if(numBytesRead > 0) {
-DWORD_VAL a;
+DWORD_VAL a, Data;
 switch (readBuffer[0]) {
 case 0x30:
 PIC18F26K40_enterLowVoltageProg();
@@ -5753,14 +5753,15 @@ a.v[3] = 0;
 a.v[2] = readBuffer[1];
 a.v[1] = readBuffer[2];
 a.v[0] = readBuffer[3];
+Data.v[3] = 0x00;
+Data.v[2] = 0x0;
+Data.v[1] = readBuffer[4];
+Data.v[0] = readBuffer[5];
 PIC18F26K40_loadPC(a);
-a.v[3] = 0x0;
-a.v[2] = 0x0;
-a.v[1] = readBuffer[4];
-a.v[0] = readBuffer[5];
-PIC18F26K40_loadDataIntoNVM(a, FALSE, EXTERNALLY);
-a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
-if ((a.v[0] == readBuffer[5]) && (a.v[1] == readBuffer[4]))
+PIC18F26K40_loadDataIntoNVM(Data, FALSE, EXTERNALLY);
+PIC18F26K40_loadPC(a);
+Data = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+if ((Data.v[0] == readBuffer[5]) && (Data.v[1] == readBuffer[4]))
 writeBuffer[0] = 0x01;
 else
 writeBuffer[0] = 0x00;
@@ -5777,14 +5778,15 @@ a.v[3] = 0;
 a.v[2] = readBuffer[1];
 a.v[1] = readBuffer[2];
 a.v[0] = readBuffer[3];
+Data.v[3] = 0x00;
+Data.v[2] = 0x0;
+Data.v[1] = readBuffer[4];
+Data.v[0] = readBuffer[5];
 PIC18F26K40_loadPC(a);
-a.v[3] = 0x0;
-a.v[2] = 0x0;
-a.v[1] = readBuffer[4];
-a.v[0] = readBuffer[5];
 PIC18F26K40_loadDataIntoNVM(a, FALSE, EXTERNALLY);
+PIC18F26K40_loadPC(a);
 a = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
-if ((a.v[0] == readBuffer[5]) && (a.v[1] == readBuffer[4]))
+if ((Data.v[0] == readBuffer[5]) && (Data.v[1] == readBuffer[4]))
 writeBuffer[0] = 0x01;
 else
 writeBuffer[0] = 0x00;
@@ -5795,11 +5797,28 @@ writeBuffer[4] = readBuffer[3];
 writeBuffer[5] = readBuffer[4];
 writeBuffer[6] = readBuffer[5];
 break;
+case 0x36:
+for (UINT8 gsk_i=0; gsk_i<10; gsk_i++){
+a.v[3] = 0;
+a.v[2] = gsk_i;
+a.v[1] = 0x00;
+a.v[0] = 0x31;
+Data.v[3] = 0x00;
+Data.v[2] = 0x00;
+Data.v[1] = gsk_i;
+Data.v[0] = 0x00;
+PIC18F26K40_loadPC(a);
+PIC18F26K40_loadDataIntoNVM(a, FALSE, INTERNALLY);
+PIC18F26K40_loadPC(a);
+Data = PIC18F26K40_readThreeBytes(MSBTOLSB, FALSE);
+writeBuffer[gsk_i] = Data.v[1];
+}
+break;
 default:
 writeBuffer[0] = readBuffer[0];
 writeBuffer[1] = readBuffer[1];
 }
-putUSBUSART(writeBuffer,numBytesRead);
+putUSBUSART(writeBuffer,15);
 }
 }
 CDCTxService();

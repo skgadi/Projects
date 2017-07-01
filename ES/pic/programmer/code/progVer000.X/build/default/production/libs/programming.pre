@@ -5640,7 +5640,7 @@ unsigned char b63:1;
 # 17 "libs/../libs/progPIC18F26K40.h"
 typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
 
-# 61
+# 63
 VOID PIC18F26K40_setTrisToOut (VOID);
 VOID PIC18F26K40_enterLowVoltageProg (VOID);
 VOID PIC18F26K40_exitLowVoltageProg (VOID);

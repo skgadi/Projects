@@ -52,7 +52,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21 libs/progPIC18F26K40.c
 [c E4265 0 1 .. ]
 [n E4265 _SEND_DIRECTION MSBTOLSB LSBTOMSB  ]
-"64 libs/../libs/progPIC18F26K40.h
+"66 libs/../libs/progPIC18F26K40.h
 [v _PIC18F26K40_sendByte `(v ~T0 @X0 0 ef2`uc`E4265 ]
 "53 libs/progPIC18F26K40.c
 [c E4064 0 1 .. ]
@@ -89,7 +89,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S101 . . . . . . . . . . ]
 "2489
 [v _PORTCbits `VS101 ~T0 @X0 0 e@3970 ]
-"68 libs/../libs/progPIC18F26K40.h
+"70 libs/../libs/progPIC18F26K40.h
 [v _PIC18F26K40_sendByteMsbToLsb `(v ~T0 @X0 0 ef1`uc ]
 "55 libs/../main.h
 [p x CPUDIV=NOCLKDIV ]
@@ -4124,14 +4124,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
 [; ;progPIC18F26K40.h: 17: typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
-[; ;progPIC18F26K40.h: 61: VOID PIC18F26K40_setTrisToOut (VOID);
-[; ;progPIC18F26K40.h: 62: VOID PIC18F26K40_enterLowVoltageProg (VOID);
-[; ;progPIC18F26K40.h: 63: VOID PIC18F26K40_exitLowVoltageProg (VOID);
-[; ;progPIC18F26K40.h: 64: VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction);
-[; ;progPIC18F26K40.h: 65: DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC);
-[; ;progPIC18F26K40.h: 66: VOID PIC18F26K40_loadPC (DWORD_VAL);
-[; ;progPIC18F26K40.h: 67: VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
-[; ;progPIC18F26K40.h: 68: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
+[; ;progPIC18F26K40.h: 63: VOID PIC18F26K40_setTrisToOut (VOID);
+[; ;progPIC18F26K40.h: 64: VOID PIC18F26K40_enterLowVoltageProg (VOID);
+[; ;progPIC18F26K40.h: 65: VOID PIC18F26K40_exitLowVoltageProg (VOID);
+[; ;progPIC18F26K40.h: 66: VOID PIC18F26K40_sendByte(BYTE info, SEND_DIRECTION direction);
+[; ;progPIC18F26K40.h: 67: DWORD_VAL PIC18F26K40_readThreeBytes(SEND_DIRECTION direction, BOOL IncreasePC);
+[; ;progPIC18F26K40.h: 68: VOID PIC18F26K40_loadPC (DWORD_VAL);
+[; ;progPIC18F26K40.h: 69: VOID PIC18F26K40_loadDataIntoNVM (DWORD_VAL data, BOOL IncreasePC);
+[; ;progPIC18F26K40.h: 70: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info);
 "4 libs/progPIC18F26K40.c
 [v _PIC18F26K40_setTrisToOut `(v ~T0 @X0 1 ef ]
 {
@@ -4499,22 +4499,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;progPIC18F26K40.c: 113: _delay((unsigned long)((6)*(12000000/4000.0)));
 "113
 [e ( __delay (1 -> * -> -> 6 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-[; ;progPIC18F26K40.c: 121: }
-"121
+[; ;progPIC18F26K40.c: 123: }
+"123
 [e :UE 422 ]
 }
-"123
+"125
 [v _PIC18F26K40_sendByteMsbToLsb `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;progPIC18F26K40.c: 123: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info) {
+[; ;progPIC18F26K40.c: 125: VOID PIC18F26K40_sendByteMsbToLsb(BYTE info) {
 [e :U _PIC18F26K40_sendByteMsbToLsb ]
 [v _info `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;progPIC18F26K40.c: 124: PIC18F26K40_setTrisToOut ();
-"124
+[; ;progPIC18F26K40.c: 126: PIC18F26K40_setTrisToOut ();
+"126
 [e ( _PIC18F26K40_setTrisToOut ..  ]
-[; ;progPIC18F26K40.c: 125: for (INT8 i = 7; i >= 0; i--) {
-"125
+[; ;progPIC18F26K40.c: 127: for (INT8 i = 7; i >= 0; i--) {
+"127
 {
 [v _i `c ~T0 @X0 1 a ]
 [e = _i -> -> 7 `i `c ]
@@ -4522,45 +4522,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 427  ]
 [e :U 426 ]
 {
-[; ;progPIC18F26K40.c: 126: LATCbits.LATC5 = 1;
-"126
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;progPIC18F26K40.c: 127: (_delay((unsigned long)((1)*(12000000/4000000.0))));
-"127
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
-[; ;progPIC18F26K40.c: 128: if ((info >> i) & 0x01)
+[; ;progPIC18F26K40.c: 128: LATCbits.LATC5 = 1;
 "128
-[e $ ! != & >> -> _info `i _i -> 1 `i -> 0 `i 429  ]
-[; ;progPIC18F26K40.c: 129: LATCbits.LATC6 = 1;
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;progPIC18F26K40.c: 129: (_delay((unsigned long)((1)*(12000000/4000000.0))));
 "129
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 130: if ((info >> i) & 0x01)
+"130
+[e $ ! != & >> -> _info `i _i -> 1 `i -> 0 `i 429  ]
+[; ;progPIC18F26K40.c: 131: LATCbits.LATC6 = 1;
+"131
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 [e $U 430  ]
-"130
+"132
 [e :U 429 ]
-[; ;progPIC18F26K40.c: 130: else
-[; ;progPIC18F26K40.c: 131: LATCbits.LATC6 = 0;
-"131
+[; ;progPIC18F26K40.c: 132: else
+[; ;progPIC18F26K40.c: 133: LATCbits.LATC6 = 0;
+"133
 [e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
 [e :U 430 ]
-[; ;progPIC18F26K40.c: 132: (_delay((unsigned long)((1)*(12000000/4000000.0))));
-"132
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
-[; ;progPIC18F26K40.c: 133: LATCbits.LATC5 = 0;
-"133
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
 [; ;progPIC18F26K40.c: 134: (_delay((unsigned long)((1)*(12000000/4000000.0))));
 "134
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+[; ;progPIC18F26K40.c: 135: LATCbits.LATC5 = 0;
 "135
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;progPIC18F26K40.c: 136: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+"136
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 12000000 `l `d .4000000.0 `ul ]
+"137
 }
-"125
+"127
 [e -- _i -> -> 1 `i `c ]
 [e $ >= -> _i `i -> 0 `i 426  ]
 [e :U 427 ]
-"135
+"137
 }
-[; ;progPIC18F26K40.c: 135: }
-[; ;progPIC18F26K40.c: 136: }
-"136
+[; ;progPIC18F26K40.c: 137: }
+[; ;progPIC18F26K40.c: 138: }
+"138
 [e :UE 425 ]
 }

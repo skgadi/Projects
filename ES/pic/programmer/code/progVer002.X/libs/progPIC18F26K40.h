@@ -28,7 +28,7 @@ typedef enum _LATCH_TIMED { INTERNALLY = 0, EXTERNALLY } LATCH_TIMED;
 #define PIC18F26K40_DELAY_T_DIS()        (__delay_us(400)) //300
 #define PIC18F26K40_DELAY_T_EXIT()       (__delay_us(2)) //1
 #define PIC18F26K40_DELAY_T_DLY()        (__delay_us(2)) //1
-#define PIC18F26K40_DELAY_T_PINT()        (__delay_ms(6))
+#define PIC18F26K40_DELAY_T_PINT()        (__delay_ms(10))
 
 /*Configuring programming bus*/
 //#define POLL_WR_FOR_x_TIMES 5

@@ -5640,7 +5640,7 @@ unsigned char b63:1;
 # 17 "libs/../libs/progPIC18F26K40.h"
 typedef enum _SEND_DIRECTION { MSBTOLSB = 0, LSBTOMSB } SEND_DIRECTION;
 
-# 61
+# 63
 VOID PIC18F26K40_setTrisToOut (VOID);
 VOID PIC18F26K40_enterLowVoltageProg (VOID);
 VOID PIC18F26K40_exitLowVoltageProg (VOID);
@@ -5762,7 +5762,7 @@ PIC18F26K40_sendByteMsbToLsb(tempData.v[0]);
 PIC18F26K40_sendByteMsbToLsb(0xE0);
 _delay((unsigned long)((6)*(12000000/4000.0)));
 
-# 121
+# 123
 }
 
 VOID PIC18F26K40_sendByteMsbToLsb(BYTE info) {

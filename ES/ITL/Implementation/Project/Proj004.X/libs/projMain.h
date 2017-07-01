@@ -43,7 +43,7 @@ GSK_CYCLE CYCLES[MAX_NO_OF_CYCLE_TYPES];
 
 
 //EEPROM settings
- __EEPROM_DATA   (1,2,3,4,5);
+// __EEPROM_DATA   (1,2,3,4,5);
 
 #ifdef	__cplusplus
 }

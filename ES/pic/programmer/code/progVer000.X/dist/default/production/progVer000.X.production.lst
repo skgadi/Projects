@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.42 build -159332390 
-                                                                                               Mon Jun 05 20:34:03 2017
+                                                                                               Fri Jun 30 09:35:39 2017
 
 Microchip Technology Omniscient Code Generator v1.42 (PRO mode) build 201704130522
      1                           	processor	18F14K50
@@ -3174,7 +3174,7 @@ Microchip Technology Omniscient Code Generator v1.42 (PRO mode) build 2017041305
   3152                           
   3153 ;; *************** function _PIC18F26K40_sendByteMsbToLsb *****************
   3154 ;; Defined at:
-  3155 ;;		line 123 in file "libs/progPIC18F26K40.c"
+  3155 ;;		line 125 in file "libs/progPIC18F26K40.c"
   3156 ;; Parameters:    Size  Location     Type
   3157 ;;  info            1    wreg     unsigned char 
   3158 ;; Auto vars:     Size  Location     Type
@@ -3214,24 +3214,24 @@ Microchip Technology Omniscient Code Generator v1.42 (PRO mode) build 2017041305
   3192  0016C0  0100               	movlb	0	; () banked
   3193  0016C2  6FD5               	movwf	PIC18F26K40_sendByteMsbToLsb@info& (0+255),b
   3194                           
-  3195                           ;progPIC18F26K40.c: 124: PIC18F26K40_setTrisToOut ();
+  3195                           ;progPIC18F26K40.c: 126: PIC18F26K40_setTrisToOut ();
   3196  0016C4  EC6F  F00D         	call	_PIC18F26K40_setTrisToOut	;wreg free
   3197                           
-  3198                           ;progPIC18F26K40.c: 125: for (INT8 i = 7; i >= 0; i--) {
+  3198                           ;progPIC18F26K40.c: 127: for (INT8 i = 7; i >= 0; i--) {
   3199  0016C8  0E07               	movlw	7
   3200  0016CA  0100               	movlb	0	; () banked
   3201  0016CC  6FD6               	movwf	PIC18F26K40_sendByteMsbToLsb@i& (0+255),b
   3202  0016CE                     l124:
   3203                           
   3204                           ; BSR set to: 0
-  3205                           ;progPIC18F26K40.c: 126: LATCbits.LATC5 = 1;
+  3205                           ;progPIC18F26K40.c: 128: LATCbits.LATC5 = 1;
   3206  0016CE  8A8B               	bsf	3979,5,c	;volatile
   3207                           
-  3208                           ;progPIC18F26K40.c: 127: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+  3208                           ;progPIC18F26K40.c: 129: (_delay((unsigned long)((1)*(12000000/4000000.0))));
   3209  0016D0  D000               	nop2		;2 cycle nop
   3210  0016D2  F000               	nop	
   3211                           
-  3212                           ;progPIC18F26K40.c: 128: if ((info >> i) & 0x01)
+  3212                           ;progPIC18F26K40.c: 130: if ((info >> i) & 0x01)
   3213  0016D4  C0D6  F0D3         	movff	PIC18F26K40_sendByteMsbToLsb@i,??_PIC18F26K40_sendByteMsbToLsb
   3214  0016D8  C0D5  F0D4         	movff	PIC18F26K40_sendByteMsbToLsb@info,??_PIC18F26K40_sendByteMsbToLsb+1
   3215  0016DC  0100               	movlb	0	; () banked
@@ -3248,26 +3248,26 @@ Microchip Technology Omniscient Code Generator v1.42 (PRO mode) build 2017041305
   3226  0016EE  D002               	goto	l126
   3227                           
   3228                           ; BSR set to: 0
-  3229                           ;progPIC18F26K40.c: 129: LATCbits.LATC6 = 1;
+  3229                           ;progPIC18F26K40.c: 131: LATCbits.LATC6 = 1;
   3230  0016F0  8C8B               	bsf	3979,6,c	;volatile
   3231  0016F2  D001               	goto	l127
   3232  0016F4                     l126:
   3233                           
   3234                           ; BSR set to: 0
-  3235                           ;progPIC18F26K40.c: 130: else
-  3236                           ;progPIC18F26K40.c: 131: LATCbits.LATC6 = 0;
+  3235                           ;progPIC18F26K40.c: 132: else
+  3236                           ;progPIC18F26K40.c: 133: LATCbits.LATC6 = 0;
   3237  0016F4  9C8B               	bcf	3979,6,c	;volatile
   3238  0016F6                     l127:
   3239                           
   3240                           ; BSR set to: 0
-  3241                           ;progPIC18F26K40.c: 132: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+  3241                           ;progPIC18F26K40.c: 134: (_delay((unsigned long)((1)*(12000000/4000000.0))));
   3242  0016F6  D000               	nop2		;2 cycle nop
   3243  0016F8  F000               	nop	
   3244                           
-  3245                           ;progPIC18F26K40.c: 133: LATCbits.LATC5 = 0;
+  3245                           ;progPIC18F26K40.c: 135: LATCbits.LATC5 = 0;
   3246  0016FA  9A8B               	bcf	3979,5,c	;volatile
   3247                           
-  3248                           ;progPIC18F26K40.c: 134: (_delay((unsigned long)((1)*(12000000/4000000.0))));
+  3248                           ;progPIC18F26K40.c: 136: (_delay((unsigned long)((1)*(12000000/4000000.0))));
   3249  0016FC  D000               	nop2		;2 cycle nop
   3250  0016FE  F000               	nop	
   3251  001700  0100               	movlb	0	; () banked
@@ -11113,7 +11113,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
-Symbol Table                                                                                   Mon Jun 05 20:34:03 2017
+Symbol Table                                                                                   Fri Jun 30 09:35:39 2017
 
                                _USB_SD_Ptr 0301                                         PL2 0F18  
                                        PL4 0BB0                                         PL6 0BBA  
