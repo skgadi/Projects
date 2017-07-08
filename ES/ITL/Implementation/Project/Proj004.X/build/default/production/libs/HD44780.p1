@@ -1,28 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"21 libs/ProjectTypeDefs.h
-[s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1335 . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
-"19
-[u S1334 :7 `uc 1 `S1335 1 ]
-[n S1334 _GSK_WEEK val . ]
-"44
-[s S1339 `us 1 `us 1 `S1334 1 ]
-[n S1339 . START_TIME END_TIME SELECTED_WEEKS ]
-"42
-[u S1338 `S1339 1 ]
-[n S1338 _GSK_EVENT . ]
-"53
-[s S1341 `uc 1 `uc -> 2 `i ]
-[n S1341 . PERIOD PORTS ]
-"51
-[u S1340 `S1341 1 ]
-[n S1340 _GSK_STATE . ]
-"35
-[s S1337 `us 1 `uc 1 `uc 1 ]
-[n S1337 . PERIOD START_STATE END_STATE ]
-"34
-[u S1336 `S1337 1 ]
-[n S1336 _GSK_CYCLE . ]
+"39 libs/ProjectTypeDefs.h
+[s S1338 :5 `uc 1 :4 `uc 1 ]
+[n S1338 . Day Month ]
+"38
+[u S1337 `S1338 1 ]
+[n S1337 _GSK_YEAR_DAY . ]
+"22
+[s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1335 . . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
+"32
+[s S1336 :1 `uc 1 :7 `uc 1 ]
+[n S1336 . . Val ]
+"21
+[u S1334 `S1335 1 `S1336 1 ]
+[n S1334 _GSK_WEEK . . ]
+"58
+[s S1342 `l 1 `l 1 `uc 1 `S1334 1 ]
+[n S1342 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
+"56
+[u S1341 `S1342 1 ]
+[n S1341 _GSK_EVENT . ]
+"49 libs/projMain.h
+[c E11242 0 1 2 .. ]
+[n E11242 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
+"68 libs/ProjectTypeDefs.h
+[s S1344 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
+[n S1344 . PERIOD ON BLINK AUDIO ]
+"66
+[u S1343 `S1344 1 ]
+[n S1343 _GSK_STATE . ]
+"49
+[s S1340 `us 1 `uc 1 `uc 1 ]
+[n S1340 . PERIOD START_STATE END_STATE ]
+"48
+[u S1339 `S1340 1 ]
+[n S1339 _GSK_CYCLE . ]
 "15395 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
 [s S753 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S753 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -50,11 +62,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Lcd_Command `(v ~T0 @X0 0 ef1`uc ]
 "63
 [v _Lcd_CharCP `(v ~T0 @X0 0 ef1`uc ]
-[v F10967 `(v ~T0 @X0 1 tf1`ul ]
+[v F10963 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18.h
-[v __delay `JF10967 ~T0 @X0 0 e ]
+[v __delay `JF10963 ~T0 @X0 0 e ]
 [p i __delay ]
-[; ;projMain.h: 15: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10503,41 +10514,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 277: unsigned char b63:1;
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
-[; ;ProjectTypeDefs.h: 19: typedef union _GSK_WEEK {
-[; ;ProjectTypeDefs.h: 20: unsigned char val:7;
-[; ;ProjectTypeDefs.h: 21: struct {
-[; ;ProjectTypeDefs.h: 22: unsigned char Sunday:1;
-[; ;ProjectTypeDefs.h: 23: unsigned char Monday:1;
-[; ;ProjectTypeDefs.h: 24: unsigned char Tuesday:1;
-[; ;ProjectTypeDefs.h: 25: unsigned char Wednesday:1;
-[; ;ProjectTypeDefs.h: 26: unsigned char Thursday:1;
-[; ;ProjectTypeDefs.h: 27: unsigned char Friday:1;
-[; ;ProjectTypeDefs.h: 28: unsigned char Saturday:1;
-[; ;ProjectTypeDefs.h: 29: };
-[; ;ProjectTypeDefs.h: 30: } GSK_WEEK;
-[; ;ProjectTypeDefs.h: 32: typedef UINT8 GSK_CYCLE_TYPE;
-[; ;ProjectTypeDefs.h: 34: typedef union _GSK_CYCLE {
-[; ;ProjectTypeDefs.h: 35: struct {
-[; ;ProjectTypeDefs.h: 36: UINT16 PERIOD;
-[; ;ProjectTypeDefs.h: 37: UINT8 START_STATE;
-[; ;ProjectTypeDefs.h: 38: UINT8 END_STATE;
-[; ;ProjectTypeDefs.h: 39: };
-[; ;ProjectTypeDefs.h: 40: } GSK_CYCLE;
-[; ;ProjectTypeDefs.h: 42: typedef union _GSK_EVENT
-[; ;ProjectTypeDefs.h: 43: {
-[; ;ProjectTypeDefs.h: 44: struct {
-[; ;ProjectTypeDefs.h: 45: UINT16 START_TIME;
-[; ;ProjectTypeDefs.h: 46: UINT16 END_TIME;
-[; ;ProjectTypeDefs.h: 47: GSK_WEEK SELECTED_WEEKS;
-[; ;ProjectTypeDefs.h: 48: };
-[; ;ProjectTypeDefs.h: 49: } GSK_EVENT;
-[; ;ProjectTypeDefs.h: 51: typedef union _GSK_STATE
-[; ;ProjectTypeDefs.h: 52: {
-[; ;ProjectTypeDefs.h: 53: struct {
-[; ;ProjectTypeDefs.h: 54: UINT8 PERIOD;
-[; ;ProjectTypeDefs.h: 55: UINT8 PORTS[2];
-[; ;ProjectTypeDefs.h: 56: };
-[; ;ProjectTypeDefs.h: 57: } GSK_STATE;
+[; ;ProjectTypeDefs.h: 19: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+[; ;ProjectTypeDefs.h: 20: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
+[; ;ProjectTypeDefs.h: 21: typedef union _GSK_WEEK {
+[; ;ProjectTypeDefs.h: 22: struct {
+[; ;ProjectTypeDefs.h: 23: unsigned :1;
+[; ;ProjectTypeDefs.h: 24: unsigned Sunday:1;
+[; ;ProjectTypeDefs.h: 25: unsigned Monday:1;
+[; ;ProjectTypeDefs.h: 26: unsigned Tuesday:1;
+[; ;ProjectTypeDefs.h: 27: unsigned Wednesday:1;
+[; ;ProjectTypeDefs.h: 28: unsigned Thursday:1;
+[; ;ProjectTypeDefs.h: 29: unsigned Friday:1;
+[; ;ProjectTypeDefs.h: 30: unsigned Saturday:1;
+[; ;ProjectTypeDefs.h: 31: };
+[; ;ProjectTypeDefs.h: 32: struct {
+[; ;ProjectTypeDefs.h: 33: unsigned :1;
+[; ;ProjectTypeDefs.h: 34: unsigned Val :7;
+[; ;ProjectTypeDefs.h: 35: };
+[; ;ProjectTypeDefs.h: 36: } GSK_WEEK;
+[; ;ProjectTypeDefs.h: 38: typedef union _GSK_YEAR_DAY {
+[; ;ProjectTypeDefs.h: 39: struct {
+[; ;ProjectTypeDefs.h: 40: unsigned Day:5;
+[; ;ProjectTypeDefs.h: 41: unsigned Month:4;
+[; ;ProjectTypeDefs.h: 42: };
+[; ;ProjectTypeDefs.h: 43: } GSK_YEAR_DAY;
+[; ;ProjectTypeDefs.h: 45: typedef INT32 GSK_SECOND_IN_DAY;
+[; ;ProjectTypeDefs.h: 46: typedef UINT8 GSK_CYCLE_TYPE;
+[; ;ProjectTypeDefs.h: 48: typedef union _GSK_CYCLE {
+[; ;ProjectTypeDefs.h: 49: struct {
+[; ;ProjectTypeDefs.h: 50: UINT16 PERIOD;
+[; ;ProjectTypeDefs.h: 51: UINT8 START_STATE;
+[; ;ProjectTypeDefs.h: 52: UINT8 END_STATE;
+[; ;ProjectTypeDefs.h: 53: };
+[; ;ProjectTypeDefs.h: 54: } GSK_CYCLE;
+[; ;ProjectTypeDefs.h: 56: typedef union _GSK_EVENT
+[; ;ProjectTypeDefs.h: 57: {
+[; ;ProjectTypeDefs.h: 58: struct {
+[; ;ProjectTypeDefs.h: 59: GSK_SECOND_IN_DAY START_TIME;
+[; ;ProjectTypeDefs.h: 60: GSK_SECOND_IN_DAY END_TIME;
+[; ;ProjectTypeDefs.h: 61: GSK_CYCLE_TYPE CYCLE;
+[; ;ProjectTypeDefs.h: 62: GSK_WEEK SELECTED_WEEKS;
+[; ;ProjectTypeDefs.h: 63: };
+[; ;ProjectTypeDefs.h: 64: } GSK_EVENT;
+[; ;ProjectTypeDefs.h: 66: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 67: {
+[; ;ProjectTypeDefs.h: 68: struct {
+[; ;ProjectTypeDefs.h: 69: UINT8 PERIOD;
+[; ;ProjectTypeDefs.h: 70: UINT8 ON[2];
+[; ;ProjectTypeDefs.h: 71: UINT8 BLINK[2];
+[; ;ProjectTypeDefs.h: 72: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 73: };
+[; ;ProjectTypeDefs.h: 74: } GSK_STATE;
 [; ;HD44780.h: 58: void Lcd_Init(void);
 [; ;HD44780.h: 59: void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
 [; ;HD44780.h: 60: void Lcd_Text(unsigned char y, unsigned char x, char *buffer);
@@ -10556,36 +10583,82 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gps.h: 26: INT8 GetDay (char *Date);
 [; ;gps.h: 27: BOOL ValidateDateTime (char *Date, char *Time);
 [; ;gps.h: 28: void ValidateDateTime1 (char Date[], char Time[]);
-"29 libs/projMain.h
+[; ;eeprom.h: 40: UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+[; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
+[; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
+[; ;eeprom.h: 43: GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+[; ;eeprom.h: 45: BYTE ReadEeprom(WORD_VAL Address);
+[; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
+[; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
+[; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
+[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+"31 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 29: UINT8 GLOBAL_CENTURY = 20;
-"32
+[; ;projMain.h: 31: UINT8 GLOBAL_CENTURY = 20;
+"34
 [v _GLOBAL_I `i ~T0 @X0 1 e ]
 [i _GLOBAL_I
 -> 0 `i
 ]
-[; ;projMain.h: 32: INT GLOBAL_I =0;
-"33
+[; ;projMain.h: 34: INT GLOBAL_I =0;
+"35
 [v _GLOBAL_USARTSIZE `i ~T0 @X0 1 e ]
 [i _GLOBAL_USARTSIZE
 -> 0 `i
 ]
-[; ;projMain.h: 33: INT GLOBAL_USARTSIZE=0;
-[; ;projMain.h: 34: void Timer0_10ms (void);
-[; ;projMain.h: 35: void Timer1_1s (void);
-[; ;projMain.h: 36: void Timer3_1ms (void);
-"39
-[v _EVENTS `S1338 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 39: GSK_EVENT EVENTS[24];
+[; ;projMain.h: 35: INT GLOBAL_USARTSIZE=0;
+[; ;projMain.h: 36: void Timer0_10ms (void);
+[; ;projMain.h: 37: void Timer1_1s (void);
+[; ;projMain.h: 38: void Timer3_1ms (void);
 "40
-[v _STATES `S1340 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 40: GSK_STATE STATES[160];
+[v _TIME_ZONE `s ~T0 @X0 1 e ]
+[i _TIME_ZONE
+-> -> 0 `i `s
+]
+[; ;projMain.h: 40: INT16 TIME_ZONE = 0;
 "41
-[v _CYCLES `S1336 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 41: GSK_CYCLE CYCLES[17];
+[v _CYCLE_DELAY `s ~T0 @X0 1 e ]
+[i _CYCLE_DELAY
+-> -> 0 `i `s
+]
+[; ;projMain.h: 41: INT16 CYCLE_DELAY = 0;
+"42
+[v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
+[v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
+[; ;projMain.h: 42: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"43
+[v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
+[v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
+[; ;projMain.h: 43: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"44
+[v _CENTURY `uc ~T0 @X0 1 e ]
+[i _CENTURY
+-> -> 20 `i `uc
+]
+[; ;projMain.h: 44: UINT8 CENTURY = 20;
+"45
+[v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
+[v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
+[v _AUDIO_NORMAL_ON_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_NORMAL_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_SPECIAL_ON_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
+[v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
+[; ;projMain.h: 45: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+"48
+[v _EVENTS `S1341 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 48: GSK_EVENT EVENTS[24];
+"49
+[v _STATES `S1343 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 49: GSK_STATE STATES[160];
+"50
+[v _CYCLES `S1339 ~T0 @X0 -> 17 `i e ]
+[; ;projMain.h: 50: GSK_CYCLE CYCLES[17];
 "17 libs/HD44780.c
 [v _Lcd_Init `(v ~T0 @X0 1 ef ]
 {
@@ -10625,10 +10698,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "28
 {
 [e = _data -> -> 1 `i `uc ]
-[e $ < -> _data `i -> 4 `i 1343  ]
-[e $U 1344  ]
+[e $ < -> _data `i -> 4 `i 1346  ]
+[e $U 1347  ]
 "29
-[e :U 1343 ]
+[e :U 1346 ]
 [; ;HD44780.c: 29: {
 {
 [; ;HD44780.c: 30: LATAbits.LA5 = 0; LATAbits.LA4 = 0; LATAbits.LA3 = 1; LATAbits.LA2 = 1; LATAbits.LA1 = 0; LATAbits.LA0 = 0;
@@ -10665,8 +10738,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "28
 [e ++ _data -> -> 1 `i `uc ]
-[e $ < -> _data `i -> 4 `i 1343  ]
-[e :U 1344 ]
+[e $ < -> _data `i -> 4 `i 1346  ]
+[e :U 1347 ]
 "35
 }
 [; ;HD44780.c: 35: }
@@ -10718,7 +10791,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Command (1 _data ]
 [; ;HD44780.c: 45: }
 "45
-[e :UE 1342 ]
+[e :UE 1345 ]
 }
 "53
 [v _Lcd_ConstText `(v ~T0 @X0 1 ef3`uc`uc`*Cuc ]
@@ -10734,50 +10807,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HD44780.c: 54: unsigned char data;
 [; ;HD44780.c: 55: switch(y){
 "55
-[e $U 1348  ]
+[e $U 1351  ]
 {
 [; ;HD44780.c: 56: case 1: data = 127 + x; break;
 "56
-[e :U 1349 ]
+[e :U 1352 ]
 [e = _data -> + -> 127 `i -> _x `i `uc ]
-[e $U 1347  ]
+[e $U 1350  ]
 [; ;HD44780.c: 57: case 2: data = 191 + x; break;
 "57
-[e :U 1350 ]
+[e :U 1353 ]
 [e = _data -> + -> 191 `i -> _x `i `uc ]
-[e $U 1347  ]
+[e $U 1350  ]
 [; ;HD44780.c: 58: case 3: data = 147 + x; break;
 "58
-[e :U 1351 ]
+[e :U 1354 ]
 [e = _data -> + -> 147 `i -> _x `i `uc ]
-[e $U 1347  ]
+[e $U 1350  ]
 [; ;HD44780.c: 59: case 4: data = 211 + x; break;
 "59
-[e :U 1352 ]
+[e :U 1355 ]
 [e = _data -> + -> 211 `i -> _x `i `uc ]
-[e $U 1347  ]
+[e $U 1350  ]
 [; ;HD44780.c: 60: default: break;}
 "60
-[e :U 1353 ]
-[e $U 1347  ]
+[e :U 1356 ]
+[e $U 1350  ]
 }
-[e $U 1347  ]
+[e $U 1350  ]
 "55
-[e :U 1348 ]
-[e [\ _y , $ -> -> 1 `i `uc 1349
- , $ -> -> 2 `i `uc 1350
- , $ -> -> 3 `i `uc 1351
- , $ -> -> 4 `i `uc 1352
- 1353 ]
+[e :U 1351 ]
+[e [\ _y , $ -> -> 1 `i `uc 1352
+ , $ -> -> 2 `i `uc 1353
+ , $ -> -> 3 `i `uc 1354
+ , $ -> -> 4 `i `uc 1355
+ 1356 ]
 "60
-[e :U 1347 ]
+[e :U 1350 ]
 [; ;HD44780.c: 61: Lcd_Command(data);
 "61
 [e ( _Lcd_Command (1 _data ]
 [; ;HD44780.c: 62: while(*buffer)
 "62
-[e $U 1354  ]
-[e :U 1355 ]
+[e $U 1357  ]
+[e :U 1358 ]
 [; ;HD44780.c: 63: {
 "63
 {
@@ -10789,17 +10862,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
 "66
 }
-[e :U 1354 ]
+[e :U 1357 ]
 "62
-[e $ != -> *U _buffer `i -> -> -> 0 `i `Cuc `i 1355  ]
-[e :U 1356 ]
+[e $ != -> *U _buffer `i -> -> -> 0 `i `Cuc `i 1358  ]
+[e :U 1359 ]
 [; ;HD44780.c: 66: }
 [; ;HD44780.c: 67: return;
 "67
-[e $UE 1346  ]
+[e $UE 1349  ]
 [; ;HD44780.c: 68: }
 "68
-[e :UE 1346 ]
+[e :UE 1349 ]
 }
 "76
 [v _Lcd_Text `(v ~T0 @X0 1 ef3`uc`uc`*uc ]
@@ -10815,50 +10888,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HD44780.c: 77: unsigned char data;
 [; ;HD44780.c: 78: switch(y){
 "78
-[e $U 1359  ]
+[e $U 1362  ]
 {
 [; ;HD44780.c: 79: case 1: data = 127 + x; break;
 "79
-[e :U 1360 ]
+[e :U 1363 ]
 [e = _data -> + -> 127 `i -> _x `i `uc ]
-[e $U 1358  ]
+[e $U 1361  ]
 [; ;HD44780.c: 80: case 2: data = 191 + x; break;
 "80
-[e :U 1361 ]
+[e :U 1364 ]
 [e = _data -> + -> 191 `i -> _x `i `uc ]
-[e $U 1358  ]
+[e $U 1361  ]
 [; ;HD44780.c: 81: case 3: data = 147 + x; break;
 "81
-[e :U 1362 ]
+[e :U 1365 ]
 [e = _data -> + -> 147 `i -> _x `i `uc ]
-[e $U 1358  ]
+[e $U 1361  ]
 [; ;HD44780.c: 82: case 4: data = 211 + x; break;
 "82
-[e :U 1363 ]
+[e :U 1366 ]
 [e = _data -> + -> 211 `i -> _x `i `uc ]
-[e $U 1358  ]
+[e $U 1361  ]
 [; ;HD44780.c: 83: default: break;}
 "83
-[e :U 1364 ]
-[e $U 1358  ]
+[e :U 1367 ]
+[e $U 1361  ]
 }
-[e $U 1358  ]
+[e $U 1361  ]
 "78
-[e :U 1359 ]
-[e [\ _y , $ -> -> 1 `i `uc 1360
- , $ -> -> 2 `i `uc 1361
- , $ -> -> 3 `i `uc 1362
- , $ -> -> 4 `i `uc 1363
- 1364 ]
+[e :U 1362 ]
+[e [\ _y , $ -> -> 1 `i `uc 1363
+ , $ -> -> 2 `i `uc 1364
+ , $ -> -> 3 `i `uc 1365
+ , $ -> -> 4 `i `uc 1366
+ 1367 ]
 "83
-[e :U 1358 ]
+[e :U 1361 ]
 [; ;HD44780.c: 84: Lcd_Command(data);
 "84
 [e ( _Lcd_Command (1 _data ]
 [; ;HD44780.c: 85: while(*buffer)
 "85
-[e $U 1365  ]
-[e :U 1366 ]
+[e $U 1368  ]
+[e :U 1369 ]
 [; ;HD44780.c: 86: {
 "86
 {
@@ -10870,17 +10943,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
 "89
 }
-[e :U 1365 ]
+[e :U 1368 ]
 "85
-[e $ != -> *U _buffer `i -> -> -> 0 `i `uc `i 1366  ]
-[e :U 1367 ]
+[e $ != -> *U _buffer `i -> -> -> 0 `i `uc `i 1369  ]
+[e :U 1370 ]
 [; ;HD44780.c: 89: }
 [; ;HD44780.c: 90: return;
 "90
-[e $UE 1357  ]
+[e $UE 1360  ]
 [; ;HD44780.c: 91: }
 "91
-[e :UE 1357 ]
+[e :UE 1360 ]
 }
 "99
 [v _Lcd_WriteChar `(v ~T0 @X0 1 ef3`uc`uc`uc ]
@@ -10896,45 +10969,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HD44780.c: 100: unsigned char data;
 [; ;HD44780.c: 101: switch(y) {
 "101
-[e $U 1370  ]
+[e $U 1373  ]
 {
 [; ;HD44780.c: 102: case 1: data = 127 + x; break;
 "102
-[e :U 1371 ]
+[e :U 1374 ]
 [e = _data -> + -> 127 `i -> _x `i `uc ]
-[e $U 1369  ]
+[e $U 1372  ]
 [; ;HD44780.c: 103: case 2: data = 191 + x; break;
 "103
-[e :U 1372 ]
+[e :U 1375 ]
 [e = _data -> + -> 191 `i -> _x `i `uc ]
-[e $U 1369  ]
+[e $U 1372  ]
 [; ;HD44780.c: 104: case 3: data = 147 + x; break;
 "104
-[e :U 1373 ]
+[e :U 1376 ]
 [e = _data -> + -> 147 `i -> _x `i `uc ]
-[e $U 1369  ]
+[e $U 1372  ]
 [; ;HD44780.c: 105: case 4: data = 211 + x; break;
 "105
-[e :U 1374 ]
+[e :U 1377 ]
 [e = _data -> + -> 211 `i -> _x `i `uc ]
-[e $U 1369  ]
+[e $U 1372  ]
 [; ;HD44780.c: 106: default: break;
 "106
-[e :U 1375 ]
-[e $U 1369  ]
+[e :U 1378 ]
+[e $U 1372  ]
 "107
 }
 [; ;HD44780.c: 107: }
-[e $U 1369  ]
+[e $U 1372  ]
 "101
-[e :U 1370 ]
-[e [\ _y , $ -> -> 1 `i `uc 1371
- , $ -> -> 2 `i `uc 1372
- , $ -> -> 3 `i `uc 1373
- , $ -> -> 4 `i `uc 1374
- 1375 ]
+[e :U 1373 ]
+[e [\ _y , $ -> -> 1 `i `uc 1374
+ , $ -> -> 2 `i `uc 1375
+ , $ -> -> 3 `i `uc 1376
+ , $ -> -> 4 `i `uc 1377
+ 1378 ]
 "107
-[e :U 1369 ]
+[e :U 1372 ]
 [; ;HD44780.c: 108: Lcd_Command(data);
 "108
 [e ( _Lcd_Command (1 _data ]
@@ -10943,7 +11016,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_CharCP (1 _c ]
 [; ;HD44780.c: 110: }
 "110
-[e :UE 1368 ]
+[e :UE 1371 ]
 }
 "116
 [v _Lcd_CharCP `(v ~T0 @X0 1 ef1`uc ]
@@ -10993,7 +11066,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Delay5us ..  ]
 [; ;HD44780.c: 127: }
 "127
-[e :UE 1376 ]
+[e :UE 1379 ]
 }
 "133
 [v _Lcd_Command `(v ~T0 @X0 1 ef1`uc ]
@@ -11043,7 +11116,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Delay5us ..  ]
 [; ;HD44780.c: 145: }
 "145
-[e :UE 1377 ]
+[e :UE 1380 ]
 }
 "150
 [v _Lcd_Delay5us `(v ~T0 @X0 1 ef ]
@@ -11056,7 +11129,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [; ;HD44780.c: 152: }
 "152
-[e :UE 1378 ]
+[e :UE 1381 ]
 }
 "153
 [v _Lcd_Delay5500us `(v ~T0 @X0 1 ef ]
@@ -11069,7 +11142,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 5500 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 [; ;HD44780.c: 155: }
 "155
-[e :UE 1379 ]
+[e :UE 1382 ]
 }
 "157
 [v _Lcd_Int `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
@@ -11083,7 +11156,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;HD44780.c: 158: if ((size>0) && (size<=3)) {
 "158
-[e $ ! && > -> _size `i -> 0 `i <= -> _size `i -> 3 `i 1381  ]
+[e $ ! && > -> _size `i -> 0 `i <= -> _size `i -> 3 `i 1384  ]
 {
 "159
 [v _tempVal `ui ~T0 @X0 1 a ]
@@ -11094,49 +11167,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HD44780.c: 160: unsigned char data;
 [; ;HD44780.c: 161: switch(y){
 "161
-[e $U 1383  ]
+[e $U 1386  ]
 {
 [; ;HD44780.c: 162: case 1: data = 127 + x; break;
 "162
-[e :U 1384 ]
+[e :U 1387 ]
 [e = _data -> + -> 127 `i -> _x `i `uc ]
-[e $U 1382  ]
+[e $U 1385  ]
 [; ;HD44780.c: 163: case 2: data = 191 + x; break;
 "163
-[e :U 1385 ]
+[e :U 1388 ]
 [e = _data -> + -> 191 `i -> _x `i `uc ]
-[e $U 1382  ]
+[e $U 1385  ]
 [; ;HD44780.c: 164: case 3: data = 147 + x; break;
 "164
-[e :U 1386 ]
+[e :U 1389 ]
 [e = _data -> + -> 147 `i -> _x `i `uc ]
-[e $U 1382  ]
+[e $U 1385  ]
 [; ;HD44780.c: 165: case 4: data = 211 + x; break;
 "165
-[e :U 1387 ]
+[e :U 1390 ]
 [e = _data -> + -> 211 `i -> _x `i `uc ]
-[e $U 1382  ]
+[e $U 1385  ]
 [; ;HD44780.c: 166: default: break;}
 "166
-[e :U 1388 ]
-[e $U 1382  ]
+[e :U 1391 ]
+[e $U 1385  ]
 }
-[e $U 1382  ]
+[e $U 1385  ]
 "161
-[e :U 1383 ]
-[e [\ _y , $ -> -> 1 `i `uc 1384
- , $ -> -> 2 `i `uc 1385
- , $ -> -> 3 `i `uc 1386
- , $ -> -> 4 `i `uc 1387
- 1388 ]
+[e :U 1386 ]
+[e [\ _y , $ -> -> 1 `i `uc 1387
+ , $ -> -> 2 `i `uc 1388
+ , $ -> -> 3 `i `uc 1389
+ , $ -> -> 4 `i `uc 1390
+ 1391 ]
 "166
-[e :U 1382 ]
+[e :U 1385 ]
 [; ;HD44780.c: 167: Lcd_Command(data);
 "167
 [e ( _Lcd_Command (1 _data ]
 [; ;HD44780.c: 168: if (size>=3){
 "168
-[e $ ! >= -> _size `i -> 3 `i 1389  ]
+[e $ ! >= -> _size `i -> 3 `i 1392  ]
 {
 [; ;HD44780.c: 169: tempVal = val/100;
 "169
@@ -11146,11 +11219,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_CharCP (1 -> + -> -> 48 `i `ui _tempVal `uc ]
 "171
 }
-[e :U 1389 ]
+[e :U 1392 ]
 [; ;HD44780.c: 171: }
 [; ;HD44780.c: 172: if (size>=2){
 "172
-[e $ ! >= -> _size `i -> 2 `i 1390  ]
+[e $ ! >= -> _size `i -> 2 `i 1393  ]
 {
 [; ;HD44780.c: 173: tempVal = (val-tempVal*100)/10;
 "173
@@ -11160,11 +11233,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_CharCP (1 -> + -> -> 48 `i `ui _tempVal `uc ]
 "175
 }
-[e :U 1390 ]
+[e :U 1393 ]
 [; ;HD44780.c: 175: }
 [; ;HD44780.c: 176: if (size>=1){
 "176
-[e $ ! >= -> _size `i -> 1 `i 1391  ]
+[e $ ! >= -> _size `i -> 1 `i 1394  ]
 {
 [; ;HD44780.c: 177: tempVal = val/10;
 "177
@@ -11174,15 +11247,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_CharCP (1 -> + -> -> 48 `i `ui - -> _val `ui * _tempVal -> -> 10 `i `ui `uc ]
 "179
 }
-[e :U 1391 ]
+[e :U 1394 ]
 "180
 }
-[e :U 1381 ]
+[e :U 1384 ]
 [; ;HD44780.c: 179: }
 [; ;HD44780.c: 180: }
 [; ;HD44780.c: 181: }
 "181
-[e :UE 1380 ]
+[e :UE 1383 ]
 }
 "183
 [v _WriteLongInt `(v ~T0 @X0 1 ef5`uc`uc`l`c`uc ]
@@ -11201,14 +11274,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _POS -> -> 0 `i `c ]
 [; ;HD44780.c: 185: if (Sign) {
 "185
-[e $ ! != -> _Sign `i -> -> -> 0 `i `uc `i 1393  ]
+[e $ ! != -> _Sign `i -> -> -> 0 `i `uc `i 1396  ]
 {
 [; ;HD44780.c: 186: POS++;
 "186
 [e ++ _POS -> -> 1 `i `c ]
 [; ;HD44780.c: 187: if (Val<0) {
 "187
-[e $ ! < _Val -> -> 0 `i `l 1394  ]
+[e $ ! < _Val -> -> 0 `i `l 1397  ]
 {
 [; ;HD44780.c: 188: Lcd_WriteChar (y, x, 0x2D);
 "188
@@ -11219,20 +11292,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "190
 }
 [; ;HD44780.c: 190: } else
-[e $U 1395  ]
-[e :U 1394 ]
+[e $U 1398  ]
+[e :U 1397 ]
 [; ;HD44780.c: 191: Lcd_WriteChar (y, x, 0x2B);
 "191
 [e ( _Lcd_WriteChar (3 , , _y _x -> -> 43 `i `uc ]
-[e :U 1395 ]
+[e :U 1398 ]
 "192
 }
-[e :U 1393 ]
+[e :U 1396 ]
 [; ;HD44780.c: 192: }
 [; ;HD44780.c: 193: while(size) {
 "193
-[e $U 1396  ]
-[e :U 1397 ]
+[e $U 1399  ]
+[e :U 1400 ]
 {
 [; ;HD44780.c: 194: size--;
 "194
@@ -11245,14 +11318,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Val / _Val -> -> 10 `i `l ]
 "197
 }
-[e :U 1396 ]
+[e :U 1399 ]
 "193
-[e $ != -> _size `i -> -> -> 0 `i `c `i 1397  ]
-[e :U 1398 ]
+[e $ != -> _size `i -> -> -> 0 `i `c `i 1400  ]
+[e :U 1401 ]
 [; ;HD44780.c: 197: }
 [; ;HD44780.c: 198: }
 "198
-[e :UE 1392 ]
+[e :UE 1395 ]
 }
 "200
 [v _Lcd_Disp_Bin `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
@@ -11269,27 +11342,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1400  ]
-[e $U 1401  ]
-[e :U 1400 ]
+[e $ < -> _i `i -> 8 `i 1403  ]
+[e $U 1404  ]
+[e :U 1403 ]
 {
 [; ;HD44780.c: 202: if ((val) & (0x01<<i))
 "202
-[e $ ! != & -> _val `i << -> 1 `i _i -> 0 `i 1403  ]
+[e $ ! != & -> _val `i << -> 1 `i _i -> 0 `i 1406  ]
 [; ;HD44780.c: 203: Lcd_WriteChar(y, x+i, DispChar);
 "203
 [e ( _Lcd_WriteChar (3 , , _y -> + -> _x `i -> _i `i `uc _DispChar ]
-[e :U 1403 ]
+[e :U 1406 ]
 "204
 }
 "201
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1400  ]
-[e :U 1401 ]
+[e $ < -> _i `i -> 8 `i 1403  ]
+[e :U 1404 ]
 "204
 }
 [; ;HD44780.c: 204: }
 [; ;HD44780.c: 205: }
 "205
-[e :UE 1399 ]
+[e :UE 1402 ]
 }

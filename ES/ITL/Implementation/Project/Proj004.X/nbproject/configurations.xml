@@ -13,6 +13,8 @@
         <itemPath>libs/powerup.as</itemPath>
         <itemPath>libs/projMain.h</itemPath>
         <itemPath>libs/ProjectTypeDefs.h</itemPath>
+        <itemPath>libs/eeprom.h</itemPath>
+        <itemPath>libs/eeprom.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"

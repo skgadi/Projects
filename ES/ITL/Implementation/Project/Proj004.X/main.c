@@ -94,6 +94,7 @@ void main(void)
     GPS_SWITCH=ON;
     char Date[] = "------";
     char Time[] = "------";
+    LoadAllFromEeprom();
     //----------End of add by SKGadi----------
     while (1)
     {
@@ -108,13 +109,14 @@ void main(void)
         Lcd_Text(2,7, "-");
         Lcd_Text(2,8, Date);
         Lcd_Text(2,14, "--");
-        Lcd_Int(2, 16, GetDay(Date), 1);
         Lcd_Int(1, 14, GLOBAL_I, 3);
         if (ValidateDateTime(Date, Time)) {
             Lcd_Text(1, 1, ":)");
+            Lcd_Int(2, 16, GetDay(Date), 1);
         } else {
             Lcd_Text(1, 1, ":(");
         }
+        WriteLongInt(1, 4, STATES[2].AUDIO, 5,1);
         //__delay_ms(1000);
         /*Lcd_Command(LCD_CLEAR);
         ShowRawData();*/

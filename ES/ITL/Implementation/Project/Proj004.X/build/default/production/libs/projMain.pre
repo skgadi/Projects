@@ -1,9 +1,6 @@
 
 # 1 "libs/projMain.c"
 
-# 15 "libs/projMain.h"
-typedef enum _SWITCH { OFF = 0, ON } SWITCH;
-
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -13870,19 +13867,33 @@ unsigned char b63:1;
 } QWORD_VAL;
 
 # 19 "libs/ProjectTypeDefs.h"
+typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
 typedef union _GSK_WEEK {
-unsigned char val:7;
 struct {
-unsigned char Sunday:1;
-unsigned char Monday:1;
-unsigned char Tuesday:1;
-unsigned char Wednesday:1;
-unsigned char Thursday:1;
-unsigned char Friday:1;
-unsigned char Saturday:1;
+unsigned :1;
+unsigned Sunday:1;
+unsigned Monday:1;
+unsigned Tuesday:1;
+unsigned Wednesday:1;
+unsigned Thursday:1;
+unsigned Friday:1;
+unsigned Saturday:1;
+};
+struct {
+unsigned :1;
+unsigned Val :7;
 };
 } GSK_WEEK;
 
+typedef union _GSK_YEAR_DAY {
+struct {
+unsigned Day:5;
+unsigned Month:4;
+};
+} GSK_YEAR_DAY;
+
+typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
 
 typedef union _GSK_CYCLE {
@@ -13896,8 +13907,9 @@ UINT8 END_STATE;
 typedef union _GSK_EVENT
 {
 struct {
-UINT16 START_TIME;
-UINT16 END_TIME;
+GSK_SECOND_IN_DAY START_TIME;
+GSK_SECOND_IN_DAY END_TIME;
+GSK_CYCLE_TYPE CYCLE;
 GSK_WEEK SELECTED_WEEKS;
 };
 } GSK_EVENT;
@@ -13906,7 +13918,9 @@ typedef union _GSK_STATE
 {
 struct {
 UINT8 PERIOD;
-UINT8 PORTS[2];
+UINT8 ON[2];
+UINT8 BLINK[2];
+GSK_AUDIO AUDIO;
 };
 } GSK_STATE;
 
@@ -13935,7 +13949,19 @@ INT8 GetDay (char *Date);
 BOOL ValidateDateTime (char *Date, char *Time);
 void ValidateDateTime1 (char Date[], char Time[]);
 
-# 29 "libs/projMain.h"
+# 40 "libs/eeprom.h"
+UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+INT16 extern TIME_ZONE, CYCLE_DELAY;
+GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
+GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+
+BYTE ReadEeprom(WORD_VAL Address);
+void LoadSettingsFromEeprom (void);
+void LoadEventsFromEeprom (void);
+void LoadStatesFromEeprom (void);
+void LoadAllFromEeprom (void);
+
+# 31 "libs/projMain.h"
 UINT8 GLOBAL_CENTURY = 20;
 
 
@@ -13944,6 +13970,13 @@ INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
 void Timer1_1s (void);
 void Timer3_1ms (void);
+
+INT16 TIME_ZONE = 0;
+INT16 CYCLE_DELAY = 0;
+GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+UINT8 CENTURY = 20;
+UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 
 
 GSK_EVENT EVENTS[24];
@@ -13967,8 +14000,4 @@ if (GLOBAL_I%5000==0) {
 void Timer1_1s (void) {
 
 # 48
-}
-
-void ReadFromEeprom () {
-
 }

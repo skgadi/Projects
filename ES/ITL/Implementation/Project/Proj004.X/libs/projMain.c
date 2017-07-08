@@ -46,7 +46,3 @@ void Timer1_1s (void) {
         //}
     //}
 }
-
-void ReadFromEeprom () {
-    
-}

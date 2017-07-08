@@ -1,28 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"21 libs/ProjectTypeDefs.h
-[s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1335 . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
-"19
-[u S1334 :7 `uc 1 `S1335 1 ]
-[n S1334 _GSK_WEEK val . ]
-"44
-[s S1339 `us 1 `us 1 `S1334 1 ]
-[n S1339 . START_TIME END_TIME SELECTED_WEEKS ]
-"42
-[u S1338 `S1339 1 ]
-[n S1338 _GSK_EVENT . ]
-"53
-[s S1341 `uc 1 `uc -> 2 `i ]
-[n S1341 . PERIOD PORTS ]
-"51
-[u S1340 `S1341 1 ]
-[n S1340 _GSK_STATE . ]
-"35
-[s S1337 `us 1 `uc 1 `uc 1 ]
-[n S1337 . PERIOD START_STATE END_STATE ]
-"34
-[u S1336 `S1337 1 ]
-[n S1336 _GSK_CYCLE . ]
+"39 libs/ProjectTypeDefs.h
+[s S1338 :5 `uc 1 :4 `uc 1 ]
+[n S1338 . Day Month ]
+"38
+[u S1337 `S1338 1 ]
+[n S1337 _GSK_YEAR_DAY . ]
+"22
+[s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1335 . . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
+"32
+[s S1336 :1 `uc 1 :7 `uc 1 ]
+[n S1336 . . Val ]
+"21
+[u S1334 `S1335 1 `S1336 1 ]
+[n S1334 _GSK_WEEK . . ]
+"58
+[s S1342 `l 1 `l 1 `uc 1 `S1334 1 ]
+[n S1342 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
+"56
+[u S1341 `S1342 1 ]
+[n S1341 _GSK_EVENT . ]
+"49 libs/projMain.h
+[c E11242 0 1 2 .. ]
+[n E11242 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
+"68 libs/ProjectTypeDefs.h
+[s S1344 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
+[n S1344 . PERIOD ON BLINK AUDIO ]
+"66
+[u S1343 `S1344 1 ]
+[n S1343 _GSK_STATE . ]
+"49
+[s S1340 `us 1 `uc 1 `uc 1 ]
+[n S1340 . PERIOD START_STATE END_STATE ]
+"48
+[u S1339 `S1340 1 ]
+[n S1339 _GSK_CYCLE . ]
 "4360 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
 [s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S263 . SSP1IF BCL1IF SSP2IF BCL2IF TX1IF RC1IF TX2IF RC2IF ]
@@ -38,14 +50,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Lcd_CharCP `(v ~T0 @X0 0 ef1`uc ]
 "114 libs/../mcc_generated_files/eusart1.h
 [v _EUSART1_Read `(uc ~T0 @X0 0 ef ]
-[v F10967 `(v ~T0 @X0 1 tf1`ul ]
+[v F10963 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18.h
-[v __delay `JF10967 ~T0 @X0 0 e ]
+[v __delay `JF10963 ~T0 @X0 0 e ]
 [p i __delay ]
 "137 libs/gps.c
-[c E11041 0 1 .. ]
-[n E11041 _BOOL FALSE TRUE  ]
-[; ;projMain.h: 15: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+[c E11037 0 1 .. ]
+[n E11037 _BOOL FALSE TRUE  ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10494,41 +10505,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 277: unsigned char b63:1;
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
-[; ;ProjectTypeDefs.h: 19: typedef union _GSK_WEEK {
-[; ;ProjectTypeDefs.h: 20: unsigned char val:7;
-[; ;ProjectTypeDefs.h: 21: struct {
-[; ;ProjectTypeDefs.h: 22: unsigned char Sunday:1;
-[; ;ProjectTypeDefs.h: 23: unsigned char Monday:1;
-[; ;ProjectTypeDefs.h: 24: unsigned char Tuesday:1;
-[; ;ProjectTypeDefs.h: 25: unsigned char Wednesday:1;
-[; ;ProjectTypeDefs.h: 26: unsigned char Thursday:1;
-[; ;ProjectTypeDefs.h: 27: unsigned char Friday:1;
-[; ;ProjectTypeDefs.h: 28: unsigned char Saturday:1;
-[; ;ProjectTypeDefs.h: 29: };
-[; ;ProjectTypeDefs.h: 30: } GSK_WEEK;
-[; ;ProjectTypeDefs.h: 32: typedef UINT8 GSK_CYCLE_TYPE;
-[; ;ProjectTypeDefs.h: 34: typedef union _GSK_CYCLE {
-[; ;ProjectTypeDefs.h: 35: struct {
-[; ;ProjectTypeDefs.h: 36: UINT16 PERIOD;
-[; ;ProjectTypeDefs.h: 37: UINT8 START_STATE;
-[; ;ProjectTypeDefs.h: 38: UINT8 END_STATE;
-[; ;ProjectTypeDefs.h: 39: };
-[; ;ProjectTypeDefs.h: 40: } GSK_CYCLE;
-[; ;ProjectTypeDefs.h: 42: typedef union _GSK_EVENT
-[; ;ProjectTypeDefs.h: 43: {
-[; ;ProjectTypeDefs.h: 44: struct {
-[; ;ProjectTypeDefs.h: 45: UINT16 START_TIME;
-[; ;ProjectTypeDefs.h: 46: UINT16 END_TIME;
-[; ;ProjectTypeDefs.h: 47: GSK_WEEK SELECTED_WEEKS;
-[; ;ProjectTypeDefs.h: 48: };
-[; ;ProjectTypeDefs.h: 49: } GSK_EVENT;
-[; ;ProjectTypeDefs.h: 51: typedef union _GSK_STATE
-[; ;ProjectTypeDefs.h: 52: {
-[; ;ProjectTypeDefs.h: 53: struct {
-[; ;ProjectTypeDefs.h: 54: UINT8 PERIOD;
-[; ;ProjectTypeDefs.h: 55: UINT8 PORTS[2];
-[; ;ProjectTypeDefs.h: 56: };
-[; ;ProjectTypeDefs.h: 57: } GSK_STATE;
+[; ;ProjectTypeDefs.h: 19: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+[; ;ProjectTypeDefs.h: 20: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
+[; ;ProjectTypeDefs.h: 21: typedef union _GSK_WEEK {
+[; ;ProjectTypeDefs.h: 22: struct {
+[; ;ProjectTypeDefs.h: 23: unsigned :1;
+[; ;ProjectTypeDefs.h: 24: unsigned Sunday:1;
+[; ;ProjectTypeDefs.h: 25: unsigned Monday:1;
+[; ;ProjectTypeDefs.h: 26: unsigned Tuesday:1;
+[; ;ProjectTypeDefs.h: 27: unsigned Wednesday:1;
+[; ;ProjectTypeDefs.h: 28: unsigned Thursday:1;
+[; ;ProjectTypeDefs.h: 29: unsigned Friday:1;
+[; ;ProjectTypeDefs.h: 30: unsigned Saturday:1;
+[; ;ProjectTypeDefs.h: 31: };
+[; ;ProjectTypeDefs.h: 32: struct {
+[; ;ProjectTypeDefs.h: 33: unsigned :1;
+[; ;ProjectTypeDefs.h: 34: unsigned Val :7;
+[; ;ProjectTypeDefs.h: 35: };
+[; ;ProjectTypeDefs.h: 36: } GSK_WEEK;
+[; ;ProjectTypeDefs.h: 38: typedef union _GSK_YEAR_DAY {
+[; ;ProjectTypeDefs.h: 39: struct {
+[; ;ProjectTypeDefs.h: 40: unsigned Day:5;
+[; ;ProjectTypeDefs.h: 41: unsigned Month:4;
+[; ;ProjectTypeDefs.h: 42: };
+[; ;ProjectTypeDefs.h: 43: } GSK_YEAR_DAY;
+[; ;ProjectTypeDefs.h: 45: typedef INT32 GSK_SECOND_IN_DAY;
+[; ;ProjectTypeDefs.h: 46: typedef UINT8 GSK_CYCLE_TYPE;
+[; ;ProjectTypeDefs.h: 48: typedef union _GSK_CYCLE {
+[; ;ProjectTypeDefs.h: 49: struct {
+[; ;ProjectTypeDefs.h: 50: UINT16 PERIOD;
+[; ;ProjectTypeDefs.h: 51: UINT8 START_STATE;
+[; ;ProjectTypeDefs.h: 52: UINT8 END_STATE;
+[; ;ProjectTypeDefs.h: 53: };
+[; ;ProjectTypeDefs.h: 54: } GSK_CYCLE;
+[; ;ProjectTypeDefs.h: 56: typedef union _GSK_EVENT
+[; ;ProjectTypeDefs.h: 57: {
+[; ;ProjectTypeDefs.h: 58: struct {
+[; ;ProjectTypeDefs.h: 59: GSK_SECOND_IN_DAY START_TIME;
+[; ;ProjectTypeDefs.h: 60: GSK_SECOND_IN_DAY END_TIME;
+[; ;ProjectTypeDefs.h: 61: GSK_CYCLE_TYPE CYCLE;
+[; ;ProjectTypeDefs.h: 62: GSK_WEEK SELECTED_WEEKS;
+[; ;ProjectTypeDefs.h: 63: };
+[; ;ProjectTypeDefs.h: 64: } GSK_EVENT;
+[; ;ProjectTypeDefs.h: 66: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 67: {
+[; ;ProjectTypeDefs.h: 68: struct {
+[; ;ProjectTypeDefs.h: 69: UINT8 PERIOD;
+[; ;ProjectTypeDefs.h: 70: UINT8 ON[2];
+[; ;ProjectTypeDefs.h: 71: UINT8 BLINK[2];
+[; ;ProjectTypeDefs.h: 72: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 73: };
+[; ;ProjectTypeDefs.h: 74: } GSK_STATE;
 [; ;HD44780.h: 58: void Lcd_Init(void);
 [; ;HD44780.h: 59: void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
 [; ;HD44780.h: 60: void Lcd_Text(unsigned char y, unsigned char x, char *buffer);
@@ -10547,36 +10574,82 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gps.h: 26: INT8 GetDay (char *Date);
 [; ;gps.h: 27: BOOL ValidateDateTime (char *Date, char *Time);
 [; ;gps.h: 28: void ValidateDateTime1 (char Date[], char Time[]);
-"29 libs/projMain.h
+[; ;eeprom.h: 40: UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+[; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
+[; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
+[; ;eeprom.h: 43: GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+[; ;eeprom.h: 45: BYTE ReadEeprom(WORD_VAL Address);
+[; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
+[; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
+[; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
+[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+"31 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 29: UINT8 GLOBAL_CENTURY = 20;
-"32
+[; ;projMain.h: 31: UINT8 GLOBAL_CENTURY = 20;
+"34
 [v _GLOBAL_I `i ~T0 @X0 1 e ]
 [i _GLOBAL_I
 -> 0 `i
 ]
-[; ;projMain.h: 32: INT GLOBAL_I =0;
-"33
+[; ;projMain.h: 34: INT GLOBAL_I =0;
+"35
 [v _GLOBAL_USARTSIZE `i ~T0 @X0 1 e ]
 [i _GLOBAL_USARTSIZE
 -> 0 `i
 ]
-[; ;projMain.h: 33: INT GLOBAL_USARTSIZE=0;
-[; ;projMain.h: 34: void Timer0_10ms (void);
-[; ;projMain.h: 35: void Timer1_1s (void);
-[; ;projMain.h: 36: void Timer3_1ms (void);
-"39
-[v _EVENTS `S1338 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 39: GSK_EVENT EVENTS[24];
+[; ;projMain.h: 35: INT GLOBAL_USARTSIZE=0;
+[; ;projMain.h: 36: void Timer0_10ms (void);
+[; ;projMain.h: 37: void Timer1_1s (void);
+[; ;projMain.h: 38: void Timer3_1ms (void);
 "40
-[v _STATES `S1340 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 40: GSK_STATE STATES[160];
+[v _TIME_ZONE `s ~T0 @X0 1 e ]
+[i _TIME_ZONE
+-> -> 0 `i `s
+]
+[; ;projMain.h: 40: INT16 TIME_ZONE = 0;
 "41
-[v _CYCLES `S1336 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 41: GSK_CYCLE CYCLES[17];
+[v _CYCLE_DELAY `s ~T0 @X0 1 e ]
+[i _CYCLE_DELAY
+-> -> 0 `i `s
+]
+[; ;projMain.h: 41: INT16 CYCLE_DELAY = 0;
+"42
+[v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
+[v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
+[; ;projMain.h: 42: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"43
+[v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
+[v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
+[; ;projMain.h: 43: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"44
+[v _CENTURY `uc ~T0 @X0 1 e ]
+[i _CENTURY
+-> -> 20 `i `uc
+]
+[; ;projMain.h: 44: UINT8 CENTURY = 20;
+"45
+[v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
+[v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
+[v _AUDIO_NORMAL_ON_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_NORMAL_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_SPECIAL_ON_TIME `uc ~T0 @X0 1 e ]
+[v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
+[v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
+[v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
+[; ;projMain.h: 45: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+"48
+[v _EVENTS `S1341 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 48: GSK_EVENT EVENTS[24];
+"49
+[v _STATES `S1343 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 49: GSK_STATE STATES[160];
+"50
+[v _CYCLES `S1339 ~T0 @X0 -> 17 `i e ]
+[; ;projMain.h: 50: GSK_CYCLE CYCLES[17];
 "4 libs/gps.c
 [v _ShowRawData `(v ~T0 @X0 1 ef ]
 {
@@ -10589,11 +10662,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _i -> 0 `i ]
 [; ;gps.c: 6: do {
 "6
-[e :U 1345 ]
+[e :U 1348 ]
 {
 [; ;gps.c: 7: if ((PIR3bits.RC1IF)){
 "7
-[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1346  ]
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1349  ]
 {
 [; ;gps.c: 8: Lcd_CharCP(EUSART1_Read());
 "8
@@ -10604,23 +10677,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 "10
 }
 [; ;gps.c: 10: } else
-[e $U 1347  ]
-[e :U 1346 ]
+[e $U 1350  ]
+[e :U 1349 ]
 [; ;gps.c: 11: _delay((unsigned long)((20)*(16000000/4000000.0)));
 "11
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[e :U 1347 ]
+[e :U 1350 ]
 [; ;gps.c: 12: i++;
 "12
 [e ++ _i -> 1 `i ]
 "13
 }
 [; ;gps.c: 13: } while(i<1000);
-[e $ < _i -> 1000 `i 1345  ]
-[e :U 1344 ]
+[e $ < _i -> 1000 `i 1348  ]
+[e :U 1347 ]
 [; ;gps.c: 14: }
 "14
-[e :UE 1342 ]
+[e :UE 1345 ]
 }
 "15
 [v _ReadGPSTime `(v ~T0 @X0 1 ef1`*uc ]
@@ -10629,8 +10702,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _ReadGPSTime ]
 [v _Time `*uc ~T0 @X0 1 r1 ]
 [f ]
-[v F11346 `Cuc ~T0 @X0 -> 7 `i s ]
-[i F11346
+[v F11391 `Cuc ~T0 @X0 -> 7 `i s ]
+[i F11391
 :U ..
 -> 36 `c
 -> 71 `c
@@ -10644,7 +10717,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "16
 [v _StartCode `Cuc ~T0 @X0 -> 7 `i a ]
 [; ;gps.c: 16: const char StartCode[7]="$GPRMC,";
-[e = _StartCode F11346 ]
+[e = _StartCode F11391 ]
 "17
 [v _Pos `uc ~T0 @X0 1 a ]
 [; ;gps.c: 17: char Pos=0x00;
@@ -10659,11 +10732,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _i -> 0 `i ]
 [; ;gps.c: 20: do {
 "20
-[e :U 1351 ]
+[e :U 1354 ]
 {
 [; ;gps.c: 21: if ((PIR3bits.RC1IF)){
 "21
-[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1352  ]
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1355  ]
 {
 [; ;gps.c: 22: i=0;
 "22
@@ -10673,7 +10746,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TempChar ( _EUSART1_Read ..  ]
 [; ;gps.c: 24: if ((Pos>=0x07) & (Pos<=0x0c)) {
 "24
-[e $ ! & >= -> _Pos `i -> 7 `i <= -> _Pos `i -> 12 `i 1353  ]
+[e $ ! & >= -> _Pos `i -> 7 `i <= -> _Pos `i -> 12 `i 1356  ]
 {
 [; ;gps.c: 25: Time[Pos-0x07]= TempChar;
 "25
@@ -10684,9 +10757,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "27
 }
 [; ;gps.c: 27: } else if ((StartCode[Pos] == TempChar) && (Pos<0x07)) {
-[e $U 1354  ]
-[e :U 1353 ]
-[e $ ! && == -> *U + &U _StartCode * -> _Pos `ux -> -> # *U &U _StartCode `ui `ux `i -> _TempChar `i < -> _Pos `i -> 7 `i 1355  ]
+[e $U 1357  ]
+[e :U 1356 ]
+[e $ ! && == -> *U + &U _StartCode * -> _Pos `ux -> -> # *U &U _StartCode `ui `ux `i -> _TempChar `i < -> _Pos `i -> 7 `i 1358  ]
 {
 [; ;gps.c: 28: Pos++;
 "28
@@ -10694,45 +10767,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 }
 [; ;gps.c: 29: } else if (Pos>0x0c)
-[e $U 1356  ]
-[e :U 1355 ]
-[e $ ! > -> _Pos `i -> 12 `i 1357  ]
+[e $U 1359  ]
+[e :U 1358 ]
+[e $ ! > -> _Pos `i -> 12 `i 1360  ]
 [; ;gps.c: 30: break;
 "30
-[e $U 1350  ]
-[e $U 1358  ]
+[e $U 1353  ]
+[e $U 1361  ]
 "31
-[e :U 1357 ]
+[e :U 1360 ]
 [; ;gps.c: 31: else
 [; ;gps.c: 32: Pos=0;
 "32
 [e = _Pos -> -> 0 `i `uc ]
-[e :U 1358 ]
-[e :U 1356 ]
-[e :U 1354 ]
+[e :U 1361 ]
+[e :U 1359 ]
+[e :U 1357 ]
 "33
 }
 [; ;gps.c: 33: } else
-[e $U 1359  ]
-[e :U 1352 ]
+[e $U 1362  ]
+[e :U 1355 ]
 [; ;gps.c: 34: _delay((unsigned long)((20)*(16000000/4000000.0)));
 "34
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[e :U 1359 ]
+[e :U 1362 ]
 [; ;gps.c: 35: i++;
 "35
 [e ++ _i -> 1 `i ]
 "36
 }
 [; ;gps.c: 36: } while(i<1000);
-[e $ < _i -> 1000 `i 1351  ]
-[e :U 1350 ]
+[e $ < _i -> 1000 `i 1354  ]
+[e :U 1353 ]
 [; ;gps.c: 37: return;
 "37
-[e $UE 1348  ]
+[e $UE 1351  ]
 [; ;gps.c: 38: }
 "38
-[e :UE 1348 ]
+[e :UE 1351 ]
 }
 "39
 [v _ReadGPSDateTime `(v ~T0 @X0 1 ef2`*uc`*uc ]
@@ -10742,8 +10815,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Date `*uc ~T0 @X0 1 r1 ]
 [v _Time `*uc ~T0 @X0 1 r2 ]
 [f ]
-[v F11354 `Cuc ~T0 @X0 -> 7 `i s ]
-[i F11354
+[v F11399 `Cuc ~T0 @X0 -> 7 `i s ]
+[i F11399
 :U ..
 -> 36 `c
 -> 71 `c
@@ -10757,7 +10830,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 [v _StartCode `Cuc ~T0 @X0 -> 7 `i a ]
 [; ;gps.c: 40: const char StartCode[7]="$GPRMC,";
-[e = _StartCode F11354 ]
+[e = _StartCode F11399 ]
 "41
 [v _Pos `uc ~T0 @X0 1 a ]
 [; ;gps.c: 41: char Pos=0x00;
@@ -10776,11 +10849,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Commas -> -> 0 `i `uc ]
 [; ;gps.c: 45: do {
 "45
-[e :U 1363 ]
+[e :U 1366 ]
 {
 [; ;gps.c: 46: if ((PIR3bits.RC1IF)){
 "46
-[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1364  ]
+[e $ ! != -> . . _PIR3bits 0 5 `i -> -> -> 0 `i `Vuc `i 1367  ]
 {
 [; ;gps.c: 47: i=0;
 "47
@@ -10790,7 +10863,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TempChar ( _EUSART1_Read ..  ]
 [; ;gps.c: 49: if ((Pos>=0x07) & (Pos<=0x0c)) {
 "49
-[e $ ! & >= -> _Pos `i -> 7 `i <= -> _Pos `i -> 12 `i 1365  ]
+[e $ ! & >= -> _Pos `i -> 7 `i <= -> _Pos `i -> 12 `i 1368  ]
 {
 [; ;gps.c: 50: Time[Pos-0x07]= TempChar;
 "50
@@ -10801,9 +10874,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "52
 }
 [; ;gps.c: 52: } else if ((StartCode[Pos] == TempChar) && (Pos<0x07)) {
-[e $U 1366  ]
-[e :U 1365 ]
-[e $ ! && == -> *U + &U _StartCode * -> _Pos `ux -> -> # *U &U _StartCode `ui `ux `i -> _TempChar `i < -> _Pos `i -> 7 `i 1367  ]
+[e $U 1369  ]
+[e :U 1368 ]
+[e $ ! && == -> *U + &U _StartCode * -> _Pos `ux -> -> # *U &U _StartCode `ui `ux `i -> _TempChar `i < -> _Pos `i -> 7 `i 1370  ]
 {
 [; ;gps.c: 53: Pos++;
 "53
@@ -10811,30 +10884,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 "54
 }
 [; ;gps.c: 54: } else if (Pos>0x0c){
-[e $U 1368  ]
-[e :U 1367 ]
-[e $ ! > -> _Pos `i -> 12 `i 1369  ]
+[e $U 1371  ]
+[e :U 1370 ]
+[e $ ! > -> _Pos `i -> 12 `i 1372  ]
 {
 [; ;gps.c: 55: if (Commas<8) {
 "55
-[e $ ! < -> _Commas `i -> 8 `i 1370  ]
+[e $ ! < -> _Commas `i -> 8 `i 1373  ]
 {
 [; ;gps.c: 56: if (TempChar == 0x2C)
 "56
-[e $ ! == -> _TempChar `i -> 44 `i 1371  ]
+[e $ ! == -> _TempChar `i -> 44 `i 1374  ]
 [; ;gps.c: 57: Commas++;
 "57
 [e ++ _Commas -> -> 1 `i `uc ]
-[e :U 1371 ]
+[e :U 1374 ]
 "58
 }
 [; ;gps.c: 58: } else {
-[e $U 1372  ]
-[e :U 1370 ]
+[e $U 1375  ]
+[e :U 1373 ]
 {
 [; ;gps.c: 59: if ((Pos-0x0d)<6) {
 "59
-[e $ ! < - -> _Pos `i -> 13 `i -> 6 `i 1373  ]
+[e $ ! < - -> _Pos `i -> 13 `i -> 6 `i 1376  ]
 {
 [; ;gps.c: 60: Date[Pos-0x0d] = TempChar;
 "60
@@ -10845,47 +10918,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 "62
 }
 [; ;gps.c: 62: } else
-[e $U 1374  ]
-[e :U 1373 ]
+[e $U 1377  ]
+[e :U 1376 ]
 [; ;gps.c: 63: return;
 "63
-[e $UE 1360  ]
-[e :U 1374 ]
+[e $UE 1363  ]
+[e :U 1377 ]
 "64
 }
-[e :U 1372 ]
+[e :U 1375 ]
 "65
 }
 [; ;gps.c: 64: }
 [; ;gps.c: 65: } else
-[e $U 1375  ]
-[e :U 1369 ]
+[e $U 1378  ]
+[e :U 1372 ]
 [; ;gps.c: 66: Pos=0;
 "66
 [e = _Pos -> -> 0 `i `uc ]
-[e :U 1375 ]
-[e :U 1368 ]
-[e :U 1366 ]
+[e :U 1378 ]
+[e :U 1371 ]
+[e :U 1369 ]
 "67
 }
 [; ;gps.c: 67: } else
-[e $U 1376  ]
-[e :U 1364 ]
+[e $U 1379  ]
+[e :U 1367 ]
 [; ;gps.c: 68: _delay((unsigned long)((20)*(16000000/4000000.0)));
 "68
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[e :U 1376 ]
+[e :U 1379 ]
 [; ;gps.c: 69: i++;
 "69
 [e ++ _i -> 1 `i ]
 "70
 }
 [; ;gps.c: 70: } while(i<1000);
-[e $ < _i -> 1000 `i 1363  ]
-[e :U 1362 ]
+[e $ < _i -> 1000 `i 1366  ]
+[e :U 1365 ]
 [; ;gps.c: 71: }
 "71
-[e :UE 1360 ]
+[e :UE 1363 ]
 }
 "128
 [v _GetDay `(c ~T0 @X0 1 ef1`*uc ]
@@ -10907,8 +10980,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gps.c: 131: INT y = (Date[4]-0x30)*10 + (Date[5]-0x30) + GLOBAL_CENTURY*100;
 [e = _y + + * - -> *U + _Date * -> -> 4 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 5 `i `x -> -> # *U _Date `i `x `i -> 48 `i * -> _GLOBAL_CENTURY `i -> 100 `i ]
 "132
-[v F11364 `i ~T0 @X0 -> 0 `x s t ]
-[i F11364
+[v F11409 `i ~T0 @X0 -> 0 `x s t ]
+[i F11409
 :U ..
 -> 0 `i
 -> 3 `i
@@ -10930,14 +11003,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =- _y -> < -> _m `i -> 3 `i `i ]
 [; ;gps.c: 134: return ( y + y/4 - y/100 + y/400 + t[m-1] + d) % 7;
 "134
-[e ) -> % + + + - + _y / _y -> 4 `i / _y -> 100 `i / _y -> 400 `i *U + &U F11364 * -> -> - -> _m `i -> 1 `i `ui `ux -> -> # *U &U F11364 `ui `ux -> _d `i -> 7 `i `c ]
-[e $UE 1377  ]
+[e ) -> % + + + - + _y / _y -> 4 `i / _y -> 100 `i / _y -> 400 `i *U + &U F11409 * -> -> - -> _m `i -> 1 `i `ui `ux -> -> # *U &U F11409 `ui `ux -> _d `i -> 7 `i `c ]
+[e $UE 1380  ]
 [; ;gps.c: 135: }
 "135
-[e :UE 1377 ]
+[e :UE 1380 ]
 }
 "137
-[v _ValidateDateTime `(E11041 ~T0 @X0 1 ef2`*uc`*uc ]
+[v _ValidateDateTime `(E11037 ~T0 @X0 1 ef2`*uc`*uc ]
 {
 [; ;gps.c: 137: BOOL ValidateDateTime (char *Date, char *Time) {
 [e :U _ValidateDateTime ]
@@ -10952,62 +11025,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Item -> + * - -> *U + _Date * -> -> 0 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 1 `i `x -> -> # *U _Date `i `x `i -> 48 `i `c ]
 [; ;gps.c: 146: if (Item<=0 || Item>31) return 0;
 "146
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 31 `i 1379  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1379 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 31 `i 1382  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1382 ]
 [; ;gps.c: 147: Item = (Date[2]-0x30)*10 + (Date[3]-0x30);
 "147
 [e = _Item -> + * - -> *U + _Date * -> -> 2 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 3 `i `x -> -> # *U _Date `i `x `i -> 48 `i `c ]
 [; ;gps.c: 148: if (Item<=0 || Item>12) return 0;
 "148
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 12 `i 1380  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1380 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 12 `i 1383  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1383 ]
 [; ;gps.c: 149: Item = (Date[4]-0x30)*10 + (Date[5]-0x30);
 "149
 [e = _Item -> + * - -> *U + _Date * -> -> 4 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 5 `i `x -> -> # *U _Date `i `x `i -> 48 `i `c ]
 [; ;gps.c: 150: if (Item<=0 || Item>99) return 0;
 "150
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 99 `i 1381  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1381 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 99 `i 1384  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1384 ]
 [; ;gps.c: 152: Item = (Time[0]-0x30)*10 + (Time[1]-0x30);
 "152
 [e = _Item -> + * - -> *U + _Time * -> -> 0 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 1 `i `x -> -> # *U _Time `i `x `i -> 48 `i `c ]
 [; ;gps.c: 153: if (Item<=0 || Item>23) return 0;
 "153
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 23 `i 1382  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1382 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 23 `i 1385  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1385 ]
 [; ;gps.c: 154: Item = (Time[2]-0x30)*10 + (Time[3]-0x30);
 "154
 [e = _Item -> + * - -> *U + _Time * -> -> 2 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 3 `i `x -> -> # *U _Time `i `x `i -> 48 `i `c ]
 [; ;gps.c: 155: if (Item<=0 || Item>59) return 0;
 "155
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 59 `i 1383  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1383 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 59 `i 1386  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1386 ]
 [; ;gps.c: 156: Item = (Time[4]-0x30)*10 + (Time[5]-0x30);
 "156
 [e = _Item -> + * - -> *U + _Time * -> -> 4 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 5 `i `x -> -> # *U _Time `i `x `i -> 48 `i `c ]
 [; ;gps.c: 157: if (Item<=0 || Item>59) return 0;
 "157
-[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 59 `i 1384  ]
-[e ) -> -> 0 `i `E11041 ]
-[e $UE 1378  ]
-[e :U 1384 ]
+[e $ ! || <= -> _Item `i -> 0 `i > -> _Item `i -> 59 `i 1387  ]
+[e ) -> -> 0 `i `E11037 ]
+[e $UE 1381  ]
+[e :U 1387 ]
 [; ;gps.c: 159: return 1;
 "159
-[e ) -> -> 1 `i `E11041 ]
-[e $UE 1378  ]
+[e ) -> -> 1 `i `E11037 ]
+[e $UE 1381  ]
 [; ;gps.c: 160: }
 "160
-[e :UE 1378 ]
+[e :UE 1381 ]
 }
 "162
 [v _ValidateDateTime1 `(v ~T0 @X0 1 ef2`*uc`*uc ]
@@ -11025,53 +11098,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Item -> + * - -> *U + _Date * -> -> 0 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 1 `i `x -> -> # *U _Date `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 171: if (Item>31) return ;
 "171
-[e $ ! > -> _Item `i -> 31 `i 1386  ]
-[e $UE 1385  ]
-[e :U 1386 ]
+[e $ ! > -> _Item `i -> 31 `i 1389  ]
+[e $UE 1388  ]
+[e :U 1389 ]
 [; ;gps.c: 172: Item = (Date[2]-0x30)*10 + (Date[3]-0x30);
 "172
 [e = _Item -> + * - -> *U + _Date * -> -> 2 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 3 `i `x -> -> # *U _Date `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 173: if (Item>12) return ;
 "173
-[e $ ! > -> _Item `i -> 12 `i 1387  ]
-[e $UE 1385  ]
-[e :U 1387 ]
+[e $ ! > -> _Item `i -> 12 `i 1390  ]
+[e $UE 1388  ]
+[e :U 1390 ]
 [; ;gps.c: 174: Item = (Date[4]-0x30)*10 + (Date[5]-0x30);
 "174
 [e = _Item -> + * - -> *U + _Date * -> -> 4 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 5 `i `x -> -> # *U _Date `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 175: if (Item>99) return ;
 "175
-[e $ ! > -> _Item `i -> 99 `i 1388  ]
-[e $UE 1385  ]
-[e :U 1388 ]
+[e $ ! > -> _Item `i -> 99 `i 1391  ]
+[e $UE 1388  ]
+[e :U 1391 ]
 [; ;gps.c: 177: Item = (Time[0]-0x30)*10 + (Time[1]-0x30);
 "177
 [e = _Item -> + * - -> *U + _Time * -> -> 0 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 1 `i `x -> -> # *U _Time `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 178: if (Item>23) return ;
 "178
-[e $ ! > -> _Item `i -> 23 `i 1389  ]
-[e $UE 1385  ]
-[e :U 1389 ]
+[e $ ! > -> _Item `i -> 23 `i 1392  ]
+[e $UE 1388  ]
+[e :U 1392 ]
 [; ;gps.c: 179: Item = (Time[2]-0x30)*10 + (Time[3]-0x30);
 "179
 [e = _Item -> + * - -> *U + _Time * -> -> 2 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 3 `i `x -> -> # *U _Time `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 180: if (Item>59) return ;
 "180
-[e $ ! > -> _Item `i -> 59 `i 1390  ]
-[e $UE 1385  ]
-[e :U 1390 ]
+[e $ ! > -> _Item `i -> 59 `i 1393  ]
+[e $UE 1388  ]
+[e :U 1393 ]
 [; ;gps.c: 181: Item = (Time[4]-0x30)*10 + (Time[5]-0x30);
 "181
 [e = _Item -> + * - -> *U + _Time * -> -> 4 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 5 `i `x -> -> # *U _Time `i `x `i -> 48 `i `uc ]
 [; ;gps.c: 182: if (Item>59) return ;
 "182
-[e $ ! > -> _Item `i -> 59 `i 1391  ]
-[e $UE 1385  ]
-[e :U 1391 ]
+[e $ ! > -> _Item `i -> 59 `i 1394  ]
+[e $UE 1388  ]
+[e :U 1394 ]
 [; ;gps.c: 184: return ;
 "184
-[e $UE 1385  ]
+[e $UE 1388  ]
 [; ;gps.c: 185: }
 "185
-[e :UE 1385 ]
+[e :UE 1388 ]
 }

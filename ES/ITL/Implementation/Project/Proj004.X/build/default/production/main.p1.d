@@ -4,6 +4,7 @@
 libs/HD44780.h  \
 mcc_generated_files/mcc.h  \
 libs/../mcc_generated_files/mcc.h  \
+libs/eeprom.h  \
 mcc_generated_files/eusart1.h  \
 libs/../mcc_generated_files/eusart1.h  \
 libs/gps.h  \

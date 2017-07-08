@@ -3,6 +3,7 @@
  libs/projMain.c  \
 libs/HD44780.h  \
 libs/../mcc_generated_files/mcc.h  \
+libs/eeprom.h  \
 libs/../mcc_generated_files/eusart1.h  \
 libs/gps.h  \
 libs/GenericTypeDefs.h  \
