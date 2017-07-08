@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.6)  6 JUN 2017 21:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.6)  6 JUN 2017 00:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**./Ver000.tex
-(./Ver000.tex
+**./Ver001.tex
+(./Ver001.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (c:/texlive/2015/texmf-dist/tex/latex/base/fix-cm.sty
@@ -892,8 +892,8 @@ tex
 File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
 )))
 (c:/texlive/2015/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patch
-plots.code.tex) (./Ver000.aux)
-\openout1 = `Ver000.aux'.
+plots.code.tex) (./Ver001.aux)
+\openout1 = `Ver001.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
@@ -972,8 +972,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-Package pgfplots notification 'compat/show suggested version=true': you might b
-enefit from \pgfplotsset{compat=1.12} (current compat level: 1.7).
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.12}).
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 76.
 (c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -989,6 +989,46 @@ LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 76.
 Underfull \hbox (badness 4013) in paragraph at lines 76--76
 \OT1/cmr/m/n/8.5 Laboratorio de Bior-re-me-diaci^^Son, Fac-ul-tad de Cien-cias
  []
+
+
+LaTeX Warning: Citation `fisher1937design' on page 1 undefined on input line 82
+.
+
+
+LaTeX Warning: Citation `quinn2002experimental' on page 1 undefined on input li
+ne 82.
+
+
+LaTeX Warning: Citation `montgomery2008design' on page 1 undefined on input lin
+e 82.
+
+
+LaTeX Warning: Citation `antony2014design' on page 1 undefined on input line 82
+.
+
+
+LaTeX Warning: Citation `Festing2003341' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `zhu1987learning' on page 1 undefined on input line 84.
+
+
+
+LaTeX Warning: Citation `renkl1997learning' on page 1 undefined on input line 8
+4.
+
+
+LaTeX Warning: Citation `Hunter1977Some' on page 1 undefined on input line 84.
+
+
+LaTeX Warning: Citation `fried2006mathematics' on page 1 undefined on input lin
+e 84.
+
+
+LaTeX Warning: Citation `Hiebert82' on page 1 undefined on input line 84.
+
+
+LaTeX Warning: Citation `Deborah2008' on page 1 undefined on input line 84.
 
 [1{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1076,6 +1116,10 @@ l.160 	\end{axis}
 (That was another \errmessage.)
 
 
+LaTeX Warning: Citation `antoniou2007practical' on page 2 undefined on input li
+ne 169.
+
+
 ! Package pgfplots Error: the arguments of [mesh/rows=010,mesh/cols=010] assume
  100 points, but I got actually N = 64 points! The data matrix appears to be in
 complete or overcomplete!? [Use mesh/check=false to disable this message].
@@ -1119,6 +1163,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
 
+LaTeX Warning: Citation `bernstein1962some' on page 3 undefined on input line 2
+02.
+
+
 ! Package pgfplots Error: the arguments of [mesh/rows=010,mesh/cols=010] assume
  100 points, but I got actually N = 64 points! The data matrix appears to be in
 complete or overcomplete!? [Use mesh/check=false to disable this message].
@@ -1158,7 +1206,7 @@ l.239 	\end{axis}
 (That was another \errmessage.)
 
 [3]
-\openout3 = `Ver000_contourtmp0.dat'.
+\openout3 = `Ver001_contourtmp0.dat'.
 
 
 
@@ -1174,47 +1222,46 @@ l.392 		};
           
 (That was another \errmessage.)
 
-\openout3 = `Ver000_contourtmp0.script'.
+\openout3 = `Ver001_contourtmp0.script'.
 
-runsystem(gnuplot "Ver000_contourtmp0.script")...executed.
+runsystem(gnuplot "Ver001_contourtmp0.script")...executed.
 
-PGFPlots: reading {Ver000_contourtmp0.table}
+PGFPlots: reading {Ver001_contourtmp0.table}
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
  filtered away) on input line 392.
 
  [warning /pgfplots/warning/plot without coordinates]
-[4] (./Ver000.bbl [5]) [6
-
-] (./Ver000.aux) ) 
+[4]
+No file Ver001.bbl.
+[5] (./Ver001.aux) ) 
 Here is how much of TeX's memory you used:
- 24642 strings out of 493089
- 619182 string characters out of 6138420
- 825021 words of memory out of 5000000
- 27690 multiletter control sequences out of 15000+600000
- 14580 words of font info for 55 fonts, out of 8000000 for 9000
+ 24637 strings out of 493089
+ 619131 string characters out of 6138420
+ 823559 words of memory out of 5000000
+ 27688 multiletter control sequences out of 15000+600000
+ 14228 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,113p,735b,2282s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2015/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti8.pfb>
-Output written on Ver000.pdf (6 pages, 244566 bytes).
+ 58i,14n,113p,735b,2332s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
+fb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb>
+Output written on Ver001.pdf (5 pages, 224974 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
