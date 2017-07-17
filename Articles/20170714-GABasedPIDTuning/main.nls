@@ -1,0 +1,35 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{}]\begingroup \nomeqref {2}\nompageref{3}
+  \item [{$C$}]\begingroup Population\nomunit{$\mathbb{R}^{n\times 4}$}\nomeqref {2}
+		\nompageref{2}
+  \item [{$C_i$}]\begingroup $i$\textsuperscript{th} chromosome of the population\nomunit{$\mathbb{R}^{4}$}\nomeqref {2}
+		\nompageref{2}
+  \item [{$e$}]\begingroup Error between reference and measured plant output\nomeqref {0}
+		\nompageref{1}
+  \item [{$K_D$}]\begingroup Derivative constant of PID controller\nomeqref {1}
+		\nompageref{1}
+  \item [{$K_I$}]\begingroup Integral constant of PID controller\nomeqref {1}
+		\nompageref{1}
+  \item [{$K_P$}]\begingroup Proportional constant of PID controller\nomeqref {1}
+		\nompageref{1}
+  \item [{$N$}]\begingroup Constant associated with the filter implementing the derivative term in a PID controller\nomeqref {2}
+		\nompageref{1}
+  \item [{$n$}]\begingroup Population size\nomeqref {2}\nompageref{2}
+  \item [{$r$}]\begingroup Reference signal\nomeqref {0}\nompageref{1}
+  \item [{$s$}]\begingroup Laplace transform's complex variable\nomeqref {2}
+		\nompageref{1}
+  \item [{$T$}]\begingroup Time interval for which the $i$\textsuperscript{th} chromosome is applied\nomeqref {2}
+		\nompageref{2}
+  \item [{$t$}]\begingroup Time\nomeqref {0}\nompageref{1}
+  \item [{$T_i^+$}]\begingroup End time of the implementation of the $i$\textsuperscript{th} chromosome\nomeqref {2}
+		\nompageref{2}
+  \item [{$T_i^-$}]\begingroup Start time of the implementation of the $i$\textsuperscript{th} chromosome\nomeqref {2}
+		\nompageref{2}
+  \item [{$u$}]\begingroup Control signal\nomeqref {0}\nompageref{1}
+  \item [{$y$}]\begingroup Output of the plant\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}
