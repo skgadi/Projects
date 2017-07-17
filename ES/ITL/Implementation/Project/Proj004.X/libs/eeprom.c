@@ -134,8 +134,31 @@ void LoadStatesFromEeprom (void) {
     }
 }
 
+void LoadCyclesFromEeprom (void) {
+    WORD_VAL Address;
+    Address.Val = EEPROM_ADDRESS_CYCLE_TYPES;
+    //Loading from EEPROM
+    for (int i=0; i<MAX_NO_OF_CYCLE_TYPES; i++) {
+        CYCLES[i].END_STATE = ReadEeprom(Address);
+        Address.Val++;
+    }
+    //Preparing the information
+    for (int i=0; i<MAX_NO_OF_CYCLE_TYPES; i++) {
+        if (i==0)
+            CYCLES[i].START_STATE = 0;
+        else if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
+            CYCLES[i].START_STATE = CYCLES[i].END_STATE;
+        else
+            CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
+        CYCLES[i].PERIOD = 0;
+        for (int j=CYCLES[i].START_STATE; j<CYCLES[i].END_STATE; j++ )
+            CYCLES[i].PERIOD += STATES[j].PERIOD;
+    }
+}
+
 void LoadAllFromEeprom (void) {
     LoadSettingsFromEeprom ();
     LoadEventsFromEeprom ();
     LoadStatesFromEeprom();
+    LoadCyclesFromEeprom();
 }

@@ -10582,7 +10582,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
 [; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
 [; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+[; ;eeprom.h: 49: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadAllFromEeprom (void);
 "31 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY
@@ -10702,8 +10703,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _ReadGPSTime ]
 [v _Time `*uc ~T0 @X0 1 r1 ]
 [f ]
-[v F11391 `Cuc ~T0 @X0 -> 7 `i s ]
-[i F11391
+[v F11393 `Cuc ~T0 @X0 -> 7 `i s ]
+[i F11393
 :U ..
 -> 36 `c
 -> 71 `c
@@ -10717,7 +10718,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "16
 [v _StartCode `Cuc ~T0 @X0 -> 7 `i a ]
 [; ;gps.c: 16: const char StartCode[7]="$GPRMC,";
-[e = _StartCode F11391 ]
+[e = _StartCode F11393 ]
 "17
 [v _Pos `uc ~T0 @X0 1 a ]
 [; ;gps.c: 17: char Pos=0x00;
@@ -10815,8 +10816,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Date `*uc ~T0 @X0 1 r1 ]
 [v _Time `*uc ~T0 @X0 1 r2 ]
 [f ]
-[v F11399 `Cuc ~T0 @X0 -> 7 `i s ]
-[i F11399
+[v F11401 `Cuc ~T0 @X0 -> 7 `i s ]
+[i F11401
 :U ..
 -> 36 `c
 -> 71 `c
@@ -10830,7 +10831,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 [v _StartCode `Cuc ~T0 @X0 -> 7 `i a ]
 [; ;gps.c: 40: const char StartCode[7]="$GPRMC,";
-[e = _StartCode F11399 ]
+[e = _StartCode F11401 ]
 "41
 [v _Pos `uc ~T0 @X0 1 a ]
 [; ;gps.c: 41: char Pos=0x00;
@@ -10980,8 +10981,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gps.c: 131: INT y = (Date[4]-0x30)*10 + (Date[5]-0x30) + GLOBAL_CENTURY*100;
 [e = _y + + * - -> *U + _Date * -> -> 4 `i `x -> -> # *U _Date `i `x `i -> 48 `i -> 10 `i - -> *U + _Date * -> -> 5 `i `x -> -> # *U _Date `i `x `i -> 48 `i * -> _GLOBAL_CENTURY `i -> 100 `i ]
 "132
-[v F11409 `i ~T0 @X0 -> 0 `x s t ]
-[i F11409
+[v F11411 `i ~T0 @X0 -> 0 `x s t ]
+[i F11411
 :U ..
 -> 0 `i
 -> 3 `i
@@ -11003,7 +11004,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =- _y -> < -> _m `i -> 3 `i `i ]
 [; ;gps.c: 134: return ( y + y/4 - y/100 + y/400 + t[m-1] + d) % 7;
 "134
-[e ) -> % + + + - + _y / _y -> 4 `i / _y -> 100 `i / _y -> 400 `i *U + &U F11409 * -> -> - -> _m `i -> 1 `i `ui `ux -> -> # *U &U F11409 `ui `ux -> _d `i -> 7 `i `c ]
+[e ) -> % + + + - + _y / _y -> 4 `i / _y -> 100 `i / _y -> 400 `i *U + &U F11411 * -> -> - -> _m `i -> 1 `i `ui `ux -> -> # *U &U F11411 `ui `ux -> _d `i -> 7 `i `c ]
 [e $UE 1380  ]
 [; ;gps.c: 135: }
 "135

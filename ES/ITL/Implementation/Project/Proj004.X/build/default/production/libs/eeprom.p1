@@ -10668,7 +10668,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
 [; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
 [; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+[; ;eeprom.h: 49: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadAllFromEeprom (void);
 "3 libs/eeprom.c
 [v _ReadEeprom `(uc ~T0 @X0 1 ef1`S1322 ]
 {
@@ -11080,21 +11081,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1351 ]
 }
 "137
+[v _LoadCyclesFromEeprom `(v ~T0 @X0 1 ef ]
+{
+[; ;eeprom.c: 137: void LoadCyclesFromEeprom (void) {
+[e :U _LoadCyclesFromEeprom ]
+[f ]
+"138
+[v _Address `S1322 ~T0 @X0 1 a ]
+[; ;eeprom.c: 138: WORD_VAL Address;
+[; ;eeprom.c: 139: Address.Val = 63;
+"139
+[e = . _Address 0 -> -> 63 `i `us ]
+[; ;eeprom.c: 141: for (int i=0; i<17; i++) {
+"141
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 17 `i 1366  ]
+[e $U 1367  ]
+[e :U 1366 ]
+{
+[; ;eeprom.c: 142: CYCLES[i].END_STATE = ReadEeprom(Address);
+"142
+[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 ( _ReadEeprom (1 _Address ]
+[; ;eeprom.c: 143: Address.Val++;
+"143
+[e ++ . _Address 0 -> -> 1 `i `us ]
+"144
+}
+"141
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 17 `i 1366  ]
+[e :U 1367 ]
+"144
+}
+[; ;eeprom.c: 144: }
+[; ;eeprom.c: 146: for (int i=0; i<17; i++) {
+"146
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 17 `i 1369  ]
+[e $U 1370  ]
+[e :U 1369 ]
+{
+[; ;eeprom.c: 147: if (i==0)
+"147
+[e $ ! == _i -> 0 `i 1372  ]
+[; ;eeprom.c: 148: CYCLES[i].START_STATE = 0;
+"148
+[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 -> -> 0 `i `uc ]
+[e $U 1373  ]
+"149
+[e :U 1372 ]
+[; ;eeprom.c: 149: else if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
+[e $ ! == -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i -> . . *U + &U _CYCLES * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1374  ]
+[; ;eeprom.c: 150: CYCLES[i].START_STATE = CYCLES[i].END_STATE;
+"150
+[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 ]
+[e $U 1375  ]
+"151
+[e :U 1374 ]
+[; ;eeprom.c: 151: else
+[; ;eeprom.c: 152: CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
+"152
+[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 -> + -> . . *U + &U _CYCLES * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i -> 1 `i `uc ]
+[e :U 1375 ]
+[e :U 1373 ]
+[; ;eeprom.c: 153: CYCLES[i].PERIOD = 0;
+"153
+[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 0 -> -> 0 `i `us ]
+[; ;eeprom.c: 154: for (int j=CYCLES[i].START_STATE; j<CYCLES[i].END_STATE; j++ )
+"154
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 `i ]
+[e $U 1379  ]
+"155
+[e :U 1376 ]
+[; ;eeprom.c: 155: CYCLES[i].PERIOD += STATES[j].PERIOD;
+[e =+ . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 0 -> . . *U + &U _STATES * -> -> _j `ui `ux -> -> # *U &U _STATES `ui `ux 0 0 `us ]
+"154
+[e ++ _j -> 1 `i ]
+[e :U 1379 ]
+[e $ < _j -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1376  ]
+[e :U 1377 ]
+"155
+}
+"156
+}
+"146
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 17 `i 1369  ]
+[e :U 1370 ]
+"156
+}
+[; ;eeprom.c: 156: }
+[; ;eeprom.c: 157: }
+"157
+[e :UE 1365 ]
+}
+"159
 [v _LoadAllFromEeprom `(v ~T0 @X0 1 ef ]
 {
-[; ;eeprom.c: 137: void LoadAllFromEeprom (void) {
+[; ;eeprom.c: 159: void LoadAllFromEeprom (void) {
 [e :U _LoadAllFromEeprom ]
 [f ]
-[; ;eeprom.c: 138: LoadSettingsFromEeprom ();
-"138
+[; ;eeprom.c: 160: LoadSettingsFromEeprom ();
+"160
 [e ( _LoadSettingsFromEeprom ..  ]
-[; ;eeprom.c: 139: LoadEventsFromEeprom ();
-"139
+[; ;eeprom.c: 161: LoadEventsFromEeprom ();
+"161
 [e ( _LoadEventsFromEeprom ..  ]
-[; ;eeprom.c: 140: LoadStatesFromEeprom();
-"140
+[; ;eeprom.c: 162: LoadStatesFromEeprom();
+"162
 [e ( _LoadStatesFromEeprom ..  ]
-[; ;eeprom.c: 141: }
-"141
-[e :UE 1365 ]
+[; ;eeprom.c: 163: LoadCyclesFromEeprom();
+"163
+[e ( _LoadCyclesFromEeprom ..  ]
+[; ;eeprom.c: 164: }
+"164
+[e :UE 1380 ]
 }

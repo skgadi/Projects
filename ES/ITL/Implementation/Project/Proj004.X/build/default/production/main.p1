@@ -73,7 +73,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "94 main.c
 [c E11238 0 1 .. ]
 [n E11238 _SWITCH OFF ON  ]
-"49 libs/eeprom.h
+"50 libs/eeprom.h
 [v _LoadAllFromEeprom `(v ~T0 @X0 0 ef ]
 "94 mcc_generated_files/eusart1.h
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
@@ -10617,7 +10617,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
 [; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
 [; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+[; ;eeprom.h: 49: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadAllFromEeprom (void);
 "31 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY
@@ -10712,8 +10713,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 94: LATCbits.LC1=ON;
 "94
 [e = . . _LATCbits 1 1 -> . `E11238 1 `uc ]
-[v F11390 `uc ~T0 @X0 -> 0 `x s ]
-[i F11390
+[v F11392 `uc ~T0 @X0 -> 0 `x s ]
+[i F11392
 :U ..
 -> 45 `c
 -> 45 `c
@@ -10727,9 +10728,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "95
 [v _Date `uc ~T0 @X0 7  a ]
 [; ;main.c: 95: char Date[] = "------";
-[e = _Date F11390 ]
-[v F11392 `uc ~T0 @X0 -> 0 `x s ]
-[i F11392
+[e = _Date F11392 ]
+[v F11394 `uc ~T0 @X0 -> 0 `x s ]
+[i F11394
 :U ..
 -> 45 `c
 -> 45 `c
@@ -10743,7 +10744,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "96
 [v _Time `uc ~T0 @X0 7  a ]
 [; ;main.c: 96: char Time[] = "------";
-[e = _Time F11392 ]
+[e = _Time F11394 ]
 [; ;main.c: 97: LoadAllFromEeprom();
 "97
 [e ( _LoadAllFromEeprom ..  ]
@@ -10803,9 +10804,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1350 ]
 [; ;main.c: 118: }
-[; ;main.c: 119: WriteLongInt(1, 4, STATES[2].AUDIO, 5,1);
+[; ;main.c: 119: WriteLongInt(1, 4, CYCLES[1].PERIOD, 5,1);
 "119
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 4 `i `uc -> . . *U + &U _STATES * -> -> -> 2 `i `ui `ux -> -> # *U &U _STATES `ui `ux 0 3 `l -> -> 5 `i `c -> -> 1 `i `uc ]
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 4 `i `uc -> . . *U + &U _CYCLES * -> -> -> 1 `i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `l -> -> 5 `i `c -> -> 1 `i `uc ]
 "123
 }
 [e :U 1346 ]

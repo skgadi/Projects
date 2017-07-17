@@ -13959,6 +13959,7 @@ BYTE ReadEeprom(WORD_VAL Address);
 void LoadSettingsFromEeprom (void);
 void LoadEventsFromEeprom (void);
 void LoadStatesFromEeprom (void);
+void LoadCyclesFromEeprom (void);
 void LoadAllFromEeprom (void);
 
 # 31 "libs/projMain.h"
@@ -14022,7 +14023,7 @@ Lcd_Int(2, 16, GetDay(Date), 1);
 } else {
 Lcd_Text(1, 1, ":(");
 }
-WriteLongInt(1, 4, STATES[2].AUDIO, 5,1);
+WriteLongInt(1, 4, CYCLES[1].PERIOD, 5,1);
 
 # 123
 }

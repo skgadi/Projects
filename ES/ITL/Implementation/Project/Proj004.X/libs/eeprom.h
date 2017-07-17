@@ -46,6 +46,7 @@ BYTE ReadEeprom(WORD_VAL Address);
 void LoadSettingsFromEeprom (void);
 void LoadEventsFromEeprom (void);
 void LoadStatesFromEeprom (void);
+void LoadCyclesFromEeprom (void); // It should be always called after the function LoadStatesFromEeprom().
 void LoadAllFromEeprom (void);
 
 #ifdef	__cplusplus

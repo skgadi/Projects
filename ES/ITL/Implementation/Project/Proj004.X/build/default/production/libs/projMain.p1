@@ -10562,7 +10562,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
 [; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
 [; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
+[; ;eeprom.h: 49: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadAllFromEeprom (void);
 "31 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY

@@ -13959,6 +13959,7 @@ BYTE ReadEeprom(WORD_VAL Address);
 void LoadSettingsFromEeprom (void);
 void LoadEventsFromEeprom (void);
 void LoadStatesFromEeprom (void);
+void LoadCyclesFromEeprom (void);
 void LoadAllFromEeprom (void);
 
 # 31 "libs/projMain.h"

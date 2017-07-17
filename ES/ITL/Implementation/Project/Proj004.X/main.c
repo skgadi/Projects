@@ -116,7 +116,7 @@ void main(void)
         } else {
             Lcd_Text(1, 1, ":(");
         }
-        WriteLongInt(1, 4, STATES[2].AUDIO, 5,1);
+        WriteLongInt(1, 4, CYCLES[1].PERIOD, 5,1);
         //__delay_ms(1000);
         /*Lcd_Command(LCD_CLEAR);
         ShowRawData();*/
