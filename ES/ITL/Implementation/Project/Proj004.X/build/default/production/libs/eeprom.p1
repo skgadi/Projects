@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "39 libs/ProjectTypeDefs.h
-[s S1338 :5 `uc 1 :4 `uc 1 ]
+[s S1338 `ui 1 `ui 1 ]
 [n S1338 . Day Month ]
 "38
 [u S1337 `S1338 1 ]
@@ -14,27 +14,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21
 [u S1334 `S1335 1 `S1336 1 ]
 [n S1334 _GSK_WEEK . . ]
-"58
-[s S1342 `l 1 `l 1 `uc 1 `S1334 1 ]
-[n S1342 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
-"56
-[u S1341 `S1342 1 ]
-[n S1341 _GSK_EVENT . ]
-"49 libs/projMain.h
+"67
+[s S1344 `l 1 `l 1 `uc 1 `S1334 1 ]
+[n S1344 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
+"65
+[u S1343 `S1344 1 ]
+[n S1343 _GSK_EVENT . ]
+"50 libs/projMain.h
 [c E11242 0 1 2 .. ]
 [n E11242 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
-"68 libs/ProjectTypeDefs.h
-[s S1344 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
-[n S1344 . PERIOD ON BLINK AUDIO ]
-"66
-[u S1343 `S1344 1 ]
-[n S1343 _GSK_STATE . ]
+"77 libs/ProjectTypeDefs.h
+[s S1346 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
+[n S1346 . PERIOD ON BLINK AUDIO ]
+"75
+[u S1345 `S1346 1 ]
+[n S1345 _GSK_STATE . ]
+"58
+[s S1342 `us 1 `uc 1 `uc 1 ]
+[n S1342 . PERIOD START_STATE END_STATE ]
+"57
+[u S1341 `S1342 1 ]
+[n S1341 _GSK_CYCLE . ]
+"50
+[s S1340 `l 1 `S1337 1 `S1334 1 `us 1 ]
+[n S1340 . SECOND DATE DAY YEAR ]
 "49
-[s S1340 `us 1 `uc 1 `uc 1 ]
-[n S1340 . PERIOD START_STATE END_STATE ]
-"48
 [u S1339 `S1340 1 ]
-[n S1339 _GSK_CYCLE . ]
+[n S1339 _GSK_DATE_TIME . ]
 "110 libs/GenericTypeDefs.h
 [s S1323 `uc 1 `uc 1 ]
 [n S1323 . LB HB ]
@@ -10544,37 +10550,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ProjectTypeDefs.h: 36: } GSK_WEEK;
 [; ;ProjectTypeDefs.h: 38: typedef union _GSK_YEAR_DAY {
 [; ;ProjectTypeDefs.h: 39: struct {
-[; ;ProjectTypeDefs.h: 40: unsigned Day:5;
-[; ;ProjectTypeDefs.h: 41: unsigned Month:4;
+[; ;ProjectTypeDefs.h: 40: unsigned Day;
+[; ;ProjectTypeDefs.h: 41: unsigned Month;
 [; ;ProjectTypeDefs.h: 42: };
 [; ;ProjectTypeDefs.h: 43: } GSK_YEAR_DAY;
 [; ;ProjectTypeDefs.h: 45: typedef INT32 GSK_SECOND_IN_DAY;
 [; ;ProjectTypeDefs.h: 46: typedef UINT8 GSK_CYCLE_TYPE;
-[; ;ProjectTypeDefs.h: 48: typedef union _GSK_CYCLE {
-[; ;ProjectTypeDefs.h: 49: struct {
-[; ;ProjectTypeDefs.h: 50: UINT16 PERIOD;
-[; ;ProjectTypeDefs.h: 51: UINT8 START_STATE;
-[; ;ProjectTypeDefs.h: 52: UINT8 END_STATE;
-[; ;ProjectTypeDefs.h: 53: };
-[; ;ProjectTypeDefs.h: 54: } GSK_CYCLE;
-[; ;ProjectTypeDefs.h: 56: typedef union _GSK_EVENT
-[; ;ProjectTypeDefs.h: 57: {
+[; ;ProjectTypeDefs.h: 47: typedef UINT16 GSK_YEAR;
+[; ;ProjectTypeDefs.h: 49: typedef union _GSK_DATE_TIME {
+[; ;ProjectTypeDefs.h: 50: struct {
+[; ;ProjectTypeDefs.h: 51: GSK_SECOND_IN_DAY SECOND;
+[; ;ProjectTypeDefs.h: 52: GSK_YEAR_DAY DATE;
+[; ;ProjectTypeDefs.h: 53: GSK_WEEK DAY;
+[; ;ProjectTypeDefs.h: 54: GSK_YEAR YEAR;
+[; ;ProjectTypeDefs.h: 55: };
+[; ;ProjectTypeDefs.h: 56: } GSK_DATE_TIME;
+[; ;ProjectTypeDefs.h: 57: typedef union _GSK_CYCLE {
 [; ;ProjectTypeDefs.h: 58: struct {
-[; ;ProjectTypeDefs.h: 59: GSK_SECOND_IN_DAY START_TIME;
-[; ;ProjectTypeDefs.h: 60: GSK_SECOND_IN_DAY END_TIME;
-[; ;ProjectTypeDefs.h: 61: GSK_CYCLE_TYPE CYCLE;
-[; ;ProjectTypeDefs.h: 62: GSK_WEEK SELECTED_WEEKS;
-[; ;ProjectTypeDefs.h: 63: };
-[; ;ProjectTypeDefs.h: 64: } GSK_EVENT;
-[; ;ProjectTypeDefs.h: 66: typedef union _GSK_STATE
-[; ;ProjectTypeDefs.h: 67: {
-[; ;ProjectTypeDefs.h: 68: struct {
-[; ;ProjectTypeDefs.h: 69: UINT8 PERIOD;
-[; ;ProjectTypeDefs.h: 70: UINT8 ON[2];
-[; ;ProjectTypeDefs.h: 71: UINT8 BLINK[2];
-[; ;ProjectTypeDefs.h: 72: GSK_AUDIO AUDIO;
-[; ;ProjectTypeDefs.h: 73: };
-[; ;ProjectTypeDefs.h: 74: } GSK_STATE;
+[; ;ProjectTypeDefs.h: 59: UINT16 PERIOD;
+[; ;ProjectTypeDefs.h: 60: UINT8 START_STATE;
+[; ;ProjectTypeDefs.h: 61: UINT8 END_STATE;
+[; ;ProjectTypeDefs.h: 62: };
+[; ;ProjectTypeDefs.h: 63: } GSK_CYCLE;
+[; ;ProjectTypeDefs.h: 65: typedef union _GSK_EVENT
+[; ;ProjectTypeDefs.h: 66: {
+[; ;ProjectTypeDefs.h: 67: struct {
+[; ;ProjectTypeDefs.h: 68: GSK_SECOND_IN_DAY START_TIME;
+[; ;ProjectTypeDefs.h: 69: GSK_SECOND_IN_DAY END_TIME;
+[; ;ProjectTypeDefs.h: 70: GSK_CYCLE_TYPE CYCLE;
+[; ;ProjectTypeDefs.h: 71: GSK_WEEK SELECTED_WEEKS;
+[; ;ProjectTypeDefs.h: 72: };
+[; ;ProjectTypeDefs.h: 73: } GSK_EVENT;
+[; ;ProjectTypeDefs.h: 75: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 76: {
+[; ;ProjectTypeDefs.h: 77: struct {
+[; ;ProjectTypeDefs.h: 78: UINT8 PERIOD;
+[; ;ProjectTypeDefs.h: 79: UINT8 ON[2];
+[; ;ProjectTypeDefs.h: 80: UINT8 BLINK[2];
+[; ;ProjectTypeDefs.h: 81: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 82: };
+[; ;ProjectTypeDefs.h: 83: } GSK_STATE;
 [; ;HD44780.h: 58: void Lcd_Init(void);
 [; ;HD44780.h: 59: void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
 [; ;HD44780.h: 60: void Lcd_Text(unsigned char y, unsigned char x, char *buffer);
@@ -10593,54 +10608,82 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gps.h: 26: INT8 GetDay (char *Date);
 [; ;gps.h: 27: BOOL ValidateDateTime (char *Date, char *Time);
 [; ;gps.h: 28: void ValidateDateTime1 (char Date[], char Time[]);
-"31 libs/projMain.h
+[; ;funcs.h: 17: GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+[; ;funcs.h: 18: GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+[; ;funcs.h: 19: GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+[; ;funcs.h: 20: GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+[; ;funcs.h: 21: GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+[; ;funcs.h: 22: GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+[; ;funcs.h: 23: GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+[; ;funcs.h: 24: GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+[; ;funcs.h: 25: GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+[; ;funcs.h: 26: BOOL ReadGPS_DATE_TIME (void);
+[; ;funcs.h: 27: INT32 TimeTextToSecond (char *Time);
+"33 libs/projMain.h
 [v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
 [i _GLOBAL_CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 31: UINT8 GLOBAL_CENTURY = 20;
+[; ;projMain.h: 33: UINT8 GLOBAL_CENTURY = 20;
 "34
+[v _NO_OF_DAYS_IN_A_MONTH `i ~T0 @X0 -> 0 `x s ]
+[i _NO_OF_DAYS_IN_A_MONTH
+:U ..
+-> 31 `i
+-> 28 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+..
+]
+[; ;projMain.h: 34: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+"36
 [v _GLOBAL_I `i ~T0 @X0 1 e ]
 [i _GLOBAL_I
 -> 0 `i
 ]
-[; ;projMain.h: 34: INT GLOBAL_I =0;
-"35
+[; ;projMain.h: 36: INT GLOBAL_I =0;
+"37
 [v _GLOBAL_USARTSIZE `i ~T0 @X0 1 e ]
 [i _GLOBAL_USARTSIZE
 -> 0 `i
 ]
-[; ;projMain.h: 35: INT GLOBAL_USARTSIZE=0;
-[; ;projMain.h: 36: void Timer0_10ms (void);
-[; ;projMain.h: 37: void Timer1_1s (void);
-[; ;projMain.h: 38: void Timer3_1ms (void);
-"40
+[; ;projMain.h: 37: INT GLOBAL_USARTSIZE=0;
+[; ;projMain.h: 38: void Timer0_10ms (void);
+"41
 [v _TIME_ZONE `s ~T0 @X0 1 e ]
 [i _TIME_ZONE
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 40: INT16 TIME_ZONE = 0;
-"41
+[; ;projMain.h: 41: INT16 TIME_ZONE = 0;
+"42
 [v _CYCLE_DELAY `s ~T0 @X0 1 e ]
 [i _CYCLE_DELAY
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 41: INT16 CYCLE_DELAY = 0;
-"42
+[; ;projMain.h: 42: INT16 CYCLE_DELAY = 0;
+"43
 [v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
 [v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
-[; ;projMain.h: 42: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
-"43
+[; ;projMain.h: 43: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"44
 [v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
 [v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
-[; ;projMain.h: 43: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-"44
+[; ;projMain.h: 44: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"45
 [v _CENTURY `uc ~T0 @X0 1 e ]
 [i _CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 44: UINT8 CENTURY = 20;
-"45
+[; ;projMain.h: 45: UINT8 CENTURY = 20;
+"46
 [v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
@@ -10650,16 +10693,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
 [v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
-[; ;projMain.h: 45: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-"48
-[v _EVENTS `S1341 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 48: GSK_EVENT EVENTS[24];
+[; ;projMain.h: 46: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 "49
-[v _STATES `S1343 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 49: GSK_STATE STATES[160];
+[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 49: GSK_EVENT EVENTS[24];
 "50
-[v _CYCLES `S1339 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 50: GSK_CYCLE CYCLES[17];
+[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 50: GSK_STATE STATES[160];
+"51
+[v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
+[; ;projMain.h: 51: GSK_CYCLE CYCLES[17];
+"53
+[v _PRESENT_EVENT `uc ~T0 @X0 1 e ]
+[i _PRESENT_EVENT
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 53: UINT8 PRESENT_EVENT=0;
+"54
+[v _NEXT_EVENT `uc ~T0 @X0 1 e ]
+[i _NEXT_EVENT
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 54: UINT8 NEXT_EVENT=0;
+"55
+[v _CENTI_SECOND_COUNT `uc ~T0 @X0 1 e ]
+[i _CENTI_SECOND_COUNT
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 55: UINT8 CENTI_SECOND_COUNT = 0;
+"56
+[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 56: GSK_DATE_TIME DATE_TIME;
+"57
+[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 57: GSK_DATE_TIME GPS_DATE_TIME;
 [; ;eeprom.h: 40: UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 [; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
 [; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
@@ -10695,10 +10762,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 12: return NVMDAT;
 "12
 [e ) _NVMDAT ]
-[e $UE 1345  ]
+[e $UE 1347  ]
 [; ;eeprom.c: 13: }
 "13
-[e :UE 1345 ]
+[e :UE 1347 ]
 }
 "15
 [v _LoadSettingsFromEeprom `(v ~T0 @X0 1 ef ]
@@ -10725,33 +10792,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 22: Temp16.v[1] = ReadEeprom(Address);
 "22
 [e = *U + &U . _Temp16 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Temp16 1 `ui `ux ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 23: TIME_ZONE = (INT16) Temp16.Val;
+[; ;eeprom.c: 23: TIME_ZONE = (INT16) 60*Temp16.Val;
 "23
-[e = _TIME_ZONE -> . _Temp16 0 `s ]
+[e = _TIME_ZONE -> * -> -> -> 60 `i `s `ui -> . _Temp16 0 `ui `s ]
 [; ;eeprom.c: 25: Address.Val = 2;
 "25
 [e = . _Address 0 -> -> 2 `i `us ]
 [; ;eeprom.c: 26: DAY_LIGHT_START.Day = ReadEeprom (Address);
 "26
-[e = . . _DAY_LIGHT_START 0 0 ( _ReadEeprom (1 _Address ]
+[e = . . _DAY_LIGHT_START 0 0 -> ( _ReadEeprom (1 _Address `ui ]
 [; ;eeprom.c: 27: Address.Val++;
 "27
 [e ++ . _Address 0 -> -> 1 `i `us ]
 [; ;eeprom.c: 28: DAY_LIGHT_START.Month = ReadEeprom (Address);
 "28
-[e = . . _DAY_LIGHT_START 0 1 ( _ReadEeprom (1 _Address ]
+[e = . . _DAY_LIGHT_START 0 1 -> ( _ReadEeprom (1 _Address `ui ]
 [; ;eeprom.c: 30: Address.Val = 4;
 "30
 [e = . _Address 0 -> -> 4 `i `us ]
 [; ;eeprom.c: 31: DAY_LIGHT_END.Day = ReadEeprom (Address);
 "31
-[e = . . _DAY_LIGHT_END 0 0 ( _ReadEeprom (1 _Address ]
+[e = . . _DAY_LIGHT_END 0 0 -> ( _ReadEeprom (1 _Address `ui ]
 [; ;eeprom.c: 32: Address.Val++;
 "32
 [e ++ . _Address 0 -> -> 1 `i `us ]
 [; ;eeprom.c: 33: DAY_LIGHT_END.Month = ReadEeprom (Address);
 "33
-[e = . . _DAY_LIGHT_END 0 1 ( _ReadEeprom (1 _Address ]
+[e = . . _DAY_LIGHT_END 0 1 -> ( _ReadEeprom (1 _Address `ui ]
 [; ;eeprom.c: 35: Address.Val = 6;
 "35
 [e = . _Address 0 -> -> 6 `i `us ]
@@ -10868,7 +10935,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME -> + * * -> *U + &U . _Temp16 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Temp16 1 `ui `ux `i -> 60 `i -> 60 `i * -> *U + &U . _Temp16 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Temp16 1 `ui `ux `i -> 60 `i `l ]
 [; ;eeprom.c: 85: }
 "85
-[e :UE 1346 ]
+[e :UE 1348 ]
 }
 "87
 [v _LoadEventsFromEeprom `(v ~T0 @X0 1 ef ]
@@ -10888,9 +10955,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 24 `i 1348  ]
-[e $U 1349  ]
-[e :U 1348 ]
+[e $ < _i -> 24 `i 1350  ]
+[e $U 1351  ]
+[e :U 1350 ]
 {
 [; ;eeprom.c: 91: Temp16.v[0] = ReadEeprom(Address);
 "91
@@ -10938,14 +11005,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "90
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 24 `i 1348  ]
-[e :U 1349 ]
+[e $ < _i -> 24 `i 1350  ]
+[e :U 1351 ]
 "105
 }
 [; ;eeprom.c: 105: }
 [; ;eeprom.c: 106: }
 "106
-[e :UE 1347 ]
+[e :UE 1349 ]
 }
 "108
 [v _LoadStatesFromEeprom `(v ~T0 @X0 1 ef ]
@@ -10977,9 +11044,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 160 `i 1352  ]
-[e $U 1353  ]
-[e :U 1352 ]
+[e $ < _i -> 160 `i 1354  ]
+[e $U 1355  ]
+[e :U 1354 ]
 {
 [; ;eeprom.c: 115: STATES[i].PERIOD = ReadEeprom(AddStates);
 "115
@@ -10992,9 +11059,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 2 `i 1355  ]
-[e $U 1356  ]
-[e :U 1355 ]
+[e $ < _j -> 2 `i 1357  ]
+[e $U 1358  ]
+[e :U 1357 ]
 {
 [; ;eeprom.c: 118: STATES[i].ON[j] = ReadEeprom(AddStates);
 "118
@@ -11006,8 +11073,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "117
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 2 `i 1355  ]
-[e :U 1356 ]
+[e $ < _j -> 2 `i 1357  ]
+[e :U 1358 ]
 "120
 }
 [; ;eeprom.c: 120: }
@@ -11016,9 +11083,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 2 `i 1358  ]
-[e $U 1359  ]
-[e :U 1358 ]
+[e $ < _j -> 2 `i 1360  ]
+[e $U 1361  ]
+[e :U 1360 ]
 {
 [; ;eeprom.c: 122: STATES[i].BLINK[j] = ReadEeprom(AddStates);
 "122
@@ -11030,8 +11097,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "121
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 2 `i 1358  ]
-[e :U 1359 ]
+[e $ < _j -> 2 `i 1360  ]
+[e :U 1361 ]
 "124
 }
 [; ;eeprom.c: 124: }
@@ -11046,39 +11113,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _TempSpecialAdd 0 -> + -> . _AddAudioSpecial 0 `ui -> _AudAddInc `ui `us ]
 [; ;eeprom.c: 128: if (ReadEeprom(TempNormalAdd) & ((0x80)>>(i%8)))
 "128
-[e $ ! != & -> ( _ReadEeprom (1 _TempNormalAdd `i >> -> 128 `i % _i -> 8 `i -> 0 `i 1361  ]
+[e $ ! != & -> ( _ReadEeprom (1 _TempNormalAdd `i >> -> 128 `i % _i -> 8 `i -> 0 `i 1363  ]
 [; ;eeprom.c: 129: STATES[i].AUDIO = AUDIO_NORMAL;
 "129
 [e = . . *U + &U _STATES * -> -> _i `ui `ux -> -> # *U &U _STATES `ui `ux 0 3 . `E11242 1 ]
-[e $U 1362  ]
+[e $U 1364  ]
 "130
-[e :U 1361 ]
+[e :U 1363 ]
 [; ;eeprom.c: 130: else if (ReadEeprom(TempSpecialAdd) & ((0x80)>>(i%8)))
-[e $ ! != & -> ( _ReadEeprom (1 _TempSpecialAdd `i >> -> 128 `i % _i -> 8 `i -> 0 `i 1363  ]
+[e $ ! != & -> ( _ReadEeprom (1 _TempSpecialAdd `i >> -> 128 `i % _i -> 8 `i -> 0 `i 1365  ]
 [; ;eeprom.c: 131: STATES[i].AUDIO = AUDIO_SPECIAL;
 "131
 [e = . . *U + &U _STATES * -> -> _i `ui `ux -> -> # *U &U _STATES `ui `ux 0 3 . `E11242 2 ]
-[e $U 1364  ]
+[e $U 1366  ]
 "132
-[e :U 1363 ]
+[e :U 1365 ]
 [; ;eeprom.c: 132: else
 [; ;eeprom.c: 133: STATES[i].AUDIO = AUDIO_OFF;
 "133
 [e = . . *U + &U _STATES * -> -> _i `ui `ux -> -> # *U &U _STATES `ui `ux 0 3 . `E11242 0 ]
+[e :U 1366 ]
 [e :U 1364 ]
-[e :U 1362 ]
 "134
 }
 "114
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 160 `i 1352  ]
-[e :U 1353 ]
+[e $ < _i -> 160 `i 1354  ]
+[e :U 1355 ]
 "134
 }
 [; ;eeprom.c: 134: }
 [; ;eeprom.c: 135: }
 "135
-[e :UE 1351 ]
+[e :UE 1353 ]
 }
 "137
 [v _LoadCyclesFromEeprom `(v ~T0 @X0 1 ef ]
@@ -11097,9 +11164,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 17 `i 1366  ]
-[e $U 1367  ]
-[e :U 1366 ]
+[e $ < _i -> 17 `i 1368  ]
+[e $U 1369  ]
+[e :U 1368 ]
 {
 [; ;eeprom.c: 142: CYCLES[i].END_STATE = ReadEeprom(Address);
 "142
@@ -11111,8 +11178,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "141
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 17 `i 1366  ]
-[e :U 1367 ]
+[e $ < _i -> 17 `i 1368  ]
+[e :U 1369 ]
 "144
 }
 [; ;eeprom.c: 144: }
@@ -11121,37 +11188,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 17 `i 1369  ]
-[e $U 1370  ]
-[e :U 1369 ]
+[e $ < _i -> 17 `i 1371  ]
+[e $U 1372  ]
+[e :U 1371 ]
 {
 [; ;eeprom.c: 147: if (i==0)
 "147
-[e $ ! == _i -> 0 `i 1372  ]
+[e $ ! == _i -> 0 `i 1374  ]
 [; ;eeprom.c: 148: CYCLES[i].START_STATE = 0;
 "148
 [e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 -> -> 0 `i `uc ]
-[e $U 1373  ]
-"149
-[e :U 1372 ]
-[; ;eeprom.c: 149: else if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
-[e $ ! == -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i -> . . *U + &U _CYCLES * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1374  ]
-[; ;eeprom.c: 150: CYCLES[i].START_STATE = CYCLES[i].END_STATE;
-"150
-[e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 ]
 [e $U 1375  ]
-"151
+"149
 [e :U 1374 ]
-[; ;eeprom.c: 151: else
+[; ;eeprom.c: 149: else
 [; ;eeprom.c: 152: CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
 "152
 [e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 1 -> + -> . . *U + &U _CYCLES * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i -> 1 `i `uc ]
 [e :U 1375 ]
-[e :U 1373 ]
 [; ;eeprom.c: 153: CYCLES[i].PERIOD = 0;
 "153
 [e = . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 0 -> -> 0 `i `us ]
-[; ;eeprom.c: 154: for (int j=CYCLES[i].START_STATE; j<CYCLES[i].END_STATE; j++ )
+[; ;eeprom.c: 154: for (int j=CYCLES[i].START_STATE; j<=CYCLES[i].END_STATE; j++ )
 "154
 {
 [v _j `i ~T0 @X0 1 a ]
@@ -11164,7 +11222,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "154
 [e ++ _j -> 1 `i ]
 [e :U 1379 ]
-[e $ < _j -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1376  ]
+[e $ <= _j -> . . *U + &U _CYCLES * -> -> _i `ui `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1376  ]
 [e :U 1377 ]
 "155
 }
@@ -11172,14 +11230,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "146
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 17 `i 1369  ]
-[e :U 1370 ]
+[e $ < _i -> 17 `i 1371  ]
+[e :U 1372 ]
 "156
 }
 [; ;eeprom.c: 156: }
 [; ;eeprom.c: 157: }
 "157
-[e :UE 1365 ]
+[e :UE 1367 ]
 }
 "159
 [v _LoadAllFromEeprom `(v ~T0 @X0 1 ef ]

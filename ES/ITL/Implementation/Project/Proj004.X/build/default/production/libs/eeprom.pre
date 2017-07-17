@@ -13888,14 +13888,23 @@ unsigned Val :7;
 
 typedef union _GSK_YEAR_DAY {
 struct {
-unsigned Day:5;
-unsigned Month:4;
+unsigned Day;
+unsigned Month;
 };
 } GSK_YEAR_DAY;
 
 typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
+typedef UINT16 GSK_YEAR;
 
+typedef union _GSK_DATE_TIME {
+struct {
+GSK_SECOND_IN_DAY SECOND;
+GSK_YEAR_DAY DATE;
+GSK_WEEK DAY;
+GSK_YEAR YEAR;
+};
+} GSK_DATE_TIME;
 typedef union _GSK_CYCLE {
 struct {
 UINT16 PERIOD;
@@ -13949,15 +13958,27 @@ INT8 GetDay (char *Date);
 BOOL ValidateDateTime (char *Date, char *Time);
 void ValidateDateTime1 (char Date[], char Time[]);
 
-# 31 "libs/projMain.h"
-UINT8 GLOBAL_CENTURY = 20;
+# 17 "libs/funcs.h"
+GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+BOOL ReadGPS_DATE_TIME (void);
+INT32 TimeTextToSecond (char *Time);
 
+# 33 "libs/projMain.h"
+UINT8 GLOBAL_CENTURY = 20;
+static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 INT GLOBAL_I =0;
 INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
-void Timer1_1s (void);
-void Timer3_1ms (void);
+
 
 INT16 TIME_ZONE = 0;
 INT16 CYCLE_DELAY = 0;
@@ -13970,6 +13991,12 @@ UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME,
 GSK_EVENT EVENTS[24];
 GSK_STATE STATES[160];
 GSK_CYCLE CYCLES[17];
+
+UINT8 PRESENT_EVENT=0;
+UINT8 NEXT_EVENT=0;
+UINT8 CENTI_SECOND_COUNT = 0;
+GSK_DATE_TIME DATE_TIME;
+GSK_DATE_TIME GPS_DATE_TIME;
 
 # 40 "libs/eeprom.h"
 UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
@@ -14005,7 +14032,7 @@ Address.Val = 0;
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
-TIME_ZONE = (INT16) Temp16.Val;
+TIME_ZONE = (INT16) 60*Temp16.Val;
 
 Address.Val = 2;
 DAY_LIGHT_START.Day = ReadEeprom (Address);
@@ -14131,12 +14158,12 @@ Address.Val++;
 for (int i=0; i<17; i++) {
 if (i==0)
 CYCLES[i].START_STATE = 0;
-else if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
-CYCLES[i].START_STATE = CYCLES[i].END_STATE;
 else
+
+# 152
 CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
 CYCLES[i].PERIOD = 0;
-for (int j=CYCLES[i].START_STATE; j<CYCLES[i].END_STATE; j++ )
+for (int j=CYCLES[i].START_STATE; j<=CYCLES[i].END_STATE; j++ )
 CYCLES[i].PERIOD += STATES[j].PERIOD;
 }
 }

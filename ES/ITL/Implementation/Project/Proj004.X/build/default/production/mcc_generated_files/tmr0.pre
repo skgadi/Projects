@@ -13632,10 +13632,10 @@ T0CON0 = 0x10;
 T0CON1 = 0x50;
 
 
-TMR0H = 0xF0;
+TMR0H = 0xD8;
 
 
-TMR0L = 0x60;
+TMR0L = 0xF0;
 
 
 timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;
@@ -13694,8 +13694,6 @@ TMR0L = (uint8_t) timer0ReloadVal16bit;
 
 void TMR0_ISR(void)
 {
-static volatile uint16_t CountCallBack = 0;
-
 
 PIR0bits.TMR0IF = 0;
 
@@ -13703,14 +13701,8 @@ TMR0H = timer0ReloadVal16bit >> 8;
 TMR0L = (uint8_t) timer0ReloadVal16bit;
 
 
-if (++CountCallBack >= 10)
-{
 
 TMR0_CallBack();
-
-
-CountCallBack = 0;
-}
 
 
 }

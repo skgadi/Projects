@@ -116,8 +116,8 @@ void SYSTEM_Initialize(void)
 
 void OSCILLATOR_Initialize(void)
 {
-    // NOSC EXTOSC   with 4x PLL; NDIV 1; 
-    OSCCON1 = 0x20;
+    // NOSC EXTOSC   with 4x PLL; NDIV 4; 
+    OSCCON1 = 0x22;
     // CSWHOLD may proceed; SOSCPWR Low power; 
     OSCCON3 = 0x00;
     // MFOEN disabled; LFOEN disabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled; 

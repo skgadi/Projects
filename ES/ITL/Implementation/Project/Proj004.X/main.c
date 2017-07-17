@@ -90,33 +90,35 @@ void main(void)
     //TMR1_SetInterruptHandler(Timer1_1s);
     //TMR3_SetInterruptHandler(Timer3_1ms);
     Lcd_Init();
+    Lcd_Command(LCD_CLEAR);
     //Lcd_Text(2,1, "asdfasdf");
     GPS_SWITCH=ON;
-    char Date[] = "------";
-    char Time[] = "------";
     LoadAllFromEeprom();
+    DATE_TIME.SECOND = 30;
+    DATE_TIME.DAY.Val = 0x01;
+    DATE_TIME.DATE.Day = 1;
+    DATE_TIME.DATE.Month = 10;
+    DATE_TIME.YEAR = 2017;
+    DATE_TIME = AdjustDayLightSaving(DATE_TIME);
     //----------End of add by SKGadi----------
     while (1)
     {
         // Add your application code
-        //ReadGPSDateTime (Date, Time);
-        Date[0] = 0x3A;
-        Time[0] = 0x3A;
-        EUSART1_Initialize();
-        ReadGPSDateTime(Date, Time);
-        //ReadGPSTime(Time);
-        Lcd_Text(2,1, Time);
-        Lcd_Text(2,7, "-");
-        Lcd_Text(2,8, Date);
-        Lcd_Text(2,14, "--");
-        Lcd_Int(1, 14, GLOBAL_I, 3);
-        if (ValidateDateTime(Date, Time)) {
+        if (ReadGPS_DATE_TIME()) {
+            WriteLongInt(2,1, GPS_DATE_TIME.SECOND,5,1);
+            WriteLongInt(2,7, GPS_DATE_TIME.DATE.Day,2,0);
+            WriteLongInt(2,9, GPS_DATE_TIME.DATE.Month,2,0);
+            WriteLongInt(2,11, GPS_DATE_TIME.YEAR,4,0);
+            WriteLongInt(2,15, GPS_DATE_TIME.DAY.Val,2,0);
             Lcd_Text(1, 1, ":)");
-            Lcd_Int(2, 16, GetDay(Date), 1);
         } else {
             Lcd_Text(1, 1, ":(");
         }
-        WriteLongInt(1, 4, CYCLES[1].PERIOD, 5,1);
+        WriteLongInt(1, 3, DATE_TIME.SECOND, 5,1);
+        WriteLongInt(1, 9, DATE_TIME.YEAR, 4,0);
+        WriteLongInt(1, 13, DATE_TIME.DATE.Month, 2,0);
+        WriteLongInt(1, 15, DATE_TIME.DATE.Day, 2,0);
+        
         //__delay_ms(1000);
         /*Lcd_Command(LCD_CLEAR);
         ShowRawData();*/

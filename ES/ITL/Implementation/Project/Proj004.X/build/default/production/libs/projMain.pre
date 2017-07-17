@@ -13888,14 +13888,23 @@ unsigned Val :7;
 
 typedef union _GSK_YEAR_DAY {
 struct {
-unsigned Day:5;
-unsigned Month:4;
+unsigned Day;
+unsigned Month;
 };
 } GSK_YEAR_DAY;
 
 typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
+typedef UINT16 GSK_YEAR;
 
+typedef union _GSK_DATE_TIME {
+struct {
+GSK_SECOND_IN_DAY SECOND;
+GSK_YEAR_DAY DATE;
+GSK_WEEK DAY;
+GSK_YEAR YEAR;
+};
+} GSK_DATE_TIME;
 typedef union _GSK_CYCLE {
 struct {
 UINT16 PERIOD;
@@ -13962,15 +13971,27 @@ void LoadStatesFromEeprom (void);
 void LoadCyclesFromEeprom (void);
 void LoadAllFromEeprom (void);
 
-# 31 "libs/projMain.h"
-UINT8 GLOBAL_CENTURY = 20;
+# 17 "libs/funcs.h"
+GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+BOOL ReadGPS_DATE_TIME (void);
+INT32 TimeTextToSecond (char *Time);
 
+# 33 "libs/projMain.h"
+UINT8 GLOBAL_CENTURY = 20;
+static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 INT GLOBAL_I =0;
 INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
-void Timer1_1s (void);
-void Timer3_1ms (void);
+
 
 INT16 TIME_ZONE = 0;
 INT16 CYCLE_DELAY = 0;
@@ -13984,6 +14005,12 @@ GSK_EVENT EVENTS[24];
 GSK_STATE STATES[160];
 GSK_CYCLE CYCLES[17];
 
+UINT8 PRESENT_EVENT=0;
+UINT8 NEXT_EVENT=0;
+UINT8 CENTI_SECOND_COUNT = 0;
+GSK_DATE_TIME DATE_TIME;
+GSK_DATE_TIME GPS_DATE_TIME;
+
 # 3 "libs/projMain.c"
 void Timer0_10ms (void) {
 
@@ -13991,14 +14018,10 @@ GLOBAL_I++;
 if (GLOBAL_I%10==0) {
 LATB ^= 0xFF;
 }
-if (GLOBAL_I%5000==0) {
-
-# 14
+CENTI_SECOND_COUNT++;
+if (CENTI_SECOND_COUNT == 100) {
+CENTI_SECOND_COUNT = 0;
+DATE_TIME = IncreaseByASecond(DATE_TIME);
 }
 }
 
-
-void Timer1_1s (void) {
-
-# 48
-}

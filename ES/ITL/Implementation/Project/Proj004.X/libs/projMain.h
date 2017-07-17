@@ -20,22 +20,23 @@ extern "C" {
 #include "HD44780.h"
 #include "gps.h"
 #include "eeprom.h"
-
+#include "funcs.h"
+    
     
 #define GPS_SWITCH LATCbits.LC1
 #define MAX_NO_OF_EVENTS 24
 #define MAX_NO_OF_STATES 160
 #define MAX_NO_OF_CYCLE_TYPES 17
 #define DATA_BUS_SIZE 8
-
+#define NO_OF_SECONDS_IN_A_DAY 86400
+#define SECONDS_TO_ADJUST_FOR_DAY_LIGHT_SAVING 3600
 UINT8 GLOBAL_CENTURY = 20;
-
+static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 INT GLOBAL_I =0;
 INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
-void Timer1_1s (void);
-void Timer3_1ms (void);
+
 
 INT16 TIME_ZONE = 0;
 INT16 CYCLE_DELAY = 0;
@@ -49,9 +50,12 @@ GSK_EVENT EVENTS[MAX_NO_OF_EVENTS];
 GSK_STATE STATES[MAX_NO_OF_STATES];
 GSK_CYCLE CYCLES[MAX_NO_OF_CYCLE_TYPES];
 
+UINT8 PRESENT_EVENT=0;
+UINT8 NEXT_EVENT=0;
+UINT8 CENTI_SECOND_COUNT = 0;
+GSK_DATE_TIME DATE_TIME;
+GSK_DATE_TIME GPS_DATE_TIME;
 
-
-//EEPROM settings
 
 
 #ifdef	__cplusplus

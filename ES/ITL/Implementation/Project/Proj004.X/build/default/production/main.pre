@@ -13888,14 +13888,23 @@ unsigned Val :7;
 
 typedef union _GSK_YEAR_DAY {
 struct {
-unsigned Day:5;
-unsigned Month:4;
+unsigned Day;
+unsigned Month;
 };
 } GSK_YEAR_DAY;
 
 typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
+typedef UINT16 GSK_YEAR;
 
+typedef union _GSK_DATE_TIME {
+struct {
+GSK_SECOND_IN_DAY SECOND;
+GSK_YEAR_DAY DATE;
+GSK_WEEK DAY;
+GSK_YEAR YEAR;
+};
+} GSK_DATE_TIME;
 typedef union _GSK_CYCLE {
 struct {
 UINT16 PERIOD;
@@ -13962,15 +13971,27 @@ void LoadStatesFromEeprom (void);
 void LoadCyclesFromEeprom (void);
 void LoadAllFromEeprom (void);
 
-# 31 "libs/projMain.h"
-UINT8 GLOBAL_CENTURY = 20;
+# 17 "libs/funcs.h"
+GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+BOOL ReadGPS_DATE_TIME (void);
+INT32 TimeTextToSecond (char *Time);
 
+# 33 "libs/projMain.h"
+UINT8 GLOBAL_CENTURY = 20;
+static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 INT GLOBAL_I =0;
 INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
-void Timer1_1s (void);
-void Timer3_1ms (void);
+
 
 INT16 TIME_ZONE = 0;
 INT16 CYCLE_DELAY = 0;
@@ -13983,6 +14004,12 @@ UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME,
 GSK_EVENT EVENTS[24];
 GSK_STATE STATES[160];
 GSK_CYCLE CYCLES[17];
+
+UINT8 PRESENT_EVENT=0;
+UINT8 NEXT_EVENT=0;
+UINT8 CENTI_SECOND_COUNT = 0;
+GSK_DATE_TIME DATE_TIME;
+GSK_DATE_TIME GPS_DATE_TIME;
 
 # 53 "main.c"
 void main(void)
@@ -13997,35 +14024,36 @@ TMR0_SetInterruptHandler(Timer0_10ms);
 
 
 Lcd_Init();
+Lcd_Command(1);
 
 LATCbits.LC1=ON;
-char Date[] = "------";
-char Time[] = "------";
 LoadAllFromEeprom();
+DATE_TIME.SECOND = 30;
+DATE_TIME.DAY.Val = 0x01;
+DATE_TIME.DATE.Day = 1;
+DATE_TIME.DATE.Month = 10;
+DATE_TIME.YEAR = 2017;
+DATE_TIME = AdjustDayLightSaving(DATE_TIME);
 
 while (1)
 {
 
-
-Date[0] = 0x3A;
-Time[0] = 0x3A;
-EUSART1_Initialize();
-ReadGPSDateTime(Date, Time);
-
-Lcd_Text(2,1, Time);
-Lcd_Text(2,7, "-");
-Lcd_Text(2,8, Date);
-Lcd_Text(2,14, "--");
-Lcd_Int(1, 14, GLOBAL_I, 3);
-if (ValidateDateTime(Date, Time)) {
+if (ReadGPS_DATE_TIME()) {
+WriteLongInt(2,1, GPS_DATE_TIME.SECOND,5,1);
+WriteLongInt(2,7, GPS_DATE_TIME.DATE.Day,2,0);
+WriteLongInt(2,9, GPS_DATE_TIME.DATE.Month,2,0);
+WriteLongInt(2,11, GPS_DATE_TIME.YEAR,4,0);
+WriteLongInt(2,15, GPS_DATE_TIME.DAY.Val,2,0);
 Lcd_Text(1, 1, ":)");
-Lcd_Int(2, 16, GetDay(Date), 1);
 } else {
 Lcd_Text(1, 1, ":(");
 }
-WriteLongInt(1, 4, CYCLES[1].PERIOD, 5,1);
+WriteLongInt(1, 3, DATE_TIME.SECOND, 5,1);
+WriteLongInt(1, 9, DATE_TIME.YEAR, 4,0);
+WriteLongInt(1, 13, DATE_TIME.DATE.Month, 2,0);
+WriteLongInt(1, 15, DATE_TIME.DATE.Day, 2,0);
 
-# 123
+# 125
 }
 }
 

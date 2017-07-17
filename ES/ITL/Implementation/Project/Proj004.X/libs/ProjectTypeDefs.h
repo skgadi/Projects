@@ -37,14 +37,23 @@ typedef union _GSK_WEEK {
 
 typedef union _GSK_YEAR_DAY {
     struct {
-        unsigned Day:5;
-        unsigned Month:4;
+        unsigned Day;
+        unsigned Month;
     };
 } GSK_YEAR_DAY;
 
 typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
+typedef UINT16 GSK_YEAR;
 
+typedef union _GSK_DATE_TIME {
+    struct {
+        GSK_SECOND_IN_DAY SECOND;
+        GSK_YEAR_DAY DATE;
+        GSK_WEEK DAY;
+        GSK_YEAR YEAR;
+    };    
+} GSK_DATE_TIME;
 typedef union _GSK_CYCLE {
     struct {
         UINT16 PERIOD;

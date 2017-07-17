@@ -13714,7 +13714,7 @@ EUSART1_Initialize();
 void OSCILLATOR_Initialize(void)
 {
 
-OSCCON1 = 0x20;
+OSCCON1 = 0x22;
 
 OSCCON3 = 0x00;
 

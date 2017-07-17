@@ -20,7 +20,7 @@ void LoadSettingsFromEeprom (void) {
     Temp16.v[0] = ReadEeprom(Address);
     Address.Val++;
     Temp16.v[1] = ReadEeprom(Address);
-    TIME_ZONE = (INT16) Temp16.Val;
+    TIME_ZONE = (INT16) 60*Temp16.Val;
     // Reading DAY_LIGHT_START
     Address.Val = EEPROM_ADDRESS_DAY_LIGHT_START;
     DAY_LIGHT_START.Day = ReadEeprom (Address);
@@ -146,12 +146,12 @@ void LoadCyclesFromEeprom (void) {
     for (int i=0; i<MAX_NO_OF_CYCLE_TYPES; i++) {
         if (i==0)
             CYCLES[i].START_STATE = 0;
-        else if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
+        else /*if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
             CYCLES[i].START_STATE = CYCLES[i].END_STATE;
-        else
+        else*/
             CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
         CYCLES[i].PERIOD = 0;
-        for (int j=CYCLES[i].START_STATE; j<CYCLES[i].END_STATE; j++ )
+        for (int j=CYCLES[i].START_STATE; j<=CYCLES[i].END_STATE; j++ )
             CYCLES[i].PERIOD += STATES[j].PERIOD;
     }
 }

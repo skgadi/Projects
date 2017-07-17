@@ -125,6 +125,7 @@ void ReadDateTimeFromBuffer (char *Date, char *Time) {
     }
 }
 */
+
 INT8 GetDay (char *Date) {
     UINT8 d = (Date[0]-0x30)*10 + (Date[1]-0x30);
     UINT8 m = (Date[2]-0x30)*10 + (Date[3]-0x30);
