@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
-                                                                                                           Mon Jul 17 18:06:25 2017
+                                                                                                           Tue Jul 18 15:18:52 2017
 
 
      1                           	processor	18F26K40
@@ -31,13 +31,13 @@ Microchip Technology PIC18 Macro Assembler V1.42 build -159332390
     25                           ; objects from the stack prior to returning from a function
     26  0000                     
     27                           	psect	powerup
-    28  00005A                     powerup:
+    28  00006A                     powerup:
     29                           	opt stack 0
-    30  00005A  8E81               	bsf	3969,7,c
-    31  00005C  EF30  F000         	goto	start
+    30  00006A  8E81               	bsf	3969,7,c
+    31  00006C  EF38  F000         	goto	start
 
 
 Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
-Symbol Table                                                                                               Mon Jul 17 18:06:25 2017
+Symbol Table                                                                                               Tue Jul 18 15:18:52 2017
 
-                          start 0060                          NVMCON1 000F81                          powerup 005A  
+                          start 0070                          NVMCON1 000F81                          powerup 006A  

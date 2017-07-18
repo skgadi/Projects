@@ -129,7 +129,7 @@ void ReadDateTimeFromBuffer (char *Date, char *Time) {
 INT8 GetDay (char *Date) {
     UINT8 d = (Date[0]-0x30)*10 + (Date[1]-0x30);
     UINT8 m = (Date[2]-0x30)*10 + (Date[3]-0x30);
-    INT y = (Date[4]-0x30)*10 + (Date[5]-0x30) + GLOBAL_CENTURY*100;
+    INT y = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
     static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
     y -= m < 3;
     return ( y + y/4 - y/100 + y/400 + t[m-1] + d) % 7;

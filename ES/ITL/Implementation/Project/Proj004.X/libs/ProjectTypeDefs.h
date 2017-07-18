@@ -17,6 +17,7 @@ extern "C" {
 #define NO_OF_PORTS 2
 
 typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+typedef enum _FLAG { RESET = 0, SET } FLAG;
 typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
 typedef union _GSK_WEEK {
     struct {

@@ -87,41 +87,28 @@ void main(void)
     INTERRUPT_GlobalInterruptEnable();
     INTERRUPT_PeripheralInterruptEnable();
     TMR0_SetInterruptHandler(Timer0_10ms);
-    //TMR1_SetInterruptHandler(Timer1_1s);
-    //TMR3_SetInterruptHandler(Timer3_1ms);
+#ifdef SET_EEPROM
+    for (INT16 i=0; i<1024; i++)
+        WriteEeprom(i,EE_Settings[i]);
+#endif
+    LoadAllFromEeprom();
+#ifdef RUN_ON_LCD
     Lcd_Init();
     Lcd_Command(LCD_CLEAR);
-    //Lcd_Text(2,1, "asdfasdf");
-    GPS_SWITCH=ON;
-    LoadAllFromEeprom();
-    DATE_TIME.SECOND = 30;
-    DATE_TIME.DAY.Val = 0x01;
-    DATE_TIME.DATE.Day = 1;
-    DATE_TIME.DATE.Month = 10;
-    DATE_TIME.YEAR = 2017;
-    DATE_TIME = AdjustDayLightSaving(DATE_TIME);
+#endif
+    if (GPS_SYNC_AT_START == 1)
+        ACTION_GPS_START = SET;
+    AUDIO_SWITCH = OFF;
     //----------End of add by SKGadi----------
     while (1)
     {
         // Add your application code
-        if (ReadGPS_DATE_TIME()) {
-            WriteLongInt(2,1, GPS_DATE_TIME.SECOND,5,1);
-            WriteLongInt(2,7, GPS_DATE_TIME.DATE.Day,2,0);
-            WriteLongInt(2,9, GPS_DATE_TIME.DATE.Month,2,0);
-            WriteLongInt(2,11, GPS_DATE_TIME.YEAR,4,0);
-            WriteLongInt(2,15, GPS_DATE_TIME.DAY.Val,2,0);
-            Lcd_Text(1, 1, ":)");
-        } else {
-            Lcd_Text(1, 1, ":(");
-        }
-        WriteLongInt(1, 3, DATE_TIME.SECOND, 5,1);
-        WriteLongInt(1, 9, DATE_TIME.YEAR, 4,0);
-        WriteLongInt(1, 13, DATE_TIME.DATE.Month, 2,0);
-        WriteLongInt(1, 15, DATE_TIME.DATE.Day, 2,0);
-        
-        //__delay_ms(1000);
-        /*Lcd_Command(LCD_CLEAR);
-        ShowRawData();*/
+        if (ACTION_GPS_START) SwitchOnGPS();
+        if (ACTION_GPS_VERIFY_WAIT_TIME) VerifyForGPSOnTIme();
+        if (ACTION_GPS_READ) ReadGPS();
+        if (ACTION_GPS_STOP) StopGPS();
+        TestGPSStartCondition();
+        NEXT_EVENT = GetEventNumber();
     }
 }
 /**

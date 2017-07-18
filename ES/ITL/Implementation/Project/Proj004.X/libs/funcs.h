@@ -25,9 +25,12 @@ GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
 GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
 BOOL ReadGPS_DATE_TIME (void);
 INT32 TimeTextToSecond (char *Time);
-
-
-
+void SwitchOnGPS (void);
+void VerifyForGPSOnTIme (void);
+void ReadGPS (void);
+void StopGPS (void);
+void TestGPSStartCondition (void);
+INT8 GetEventNumber(void);
 #ifdef	__cplusplus
 }
 #endif

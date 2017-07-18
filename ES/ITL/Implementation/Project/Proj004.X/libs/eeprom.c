@@ -1,6 +1,6 @@
 #include "eeprom.h"
 
-BYTE ReadEeprom(WORD_VAL Address){
+BYTE ReadEeprom (WORD_VAL Address){
     //Page 142 of 40001816D document
     //Address.Val -= 0x310000;
     NVMCON1bits.NVMREG = 00;
@@ -10,6 +10,24 @@ BYTE ReadEeprom(WORD_VAL Address){
     //while(NVMCON1bits.RD); // Not required since this operation is very fast.
     NVMCON1bits.NVMREG1 = 1; // to fix the error mentioned in 4th page of http://ww1.microchip.com/downloads/en/DeviceDoc/80000712A.pdf 
     return NVMDAT;
+}
+
+void WriteEeprom (UINT16 Add, BYTE Data) {
+    WORD_VAL Address;
+    Address.Val = Add;
+    NVMCON1bits.NVMREG = 00;
+    NVMADRL = Address.v[0];
+    NVMADRH = Address.v[1];
+    NVMDAT = Data;
+    NVMCON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    NVMCON2 = 0x55;
+    NVMCON2 = 0xAA;
+    NVMCON1bits.WR = 1;
+    while(NVMCON1bits.WR);
+    INTCONbits.GIE = 1;
+    NVMCON1bits.WREN = 0;
+    NVMCON1bits.NVMREG1 = 1; // to fix the error mentioned in 4th page of http://ww1.microchip.com/downloads/en/DeviceDoc/80000712A.pdf 
 }
 
 void LoadSettingsFromEeprom (void) {

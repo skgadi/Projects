@@ -41,7 +41,7 @@ GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt) {
 GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt) {
     dt.YEAR++;
     if (dt.YEAR % 100 == 0)
-        GLOBAL_CENTURY++;
+        CENTURY++;
     return dt;
 }
 
@@ -85,7 +85,7 @@ GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt) {
 
 GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt) {
     if (dt.YEAR % 100 == 0)
-        GLOBAL_CENTURY--;
+        CENTURY--;
     dt.YEAR--;
     return dt;
 }
@@ -121,7 +121,7 @@ BOOL ReadGPS_DATE_TIME (void) {
         GPS_DATE_TIME.DATE.Day = (Date[0]-0x30)*10 + (Date[1]-0x30);
         GPS_DATE_TIME.DATE.Month = (Date[2]-0x30)*10 + (Date[3]-0x30);
         GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
-        GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + GLOBAL_CENTURY*100;
+        GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
         GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
         GPS_DATE_TIME.SECOND += TIME_ZONE;
         if (GPS_DATE_TIME.SECOND < 0) {
@@ -144,4 +144,71 @@ INT32 TimeTextToSecond (char *Time) {
             + (INT32) 60*((Time[2]-0x30)*10 + (Time[3]-0x30))
             + (INT32) ((Time[4]-0x30)*10 + (Time[5]-0x30));
     return Second;
+}
+
+void SwitchOnGPS (void) {
+    GPS_SWITCH = ON;
+    NO_OF_TIMES_GPS_FAILED = 0;
+    TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND;
+    ACTION_GPS_VERIFY_WAIT_TIME = SET;
+    ACTION_GPS_START = RESET;
+}
+
+void VerifyForGPSOnTIme (void) {
+    INT32 TimeDiff = DATE_TIME.SECOND - TIME_WHEN_GPS_IS_SWITCHED_ON;
+    if (TimeDiff<0)
+        TimeDiff += NO_OF_SECONDS_IN_A_DAY;
+    if (TimeDiff >= WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS) {
+        ACTION_GPS_READ = SET;
+        ACTION_GPS_VERIFY_WAIT_TIME = RESET;
+    }
+}
+
+void ReadGPS (void) {
+    if (ReadGPS_DATE_TIME()) {
+        DATE_TIME = GPS_DATE_TIME;
+        TIME_AT_LAST_GPS_SYNC = DATE_TIME.SECOND;
+        ACTION_GPS_STOP = SET;
+    } else {
+        NO_OF_TIMES_GPS_FAILED++;
+        if (NO_OF_TIMES_GPS_FAILED>MAX_ALLOWED_GPS_FAILURES) {
+            ACTION_GPS_STOP = SET;
+        } else {
+            TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND - TIME_GAP_BETWEEN_TWO_GPS_READINGS;
+            if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
+                TIME_WHEN_GPS_IS_SWITCHED_ON += NO_OF_SECONDS_IN_A_DAY;
+            ACTION_GPS_VERIFY_WAIT_TIME = SET;
+        }
+    }
+    ACTION_GPS_READ = RESET;
+}
+
+void StopGPS (void) {
+    GPS_SWITCH = OFF;
+    ACTION_GPS_STOP = RESET;
+}
+
+void TestGPSStartCondition (void) {
+    if ((DATE_TIME.SECOND == GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME) 
+            || (TIME_AT_LAST_GPS_SYNC >= GPS_SYNC_EVERY_x_SECONDS))
+        ACTION_GPS_START = SET;
+}
+
+INT8 GetEventNumber(void) {
+    for (UINT i=0; i<MAX_NO_OF_EVENTS; i++) {
+        if (DATE_TIME.DAY.Val & EVENTS[i].SELECTED_WEEKS.Val) {
+            if (EVENTS[i].START_TIME < EVENTS[i].END_TIME) {
+                if ((DATE_TIME.SECOND > EVENTS[i].START_TIME) 
+                        && (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
+                    return i;
+                }
+            } else {
+                if ((DATE_TIME.SECOND > EVENTS[i].START_TIME) 
+                        || (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
+                    return i;
+                }
+            }
+        }
+    }
+    return -1;
 }

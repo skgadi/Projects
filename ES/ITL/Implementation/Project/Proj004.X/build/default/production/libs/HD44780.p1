@@ -1,46 +1,56 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"39 libs/ProjectTypeDefs.h
+"40 libs/ProjectTypeDefs.h
 [s S1338 `ui 1 `ui 1 ]
 [n S1338 . Day Month ]
-"38
+"39
 [u S1337 `S1338 1 ]
 [n S1337 _GSK_YEAR_DAY . ]
-"22
+"23
 [s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1335 . . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
-"32
+"33
 [s S1336 :1 `uc 1 :7 `uc 1 ]
 [n S1336 . . Val ]
-"21
+"22
 [u S1334 `S1335 1 `S1336 1 ]
 [n S1334 _GSK_WEEK . . ]
-"67
+"68
 [s S1344 `l 1 `l 1 `uc 1 `S1334 1 ]
 [n S1344 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
-"65
+"66
 [u S1343 `S1344 1 ]
 [n S1343 _GSK_EVENT . ]
-"50 libs/projMain.h
-[c E11242 0 1 2 .. ]
-[n E11242 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
-"77 libs/ProjectTypeDefs.h
-[s S1346 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
+"55 libs/projMain.h
+[c E11246 0 1 2 .. ]
+[n E11246 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
+"78 libs/ProjectTypeDefs.h
+[s S1346 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11246 1 ]
 [n S1346 . PERIOD ON BLINK AUDIO ]
-"75
+"76
 [u S1345 `S1346 1 ]
 [n S1345 _GSK_STATE . ]
-"58
+"59
 [s S1342 `us 1 `uc 1 `uc 1 ]
 [n S1342 . PERIOD START_STATE END_STATE ]
-"57
+"58
 [u S1341 `S1342 1 ]
 [n S1341 _GSK_CYCLE . ]
-"50
+"51
 [s S1340 `l 1 `S1337 1 `S1334 1 `us 1 ]
 [n S1340 . SECOND DATE DAY YEAR ]
-"49
+"50
 [u S1339 `S1340 1 ]
 [n S1339 _GSK_DATE_TIME . ]
+"15048 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
+[v _LATA `Vuc ~T0 @X0 0 e@3971 ]
+"15160
+[v _LATB `Vuc ~T0 @X0 0 e@3972 ]
+"93 libs/GenericTypeDefs.h
+[s S1321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1321 . b0 b1 b2 b3 b4 b5 b6 b7 ]
+"89
+[u S1320 `uc 1 `S1321 1 ]
+[n S1320 _BYTE_VAL Val bits ]
 "15395 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
 [s S753 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S753 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -10521,65 +10531,66 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
 [; ;ProjectTypeDefs.h: 19: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
-[; ;ProjectTypeDefs.h: 20: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
-[; ;ProjectTypeDefs.h: 21: typedef union _GSK_WEEK {
-[; ;ProjectTypeDefs.h: 22: struct {
-[; ;ProjectTypeDefs.h: 23: unsigned :1;
-[; ;ProjectTypeDefs.h: 24: unsigned Sunday:1;
-[; ;ProjectTypeDefs.h: 25: unsigned Monday:1;
-[; ;ProjectTypeDefs.h: 26: unsigned Tuesday:1;
-[; ;ProjectTypeDefs.h: 27: unsigned Wednesday:1;
-[; ;ProjectTypeDefs.h: 28: unsigned Thursday:1;
-[; ;ProjectTypeDefs.h: 29: unsigned Friday:1;
-[; ;ProjectTypeDefs.h: 30: unsigned Saturday:1;
-[; ;ProjectTypeDefs.h: 31: };
-[; ;ProjectTypeDefs.h: 32: struct {
-[; ;ProjectTypeDefs.h: 33: unsigned :1;
-[; ;ProjectTypeDefs.h: 34: unsigned Val :7;
-[; ;ProjectTypeDefs.h: 35: };
-[; ;ProjectTypeDefs.h: 36: } GSK_WEEK;
-[; ;ProjectTypeDefs.h: 38: typedef union _GSK_YEAR_DAY {
-[; ;ProjectTypeDefs.h: 39: struct {
-[; ;ProjectTypeDefs.h: 40: unsigned Day;
-[; ;ProjectTypeDefs.h: 41: unsigned Month;
-[; ;ProjectTypeDefs.h: 42: };
-[; ;ProjectTypeDefs.h: 43: } GSK_YEAR_DAY;
-[; ;ProjectTypeDefs.h: 45: typedef INT32 GSK_SECOND_IN_DAY;
-[; ;ProjectTypeDefs.h: 46: typedef UINT8 GSK_CYCLE_TYPE;
-[; ;ProjectTypeDefs.h: 47: typedef UINT16 GSK_YEAR;
-[; ;ProjectTypeDefs.h: 49: typedef union _GSK_DATE_TIME {
-[; ;ProjectTypeDefs.h: 50: struct {
-[; ;ProjectTypeDefs.h: 51: GSK_SECOND_IN_DAY SECOND;
-[; ;ProjectTypeDefs.h: 52: GSK_YEAR_DAY DATE;
-[; ;ProjectTypeDefs.h: 53: GSK_WEEK DAY;
-[; ;ProjectTypeDefs.h: 54: GSK_YEAR YEAR;
-[; ;ProjectTypeDefs.h: 55: };
-[; ;ProjectTypeDefs.h: 56: } GSK_DATE_TIME;
-[; ;ProjectTypeDefs.h: 57: typedef union _GSK_CYCLE {
-[; ;ProjectTypeDefs.h: 58: struct {
-[; ;ProjectTypeDefs.h: 59: UINT16 PERIOD;
-[; ;ProjectTypeDefs.h: 60: UINT8 START_STATE;
-[; ;ProjectTypeDefs.h: 61: UINT8 END_STATE;
-[; ;ProjectTypeDefs.h: 62: };
-[; ;ProjectTypeDefs.h: 63: } GSK_CYCLE;
-[; ;ProjectTypeDefs.h: 65: typedef union _GSK_EVENT
-[; ;ProjectTypeDefs.h: 66: {
-[; ;ProjectTypeDefs.h: 67: struct {
-[; ;ProjectTypeDefs.h: 68: GSK_SECOND_IN_DAY START_TIME;
-[; ;ProjectTypeDefs.h: 69: GSK_SECOND_IN_DAY END_TIME;
-[; ;ProjectTypeDefs.h: 70: GSK_CYCLE_TYPE CYCLE;
-[; ;ProjectTypeDefs.h: 71: GSK_WEEK SELECTED_WEEKS;
-[; ;ProjectTypeDefs.h: 72: };
-[; ;ProjectTypeDefs.h: 73: } GSK_EVENT;
-[; ;ProjectTypeDefs.h: 75: typedef union _GSK_STATE
-[; ;ProjectTypeDefs.h: 76: {
-[; ;ProjectTypeDefs.h: 77: struct {
-[; ;ProjectTypeDefs.h: 78: UINT8 PERIOD;
-[; ;ProjectTypeDefs.h: 79: UINT8 ON[2];
-[; ;ProjectTypeDefs.h: 80: UINT8 BLINK[2];
-[; ;ProjectTypeDefs.h: 81: GSK_AUDIO AUDIO;
-[; ;ProjectTypeDefs.h: 82: };
-[; ;ProjectTypeDefs.h: 83: } GSK_STATE;
+[; ;ProjectTypeDefs.h: 20: typedef enum _FLAG { RESET = 0, SET } FLAG;
+[; ;ProjectTypeDefs.h: 21: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
+[; ;ProjectTypeDefs.h: 22: typedef union _GSK_WEEK {
+[; ;ProjectTypeDefs.h: 23: struct {
+[; ;ProjectTypeDefs.h: 24: unsigned :1;
+[; ;ProjectTypeDefs.h: 25: unsigned Sunday:1;
+[; ;ProjectTypeDefs.h: 26: unsigned Monday:1;
+[; ;ProjectTypeDefs.h: 27: unsigned Tuesday:1;
+[; ;ProjectTypeDefs.h: 28: unsigned Wednesday:1;
+[; ;ProjectTypeDefs.h: 29: unsigned Thursday:1;
+[; ;ProjectTypeDefs.h: 30: unsigned Friday:1;
+[; ;ProjectTypeDefs.h: 31: unsigned Saturday:1;
+[; ;ProjectTypeDefs.h: 32: };
+[; ;ProjectTypeDefs.h: 33: struct {
+[; ;ProjectTypeDefs.h: 34: unsigned :1;
+[; ;ProjectTypeDefs.h: 35: unsigned Val :7;
+[; ;ProjectTypeDefs.h: 36: };
+[; ;ProjectTypeDefs.h: 37: } GSK_WEEK;
+[; ;ProjectTypeDefs.h: 39: typedef union _GSK_YEAR_DAY {
+[; ;ProjectTypeDefs.h: 40: struct {
+[; ;ProjectTypeDefs.h: 41: unsigned Day;
+[; ;ProjectTypeDefs.h: 42: unsigned Month;
+[; ;ProjectTypeDefs.h: 43: };
+[; ;ProjectTypeDefs.h: 44: } GSK_YEAR_DAY;
+[; ;ProjectTypeDefs.h: 46: typedef INT32 GSK_SECOND_IN_DAY;
+[; ;ProjectTypeDefs.h: 47: typedef UINT8 GSK_CYCLE_TYPE;
+[; ;ProjectTypeDefs.h: 48: typedef UINT16 GSK_YEAR;
+[; ;ProjectTypeDefs.h: 50: typedef union _GSK_DATE_TIME {
+[; ;ProjectTypeDefs.h: 51: struct {
+[; ;ProjectTypeDefs.h: 52: GSK_SECOND_IN_DAY SECOND;
+[; ;ProjectTypeDefs.h: 53: GSK_YEAR_DAY DATE;
+[; ;ProjectTypeDefs.h: 54: GSK_WEEK DAY;
+[; ;ProjectTypeDefs.h: 55: GSK_YEAR YEAR;
+[; ;ProjectTypeDefs.h: 56: };
+[; ;ProjectTypeDefs.h: 57: } GSK_DATE_TIME;
+[; ;ProjectTypeDefs.h: 58: typedef union _GSK_CYCLE {
+[; ;ProjectTypeDefs.h: 59: struct {
+[; ;ProjectTypeDefs.h: 60: UINT16 PERIOD;
+[; ;ProjectTypeDefs.h: 61: UINT8 START_STATE;
+[; ;ProjectTypeDefs.h: 62: UINT8 END_STATE;
+[; ;ProjectTypeDefs.h: 63: };
+[; ;ProjectTypeDefs.h: 64: } GSK_CYCLE;
+[; ;ProjectTypeDefs.h: 66: typedef union _GSK_EVENT
+[; ;ProjectTypeDefs.h: 67: {
+[; ;ProjectTypeDefs.h: 68: struct {
+[; ;ProjectTypeDefs.h: 69: GSK_SECOND_IN_DAY START_TIME;
+[; ;ProjectTypeDefs.h: 70: GSK_SECOND_IN_DAY END_TIME;
+[; ;ProjectTypeDefs.h: 71: GSK_CYCLE_TYPE CYCLE;
+[; ;ProjectTypeDefs.h: 72: GSK_WEEK SELECTED_WEEKS;
+[; ;ProjectTypeDefs.h: 73: };
+[; ;ProjectTypeDefs.h: 74: } GSK_EVENT;
+[; ;ProjectTypeDefs.h: 76: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 77: {
+[; ;ProjectTypeDefs.h: 78: struct {
+[; ;ProjectTypeDefs.h: 79: UINT8 PERIOD;
+[; ;ProjectTypeDefs.h: 80: UINT8 ON[2];
+[; ;ProjectTypeDefs.h: 81: UINT8 BLINK[2];
+[; ;ProjectTypeDefs.h: 82: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 83: };
+[; ;ProjectTypeDefs.h: 84: } GSK_STATE;
 [; ;HD44780.h: 58: void Lcd_Init(void);
 [; ;HD44780.h: 59: void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
 [; ;HD44780.h: 60: void Lcd_Text(unsigned char y, unsigned char x, char *buffer);
@@ -10602,12 +10613,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
 [; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
 [; ;eeprom.h: 43: GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-[; ;eeprom.h: 45: BYTE ReadEeprom(WORD_VAL Address);
-[; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
-[; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
-[; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadCyclesFromEeprom (void);
-[; ;eeprom.h: 50: void LoadAllFromEeprom (void);
+[; ;eeprom.h: 45: BYTE ReadEeprom (WORD_VAL Address);
+[; ;eeprom.h: 46: void WriteEeprom (UINT16 Add, BYTE Data);
+[; ;eeprom.h: 47: void LoadSettingsFromEeprom (void);
+[; ;eeprom.h: 48: void LoadEventsFromEeprom (void);
+[; ;eeprom.h: 49: void LoadStatesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 51: void LoadAllFromEeprom (void);
 [; ;funcs.h: 17: GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
 [; ;funcs.h: 18: GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
 [; ;funcs.h: 19: GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
@@ -10619,13 +10631,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;funcs.h: 25: GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
 [; ;funcs.h: 26: BOOL ReadGPS_DATE_TIME (void);
 [; ;funcs.h: 27: INT32 TimeTextToSecond (char *Time);
-"33 libs/projMain.h
-[v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
-[i _GLOBAL_CENTURY
--> -> 20 `i `uc
-]
-[; ;projMain.h: 33: UINT8 GLOBAL_CENTURY = 20;
-"34
+[; ;funcs.h: 28: void SwitchOnGPS (void);
+[; ;funcs.h: 29: void VerifyForGPSOnTIme (void);
+[; ;funcs.h: 30: void ReadGPS (void);
+[; ;funcs.h: 31: void StopGPS (void);
+[; ;funcs.h: 32: void TestGPSStartCondition (void);
+[; ;funcs.h: 33: INT8 GetEventNumber(void);
+"42 libs/projMain.h
 [v _NO_OF_DAYS_IN_A_MONTH `i ~T0 @X0 -> 0 `x s ]
 [i _NO_OF_DAYS_IN_A_MONTH
 :U ..
@@ -10643,47 +10655,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ..
 ]
-[; ;projMain.h: 34: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-"36
-[v _GLOBAL_I `i ~T0 @X0 1 e ]
-[i _GLOBAL_I
--> 0 `i
-]
-[; ;projMain.h: 36: INT GLOBAL_I =0;
-"37
-[v _GLOBAL_USARTSIZE `i ~T0 @X0 1 e ]
-[i _GLOBAL_USARTSIZE
--> 0 `i
-]
-[; ;projMain.h: 37: INT GLOBAL_USARTSIZE=0;
-[; ;projMain.h: 38: void Timer0_10ms (void);
-"41
+[; ;projMain.h: 42: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+[; ;projMain.h: 45: void Timer0_10ms (void);
+"48
 [v _TIME_ZONE `s ~T0 @X0 1 e ]
 [i _TIME_ZONE
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 41: INT16 TIME_ZONE = 0;
-"42
+[; ;projMain.h: 48: INT16 TIME_ZONE = 0;
+"49
 [v _CYCLE_DELAY `s ~T0 @X0 1 e ]
 [i _CYCLE_DELAY
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 42: INT16 CYCLE_DELAY = 0;
-"43
+[; ;projMain.h: 49: INT16 CYCLE_DELAY = 0;
+"50
 [v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
 [v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
-[; ;projMain.h: 43: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
-"44
+[; ;projMain.h: 50: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"51
 [v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
 [v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
-[; ;projMain.h: 44: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-"45
+[; ;projMain.h: 51: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"52
 [v _CENTURY `uc ~T0 @X0 1 e ]
 [i _CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 45: UINT8 CENTURY = 20;
-"46
+[; ;projMain.h: 52: UINT8 CENTURY = 20;
+"53
 [v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
@@ -10693,40 +10693,1159 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
 [v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
-[; ;projMain.h: 46: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-"49
-[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 49: GSK_EVENT EVENTS[24];
-"50
-[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 50: GSK_STATE STATES[160];
-"51
-[v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 51: GSK_CYCLE CYCLES[17];
-"53
-[v _PRESENT_EVENT `uc ~T0 @X0 1 e ]
-[i _PRESENT_EVENT
--> -> 0 `i `uc
-]
-[; ;projMain.h: 53: UINT8 PRESENT_EVENT=0;
+[; ;projMain.h: 53: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 "54
-[v _NEXT_EVENT `uc ~T0 @X0 1 e ]
+[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 54: GSK_EVENT EVENTS[24];
+"55
+[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 55: GSK_STATE STATES[160];
+"56
+[v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
+[; ;projMain.h: 56: GSK_CYCLE CYCLES[17];
+"59
+[v _PRESENT_EVENT `c ~T0 @X0 1 e ]
+[i _PRESENT_EVENT
+-> -U -> 1 `i `c
+]
+[; ;projMain.h: 59: INT8 PRESENT_EVENT=-1;
+"60
+[v _NEXT_EVENT `c ~T0 @X0 1 e ]
 [i _NEXT_EVENT
+-> -U -> 1 `i `c
+]
+[; ;projMain.h: 60: INT8 NEXT_EVENT=-1;
+"61
+[v _PRESENT_STATE `uc ~T0 @X0 1 e ]
+[i _PRESENT_STATE
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 54: UINT8 NEXT_EVENT=0;
-"55
+[; ;projMain.h: 61: UINT8 PRESENT_STATE = 0;
+"62
+[v _NEXT_STATE `uc ~T0 @X0 1 e ]
+[i _NEXT_STATE
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 62: UINT8 NEXT_STATE = 0;
+"63
+[v _STATE_SECONDS `uc ~T0 @X0 1 e ]
+[i _STATE_SECONDS
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 63: UINT8 STATE_SECONDS = 0;
+"64
+[v _STATE_SECONDS_REMAINING `uc ~T0 @X0 1 e ]
+[i _STATE_SECONDS_REMAINING
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 64: UINT8 STATE_SECONDS_REMAINING = 0;
+"65
 [v _CENTI_SECOND_COUNT `uc ~T0 @X0 1 e ]
 [i _CENTI_SECOND_COUNT
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 55: UINT8 CENTI_SECOND_COUNT = 0;
-"56
+[; ;projMain.h: 65: UINT8 CENTI_SECOND_COUNT = 0;
+"66
+[v _BLINK_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _BLINK_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 66: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
+"67
+[v _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _NORMAL_AUDIO_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 67: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"68
+[v _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 68: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"69
 [v _DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 56: GSK_DATE_TIME DATE_TIME;
-"57
+[; ;projMain.h: 69: GSK_DATE_TIME DATE_TIME;
+"70
 [v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 57: GSK_DATE_TIME GPS_DATE_TIME;
+[; ;projMain.h: 70: GSK_DATE_TIME GPS_DATE_TIME;
+"71
+[v _NO_OF_TIMES_GPS_FAILED `uc ~T0 @X0 1 e ]
+[i _NO_OF_TIMES_GPS_FAILED
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 71: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
+"72
+[v _TIME_WHEN_GPS_IS_SWITCHED_ON `l ~T0 @X0 1 e ]
+[i _TIME_WHEN_GPS_IS_SWITCHED_ON
+-> -> 0 `i `l
+]
+[; ;projMain.h: 72: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
+"73
+[v _TIME_AT_LAST_GPS_SYNC `l ~T0 @X0 1 e ]
+[i _TIME_AT_LAST_GPS_SYNC
+-> -> 0 `i `l
+]
+[; ;projMain.h: 73: INT32 TIME_AT_LAST_GPS_SYNC = 0;
+"74
+[v _LIGHTS `*uc ~T0 @X0 -> 0 `x e ]
+[i _LIGHTS
+:U ..
+-> &U _LATA `*uc
+-> &U _LATB `*uc
+..
+]
+[; ;projMain.h: 74: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
+"76
+[v _FLAGS_0 `S1320 ~T0 @X0 1 e ]
+[i _FLAGS_0
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+[; ;projMain.h: 76: BYTE_BITS FLAGS_0 = 0;
+"82
+[v _FLAGS_1 `S1320 ~T0 @X0 1 e ]
+[i _FLAGS_1
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+[; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
+"87
+[v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
+[i _EE_Settings
+:U ..
+-> -> 152 `i `c
+-> -> 254 `i `c
+-> -> 1 `i `c
+-> -> 4 `i `c
+-> -> 1 `i `c
+-> -> 10 `i `c
+-> -> 20 `i `c
+-> -> 246 `i `c
+-> -> 255 `i `c
+-> -> 60 `i `c
+-> -> 40 `i `c
+-> -> 18 `i `c
+-> -> 192 `i `c
+-> -> 8 `i `c
+-> -> 42 `i `c
+-> -> 5 `i `c
+-> -> 1 `i `c
+-> -> 128 `i `c
+-> -> 81 `i `c
+-> -> 1 `i `c
+-> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 197 `i `c
+-> -> 128 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 32 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 2 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 8 `i `c
+-> -> 160 `i `c
+-> -> 0 `i `c
+-> -> 1 `i `c
+-> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -> 6 `i `c
+-> -> 36 `i `c
+-> -> 144 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
+-> -> 36 `i `c
+-> -> 144 `i `c
+-> -> 6 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
+-> -> 3 `i `c
+-> -> 4 `i `c
+-> -> 144 `i `c
+-> -> 8 `i `c
+-> -> 0 `i `c
+-> -> 2 `i `c
+-> -> 20 `i `c
+-> -> 144 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 21 `i `c
+-> -> 36 `i `c
+-> -> 36 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 2 `i `c
+-> -> 36 `i `c
+-> -> 16 `i `c
+-> -> 0 `i `c
+-> -> 32 `i `c
+-> -> 2 `i `c
+-> -> 36 `i `c
+-> -> 80 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 1 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 20 `i `c
+-> -> 32 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+-> -> 0 `i `c
+..
+]
+[; ;projMain.h: 87: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 18, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x0
 "17 libs/HD44780.c
 [v _Lcd_Init `(v ~T0 @X0 1 ef ]
 {

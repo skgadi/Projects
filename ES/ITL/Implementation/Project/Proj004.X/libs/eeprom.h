@@ -42,7 +42,8 @@ INT16 extern TIME_ZONE, CYCLE_DELAY;
 GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
 GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
 
-BYTE ReadEeprom(WORD_VAL Address);
+BYTE ReadEeprom (WORD_VAL Address);
+void WriteEeprom (UINT16 Add, BYTE Data);
 void LoadSettingsFromEeprom (void);
 void LoadEventsFromEeprom (void);
 void LoadStatesFromEeprom (void);
