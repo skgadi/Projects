@@ -81,7 +81,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Lcd_Init `(v ~T0 @X0 0 ef ]
 "64
 [v _Lcd_Command `(v ~T0 @X0 0 ef1`uc ]
-"100 main.c
+"101 main.c
 [c E11242 0 1 .. ]
 [n E11242 _FLAG RESET SET  ]
 "15278 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
@@ -95,7 +95,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S749 . . . ]
 "15299
 [v _LATCbits `VS749 ~T0 @X0 0 e@3973 ]
-"101 main.c
+"102 main.c
 [c E11238 0 1 .. ]
 [n E11238 _SWITCH OFF ON  ]
 "28 libs/funcs.h
@@ -110,6 +110,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TestGPSStartCondition `(v ~T0 @X0 0 ef ]
 "33
 [v _GetEventNumber `(c ~T0 @X0 0 ef ]
+"67 libs/HD44780.h
+[v _WriteLongInt `(v ~T0 @X0 0 ef5`uc`uc`l`c`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10844,7 +10846,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
-"87
+"88
 [v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
 [i _EE_Settings
 :U ..
@@ -10859,7 +10861,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `c
 -> -> 60 `i `c
 -> -> 40 `i `c
--> -> 18 `i `c
+-> -> 4 `i `c
+-> -> 8 `i `c
 -> -> 192 `i `c
 -> -> 8 `i `c
 -> -> 42 `i `c
@@ -10927,12 +10930,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `c
 -> -> 8 `i `c
 -> -> 160 `i `c
--> -> 0 `i `c
--> -> 1 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
@@ -11071,21 +11068,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -U -> 1 `i `c
 -> -> 1 `i `c
 -> -> 127 `i `c
--> -> 6 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -> 10 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 6 `i `c
 -> -> 18 `i `c
 -> -> 72 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
+-> -> 10 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 6 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
 -> -> 3 `i `c
 -> -> 4 `i `c
 -> -> 144 `i `c
@@ -11873,7 +11876,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 ..
 ]
-[; ;projMain.h: 87: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 18, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x0
+[; ;projMain.h: 88: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0
 [v $root$_main `(v ~T0 @X0 0 e ]
 "53 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -11918,59 +11921,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 96: Lcd_Init();
 "96
 [e ( _Lcd_Init ..  ]
-[; ;main.c: 97: Lcd_Command(1);
+[; ;main.c: 97: Lcd_Command(14);
 "97
-[e ( _Lcd_Command (1 -> -> 1 `i `uc ]
-[; ;main.c: 99: if (GPS_SYNC_AT_START == 1)
-"99
-[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1351  ]
-[; ;main.c: 100: FLAGS_0.bits.b0 = SET;
+[e ( _Lcd_Command (1 -> -> 14 `i `uc ]
+[; ;main.c: 100: if (GPS_SYNC_AT_START == 1)
 "100
+[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1351  ]
+[; ;main.c: 101: FLAGS_0.bits.b0 = SET;
+"101
 [e = . . _FLAGS_0 1 0 -> . `E11242 1 `uc ]
 [e :U 1351 ]
-[; ;main.c: 101: LATCbits.LC0 = OFF;
-"101
+[; ;main.c: 102: LATCbits.LC0 = OFF;
+"102
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
-[; ;main.c: 103: while (1)
-"103
-[e :U 1353 ]
-[; ;main.c: 104: {
+[; ;main.c: 104: while (1)
 "104
+[e :U 1353 ]
+[; ;main.c: 105: {
+"105
 {
-[; ;main.c: 106: if (FLAGS_0.bits.b0) SwitchOnGPS();
-"106
+[; ;main.c: 107: if (FLAGS_0.bits.b0) SwitchOnGPS();
+"107
 [e $ ! != -> . . _FLAGS_0 1 0 `i -> -> -> 0 `i `uc `i 1355  ]
 [e ( _SwitchOnGPS ..  ]
 [e :U 1355 ]
-[; ;main.c: 107: if (FLAGS_0.bits.b1) VerifyForGPSOnTIme();
-"107
+[; ;main.c: 108: if (FLAGS_0.bits.b1) VerifyForGPSOnTIme();
+"108
 [e $ ! != -> . . _FLAGS_0 1 1 `i -> -> -> 0 `i `uc `i 1356  ]
 [e ( _VerifyForGPSOnTIme ..  ]
 [e :U 1356 ]
-[; ;main.c: 108: if (FLAGS_0.bits.b2) ReadGPS();
-"108
+[; ;main.c: 109: if (FLAGS_0.bits.b2) ReadGPS();
+"109
 [e $ ! != -> . . _FLAGS_0 1 2 `i -> -> -> 0 `i `uc `i 1357  ]
 [e ( _ReadGPS ..  ]
 [e :U 1357 ]
-[; ;main.c: 109: if (FLAGS_0.bits.b3) StopGPS();
-"109
+[; ;main.c: 110: if (FLAGS_0.bits.b3) StopGPS();
+"110
 [e $ ! != -> . . _FLAGS_0 1 3 `i -> -> -> 0 `i `uc `i 1358  ]
 [e ( _StopGPS ..  ]
 [e :U 1358 ]
-[; ;main.c: 110: TestGPSStartCondition();
-"110
-[e ( _TestGPSStartCondition ..  ]
-[; ;main.c: 111: NEXT_EVENT = GetEventNumber();
+[; ;main.c: 111: TestGPSStartCondition();
 "111
-[e = _NEXT_EVENT ( _GetEventNumber ..  ]
+[e ( _TestGPSStartCondition ..  ]
+[; ;main.c: 112: NEXT_EVENT = GetEventNumber();
 "112
+[e = _NEXT_EVENT ( _GetEventNumber ..  ]
+[; ;main.c: 114: WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+"114
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 1 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 115: WriteLongInt(1, 8, PRESENT_STATE, 3, 1);
+"115
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 8 `i `uc -> _PRESENT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 116: WriteLongInt(1, 12, NEXT_STATE, 3, 1);
+"116
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 12 `i `uc -> _NEXT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 117: WriteLongInt(2, 1, STATES[PRESENT_STATE].PERIOD, 3, 1);
+"117
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 1 `i `uc -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 118: WriteLongInt(2, 5, STATES[PRESENT_STATE].ON[0], 3, 1);
+"118
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 5 `i `uc -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 `ui `ux `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 119: WriteLongInt(2, 9, STATES[PRESENT_STATE].BLINK[0], 3, 1);
+"119
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 9 `i `uc -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 `ui `ux `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 120: WriteLongInt(2, 13, STATES[PRESENT_STATE].AUDIO, 3, 1);
+"120
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 13 `i `uc -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `l -> -> 3 `i `c -> -> 1 `i `uc ]
+"125
 }
 [e :U 1352 ]
-"103
+"104
 [e $U 1353  ]
 [e :U 1354 ]
-[; ;main.c: 112: }
-[; ;main.c: 113: }
-"113
+[; ;main.c: 125: }
+[; ;main.c: 126: }
+"126
 [e :UE 1347 ]
 }

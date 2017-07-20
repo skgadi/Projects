@@ -10831,7 +10831,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
-"87
+"88
 [v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
 [i _EE_Settings
 :U ..
@@ -10846,7 +10846,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `c
 -> -> 60 `i `c
 -> -> 40 `i `c
--> -> 18 `i `c
+-> -> 4 `i `c
+-> -> 8 `i `c
 -> -> 192 `i `c
 -> -> 8 `i `c
 -> -> 42 `i `c
@@ -10914,12 +10915,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `c
 -> -> 8 `i `c
 -> -> 160 `i `c
--> -> 0 `i `c
--> -> 1 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
@@ -11058,21 +11053,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -U -> 1 `i `c
 -> -> 1 `i `c
 -> -> 127 `i `c
--> -> 6 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -> 10 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 6 `i `c
 -> -> 18 `i `c
 -> -> 72 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
+-> -> 10 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 6 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
 -> -> 3 `i `c
 -> -> 4 `i `c
 -> -> 144 `i `c
@@ -11860,7 +11861,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 ..
 ]
-[; ;projMain.h: 87: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 18, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x0
+[; ;projMain.h: 88: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0
 [; ;eeprom.h: 40: UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 [; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
 [; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
@@ -11976,7 +11977,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp32 `S1325 ~T0 @X0 1 a ]
 [; ;eeprom.c: 34: WORD_VAL Temp16, Address;
 [; ;eeprom.c: 35: DWORD_VAL Temp32;
-[; ;eeprom.c: 37: Address.Val = 0;
+[; ;eeprom.c: 37: Address.Val = 0x00;
 "37
 [e = . _Address 0 -> -> 0 `i `us ]
 [; ;eeprom.c: 38: Temp16.v[0] = ReadEeprom(Address);
@@ -11991,7 +11992,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 41: TIME_ZONE = (INT16) 60*Temp16.Val;
 "41
 [e = _TIME_ZONE -> * -> -> -> 60 `i `s `ui -> . _Temp16 0 `ui `s ]
-[; ;eeprom.c: 43: Address.Val = 2;
+[; ;eeprom.c: 43: Address.Val = 0x02;
 "43
 [e = . _Address 0 -> -> 2 `i `us ]
 [; ;eeprom.c: 44: DAY_LIGHT_START.Day = ReadEeprom (Address);
@@ -12003,7 +12004,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 46: DAY_LIGHT_START.Month = ReadEeprom (Address);
 "46
 [e = . . _DAY_LIGHT_START 0 1 -> ( _ReadEeprom (1 _Address `ui ]
-[; ;eeprom.c: 48: Address.Val = 4;
+[; ;eeprom.c: 48: Address.Val = 0x04;
 "48
 [e = . _Address 0 -> -> 4 `i `us ]
 [; ;eeprom.c: 49: DAY_LIGHT_END.Day = ReadEeprom (Address);
@@ -12015,13 +12016,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 51: DAY_LIGHT_END.Month = ReadEeprom (Address);
 "51
 [e = . . _DAY_LIGHT_END 0 1 -> ( _ReadEeprom (1 _Address `ui ]
-[; ;eeprom.c: 53: Address.Val = 6;
+[; ;eeprom.c: 53: Address.Val = 0x06;
 "53
 [e = . _Address 0 -> -> 6 `i `us ]
 [; ;eeprom.c: 54: CENTURY = ReadEeprom(Address);
 "54
 [e = _CENTURY ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 56: Address.Val = 7;
+[; ;eeprom.c: 56: Address.Val = 0x07;
 "56
 [e = . _Address 0 -> -> 7 `i `us ]
 [; ;eeprom.c: 57: Temp16.v[0] = ReadEeprom(Address);
@@ -12036,61 +12037,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 60: CYCLE_DELAY = (INT16) Temp16.Val;
 "60
 [e = _CYCLE_DELAY -> . _Temp16 0 `s ]
-[; ;eeprom.c: 62: Address.Val = 9;
+[; ;eeprom.c: 62: Address.Val = 0x09;
 "62
 [e = . _Address 0 -> -> 9 `i `us ]
 [; ;eeprom.c: 63: BLINK_ON_TIME = ReadEeprom(Address);
 "63
 [e = _BLINK_ON_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 65: Address.Val = 10;
+[; ;eeprom.c: 65: Address.Val = 0x0A;
 "65
 [e = . _Address 0 -> -> 10 `i `us ]
 [; ;eeprom.c: 66: BLINK_OFF_TIME = ReadEeprom(Address);
 "66
 [e = _BLINK_OFF_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 68: Address.Val = 11;
+[; ;eeprom.c: 68: Address.Val = 0x0B;
 "68
 [e = . _Address 0 -> -> 11 `i `us ]
 [; ;eeprom.c: 69: BLINK_LAST_X_SECONDS = ReadEeprom(Address);
 "69
 [e = _BLINK_LAST_X_SECONDS ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 71: Address.Val = 12;
+[; ;eeprom.c: 71: Address.Val = 0x0C;
 "71
 [e = . _Address 0 -> -> 12 `i `us ]
 [; ;eeprom.c: 72: AUDIO_NORMAL_ON_TIME = ReadEeprom(Address);
 "72
 [e = _AUDIO_NORMAL_ON_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 74: Address.Val = 13;
+[; ;eeprom.c: 74: Address.Val = 0x0D;
 "74
 [e = . _Address 0 -> -> 13 `i `us ]
 [; ;eeprom.c: 75: AUDIO_NORMAL_OFF_TIME = ReadEeprom(Address);
 "75
 [e = _AUDIO_NORMAL_OFF_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 77: Address.Val = 14;
+[; ;eeprom.c: 77: Address.Val = 0x0E;
 "77
 [e = . _Address 0 -> -> 14 `i `us ]
 [; ;eeprom.c: 78: AUDIO_SPECIAL_ON_TIME = ReadEeprom(Address);
 "78
 [e = _AUDIO_SPECIAL_ON_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 80: Address.Val = 15;
+[; ;eeprom.c: 80: Address.Val = 0x0F;
 "80
 [e = . _Address 0 -> -> 15 `i `us ]
 [; ;eeprom.c: 81: AUDIO_SPECIAL_OFF_TIME = ReadEeprom(Address);
 "81
 [e = _AUDIO_SPECIAL_OFF_TIME ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 83: Address.Val = 16;
+[; ;eeprom.c: 83: Address.Val = 0x10;
 "83
 [e = . _Address 0 -> -> 16 `i `us ]
 [; ;eeprom.c: 84: SPECIAL_AUDIO_LAST_X_SECONDS = ReadEeprom(Address);
 "84
 [e = _SPECIAL_AUDIO_LAST_X_SECONDS ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 86: Address.Val = 17;
+[; ;eeprom.c: 86: Address.Val = 0x11;
 "86
 [e = . _Address 0 -> -> 17 `i `us ]
 [; ;eeprom.c: 87: GPS_SYNC_AT_START = ReadEeprom(Address);
 "87
 [e = _GPS_SYNC_AT_START ( _ReadEeprom (1 _Address ]
-[; ;eeprom.c: 89: Address.Val = 18;
+[; ;eeprom.c: 89: Address.Val = 0x12;
 "89
 [e = . _Address 0 -> -> 18 `i `us ]
 [; ;eeprom.c: 90: Temp32.Val = 0;
@@ -12114,7 +12115,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 96: GPS_SYNC_EVERY_x_SECONDS = Temp32.Val;
 "96
 [e = _GPS_SYNC_EVERY_x_SECONDS -> . _Temp32 0 `l ]
-[; ;eeprom.c: 98: Address.Val = 21;
+[; ;eeprom.c: 98: Address.Val = 0x15;
 "98
 [e = . _Address 0 -> -> 21 `i `us ]
 [; ;eeprom.c: 99: Temp16.v[0] = ReadEeprom(Address);
@@ -12143,7 +12144,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp16 `S1322 ~T0 @X0 1 a ]
 [v _Address `S1322 ~T0 @X0 1 a ]
 [; ;eeprom.c: 106: WORD_VAL Temp16, Address;
-[; ;eeprom.c: 107: Address.Val = 80;
+[; ;eeprom.c: 107: Address.Val = 0x50;
 "107
 [e = . _Address 0 -> -> 80 `i `us ]
 [; ;eeprom.c: 108: for (int i=0; i<24; i++) {
@@ -12226,13 +12227,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AudAddInc `uc ~T0 @X0 1 a ]
 [; ;eeprom.c: 127: WORD_VAL AddStates, AddAudioNormal, AddAudioSpecial, TempNormalAdd, TempSpecialAdd;
 [; ;eeprom.c: 128: UINT8 AudAddInc;
-[; ;eeprom.c: 129: AddStates.Val = 224;
+[; ;eeprom.c: 129: AddStates.Val = 0xE0;
 "129
 [e = . _AddStates 0 -> -> 224 `i `us ]
-[; ;eeprom.c: 130: AddAudioNormal.Val = 23;
+[; ;eeprom.c: 130: AddAudioNormal.Val = 0x17;
 "130
 [e = . _AddAudioNormal 0 -> -> 23 `i `us ]
-[; ;eeprom.c: 131: AddAudioSpecial.Val = 43;
+[; ;eeprom.c: 131: AddAudioSpecial.Val = 0x2B;
 "131
 [e = . _AddAudioSpecial 0 -> -> 43 `i `us ]
 [; ;eeprom.c: 132: for (int i=0; i<160; i++) {
@@ -12352,7 +12353,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "156
 [v _Address `S1322 ~T0 @X0 1 a ]
 [; ;eeprom.c: 156: WORD_VAL Address;
-[; ;eeprom.c: 157: Address.Val = 63;
+[; ;eeprom.c: 157: Address.Val = 0x3F;
 "157
 [e = . _Address 0 -> -> 63 `i `us ]
 [; ;eeprom.c: 159: for (int i=0; i<17; i++) {

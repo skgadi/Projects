@@ -51,12 +51,12 @@ AUDIO_OFF 0
 AUDIO_NORMAL 1
 AUDIO_SPECIAL 2
 ]
-"100 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\main.c
+"101 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\main.c
 [e E11242 _FLAG `uc
 RESET 0
 SET 1
 ]
-"101
+"102
 [e E11238 _SWITCH `uc
 OFF 0
 ON 1
@@ -72,7 +72,7 @@ AUDIO_SPECIAL 2
 RESET 0
 SET 1
 ]
-"29
+"35
 [e E11238 _SWITCH `uc
 OFF 0
 ON 1
@@ -468,6 +468,8 @@ ON 1
 [v _Lcd_Delay5us Lcd_Delay5us `(v  1 e 1 0 ]
 "153
 [v _Lcd_Delay5500us Lcd_Delay5500us `(v  1 e 1 0 ]
+"183
+[v _WriteLongInt WriteLongInt `(v  1 e 1 0 ]
 "3 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/projMain.c
 [v _Timer0_10ms Timer0_10ms `(v  1 e 1 0 ]
 "53 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\main.c
@@ -826,8 +828,6 @@ ON 1
 [v _TIME_WHEN_GPS_IS_SWITCHED_ON TIME_WHEN_GPS_IS_SWITCHED_ON `l  1 e 4 0 ]
 "73
 [v _TIME_AT_LAST_GPS_SYNC TIME_AT_LAST_GPS_SYNC `l  1 e 4 0 ]
-"74
-[v _LIGHTS LIGHTS `[2]*.39uc  1 e 4 0 ]
 [s S74 . 1 `uc 1 b0 1 0 :1:0 
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
@@ -842,8 +842,8 @@ ON 1
 [v _FLAGS_0 FLAGS_0 `S83  1 e 1 0 ]
 "82
 [v _FLAGS_1 FLAGS_1 `S83  1 e 1 0 ]
-"87
-[v _EE_Settings EE_Settings `[1023]c  1 e 1023 0 ]
+"88
+[v _EE_Settings EE_Settings `[1024]c  1 e 1024 0 ]
 "57 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\mcc_generated_files/tmr0.c
 [v _timer0ReloadVal16bit timer0ReloadVal16bit `VEui  1 e 2 0 ]
 "63
@@ -853,7 +853,56 @@ ON 1
 {
 "91
 [v main@i i `s  1 a 2 76 ]
-"113
+"126
+} 0
+"183 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
+[v _WriteLongInt WriteLongInt `(v  1 e 1 0 ]
+{
+[v WriteLongInt@y y `uc  1 a 1 wreg ]
+"184
+[v WriteLongInt@POS POS `c  1 a 1 25 ]
+"183
+[v WriteLongInt@y y `uc  1 a 1 wreg ]
+[v WriteLongInt@x x `uc  1 p 1 18 ]
+[v WriteLongInt@Val Val `l  1 p 4 19 ]
+[v WriteLongInt@size size `c  1 p 1 23 ]
+[v WriteLongInt@Sign Sign `uc  1 p 1 24 ]
+[v WriteLongInt@y y `uc  1 a 1 26 ]
+"198
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
+"8
+[v ___aldiv@dividend dividend `l  1 p 4 0 ]
+[v ___aldiv@divisor divisor `l  1 p 4 4 ]
+"42
+} 0
+"99 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
+[v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
+{
+[v Lcd_WriteChar@y y `uc  1 a 1 wreg ]
+"100
+[v Lcd_WriteChar@data data `uc  1 a 1 17 ]
+"99
+[v Lcd_WriteChar@y y `uc  1 a 1 wreg ]
+[v Lcd_WriteChar@x x `uc  1 p 1 14 ]
+[v Lcd_WriteChar@c c `uc  1 p 1 15 ]
+[v Lcd_WriteChar@y y `uc  1 a 1 16 ]
+"110
+} 0
+"116
+[v _Lcd_CharCP Lcd_CharCP `(v  1 e 1 0 ]
+{
+[v Lcd_CharCP@c c `uc  1 a 1 wreg ]
+[v Lcd_CharCP@c c `uc  1 a 1 wreg ]
+[v Lcd_CharCP@c c `uc  1 a 1 2 ]
+"127
 } 0
 "15 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/eeprom.c
 [v _WriteEeprom WriteEeprom `(v  1 e 1 0 ]
@@ -1564,19 +1613,19 @@ ON 1
 "3 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/projMain.c
 [v _Timer0_10ms Timer0_10ms `(v  1 e 1 0 ]
 {
-"15
-[v Timer0_10ms@i_2888 i `uc  1 a 1 62 ]
 "19
-[v Timer0_10ms@i_2889 i `uc  1 a 1 63 ]
-"60
+[v Timer0_10ms@i_2891 i `uc  1 a 1 62 ]
+"23
+[v Timer0_10ms@i_2892 i `uc  1 a 1 63 ]
+"66
 [v Timer0_10ms@ThisCycle ThisCycle `uc  1 a 1 57 ]
-"22
+"14
 [v Timer0_10ms@i_2890 i `uc  1 a 1 61 ]
+"11
+[v Timer0_10ms@i i `uc  1 a 1 58 ]
 "10
-[v Timer0_10ms@i i `uc  1 a 1 60 ]
-"9
-[v Timer0_10ms@OutForThePorts OutForThePorts `[2]uc  1 a 2 58 ]
-"75
+[v Timer0_10ms@OutForThePorts OutForThePorts `[2]uc  1 a 2 59 ]
+"81
 } 0
 "50 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/ProjectTypeDefs.h
 "51

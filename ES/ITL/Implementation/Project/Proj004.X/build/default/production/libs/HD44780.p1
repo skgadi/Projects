@@ -10816,7 +10816,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
-"87
+"88
 [v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
 [i _EE_Settings
 :U ..
@@ -10831,7 +10831,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `c
 -> -> 60 `i `c
 -> -> 40 `i `c
--> -> 18 `i `c
+-> -> 4 `i `c
+-> -> 8 `i `c
 -> -> 192 `i `c
 -> -> 8 `i `c
 -> -> 42 `i `c
@@ -10899,12 +10900,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `c
 -> -> 8 `i `c
 -> -> 160 `i `c
--> -> 0 `i `c
--> -> 1 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
@@ -11043,21 +11038,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -U -> 1 `i `c
 -> -> 1 `i `c
 -> -> 127 `i `c
--> -> 6 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 1 `i `c
+-> -> 127 `i `c
+-> -> 10 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 6 `i `c
 -> -> 18 `i `c
 -> -> 72 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
+-> -> 10 `i `c
+-> -> 9 `i `c
+-> -> 36 `i `c
 -> -> 36 `i `c
 -> -> 144 `i `c
--> -> 6 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
 -> -> 3 `i `c
 -> -> 4 `i `c
 -> -> 144 `i `c
@@ -11845,7 +11846,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 ..
 ]
-[; ;projMain.h: 87: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 18, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x0
+[; ;projMain.h: 88: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0
 "17 libs/HD44780.c
 [v _Lcd_Init `(v ~T0 @X0 1 ef ]
 {

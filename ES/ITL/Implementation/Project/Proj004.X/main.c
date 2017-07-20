@@ -94,7 +94,8 @@ void main(void)
     LoadAllFromEeprom();
 #ifdef RUN_ON_LCD
     Lcd_Init();
-    Lcd_Command(LCD_CLEAR);
+    Lcd_Command(LCD_UNDERLINE_ON);
+    
 #endif
     if (GPS_SYNC_AT_START == 1)
         ACTION_GPS_START = SET;
@@ -109,6 +110,18 @@ void main(void)
         if (ACTION_GPS_STOP) StopGPS();
         TestGPSStartCondition();
         NEXT_EVENT = GetEventNumber();
+#ifdef RUN_ON_LCD
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 8, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 12, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, STATES[PRESENT_STATE].PERIOD, 3, 1);
+        WriteLongInt(2, 5, STATES[PRESENT_STATE].ON[0], 3, 1);
+        WriteLongInt(2, 9, STATES[PRESENT_STATE].BLINK[0], 3, 1);
+        WriteLongInt(2, 13, STATES[PRESENT_STATE].AUDIO, 3, 1);
+        //WriteLongInt(2, 1, BLINK_LAST_X_SECONDS, 7, 1);
+        //WriteLongInt(2, 9, BLINK_OFF_TIME , 7, 1);
+#endif
+
     }
 }
 /**

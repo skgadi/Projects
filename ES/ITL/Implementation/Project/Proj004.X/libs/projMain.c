@@ -5,8 +5,12 @@ void Timer0_10ms (void) {
         PRESENT_STATE = NEXT_STATE;
         STATE_SECONDS = 0;
         ACTION_NEW_STATE = RESET;
+        STATE_SECONDS_REMAINING = STATES[PRESENT_STATE].PERIOD;
     }
     UINT8 OutForThePorts[NO_OF_PORTS];
+    for (UINT8 i =0; i<NO_OF_PORTS; i++) {
+        OutForThePorts[i] = 0x00;
+    }
     for (UINT8 i =0; i<NO_OF_PORTS; i++) {
         OutForThePorts[i] = STATES[PRESENT_STATE].ON[i];
     }
@@ -19,9 +23,11 @@ void Timer0_10ms (void) {
         for (UINT8 i =0; i<NO_OF_PORTS; i++)
             OutForThePorts[i] = (OutForThePorts[i] | STATES[PRESENT_STATE].BLINK[i]);
     }
+#ifndef RUN_ON_LCD
     for (UINT8 i =0; i<NO_OF_PORTS; i++) {
         *(LIGHTS[i]) = OutForThePorts[i];
     }
+#endif
     if ((STATES[PRESENT_STATE].AUDIO == AUDIO_NORMAL) 
             || ((STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL)
             && (STATE_SECONDS_REMAINING <= SPECIAL_AUDIO_LAST_X_SECONDS))) {
@@ -51,10 +57,10 @@ void Timer0_10ms (void) {
     if (CENTI_SECOND_COUNT == 99) {
         CENTI_SECOND_COUNT = 0;
         DATE_TIME = IncreaseByASecond(DATE_TIME);
-        STATE_SECONDS++;
         STATE_SECONDS_REMAINING = STATES[PRESENT_STATE].PERIOD - STATE_SECONDS-1;
         if (STATE_SECONDS_REMAINING == 0)
             ACTION_NEW_STATE = SET;
+        STATE_SECONDS++;
     }
     if (CENTI_SECOND_COUNT == 90) {
         UINT8 ThisCycle = 0;
