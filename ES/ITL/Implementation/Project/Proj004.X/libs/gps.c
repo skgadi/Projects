@@ -37,10 +37,10 @@ void ReadGPSTime(char *Time) {
     return;
 }
 void ReadGPSDateTime(char *Date, char *Time) {
-    const char StartCode[7]="$GPRMC,";
+    const char StartCode[]="$GPRMC,";
     char Pos=0x00;
     char TempChar = 0x00;
-    int i=0;
+    UINT16 i=0;
     UINT8 Commas=0;
     do {
         if (EUSART1_DataReady){
@@ -67,7 +67,7 @@ void ReadGPSDateTime(char *Date, char *Time) {
         } else
             __delay_us(20);
         i++;
-    } while(i<1000);
+    } while(i<5000);
 }
 /*
 void ReadTimeFromBuffer (char *Output) {

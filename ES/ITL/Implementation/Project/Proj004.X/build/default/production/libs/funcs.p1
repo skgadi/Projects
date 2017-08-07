@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "66
 [u S1343 `S1344 1 ]
 [n S1343 _GSK_EVENT . ]
-"55 libs/projMain.h
+"56 libs/projMain.h
 [c E11246 0 1 2 .. ]
 [n E11246 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
 "78 libs/ProjectTypeDefs.h
@@ -87,10 +87,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S749 . . . ]
 "15299
 [v _LATCbits `VS749 ~T0 @X0 0 e@3973 ]
-"150 libs/funcs.c
+"157 libs/funcs.c
 [c E11238 0 1 .. ]
 [n E11238 _SWITCH OFF ON  ]
-"153
+"160
 [c E11242 0 1 .. ]
 [n E11242 _FLAG RESET SET  ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -10631,7 +10631,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 49: void LoadStatesFromEeprom (void);
 [; ;eeprom.h: 50: void LoadCyclesFromEeprom (void);
 [; ;eeprom.h: 51: void LoadAllFromEeprom (void);
-"42 libs/projMain.h
+"43 libs/projMain.h
 [v _NO_OF_DAYS_IN_A_MONTH `i ~T0 @X0 -> 0 `x s ]
 [i _NO_OF_DAYS_IN_A_MONTH
 :U ..
@@ -10649,35 +10649,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ..
 ]
-[; ;projMain.h: 42: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-[; ;projMain.h: 45: void Timer0_10ms (void);
-"48
+[; ;projMain.h: 43: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+[; ;projMain.h: 46: void Timer0_10ms (void);
+"49
 [v _TIME_ZONE `s ~T0 @X0 1 e ]
 [i _TIME_ZONE
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 48: INT16 TIME_ZONE = 0;
-"49
+[; ;projMain.h: 49: INT16 TIME_ZONE = 0;
+"50
 [v _CYCLE_DELAY `s ~T0 @X0 1 e ]
 [i _CYCLE_DELAY
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 49: INT16 CYCLE_DELAY = 0;
-"50
+[; ;projMain.h: 50: INT16 CYCLE_DELAY = 0;
+"51
 [v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
 [v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
-[; ;projMain.h: 50: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
-"51
+[; ;projMain.h: 51: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"52
 [v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
 [v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
-[; ;projMain.h: 51: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-"52
+[; ;projMain.h: 52: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"53
 [v _CENTURY `uc ~T0 @X0 1 e ]
 [i _CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 52: UINT8 CENTURY = 20;
-"53
+[; ;projMain.h: 53: UINT8 CENTURY = 20;
+"54
 [v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
@@ -10687,101 +10687,101 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
 [v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
-[; ;projMain.h: 53: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-"54
-[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 54: GSK_EVENT EVENTS[24];
+[; ;projMain.h: 54: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 "55
-[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 55: GSK_STATE STATES[160];
+[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 55: GSK_EVENT EVENTS[24];
 "56
+[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 56: GSK_STATE STATES[160];
+"57
 [v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 56: GSK_CYCLE CYCLES[17];
-"59
+[; ;projMain.h: 57: GSK_CYCLE CYCLES[17];
+"60
 [v _PRESENT_EVENT `c ~T0 @X0 1 e ]
 [i _PRESENT_EVENT
 -> -U -> 1 `i `c
 ]
-[; ;projMain.h: 59: INT8 PRESENT_EVENT=-1;
-"60
+[; ;projMain.h: 60: INT8 PRESENT_EVENT=-1;
+"61
 [v _NEXT_EVENT `c ~T0 @X0 1 e ]
 [i _NEXT_EVENT
 -> -U -> 1 `i `c
 ]
-[; ;projMain.h: 60: INT8 NEXT_EVENT=-1;
-"61
+[; ;projMain.h: 61: INT8 NEXT_EVENT=-1;
+"62
 [v _PRESENT_STATE `uc ~T0 @X0 1 e ]
 [i _PRESENT_STATE
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 61: UINT8 PRESENT_STATE = 0;
-"62
+[; ;projMain.h: 62: UINT8 PRESENT_STATE = 0;
+"63
 [v _NEXT_STATE `uc ~T0 @X0 1 e ]
 [i _NEXT_STATE
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 62: UINT8 NEXT_STATE = 0;
-"63
+[; ;projMain.h: 63: UINT8 NEXT_STATE = 0;
+"64
 [v _STATE_SECONDS `uc ~T0 @X0 1 e ]
 [i _STATE_SECONDS
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 63: UINT8 STATE_SECONDS = 0;
-"64
+[; ;projMain.h: 64: UINT8 STATE_SECONDS = 0;
+"65
 [v _STATE_SECONDS_REMAINING `uc ~T0 @X0 1 e ]
 [i _STATE_SECONDS_REMAINING
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 64: UINT8 STATE_SECONDS_REMAINING = 0;
-"65
+[; ;projMain.h: 65: UINT8 STATE_SECONDS_REMAINING = 0;
+"66
 [v _CENTI_SECOND_COUNT `uc ~T0 @X0 1 e ]
 [i _CENTI_SECOND_COUNT
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 65: UINT8 CENTI_SECOND_COUNT = 0;
-"66
+[; ;projMain.h: 66: UINT8 CENTI_SECOND_COUNT = 0;
+"67
 [v _BLINK_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _BLINK_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 66: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
-"67
+[; ;projMain.h: 67: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
+"68
 [v _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _NORMAL_AUDIO_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 67: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
-"68
+[; ;projMain.h: 68: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"69
 [v _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 68: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
-"69
-[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 69: GSK_DATE_TIME DATE_TIME;
+[; ;projMain.h: 69: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
 "70
-[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 70: GSK_DATE_TIME GPS_DATE_TIME;
+[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 70: GSK_DATE_TIME DATE_TIME;
 "71
+[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 71: GSK_DATE_TIME GPS_DATE_TIME;
+"72
 [v _NO_OF_TIMES_GPS_FAILED `uc ~T0 @X0 1 e ]
 [i _NO_OF_TIMES_GPS_FAILED
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 71: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
-"72
+[; ;projMain.h: 72: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
+"73
 [v _TIME_WHEN_GPS_IS_SWITCHED_ON `l ~T0 @X0 1 e ]
 [i _TIME_WHEN_GPS_IS_SWITCHED_ON
 -> -> 0 `i `l
 ]
-[; ;projMain.h: 72: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
-"73
+[; ;projMain.h: 73: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
+"74
 [v _TIME_AT_LAST_GPS_SYNC `l ~T0 @X0 1 e ]
 [i _TIME_AT_LAST_GPS_SYNC
 -> -> 0 `i `l
 ]
-[; ;projMain.h: 73: INT32 TIME_AT_LAST_GPS_SYNC = 0;
-"74
+[; ;projMain.h: 74: INT32 TIME_AT_LAST_GPS_SYNC = 0;
+"75
 [v _LIGHTS `*uc ~T0 @X0 -> 0 `x e ]
 [i _LIGHTS
 :U ..
@@ -10789,8 +10789,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> &U _LATB `*uc
 ..
 ]
-[; ;projMain.h: 74: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
+[; ;projMain.h: 75: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
 "76
+[v _SECONDS_TO_ADJUST `s ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST
+-> -> 0 `i `s
+]
+[; ;projMain.h: 76: INT16 SECONDS_TO_ADJUST = 0;
+"77
+[v _SECONDS_TO_ADJUST_PART `c ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST_PART
+-> -> 0 `i `c
+]
+[; ;projMain.h: 77: INT8 SECONDS_TO_ADJUST_PART = 0;
+"80
 [v _FLAGS_0 `S1320 ~T0 @X0 1 e ]
 [i _FLAGS_0
 :U ..
@@ -10799,8 +10811,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;projMain.h: 76: BYTE_BITS FLAGS_0 = 0;
-"82
+[; ;projMain.h: 80: BYTE_BITS FLAGS_0 = 0;
+"86
 [v _FLAGS_1 `S1320 ~T0 @X0 1 e ]
 [i _FLAGS_1
 :U ..
@@ -10809,8 +10821,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
-"88
+[; ;projMain.h: 86: BYTE_BITS FLAGS_1 = 0;
+"94
 [v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
 [i _EE_Settings
 :U ..
@@ -10838,10 +10850,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 5 `i `c
 -> -> 197 `i `c
--> -> 128 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 213 `i `c
+-> -> 85 `i `c
+-> -> 85 `i `c
+-> -> 85 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -10858,11 +10870,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 32 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 42 `i `c
+-> -> 170 `i `c
+-> -> 170 `i `c
+-> -> 170 `i `c
+-> -> 128 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -10879,26 +10891,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 2 `i `c
 -> -> 8 `i `c
+-> -> 10 `i `c
+-> -> 12 `i `c
+-> -> 14 `i `c
+-> -> 16 `i `c
+-> -> 18 `i `c
+-> -> 20 `i `c
+-> -> 22 `i `c
+-> -> 24 `i `c
+-> -> 26 `i `c
+-> -> 28 `i `c
+-> -> 30 `i `c
+-> -> 32 `i `c
+-> -> 34 `i `c
+-> -> 36 `i `c
+-> -> 38 `i `c
+-> -> 32 `i `c
+-> -> 12 `i `c
+-> -> 54 `i `c
+-> -> 14 `i `c
+-> -> 16 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 15 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 14 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 13 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 12 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 11 `i `c
+-> -> 127 `i `c
+-> -> 0 `i `c
+-> -> 16 `i `c
+-> -> 20 `i `c
+-> -> 16 `i `c
+-> -> 10 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 9 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
 -> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 160 `i `c
+-> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 7 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 6 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 5 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 4 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 3 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 2 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
@@ -10910,133 +11006,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 0 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 16 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 15 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 14 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 13 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 12 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 11 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 10 `i `c
 -> -> 127 `i `c
 -> -> 10 `i `c
 -> -> 36 `i `c
@@ -11083,164 +11095,164 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 20 `i `c
 -> -> 32 `i `c
+-> -> 2 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 8 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -11840,7 +11852,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 ..
 ]
-[; ;projMain.h: 88: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0
+[; ;projMain.h: 94: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0xD5, 0x55, 0x55, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x2A, 0xAA, 0
 [; ;funcs.h: 17: GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
 [; ;funcs.h: 18: GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
 [; ;funcs.h: 19: GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
@@ -11858,6 +11870,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;funcs.h: 31: void StopGPS (void);
 [; ;funcs.h: 32: void TestGPSStartCondition (void);
 [; ;funcs.h: 33: INT8 GetEventNumber(void);
+[; ;funcs.h: 34: UINT8 GetThisCycle (void);
 "3 libs/funcs.c
 [v _IncreaseByASecond `(S1339 ~T0 @X0 1 ef1`S1339 ]
 {
@@ -12273,24 +12286,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;funcs.c: 115: BOOL ReadGPS_DATE_TIME (void) {
 [e :U _ReadGPS_DATE_TIME ]
 [f ]
-[v F11470 `uc ~T0 @X0 -> 0 `x s ]
-[i F11470
-:U ..
--> 45 `c
--> 45 `c
--> 45 `c
--> 45 `c
--> 45 `c
--> 45 `c
--> 0 `c
-..
-]
 "116
-[v _Date `uc ~T0 @X0 7  a ]
-[; ;funcs.c: 116: char Date[] = "------";
-[e = _Date F11470 ]
-[v F11472 `uc ~T0 @X0 -> 0 `x s ]
-[i F11472
+[v _IsValidGPS `E11037 ~T0 @X0 1 a ]
+[; ;funcs.c: 116: BOOL IsValidGPS = 0;
+[e = _IsValidGPS -> -> 0 `i `E11037 ]
+[v F11475 `uc ~T0 @X0 -> 0 `x s ]
+[i F11475
 :U ..
 -> 45 `c
 -> 45 `c
@@ -12302,349 +12303,425 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 "117
-[v _Time `uc ~T0 @X0 7  a ]
-[; ;funcs.c: 117: char Time[] = "------";
-[e = _Time F11472 ]
-[; ;funcs.c: 118: EUSART1_Initialize();
+[v _Date `uc ~T0 @X0 7  a ]
+[; ;funcs.c: 117: char Date[] = "------";
+[e = _Date F11475 ]
+[v F11477 `uc ~T0 @X0 -> 0 `x s ]
+[i F11477
+:U ..
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 0 `c
+..
+]
 "118
-[e ( _EUSART1_Initialize ..  ]
-[; ;funcs.c: 119: ReadGPSDateTime(Date, Time);
+[v _Time `uc ~T0 @X0 7  a ]
+[; ;funcs.c: 118: char Time[] = "------";
+[e = _Time F11477 ]
+[; ;funcs.c: 119: EUSART1_Initialize();
 "119
-[e ( _ReadGPSDateTime (2 , &U _Date &U _Time ]
-[; ;funcs.c: 120: if (ValidateDateTime(Date, Time)) {
+[e ( _EUSART1_Initialize ..  ]
+[; ;funcs.c: 120: for (UINT8 TempItr=0; TempItr<5; TempItr++ ) {
 "120
-[e $ ! != -> ( _ValidateDateTime (2 , &U _Date &U _Time `i -> -> -> 0 `i `E11037 `i 1383  ]
 {
-[; ;funcs.c: 121: GPS_DATE_TIME.DATE.Day = (Date[0]-0x30)*10 + (Date[1]-0x30);
+[v _TempItr `uc ~T0 @X0 1 a ]
+[e = _TempItr -> -> 0 `i `uc ]
+[e $ < -> _TempItr `i -> 5 `i 1383  ]
+[e $U 1384  ]
+[e :U 1383 ]
+{
+[; ;funcs.c: 121: ReadGPSDateTime(Date, Time);
 "121
-[e = . . . . _GPS_DATE_TIME 0 1 0 0 -> + * - -> *U + &U _Date * -> -> -> 0 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 1 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i `ui ]
-[; ;funcs.c: 122: GPS_DATE_TIME.DATE.Month = (Date[2]-0x30)*10 + (Date[3]-0x30);
+[e ( _ReadGPSDateTime (2 , &U _Date &U _Time ]
+[; ;funcs.c: 122: if (ValidateDateTime(Date, Time)) {
 "122
-[e = . . . . _GPS_DATE_TIME 0 1 0 1 -> + * - -> *U + &U _Date * -> -> -> 2 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 3 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i `ui ]
-[; ;funcs.c: 123: GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
+[e $ ! != -> ( _ValidateDateTime (2 , &U _Date &U _Time `i -> -> -> 0 `i `E11037 `i 1386  ]
+{
+[; ;funcs.c: 123: IsValidGPS = 1;
 "123
-[e = . . . . _GPS_DATE_TIME 0 2 1 1 -> >> -> 64 `i ( _GetDay (1 &U _Date `uc ]
-[; ;funcs.c: 124: GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
+[e = _IsValidGPS -> -> 1 `i `E11037 ]
+[; ;funcs.c: 124: break;
 "124
-[e = . . _GPS_DATE_TIME 0 3 -> + + * - -> *U + &U _Date * -> -> -> 4 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 5 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i * -> _CENTURY `i -> 100 `i `us ]
-[; ;funcs.c: 125: GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
+[e $U 1384  ]
 "125
-[e = . . _GPS_DATE_TIME 0 0 ( _TimeTextToSecond (1 &U _Time ]
-[; ;funcs.c: 126: GPS_DATE_TIME.SECOND += TIME_ZONE;
+}
+[e :U 1386 ]
 "126
-[e =+ . . _GPS_DATE_TIME 0 0 -> _TIME_ZONE `l ]
-[; ;funcs.c: 127: if (GPS_DATE_TIME.SECOND < 0) {
-"127
-[e $ ! < . . _GPS_DATE_TIME 0 0 -> -> 0 `i `l 1384  ]
-{
-[; ;funcs.c: 128: GPS_DATE_TIME.SECOND += 86400;
-"128
-[e =+ . . _GPS_DATE_TIME 0 0 -> 86400 `l ]
-[; ;funcs.c: 129: GPS_DATE_TIME = DecreaseByADay(GPS_DATE_TIME);
-"129
-[e = _GPS_DATE_TIME ( _DecreaseByADay (1 _GPS_DATE_TIME ]
-"130
 }
+"120
+[e ++ _TempItr -> -> 1 `i `uc ]
+[e $ < -> _TempItr `i -> 5 `i 1383  ]
 [e :U 1384 ]
-[; ;funcs.c: 130: }
-[; ;funcs.c: 131: if (GPS_DATE_TIME.SECOND > 86400) {
-"131
-[e $ ! > . . _GPS_DATE_TIME 0 0 -> 86400 `l 1385  ]
-{
-[; ;funcs.c: 132: GPS_DATE_TIME.SECOND -= 86400;
-"132
-[e =- . . _GPS_DATE_TIME 0 0 -> 86400 `l ]
-[; ;funcs.c: 133: GPS_DATE_TIME = IncreaseByADay(GPS_DATE_TIME);
-"133
-[e = _GPS_DATE_TIME ( _IncreaseByADay (1 _GPS_DATE_TIME ]
-"134
+"126
 }
-[e :U 1385 ]
-[; ;funcs.c: 134: }
-[; ;funcs.c: 135: GPS_DATE_TIME = AdjustDayLightSaving(GPS_DATE_TIME);
+[; ;funcs.c: 125: }
+[; ;funcs.c: 126: }
+[; ;funcs.c: 127: if (IsValidGPS) {
+"127
+[e $ ! != -> _IsValidGPS `i -> -> -> 0 `i `E11037 `i 1387  ]
+{
+[; ;funcs.c: 128: GPS_DATE_TIME.DATE.Day = (Date[0]-0x30)*10 + (Date[1]-0x30);
+"128
+[e = . . . . _GPS_DATE_TIME 0 1 0 0 -> + * - -> *U + &U _Date * -> -> -> 0 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 1 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i `ui ]
+[; ;funcs.c: 129: GPS_DATE_TIME.DATE.Month = (Date[2]-0x30)*10 + (Date[3]-0x30);
+"129
+[e = . . . . _GPS_DATE_TIME 0 1 0 1 -> + * - -> *U + &U _Date * -> -> -> 2 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 3 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i `ui ]
+[; ;funcs.c: 130: GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
+"130
+[e = . . . . _GPS_DATE_TIME 0 2 1 1 -> >> -> 64 `i ( _GetDay (1 &U _Date `uc ]
+[; ;funcs.c: 131: GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
+"131
+[e = . . _GPS_DATE_TIME 0 3 -> + + * - -> *U + &U _Date * -> -> -> 4 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _Date * -> -> -> 5 `i `ui `ux -> -> # *U &U _Date `ui `ux `i -> 48 `i * -> _CENTURY `i -> 100 `i `us ]
+[; ;funcs.c: 132: GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
+"132
+[e = . . _GPS_DATE_TIME 0 0 ( _TimeTextToSecond (1 &U _Time ]
+[; ;funcs.c: 133: GPS_DATE_TIME.SECOND += TIME_ZONE;
+"133
+[e =+ . . _GPS_DATE_TIME 0 0 -> _TIME_ZONE `l ]
+[; ;funcs.c: 134: if (GPS_DATE_TIME.SECOND < 0) {
+"134
+[e $ ! < . . _GPS_DATE_TIME 0 0 -> -> 0 `i `l 1388  ]
+{
+[; ;funcs.c: 135: GPS_DATE_TIME.SECOND += 86400;
 "135
-[e = _GPS_DATE_TIME ( _AdjustDayLightSaving (1 _GPS_DATE_TIME ]
-[; ;funcs.c: 136: return 1;
+[e =+ . . _GPS_DATE_TIME 0 0 -> 86400 `l ]
+[; ;funcs.c: 136: GPS_DATE_TIME = DecreaseByADay(GPS_DATE_TIME);
 "136
-[e ) -> -> 1 `i `E11037 ]
-[e $UE 1382  ]
+[e = _GPS_DATE_TIME ( _DecreaseByADay (1 _GPS_DATE_TIME ]
 "137
 }
-[; ;funcs.c: 137: } else
-[e $U 1386  ]
-[e :U 1383 ]
-[; ;funcs.c: 138: return 0;
+[e :U 1388 ]
+[; ;funcs.c: 137: }
+[; ;funcs.c: 138: if (GPS_DATE_TIME.SECOND > 86400) {
 "138
+[e $ ! > . . _GPS_DATE_TIME 0 0 -> 86400 `l 1389  ]
+{
+[; ;funcs.c: 139: GPS_DATE_TIME.SECOND -= 86400;
+"139
+[e =- . . _GPS_DATE_TIME 0 0 -> 86400 `l ]
+[; ;funcs.c: 140: GPS_DATE_TIME = IncreaseByADay(GPS_DATE_TIME);
+"140
+[e = _GPS_DATE_TIME ( _IncreaseByADay (1 _GPS_DATE_TIME ]
+"141
+}
+[e :U 1389 ]
+[; ;funcs.c: 141: }
+[; ;funcs.c: 142: GPS_DATE_TIME = AdjustDayLightSaving(GPS_DATE_TIME);
+"142
+[e = _GPS_DATE_TIME ( _AdjustDayLightSaving (1 _GPS_DATE_TIME ]
+[; ;funcs.c: 143: return 1;
+"143
+[e ) -> -> 1 `i `E11037 ]
+[e $UE 1382  ]
+"144
+}
+[; ;funcs.c: 144: } else
+[e $U 1390  ]
+[e :U 1387 ]
+[; ;funcs.c: 145: return 0;
+"145
 [e ) -> -> 0 `i `E11037 ]
 [e $UE 1382  ]
-[e :U 1386 ]
-[; ;funcs.c: 139: }
-"139
+[e :U 1390 ]
+[; ;funcs.c: 146: }
+"146
 [e :UE 1382 ]
 }
-"141
+"148
 [v _TimeTextToSecond `(l ~T0 @X0 1 ef1`*uc ]
 {
-[; ;funcs.c: 141: INT32 TimeTextToSecond (char *Time) {
+[; ;funcs.c: 148: INT32 TimeTextToSecond (char *Time) {
 [e :U _TimeTextToSecond ]
 [v _Time `*uc ~T0 @X0 1 r1 ]
 [f ]
-"142
-[v _Second `l ~T0 @X0 1 a ]
-[; ;funcs.c: 142: INT32 Second;
-[; ;funcs.c: 143: Second = (INT32) 3600*((Time[0]-0x30)*10 + (Time[1]-0x30))
-[; ;funcs.c: 144: + (INT32) 60*((Time[2]-0x30)*10 + (Time[3]-0x30))
-[; ;funcs.c: 145: + (INT32) ((Time[4]-0x30)*10 + (Time[5]-0x30));
-"145
-[e = _Second + + * -> -> 3600 `i `l -> + * - -> *U + _Time * -> -> 0 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 1 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l * -> -> 60 `i `l -> + * - -> *U + _Time * -> -> 2 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 3 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l -> + * - -> *U + _Time * -> -> 4 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 5 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l ]
-[; ;funcs.c: 146: return Second;
-"146
-[e ) _Second ]
-[e $UE 1387  ]
-[; ;funcs.c: 147: }
-"147
-[e :UE 1387 ]
-}
 "149
+[v _Second `l ~T0 @X0 1 a ]
+[; ;funcs.c: 149: INT32 Second;
+[; ;funcs.c: 150: Second = (INT32) 3600*((Time[0]-0x30)*10 + (Time[1]-0x30))
+[; ;funcs.c: 151: + (INT32) 60*((Time[2]-0x30)*10 + (Time[3]-0x30))
+[; ;funcs.c: 152: + (INT32) ((Time[4]-0x30)*10 + (Time[5]-0x30));
+"152
+[e = _Second + + * -> -> 3600 `i `l -> + * - -> *U + _Time * -> -> 0 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 1 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l * -> -> 60 `i `l -> + * - -> *U + _Time * -> -> 2 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 3 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l -> + * - -> *U + _Time * -> -> 4 `i `x -> -> # *U _Time `i `x `i -> 48 `i -> 10 `i - -> *U + _Time * -> -> 5 `i `x -> -> # *U _Time `i `x `i -> 48 `i `l ]
+[; ;funcs.c: 153: return Second;
+"153
+[e ) _Second ]
+[e $UE 1391  ]
+[; ;funcs.c: 154: }
+"154
+[e :UE 1391 ]
+}
+"156
 [v _SwitchOnGPS `(v ~T0 @X0 1 ef ]
 {
-[; ;funcs.c: 149: void SwitchOnGPS (void) {
+[; ;funcs.c: 156: void SwitchOnGPS (void) {
 [e :U _SwitchOnGPS ]
 [f ]
-[; ;funcs.c: 150: LATCbits.LC1 = ON;
-"150
-[e = . . _LATCbits 1 1 -> . `E11238 1 `uc ]
-[; ;funcs.c: 151: NO_OF_TIMES_GPS_FAILED = 0;
-"151
-[e = _NO_OF_TIMES_GPS_FAILED -> -> 0 `i `uc ]
-[; ;funcs.c: 152: TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND;
-"152
-[e = _TIME_WHEN_GPS_IS_SWITCHED_ON . . _DATE_TIME 0 0 ]
-[; ;funcs.c: 153: FLAGS_0.bits.b1 = SET;
-"153
-[e = . . _FLAGS_0 1 1 -> . `E11242 1 `uc ]
-[; ;funcs.c: 154: FLAGS_0.bits.b0 = RESET;
-"154
-[e = . . _FLAGS_0 1 0 -> . `E11242 0 `uc ]
-[; ;funcs.c: 155: }
-"155
-[e :UE 1388 ]
-}
+[; ;funcs.c: 157: LATCbits.LC1 = ON;
 "157
-[v _VerifyForGPSOnTIme `(v ~T0 @X0 1 ef ]
-{
-[; ;funcs.c: 157: void VerifyForGPSOnTIme (void) {
-[e :U _VerifyForGPSOnTIme ]
-[f ]
+[e = . . _LATCbits 1 1 -> . `E11238 1 `uc ]
+[; ;funcs.c: 158: NO_OF_TIMES_GPS_FAILED = 0;
 "158
-[v _TimeDiff `l ~T0 @X0 1 a ]
-[; ;funcs.c: 158: INT32 TimeDiff = DATE_TIME.SECOND - TIME_WHEN_GPS_IS_SWITCHED_ON;
-[e = _TimeDiff - . . _DATE_TIME 0 0 _TIME_WHEN_GPS_IS_SWITCHED_ON ]
-[; ;funcs.c: 159: if (TimeDiff<0)
+[e = _NO_OF_TIMES_GPS_FAILED -> -> 0 `i `uc ]
+[; ;funcs.c: 159: TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND;
 "159
-[e $ ! < _TimeDiff -> -> 0 `i `l 1390  ]
-[; ;funcs.c: 160: TimeDiff += 86400;
+[e = _TIME_WHEN_GPS_IS_SWITCHED_ON . . _DATE_TIME 0 0 ]
+[; ;funcs.c: 160: FLAGS_0.bits.b1 = SET;
 "160
-[e =+ _TimeDiff -> 86400 `l ]
-[e :U 1390 ]
-[; ;funcs.c: 161: if (TimeDiff >= (20*60)) {
-"161
-[e $ ! >= _TimeDiff -> * -> 20 `i -> 60 `i `l 1391  ]
-{
-[; ;funcs.c: 162: FLAGS_0.bits.b2 = SET;
-"162
-[e = . . _FLAGS_0 1 2 -> . `E11242 1 `uc ]
-[; ;funcs.c: 163: FLAGS_0.bits.b1 = RESET;
-"163
-[e = . . _FLAGS_0 1 1 -> . `E11242 0 `uc ]
-"164
-}
-[e :U 1391 ]
-[; ;funcs.c: 164: }
-[; ;funcs.c: 165: }
-"165
-[e :UE 1389 ]
-}
-"167
-[v _ReadGPS `(v ~T0 @X0 1 ef ]
-{
-[; ;funcs.c: 167: void ReadGPS (void) {
-[e :U _ReadGPS ]
-[f ]
-[; ;funcs.c: 168: if (ReadGPS_DATE_TIME()) {
-"168
-[e $ ! != -> ( _ReadGPS_DATE_TIME ..  `i -> -> -> 0 `i `E11037 `i 1393  ]
-{
-[; ;funcs.c: 169: DATE_TIME = GPS_DATE_TIME;
-"169
-[e = _DATE_TIME _GPS_DATE_TIME ]
-[; ;funcs.c: 170: TIME_AT_LAST_GPS_SYNC = DATE_TIME.SECOND;
-"170
-[e = _TIME_AT_LAST_GPS_SYNC . . _DATE_TIME 0 0 ]
-[; ;funcs.c: 171: FLAGS_0.bits.b3 = SET;
-"171
-[e = . . _FLAGS_0 1 3 -> . `E11242 1 `uc ]
-"172
-}
-[; ;funcs.c: 172: } else {
-[e $U 1394  ]
-[e :U 1393 ]
-{
-[; ;funcs.c: 173: NO_OF_TIMES_GPS_FAILED++;
-"173
-[e ++ _NO_OF_TIMES_GPS_FAILED -> -> 1 `i `uc ]
-[; ;funcs.c: 174: if (NO_OF_TIMES_GPS_FAILED>4) {
-"174
-[e $ ! > -> _NO_OF_TIMES_GPS_FAILED `i -> 4 `i 1395  ]
-{
-[; ;funcs.c: 175: FLAGS_0.bits.b3 = SET;
-"175
-[e = . . _FLAGS_0 1 3 -> . `E11242 1 `uc ]
-"176
-}
-[; ;funcs.c: 176: } else {
-[e $U 1396  ]
-[e :U 1395 ]
-{
-[; ;funcs.c: 177: TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND - (2*60);
-"177
-[e = _TIME_WHEN_GPS_IS_SWITCHED_ON - . . _DATE_TIME 0 0 -> * -> 2 `i -> 60 `i `l ]
-[; ;funcs.c: 178: if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
-"178
-[e $ ! < _TIME_WHEN_GPS_IS_SWITCHED_ON -> -> 0 `i `l 1397  ]
-[; ;funcs.c: 179: TIME_WHEN_GPS_IS_SWITCHED_ON += 86400;
-"179
-[e =+ _TIME_WHEN_GPS_IS_SWITCHED_ON -> 86400 `l ]
-[e :U 1397 ]
-[; ;funcs.c: 180: FLAGS_0.bits.b1 = SET;
-"180
 [e = . . _FLAGS_0 1 1 -> . `E11242 1 `uc ]
-"181
-}
-[e :U 1396 ]
-"182
-}
-[e :U 1394 ]
-[; ;funcs.c: 181: }
-[; ;funcs.c: 182: }
-[; ;funcs.c: 183: FLAGS_0.bits.b2 = RESET;
-"183
-[e = . . _FLAGS_0 1 2 -> . `E11242 0 `uc ]
-[; ;funcs.c: 184: }
-"184
+[; ;funcs.c: 161: FLAGS_0.bits.b0 = RESET;
+"161
+[e = . . _FLAGS_0 1 0 -> . `E11242 0 `uc ]
+[; ;funcs.c: 162: }
+"162
 [e :UE 1392 ]
 }
+"164
+[v _VerifyForGPSOnTIme `(v ~T0 @X0 1 ef ]
+{
+[; ;funcs.c: 164: void VerifyForGPSOnTIme (void) {
+[e :U _VerifyForGPSOnTIme ]
+[f ]
+"165
+[v _TimeDiff `l ~T0 @X0 1 a ]
+[; ;funcs.c: 165: INT32 TimeDiff = DATE_TIME.SECOND - TIME_WHEN_GPS_IS_SWITCHED_ON;
+[e = _TimeDiff - . . _DATE_TIME 0 0 _TIME_WHEN_GPS_IS_SWITCHED_ON ]
+[; ;funcs.c: 166: if (TimeDiff<0)
+"166
+[e $ ! < _TimeDiff -> -> 0 `i `l 1394  ]
+[; ;funcs.c: 167: TimeDiff += 86400;
+"167
+[e =+ _TimeDiff -> 86400 `l ]
+[e :U 1394 ]
+[; ;funcs.c: 168: if (TimeDiff >= (1*60)) {
+"168
+[e $ ! >= _TimeDiff -> * -> 1 `i -> 60 `i `l 1395  ]
+{
+[; ;funcs.c: 169: FLAGS_0.bits.b2 = SET;
+"169
+[e = . . _FLAGS_0 1 2 -> . `E11242 1 `uc ]
+[; ;funcs.c: 170: FLAGS_0.bits.b1 = RESET;
+"170
+[e = . . _FLAGS_0 1 1 -> . `E11242 0 `uc ]
+"171
+}
+[e :U 1395 ]
+[; ;funcs.c: 171: }
+[; ;funcs.c: 172: }
+"172
+[e :UE 1393 ]
+}
+"174
+[v _ReadGPS `(v ~T0 @X0 1 ef ]
+{
+[; ;funcs.c: 174: void ReadGPS (void) {
+[e :U _ReadGPS ]
+[f ]
+[; ;funcs.c: 175: if (ReadGPS_DATE_TIME()) {
+"175
+[e $ ! != -> ( _ReadGPS_DATE_TIME ..  `i -> -> -> 0 `i `E11037 `i 1397  ]
+{
+[; ;funcs.c: 181: DATE_TIME = GPS_DATE_TIME;
+"181
+[e = _DATE_TIME _GPS_DATE_TIME ]
+[; ;funcs.c: 182: TIME_AT_LAST_GPS_SYNC = DATE_TIME.SECOND;
+"182
+[e = _TIME_AT_LAST_GPS_SYNC . . _DATE_TIME 0 0 ]
+[; ;funcs.c: 183: FLAGS_0.bits.b3 = SET;
+"183
+[e = . . _FLAGS_0 1 3 -> . `E11242 1 `uc ]
+"184
+}
+[; ;funcs.c: 184: } else {
+[e $U 1398  ]
+[e :U 1397 ]
+{
+[; ;funcs.c: 185: NO_OF_TIMES_GPS_FAILED++;
+"185
+[e ++ _NO_OF_TIMES_GPS_FAILED -> -> 1 `i `uc ]
+[; ;funcs.c: 186: if (NO_OF_TIMES_GPS_FAILED > 4) {
 "186
+[e $ ! > -> _NO_OF_TIMES_GPS_FAILED `i -> 4 `i 1399  ]
+{
+[; ;funcs.c: 187: FLAGS_0.bits.b3 = SET;
+"187
+[e = . . _FLAGS_0 1 3 -> . `E11242 1 `uc ]
+"188
+}
+[; ;funcs.c: 188: } else {
+[e $U 1400  ]
+[e :U 1399 ]
+{
+[; ;funcs.c: 189: TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND -
+[; ;funcs.c: 190: ((1*60) - (1*60));
+"190
+[e = _TIME_WHEN_GPS_IS_SWITCHED_ON - . . _DATE_TIME 0 0 -> - * -> 1 `i -> 60 `i * -> 1 `i -> 60 `i `l ]
+[; ;funcs.c: 191: if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
+"191
+[e $ ! < _TIME_WHEN_GPS_IS_SWITCHED_ON -> -> 0 `i `l 1401  ]
+[; ;funcs.c: 192: TIME_WHEN_GPS_IS_SWITCHED_ON += 86400;
+"192
+[e =+ _TIME_WHEN_GPS_IS_SWITCHED_ON -> 86400 `l ]
+[e :U 1401 ]
+[; ;funcs.c: 193: FLAGS_0.bits.b1 = SET;
+"193
+[e = . . _FLAGS_0 1 1 -> . `E11242 1 `uc ]
+"194
+}
+[e :U 1400 ]
+"195
+}
+[e :U 1398 ]
+[; ;funcs.c: 194: }
+[; ;funcs.c: 195: }
+[; ;funcs.c: 196: FLAGS_0.bits.b2 = RESET;
+"196
+[e = . . _FLAGS_0 1 2 -> . `E11242 0 `uc ]
+[; ;funcs.c: 197: }
+"197
+[e :UE 1396 ]
+}
+"199
 [v _StopGPS `(v ~T0 @X0 1 ef ]
 {
-[; ;funcs.c: 186: void StopGPS (void) {
+[; ;funcs.c: 199: void StopGPS (void) {
 [e :U _StopGPS ]
 [f ]
-[; ;funcs.c: 187: LATCbits.LC1 = OFF;
-"187
+[; ;funcs.c: 200: LATCbits.LC1 = OFF;
+"200
 [e = . . _LATCbits 1 1 -> . `E11238 0 `uc ]
-[; ;funcs.c: 188: FLAGS_0.bits.b3 = RESET;
-"188
+[; ;funcs.c: 201: FLAGS_0.bits.b3 = RESET;
+"201
 [e = . . _FLAGS_0 1 3 -> . `E11242 0 `uc ]
-[; ;funcs.c: 189: }
-"189
-[e :UE 1398 ]
+[; ;funcs.c: 202: }
+"202
+[e :UE 1402 ]
 }
-"191
+"204
 [v _TestGPSStartCondition `(v ~T0 @X0 1 ef ]
 {
-[; ;funcs.c: 191: void TestGPSStartCondition (void) {
+[; ;funcs.c: 204: void TestGPSStartCondition (void) {
 [e :U _TestGPSStartCondition ]
 [f ]
-[; ;funcs.c: 192: if ((DATE_TIME.SECOND == GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME)
-[; ;funcs.c: 193: || (TIME_AT_LAST_GPS_SYNC >= GPS_SYNC_EVERY_x_SECONDS))
-"193
-[e $ ! || == . . _DATE_TIME 0 0 _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME >= _TIME_AT_LAST_GPS_SYNC _GPS_SYNC_EVERY_x_SECONDS 1400  ]
-[; ;funcs.c: 194: FLAGS_0.bits.b0 = SET;
-"194
+[; ;funcs.c: 205: if ((DATE_TIME.SECOND == GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME)
+[; ;funcs.c: 206: || (TIME_AT_LAST_GPS_SYNC >= GPS_SYNC_EVERY_x_SECONDS))
+"206
+[e $ ! || == . . _DATE_TIME 0 0 _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME >= _TIME_AT_LAST_GPS_SYNC _GPS_SYNC_EVERY_x_SECONDS 1404  ]
+[; ;funcs.c: 207: FLAGS_0.bits.b0 = SET;
+"207
 [e = . . _FLAGS_0 1 0 -> . `E11242 1 `uc ]
-[e :U 1400 ]
-[; ;funcs.c: 195: }
-"195
-[e :UE 1399 ]
+[e :U 1404 ]
+[; ;funcs.c: 208: }
+"208
+[e :UE 1403 ]
 }
-"197
+"210
 [v _GetEventNumber `(c ~T0 @X0 1 ef ]
 {
-[; ;funcs.c: 197: INT8 GetEventNumber(void) {
+[; ;funcs.c: 210: INT8 GetEventNumber(void) {
 [e :U _GetEventNumber ]
 [f ]
-[; ;funcs.c: 198: for (UINT i=0; i<24; i++) {
-"198
+[; ;funcs.c: 211: for (UINT i=0; i<24; i++) {
+"211
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 24 `i `ui 1402  ]
-[e $U 1403  ]
-[e :U 1402 ]
-{
-[; ;funcs.c: 199: if (DATE_TIME.DAY.Val & EVENTS[i].SELECTED_WEEKS.Val) {
-"199
-[e $ ! != & -> . . . . _DATE_TIME 0 2 1 1 `i -> . . . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 3 1 1 `i -> 0 `i 1405  ]
-{
-[; ;funcs.c: 200: if (EVENTS[i].START_TIME < EVENTS[i].END_TIME) {
-"200
-[e $ ! < . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1406  ]
-{
-[; ;funcs.c: 201: if ((DATE_TIME.SECOND > EVENTS[i].START_TIME)
-[; ;funcs.c: 202: && (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
-"202
-[e $ ! && > . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 < . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1407  ]
-{
-[; ;funcs.c: 203: return i;
-"203
-[e ) -> _i `c ]
-[e $UE 1401  ]
-"204
-}
-[e :U 1407 ]
-"205
-}
-[; ;funcs.c: 204: }
-[; ;funcs.c: 205: } else {
-[e $U 1408  ]
+[e $ < _i -> -> 24 `i `ui 1406  ]
+[e $U 1407  ]
 [e :U 1406 ]
 {
-[; ;funcs.c: 206: if ((DATE_TIME.SECOND > EVENTS[i].START_TIME)
-[; ;funcs.c: 207: || (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
-"207
-[e $ ! || > . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 < . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1409  ]
+[; ;funcs.c: 212: if ((EVENTS[i].START_TIME>0) &&
+[; ;funcs.c: 213: (DATE_TIME.DAY.Val & EVENTS[i].SELECTED_WEEKS.Val & 0x7F)) {
+"213
+[e $ ! && > . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 -> -> 0 `i `l != & & -> . . . . _DATE_TIME 0 2 1 1 `i -> . . . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 3 1 1 `i -> 127 `i -> 0 `i 1409  ]
 {
-[; ;funcs.c: 208: return i;
-"208
+[; ;funcs.c: 214: if (EVENTS[i].START_TIME < EVENTS[i].END_TIME) {
+"214
+[e $ ! < . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1410  ]
+{
+[; ;funcs.c: 215: if ((DATE_TIME.SECOND > EVENTS[i].START_TIME)
+[; ;funcs.c: 216: && (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
+"216
+[e $ ! && > . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 < . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1411  ]
+{
+[; ;funcs.c: 217: return i;
+"217
 [e ) -> _i `c ]
-[e $UE 1401  ]
-"209
+[e $UE 1405  ]
+"218
+}
+[e :U 1411 ]
+"219
+}
+[; ;funcs.c: 218: }
+[; ;funcs.c: 219: } else {
+[e $U 1412  ]
+[e :U 1410 ]
+{
+[; ;funcs.c: 220: if ((DATE_TIME.SECOND > EVENTS[i].START_TIME)
+[; ;funcs.c: 221: || (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
+"221
+[e $ ! || > . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 0 < . . _DATE_TIME 0 0 . . *U + &U _EVENTS * -> _i `ux -> -> # *U &U _EVENTS `ui `ux 0 1 1413  ]
+{
+[; ;funcs.c: 222: return i;
+"222
+[e ) -> _i `c ]
+[e $UE 1405  ]
+"223
+}
+[e :U 1413 ]
+"224
+}
+[e :U 1412 ]
+"225
 }
 [e :U 1409 ]
-"210
+"226
 }
-[e :U 1408 ]
 "211
-}
-[e :U 1405 ]
-"212
-}
-"198
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 24 `i `ui 1402  ]
-[e :U 1403 ]
-"212
+[e $ < _i -> -> 24 `i `ui 1406  ]
+[e :U 1407 ]
+"226
 }
-[; ;funcs.c: 209: }
-[; ;funcs.c: 210: }
-[; ;funcs.c: 211: }
-[; ;funcs.c: 212: }
-[; ;funcs.c: 213: return -1;
-"213
+[; ;funcs.c: 223: }
+[; ;funcs.c: 224: }
+[; ;funcs.c: 225: }
+[; ;funcs.c: 226: }
+[; ;funcs.c: 227: return -1;
+"227
 [e ) -> -U -> 1 `i `c ]
-[e $UE 1401  ]
-[; ;funcs.c: 214: }
-"214
-[e :UE 1401 ]
+[e $UE 1405  ]
+[; ;funcs.c: 228: }
+"228
+[e :UE 1405 ]
+}
+"230
+[v _GetThisCycle `(uc ~T0 @X0 1 ef ]
+{
+[; ;funcs.c: 230: UINT8 GetThisCycle (void) {
+[e :U _GetThisCycle ]
+[f ]
+[; ;funcs.c: 231: if (PRESENT_EVENT <0)
+"231
+[e $ ! < -> _PRESENT_EVENT `i -> 0 `i 1415  ]
+[; ;funcs.c: 232: return 0;
+"232
+[e ) -> -> 0 `i `uc ]
+[e $UE 1414  ]
+[e $U 1416  ]
+"233
+[e :U 1415 ]
+[; ;funcs.c: 233: else
+[; ;funcs.c: 234: return EVENTS[PRESENT_EVENT].CYCLE;
+"234
+[e ) . . *U + &U _EVENTS * -> -> _PRESENT_EVENT `uc `ux -> -> # *U &U _EVENTS `ui `ux 0 2 ]
+[e $UE 1414  ]
+[e :U 1416 ]
+[; ;funcs.c: 235: }
+"235
+[e :UE 1414 ]
 }

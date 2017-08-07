@@ -113,11 +113,18 @@ GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt) {
     return dt;
 }
 BOOL ReadGPS_DATE_TIME (void) {
+    BOOL IsValidGPS = false;
     char Date[] = "------";
     char Time[] = "------";
     EUSART1_Initialize();
-    ReadGPSDateTime(Date, Time);
-    if (ValidateDateTime(Date, Time)) {
+    for (UINT8 TempItr=0; TempItr<5; TempItr++ ) {
+        ReadGPSDateTime(Date, Time);
+        if (ValidateDateTime(Date, Time)) {
+            IsValidGPS = true;
+            break;
+        }
+    }
+    if (IsValidGPS) {
         GPS_DATE_TIME.DATE.Day = (Date[0]-0x30)*10 + (Date[1]-0x30);
         GPS_DATE_TIME.DATE.Month = (Date[2]-0x30)*10 + (Date[3]-0x30);
         GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
@@ -166,15 +173,21 @@ void VerifyForGPSOnTIme (void) {
 
 void ReadGPS (void) {
     if (ReadGPS_DATE_TIME()) {
+        /*DATE_TIME.DATE.Day = GPS_DATE_TIME.DATE.Day;
+        DATE_TIME.DATE.Month = GPS_DATE_TIME.DATE.Month;
+        DATE_TIME.DAY.Val = GPS_DATE_TIME.DAY.Val;
+        DATE_TIME.SECOND = GPS_DATE_TIME.SECOND;
+        DATE_TIME.YEAR = GPS_DATE_TIME.YEAR;*/
         DATE_TIME = GPS_DATE_TIME;
         TIME_AT_LAST_GPS_SYNC = DATE_TIME.SECOND;
         ACTION_GPS_STOP = SET;
     } else {
         NO_OF_TIMES_GPS_FAILED++;
-        if (NO_OF_TIMES_GPS_FAILED>MAX_ALLOWED_GPS_FAILURES) {
+        if (NO_OF_TIMES_GPS_FAILED > MAX_ALLOWED_GPS_FAILURES) {
             ACTION_GPS_STOP = SET;
         } else {
-            TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND - TIME_GAP_BETWEEN_TWO_GPS_READINGS;
+            TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND -
+                    (WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS - TIME_GAP_BETWEEN_TWO_GPS_READINGS);
             if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
                 TIME_WHEN_GPS_IS_SWITCHED_ON += NO_OF_SECONDS_IN_A_DAY;
             ACTION_GPS_VERIFY_WAIT_TIME = SET;
@@ -196,7 +209,8 @@ void TestGPSStartCondition (void) {
 
 INT8 GetEventNumber(void) {
     for (UINT i=0; i<MAX_NO_OF_EVENTS; i++) {
-        if (DATE_TIME.DAY.Val & EVENTS[i].SELECTED_WEEKS.Val) {
+        if ((EVENTS[i].START_TIME>0) && 
+                (DATE_TIME.DAY.Val & EVENTS[i].SELECTED_WEEKS.Val & 0x7F)) {
             if (EVENTS[i].START_TIME < EVENTS[i].END_TIME) {
                 if ((DATE_TIME.SECOND > EVENTS[i].START_TIME) 
                         && (DATE_TIME.SECOND < EVENTS[i].END_TIME)) {
@@ -211,4 +225,11 @@ INT8 GetEventNumber(void) {
         }
     }
     return -1;
+}
+
+UINT8 GetThisCycle (void) {
+    if (PRESENT_EVENT <0)
+        return 0;
+    else
+        return EVENTS[PRESENT_EVENT].CYCLE;
 }

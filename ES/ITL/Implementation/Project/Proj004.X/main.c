@@ -92,14 +92,21 @@ void main(void)
         WriteEeprom(i,EE_Settings[i]);
 #endif
     LoadAllFromEeprom();
-#ifdef RUN_ON_LCD
+#ifdef LCD_SHOW
     Lcd_Init();
-    Lcd_Command(LCD_UNDERLINE_ON);
-    
+    //Lcd_Command(LCD_UNDERLINE_ON);
+#endif
+#ifdef SET_START_TIME
+    DATE_TIME.SECOND = SET_START_TIME;
+    DATE_TIME.YEAR = 2017;
+    DATE_TIME.DATE.Day = 1;
+    DATE_TIME.DATE.Month = 1;
+    DATE_TIME.DAY.Val = 0x40;
 #endif
     if (GPS_SYNC_AT_START == 1)
         ACTION_GPS_START = SET;
     AUDIO_SWITCH = OFF;
+    //Temp Code goes here
     //----------End of add by SKGadi----------
     while (1)
     {
@@ -110,18 +117,46 @@ void main(void)
         if (ACTION_GPS_STOP) StopGPS();
         TestGPSStartCondition();
         NEXT_EVENT = GetEventNumber();
-#ifdef RUN_ON_LCD
+#ifdef LCD_SHOW
+#if LCD_SHOW == 0
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 0);
+        WriteLongInt(1, 7, GPS_DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 14, NO_OF_TIMES_GPS_FAILED, 2, 1);
+        WriteLongInt(2, 1, TIME_AT_LAST_GPS_SYNC, 6, 0);
+        WriteLongInt(2, 7, TIME_WHEN_GPS_IS_SWITCHED_ON, 6,1);
+#elif LCD_SHOW == 1
         WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
-        WriteLongInt(1, 8, PRESENT_STATE, 3, 1);
-        WriteLongInt(1, 12, NEXT_STATE, 3, 1);
-        WriteLongInt(2, 1, STATES[PRESENT_STATE].PERIOD, 3, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, STATE_SECONDS_REMAINING, 3, 1);
         WriteLongInt(2, 5, STATES[PRESENT_STATE].ON[0], 3, 1);
         WriteLongInt(2, 9, STATES[PRESENT_STATE].BLINK[0], 3, 1);
         WriteLongInt(2, 13, STATES[PRESENT_STATE].AUDIO, 3, 1);
-        //WriteLongInt(2, 1, BLINK_LAST_X_SECONDS, 7, 1);
-        //WriteLongInt(2, 9, BLINK_OFF_TIME , 7, 1);
+#elif LCD_SHOW == 2
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, GetThisCycle(), 3, 1);
+        WriteLongInt(2, 5, CYCLES[GetThisCycle()].PERIOD, 3, 1);
+        WriteLongInt(2, 9, STATE_SECONDS_REMAINING, 3, 1);
+        WriteLongInt(2, 13, SECONDS_TO_ADJUST, 3, 1);
+#elif LCD_SHOW == 3
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, CYCLES[PRESENT_STATE].START_STATE, 3, 1);
+        WriteLongInt(2, 5, CYCLES[PRESENT_STATE].PERIOD, 3, 1);
+        WriteLongInt(2, 9, CYCLES[PRESENT_STATE].END_STATE, 3, 1);
+        WriteLongInt(2, 13, STATE_SECONDS_REMAINING, 3, 1);
+#elif LCD_SHOW == 4
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_EVENT, 3, 1);
+        WriteLongInt(1, 13, NEXT_EVENT, 3, 1);
+        WriteLongInt(2, 1, EVENTS[PRESENT_EVENT].CYCLE, 3, 1);
+        WriteLongInt(2, 5, EVENTS[NEXT_EVENT].START_TIME, 6, 1);
+        WriteLongInt(2, 13, EVENTS[NEXT_EVENT].CYCLE, 3, 1);
 #endif
-
+#endif
     }
 }
 /**

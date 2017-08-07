@@ -109,12 +109,14 @@ void LoadEventsFromEeprom (void) {
         Temp16.v[0] = ReadEeprom(Address);
         Address.Val++;
         Temp16.v[1] = ReadEeprom(Address);
-        EVENTS[i].START_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+        EVENTS[i].START_TIME = (INT32)((INT8)Temp16.v[1])*60*60
+                + (INT32)((INT8)Temp16.v[0])*60;
         Address.Val++;
         Temp16.v[0] = ReadEeprom(Address);
         Address.Val++;
         Temp16.v[1] = ReadEeprom(Address);
-        EVENTS[i].END_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+        EVENTS[i].END_TIME = (INT32)((INT8)Temp16.v[1])*60*60
+                + (INT32)((INT8)Temp16.v[0])*60;
         Address.Val++;
         EVENTS[i].CYCLE = ReadEeprom(Address);
         Address.Val++;

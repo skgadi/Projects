@@ -5,6 +5,7 @@ void Timer0_10ms (void) {
         PRESENT_STATE = NEXT_STATE;
         STATE_SECONDS = 0;
         ACTION_NEW_STATE = RESET;
+        FLAG_CYCLE_CHANGED = RESET;
         STATE_SECONDS_REMAINING = STATES[PRESENT_STATE].PERIOD;
     }
     UINT8 OutForThePorts[NO_OF_PORTS];
@@ -23,7 +24,7 @@ void Timer0_10ms (void) {
         for (UINT8 i =0; i<NO_OF_PORTS; i++)
             OutForThePorts[i] = (OutForThePorts[i] | STATES[PRESENT_STATE].BLINK[i]);
     }
-#ifndef RUN_ON_LCD
+#ifndef LCD_SHOW
     for (UINT8 i =0; i<NO_OF_PORTS; i++) {
         *(LIGHTS[i]) = OutForThePorts[i];
     }
@@ -42,6 +43,7 @@ void Timer0_10ms (void) {
             AUDIO_SWITCH = OFF;
     } else
         AUDIO_SWITCH = OFF;
+    
     CENTI_SECOND_COUNT++;
     BLINK_STATE_ON_OFF_COUNTER++;
     if (BLINK_STATE_ON_OFF_COUNTER >= (BLINK_ON_TIME + BLINK_OFF_TIME))
@@ -54,28 +56,55 @@ void Timer0_10ms (void) {
         SPECIAL_AUDIO_STATE_ON_OFF_COUNTER=0;
     
     
-    if (CENTI_SECOND_COUNT == 99) {
+    if (CENTI_SECOND_COUNT == 100) {
         CENTI_SECOND_COUNT = 0;
         DATE_TIME = IncreaseByASecond(DATE_TIME);
-        STATE_SECONDS_REMAINING = STATES[PRESENT_STATE].PERIOD - STATE_SECONDS-1;
+        STATE_SECONDS_REMAINING = (STATES[PRESENT_STATE].PERIOD + SECONDS_TO_ADJUST_PART) - STATE_SECONDS-1;
         if (STATE_SECONDS_REMAINING == 0)
             ACTION_NEW_STATE = SET;
         STATE_SECONDS++;
     }
-    if (CENTI_SECOND_COUNT == 90) {
-        UINT8 ThisCycle = 0;
-        if (PRESENT_EVENT <0)
-            ThisCycle = 0;
-        else
-            ThisCycle = EVENTS[PRESENT_EVENT].CYCLE;
-        NEXT_STATE = PRESENT_STATE+1;
-        if (NEXT_STATE > CYCLES[ThisCycle].END_STATE) {
-            PRESENT_EVENT = NEXT_EVENT;
-            if (PRESENT_EVENT <0)
-                ThisCycle = 0;
-            else
-                ThisCycle = EVENTS[PRESENT_EVENT].CYCLE;
-            NEXT_STATE = CYCLES[ThisCycle].START_STATE;
+    if (CENTI_SECOND_COUNT == 3) {
+        if (STATE_SECONDS == 0) {
+            if (SECONDS_TO_ADJUST != 0) {
+                if (SECONDS_TO_ADJUST > 0) {
+                    SECONDS_TO_ADJUST_PART = 0.3*STATES[PRESENT_STATE].PERIOD;
+                    if (SECONDS_TO_ADJUST_PART > SECONDS_TO_ADJUST)
+                        SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
+                } else {
+                    SECONDS_TO_ADJUST_PART = -0.3*STATES[PRESENT_STATE].PERIOD;
+                    if (SECONDS_TO_ADJUST_PART < SECONDS_TO_ADJUST)
+                        SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
+                }
+                SECONDS_TO_ADJUST -= SECONDS_TO_ADJUST_PART;
+            } else
+                SECONDS_TO_ADJUST_PART = 0;
+        }
+    }
+    if (CENTI_SECOND_COUNT == 2) {
+        UINT8 ThisCycle = GetThisCycle();
+        if ((CYCLES[ThisCycle].START_STATE == PRESENT_STATE) && (STATE_SECONDS==0)) {
+            SECONDS_TO_ADJUST = (DATE_TIME.SECOND) % (CYCLES[ThisCycle].PERIOD);
+            if (SECONDS_TO_ADJUST > (CYCLES[ThisCycle].PERIOD)/2)
+                SECONDS_TO_ADJUST -= CYCLES[ThisCycle].PERIOD;
+            SECONDS_TO_ADJUST = -SECONDS_TO_ADJUST;
+        }
+    }
+    if (CENTI_SECOND_COUNT == 1) {
+        if (!FLAG_CYCLE_CHANGED) {
+            UINT8 ThisCycle = GetThisCycle();
+            if (PRESENT_STATE == CYCLES[ThisCycle].END_STATE) {
+                PRESENT_EVENT = NEXT_EVENT;
+                if (PRESENT_EVENT < 0) {
+                    ThisCycle = 0;
+                } else {
+                    ThisCycle = EVENTS[PRESENT_EVENT].CYCLE;
+                }
+                NEXT_STATE = CYCLES[ThisCycle].START_STATE;
+                FLAG_CYCLE_CHANGED = SET;
+            } else {
+                NEXT_STATE = PRESENT_STATE+1;
+            }
         }
     }
 }

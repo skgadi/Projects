@@ -31,6 +31,7 @@ void ReadGPS (void);
 void StopGPS (void);
 void TestGPSStartCondition (void);
 INT8 GetEventNumber(void);
+UINT8 GetThisCycle (void);
 #ifdef	__cplusplus
 }
 #endif

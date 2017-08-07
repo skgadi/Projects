@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "66
 [u S1343 `S1344 1 ]
 [n S1343 _GSK_EVENT . ]
-"55 libs/projMain.h
+"56 libs/projMain.h
 [c E11246 0 1 2 .. ]
 [n E11246 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
 "78 libs/ProjectTypeDefs.h
@@ -71,7 +71,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F11020 `(v ~T0 @X0 0 tf ]
 "331 mcc_generated_files/tmr0.h
 [v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F11020 ]
-"45 libs/projMain.h
+"46 libs/projMain.h
 [v _Timer0_10ms `(v ~T0 @X0 0 ef ]
 "46 libs/eeprom.h
 [v _WriteEeprom `(v ~T0 @X0 0 ef2`us`uc ]
@@ -79,9 +79,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LoadAllFromEeprom `(v ~T0 @X0 0 ef ]
 "58 libs/HD44780.h
 [v _Lcd_Init `(v ~T0 @X0 0 ef ]
-"64
-[v _Lcd_Command `(v ~T0 @X0 0 ef1`uc ]
-"101 main.c
+"107 main.c
 [c E11242 0 1 .. ]
 [n E11242 _FLAG RESET SET  ]
 "15278 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
@@ -95,7 +93,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S749 . . . ]
 "15299
 [v _LATCbits `VS749 ~T0 @X0 0 e@3973 ]
-"102 main.c
+"108 main.c
 [c E11238 0 1 .. ]
 [n E11238 _SWITCH OFF ON  ]
 "28 libs/funcs.h
@@ -112,6 +110,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GetEventNumber `(c ~T0 @X0 0 ef ]
 "67 libs/HD44780.h
 [v _WriteLongInt `(v ~T0 @X0 0 ef5`uc`uc`l`c`uc ]
+"34 libs/funcs.h
+[v _GetThisCycle `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10667,7 +10667,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;funcs.h: 31: void StopGPS (void);
 [; ;funcs.h: 32: void TestGPSStartCondition (void);
 [; ;funcs.h: 33: INT8 GetEventNumber(void);
-"42 libs/projMain.h
+[; ;funcs.h: 34: UINT8 GetThisCycle (void);
+"43 libs/projMain.h
 [v _NO_OF_DAYS_IN_A_MONTH `i ~T0 @X0 -> 0 `x s ]
 [i _NO_OF_DAYS_IN_A_MONTH
 :U ..
@@ -10685,35 +10686,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ..
 ]
-[; ;projMain.h: 42: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-[; ;projMain.h: 45: void Timer0_10ms (void);
-"48
+[; ;projMain.h: 43: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+[; ;projMain.h: 46: void Timer0_10ms (void);
+"49
 [v _TIME_ZONE `s ~T0 @X0 1 e ]
 [i _TIME_ZONE
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 48: INT16 TIME_ZONE = 0;
-"49
+[; ;projMain.h: 49: INT16 TIME_ZONE = 0;
+"50
 [v _CYCLE_DELAY `s ~T0 @X0 1 e ]
 [i _CYCLE_DELAY
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 49: INT16 CYCLE_DELAY = 0;
-"50
+[; ;projMain.h: 50: INT16 CYCLE_DELAY = 0;
+"51
 [v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
 [v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
-[; ;projMain.h: 50: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
-"51
+[; ;projMain.h: 51: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"52
 [v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
 [v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
-[; ;projMain.h: 51: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-"52
+[; ;projMain.h: 52: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"53
 [v _CENTURY `uc ~T0 @X0 1 e ]
 [i _CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 52: UINT8 CENTURY = 20;
-"53
+[; ;projMain.h: 53: UINT8 CENTURY = 20;
+"54
 [v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
@@ -10723,101 +10724,101 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
 [v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
-[; ;projMain.h: 53: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-"54
-[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 54: GSK_EVENT EVENTS[24];
+[; ;projMain.h: 54: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
 "55
-[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 55: GSK_STATE STATES[160];
+[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 55: GSK_EVENT EVENTS[24];
 "56
+[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 56: GSK_STATE STATES[160];
+"57
 [v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 56: GSK_CYCLE CYCLES[17];
-"59
+[; ;projMain.h: 57: GSK_CYCLE CYCLES[17];
+"60
 [v _PRESENT_EVENT `c ~T0 @X0 1 e ]
 [i _PRESENT_EVENT
 -> -U -> 1 `i `c
 ]
-[; ;projMain.h: 59: INT8 PRESENT_EVENT=-1;
-"60
+[; ;projMain.h: 60: INT8 PRESENT_EVENT=-1;
+"61
 [v _NEXT_EVENT `c ~T0 @X0 1 e ]
 [i _NEXT_EVENT
 -> -U -> 1 `i `c
 ]
-[; ;projMain.h: 60: INT8 NEXT_EVENT=-1;
-"61
+[; ;projMain.h: 61: INT8 NEXT_EVENT=-1;
+"62
 [v _PRESENT_STATE `uc ~T0 @X0 1 e ]
 [i _PRESENT_STATE
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 61: UINT8 PRESENT_STATE = 0;
-"62
+[; ;projMain.h: 62: UINT8 PRESENT_STATE = 0;
+"63
 [v _NEXT_STATE `uc ~T0 @X0 1 e ]
 [i _NEXT_STATE
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 62: UINT8 NEXT_STATE = 0;
-"63
+[; ;projMain.h: 63: UINT8 NEXT_STATE = 0;
+"64
 [v _STATE_SECONDS `uc ~T0 @X0 1 e ]
 [i _STATE_SECONDS
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 63: UINT8 STATE_SECONDS = 0;
-"64
+[; ;projMain.h: 64: UINT8 STATE_SECONDS = 0;
+"65
 [v _STATE_SECONDS_REMAINING `uc ~T0 @X0 1 e ]
 [i _STATE_SECONDS_REMAINING
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 64: UINT8 STATE_SECONDS_REMAINING = 0;
-"65
+[; ;projMain.h: 65: UINT8 STATE_SECONDS_REMAINING = 0;
+"66
 [v _CENTI_SECOND_COUNT `uc ~T0 @X0 1 e ]
 [i _CENTI_SECOND_COUNT
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 65: UINT8 CENTI_SECOND_COUNT = 0;
-"66
+[; ;projMain.h: 66: UINT8 CENTI_SECOND_COUNT = 0;
+"67
 [v _BLINK_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _BLINK_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 66: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
-"67
+[; ;projMain.h: 67: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
+"68
 [v _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _NORMAL_AUDIO_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 67: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
-"68
+[; ;projMain.h: 68: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"69
 [v _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
 [i _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 68: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
-"69
-[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 69: GSK_DATE_TIME DATE_TIME;
+[; ;projMain.h: 69: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
 "70
-[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
-[; ;projMain.h: 70: GSK_DATE_TIME GPS_DATE_TIME;
+[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 70: GSK_DATE_TIME DATE_TIME;
 "71
+[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 71: GSK_DATE_TIME GPS_DATE_TIME;
+"72
 [v _NO_OF_TIMES_GPS_FAILED `uc ~T0 @X0 1 e ]
 [i _NO_OF_TIMES_GPS_FAILED
 -> -> 0 `i `uc
 ]
-[; ;projMain.h: 71: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
-"72
+[; ;projMain.h: 72: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
+"73
 [v _TIME_WHEN_GPS_IS_SWITCHED_ON `l ~T0 @X0 1 e ]
 [i _TIME_WHEN_GPS_IS_SWITCHED_ON
 -> -> 0 `i `l
 ]
-[; ;projMain.h: 72: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
-"73
+[; ;projMain.h: 73: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
+"74
 [v _TIME_AT_LAST_GPS_SYNC `l ~T0 @X0 1 e ]
 [i _TIME_AT_LAST_GPS_SYNC
 -> -> 0 `i `l
 ]
-[; ;projMain.h: 73: INT32 TIME_AT_LAST_GPS_SYNC = 0;
-"74
+[; ;projMain.h: 74: INT32 TIME_AT_LAST_GPS_SYNC = 0;
+"75
 [v _LIGHTS `*uc ~T0 @X0 -> 0 `x e ]
 [i _LIGHTS
 :U ..
@@ -10825,8 +10826,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> &U _LATB `*uc
 ..
 ]
-[; ;projMain.h: 74: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
+[; ;projMain.h: 75: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
 "76
+[v _SECONDS_TO_ADJUST `s ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST
+-> -> 0 `i `s
+]
+[; ;projMain.h: 76: INT16 SECONDS_TO_ADJUST = 0;
+"77
+[v _SECONDS_TO_ADJUST_PART `c ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST_PART
+-> -> 0 `i `c
+]
+[; ;projMain.h: 77: INT8 SECONDS_TO_ADJUST_PART = 0;
+"80
 [v _FLAGS_0 `S1320 ~T0 @X0 1 e ]
 [i _FLAGS_0
 :U ..
@@ -10835,8 +10848,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;projMain.h: 76: BYTE_BITS FLAGS_0 = 0;
-"82
+[; ;projMain.h: 80: BYTE_BITS FLAGS_0 = 0;
+"86
 [v _FLAGS_1 `S1320 ~T0 @X0 1 e ]
 [i _FLAGS_1
 :U ..
@@ -10845,8 +10858,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;projMain.h: 82: BYTE_BITS FLAGS_1 = 0;
-"88
+[; ;projMain.h: 86: BYTE_BITS FLAGS_1 = 0;
+"94
 [v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
 [i _EE_Settings
 :U ..
@@ -10874,10 +10887,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 5 `i `c
 -> -> 197 `i `c
--> -> 128 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 213 `i `c
+-> -> 85 `i `c
+-> -> 85 `i `c
+-> -> 85 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -10894,11 +10907,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 32 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 42 `i `c
+-> -> 170 `i `c
+-> -> 170 `i `c
+-> -> 170 `i `c
+-> -> 128 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -10915,26 +10928,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 2 `i `c
 -> -> 8 `i `c
+-> -> 10 `i `c
+-> -> 12 `i `c
+-> -> 14 `i `c
+-> -> 16 `i `c
+-> -> 18 `i `c
+-> -> 20 `i `c
+-> -> 22 `i `c
+-> -> 24 `i `c
+-> -> 26 `i `c
+-> -> 28 `i `c
+-> -> 30 `i `c
+-> -> 32 `i `c
+-> -> 34 `i `c
+-> -> 36 `i `c
+-> -> 38 `i `c
+-> -> 32 `i `c
+-> -> 12 `i `c
+-> -> 54 `i `c
+-> -> 14 `i `c
+-> -> 16 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 15 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 14 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 13 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 12 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 11 `i `c
+-> -> 127 `i `c
+-> -> 0 `i `c
+-> -> 16 `i `c
+-> -> 20 `i `c
+-> -> 16 `i `c
+-> -> 10 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 9 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
 -> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 8 `i `c
--> -> 160 `i `c
+-> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 7 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 6 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 5 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 4 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 3 `i `c
+-> -> 127 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -U -> 1 `i `c
+-> -> 2 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
@@ -10946,133 +11043,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 0 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 16 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 15 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 14 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 13 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 12 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 11 `i `c
 -> -> 127 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
 -> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
+-> -> 10 `i `c
 -> -> 127 `i `c
 -> -> 10 `i `c
 -> -> 36 `i `c
@@ -11119,164 +11132,164 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 -> -> 20 `i `c
 -> -> 32 `i `c
+-> -> 2 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 8 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 3 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 5 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 10 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 6 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 4 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
+-> -> 7 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
+-> -> 9 `i `c
+-> -> 18 `i `c
+-> -> 72 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
 -> -> 0 `i `c
@@ -11876,7 +11889,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `c
 ..
 ]
-[; ;projMain.h: 88: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0
+[; ;projMain.h: 94: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0xD5, 0x55, 0x55, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x2A, 0xAA, 0
 [v $root$_main `(v ~T0 @X0 0 e ]
 "53 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -11921,80 +11934,92 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 96: Lcd_Init();
 "96
 [e ( _Lcd_Init ..  ]
-[; ;main.c: 97: Lcd_Command(14);
-"97
-[e ( _Lcd_Command (1 -> -> 14 `i `uc ]
-[; ;main.c: 100: if (GPS_SYNC_AT_START == 1)
+[; ;main.c: 100: DATE_TIME.SECOND = 57590;
 "100
-[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1351  ]
-[; ;main.c: 101: FLAGS_0.bits.b0 = SET;
+[e = . . _DATE_TIME 0 0 -> 57590 `l ]
+[; ;main.c: 101: DATE_TIME.YEAR = 2017;
 "101
+[e = . . _DATE_TIME 0 3 -> -> 2017 `i `us ]
+[; ;main.c: 102: DATE_TIME.DATE.Day = 1;
+"102
+[e = . . . . _DATE_TIME 0 1 0 0 -> -> 1 `i `ui ]
+[; ;main.c: 103: DATE_TIME.DATE.Month = 1;
+"103
+[e = . . . . _DATE_TIME 0 1 0 1 -> -> 1 `i `ui ]
+[; ;main.c: 104: DATE_TIME.DAY.Val = 0x40;
+"104
+[e = . . . . _DATE_TIME 0 2 1 1 -> -> 64 `i `uc ]
+[; ;main.c: 106: if (GPS_SYNC_AT_START == 1)
+"106
+[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1351  ]
+[; ;main.c: 107: FLAGS_0.bits.b0 = SET;
+"107
 [e = . . _FLAGS_0 1 0 -> . `E11242 1 `uc ]
 [e :U 1351 ]
-[; ;main.c: 102: LATCbits.LC0 = OFF;
-"102
+[; ;main.c: 108: LATCbits.LC0 = OFF;
+"108
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
-[; ;main.c: 104: while (1)
-"104
+[; ;main.c: 111: while (1)
+"111
 [e :U 1353 ]
-[; ;main.c: 105: {
-"105
+[; ;main.c: 112: {
+"112
 {
-[; ;main.c: 107: if (FLAGS_0.bits.b0) SwitchOnGPS();
-"107
+[; ;main.c: 114: if (FLAGS_0.bits.b0) SwitchOnGPS();
+"114
 [e $ ! != -> . . _FLAGS_0 1 0 `i -> -> -> 0 `i `uc `i 1355  ]
 [e ( _SwitchOnGPS ..  ]
 [e :U 1355 ]
-[; ;main.c: 108: if (FLAGS_0.bits.b1) VerifyForGPSOnTIme();
-"108
+[; ;main.c: 115: if (FLAGS_0.bits.b1) VerifyForGPSOnTIme();
+"115
 [e $ ! != -> . . _FLAGS_0 1 1 `i -> -> -> 0 `i `uc `i 1356  ]
 [e ( _VerifyForGPSOnTIme ..  ]
 [e :U 1356 ]
-[; ;main.c: 109: if (FLAGS_0.bits.b2) ReadGPS();
-"109
+[; ;main.c: 116: if (FLAGS_0.bits.b2) ReadGPS();
+"116
 [e $ ! != -> . . _FLAGS_0 1 2 `i -> -> -> 0 `i `uc `i 1357  ]
 [e ( _ReadGPS ..  ]
 [e :U 1357 ]
-[; ;main.c: 110: if (FLAGS_0.bits.b3) StopGPS();
-"110
+[; ;main.c: 117: if (FLAGS_0.bits.b3) StopGPS();
+"117
 [e $ ! != -> . . _FLAGS_0 1 3 `i -> -> -> 0 `i `uc `i 1358  ]
 [e ( _StopGPS ..  ]
 [e :U 1358 ]
-[; ;main.c: 111: TestGPSStartCondition();
-"111
-[e ( _TestGPSStartCondition ..  ]
-[; ;main.c: 112: NEXT_EVENT = GetEventNumber();
-"112
-[e = _NEXT_EVENT ( _GetEventNumber ..  ]
-[; ;main.c: 114: WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
-"114
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 1 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 115: WriteLongInt(1, 8, PRESENT_STATE, 3, 1);
-"115
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 8 `i `uc -> _PRESENT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 116: WriteLongInt(1, 12, NEXT_STATE, 3, 1);
-"116
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 12 `i `uc -> _NEXT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 117: WriteLongInt(2, 1, STATES[PRESENT_STATE].PERIOD, 3, 1);
-"117
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 1 `i `uc -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 118: WriteLongInt(2, 5, STATES[PRESENT_STATE].ON[0], 3, 1);
+[; ;main.c: 118: TestGPSStartCondition();
 "118
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 5 `i `uc -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 `ui `ux `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 119: WriteLongInt(2, 9, STATES[PRESENT_STATE].BLINK[0], 3, 1);
+[e ( _TestGPSStartCondition ..  ]
+[; ;main.c: 119: NEXT_EVENT = GetEventNumber();
 "119
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 9 `i `uc -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 `ui `ux `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 120: WriteLongInt(2, 13, STATES[PRESENT_STATE].AUDIO, 3, 1);
-"120
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 13 `i `uc -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `l -> -> 3 `i `c -> -> 1 `i `uc ]
-"125
+[e = _NEXT_EVENT ( _GetEventNumber ..  ]
+[; ;main.c: 136: WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+"136
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 1 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 137: WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+"137
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 9 `i `uc -> _PRESENT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 138: WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+"138
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 13 `i `uc -> _NEXT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 139: WriteLongInt(2, 1, GetThisCycle(), 3, 1);
+"139
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 1 `i `uc -> ( _GetThisCycle ..  `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 140: WriteLongInt(2, 5, CYCLES[GetThisCycle()].PERIOD, 3, 1);
+"140
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 5 `i `uc -> . . *U + &U _CYCLES * -> ( _GetThisCycle ..  `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 141: WriteLongInt(2, 9, STATE_SECONDS_REMAINING, 3, 1);
+"141
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 9 `i `uc -> _STATE_SECONDS_REMAINING `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 142: WriteLongInt(2, 13, SECONDS_TO_ADJUST, 3, 1);
+"142
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 13 `i `uc -> _SECONDS_TO_ADJUST `l -> -> 3 `i `c -> -> 1 `i `uc ]
+"160
 }
 [e :U 1352 ]
-"104
+"111
 [e $U 1353  ]
 [e :U 1354 ]
-[; ;main.c: 125: }
-[; ;main.c: 126: }
-"126
+[; ;main.c: 160: }
+[; ;main.c: 161: }
+"161
 [e :UE 1347 ]
 }
