@@ -50,11 +50,6 @@
 #include <xc.h>
 #include "tmr0.h"
 
-/**
-  Section: Global Variables Definitions
-*/
-
-volatile uint16_t timer0ReloadVal16bit;
 
 /**
   Section: TMR0 APIs
@@ -66,20 +61,17 @@ void TMR0_Initialize(void)
 {
     // Set TMR0 to the options selected in the User Interface
 
-    // T0OUTPS 1:1; T0EN disabled; T016BIT 16-bit; 
-    T0CON0 = 0x10;
+    // T0OUTPS 1:1; T0EN disabled; T016BIT 8-bit; 
+    T0CON0 = 0x00;
 
-    // T0CS FOSC/4; T0CKPS 1:1; T0ASYNC not_synchronised; 
-    T0CON1 = 0x50;
+    // T0CS FOSC/4; T0CKPS 1:8; T0ASYNC not_synchronised; 
+    T0CON1 = 0x53;
 
-    // TMR0H 216; 
-    TMR0H = 0xD8;
+    // TMR0H 124; 
+    TMR0H = 0x7C;
 
-    // TMR0L 240; 
-    TMR0L = 0xF0;
-
-    // Load TMR0 value to the 16-bit reload variable
-    timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;
+    // TMR0L 0; 
+    TMR0L = 0x00;
 
     // Clear Interrupt flag before enabling the interrupt
     PIR0bits.TMR0IF = 0;
@@ -106,44 +98,43 @@ void TMR0_StopTimer(void)
     T0CON0bits.T0EN = 0;
 }
 
-uint16_t TMR0_Read16bitTimer(void)
+uint8_t TMR0_Read8bitTimer(void)
 {
-    uint16_t readVal;
-    uint8_t readValLow;
-    uint8_t readValHigh;
+    uint8_t readVal;
 
-    readValLow  = TMR0L;
-    readValHigh = TMR0H;
-    readVal  = ((uint16_t)readValHigh << 8) + readValLow;
+    // read Timer0, low register only
+    readVal = TMR0L;
 
     return readVal;
 }
 
-void TMR0_Write16bitTimer(uint16_t timerVal)
+void TMR0_Write8bitTimer(uint8_t timerVal)
 {
-    // Write to the Timer0 register
-    TMR0H = timerVal >> 8;
-    TMR0L = (uint8_t) timerVal;
-}
+    // Write to Timer0 registers, low register only
+    TMR0L = timerVal;
+ }
 
-void TMR0_Reload16bit(void)
+void TMR0_Load8bitPeriod(uint8_t periodVal)
 {
-    // Write to the Timer0 register
-    TMR0H = timer0ReloadVal16bit >> 8;
-    TMR0L = (uint8_t) timer0ReloadVal16bit;
+   // Write to Timer0 registers, high register only
+   TMR0H = periodVal;
 }
 
 void TMR0_ISR(void)
 {
+    static volatile uint16_t CountCallBack = 0;
+
     // clear the TMR0 interrupt flag
     PIR0bits.TMR0IF = 0;
-    // Write to the Timer0 register
-    TMR0H = timer0ReloadVal16bit >> 8;
-    TMR0L = (uint8_t) timer0ReloadVal16bit;
+    // callback function - called every 10th pass
+    if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
+    {
+        // ticker function call
+        TMR0_CallBack();
 
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called every time this ISR executes
-    TMR0_CallBack();
+        // reset ticker counter
+        CountCallBack = 0;
+    }
 
     // add your TMR0 interrupt custom code
 }

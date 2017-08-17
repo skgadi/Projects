@@ -24,9 +24,9 @@ extern "C" {
     
 
 //Compiler Settings
-#define LCD_SHOW 2//0->GPS Sync; 1->States; 2->Levels & cycles;
-#define SET_EEPROM
-#define SET_START_TIME 57590
+#define LCD_SHOW 5//0->GPS Sync; 1->States; 2->Levels & Cycles; 5->GPS Test
+//#define SET_EEPROM
+//#define SET_START_TIME 57590
 
 //Constants defined for the project
 #define GPS_SWITCH LATCbits.LC1
@@ -39,7 +39,7 @@ extern "C" {
 #define SECONDS_TO_ADJUST_FOR_DAY_LIGHT_SAVING 3600
 #define MAX_ALLOWED_GPS_FAILURES 4
 #define WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS (1*60)//20 //Satisfy the condition WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS > TIME_GAP_BETWEEN_TWO_GPS_READINGS
-#define TIME_GAP_BETWEEN_TWO_GPS_READINGS (1*60)//5 //Satisfy the condition  WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS > TIME_GAP_BETWEEN_TWO_GPS_READINGS
+#define TIME_GAP_BETWEEN_TWO_GPS_READINGS (5*60)//5 //Satisfy the condition  WAIT_x_SECONDS_AFTER_SWITCHING_ON_GPS > TIME_GAP_BETWEEN_TWO_GPS_READINGS
 static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 //Functions

@@ -13661,28 +13661,28 @@ void TMR0_StartTimer(void);
 # 166
 void TMR0_StopTimer(void);
 
-# 202
-uint16_t TMR0_Read16bitTimer(void);
+# 201
+uint8_t TMR0_Read8bitTimer(void);
 
-# 241
-void TMR0_Write16bitTimer(uint16_t timerVal);
+# 240
+void TMR0_Write8bitTimer(uint8_t timerVal);
 
 # 277
-void TMR0_Reload16bit(void);
+void TMR0_Load8bitPeriod(uint8_t periodVal);
 
-# 295
+# 296
 void TMR0_ISR(void);
 
-# 313
+# 314
 void TMR0_CallBack(void);
 
-# 331
+# 332
 void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 
-# 349
+# 350
 extern void (*TMR0_InterruptHandler)(void);
 
-# 367
+# 368
 void TMR0_DefaultInterruptHandler(void);
 
 # 94 "mcc_generated_files/eusart1.h"

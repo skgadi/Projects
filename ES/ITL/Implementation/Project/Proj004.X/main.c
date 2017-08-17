@@ -155,6 +155,16 @@ void main(void)
         WriteLongInt(2, 1, EVENTS[PRESENT_EVENT].CYCLE, 3, 1);
         WriteLongInt(2, 5, EVENTS[NEXT_EVENT].START_TIME, 6, 1);
         WriteLongInt(2, 13, EVENTS[NEXT_EVENT].CYCLE, 3, 1);
+#elif LCD_SHOW == 5
+        ReadGPS_DATE_TIME();
+        Lcd_WriteChar(1,1,0x54);
+        WriteLongInt(1, 2, DATE_TIME.SECOND, 6, 0);
+        Lcd_WriteChar(1,9,0x53);
+        WriteLongInt(1, 10, TIME_AT_LAST_GPS_SYNC, 6, 0);
+        Lcd_WriteChar(2,1,0x47);
+        WriteLongInt(2, 2, GPS_DATE_TIME.SECOND, 6, 0);
+        Lcd_WriteChar(2,9,'I');
+        WriteLongInt(2, 10, TIME_WHEN_GPS_IS_SWITCHED_ON, 6, 0);
 #endif
 #endif
     }

@@ -69,13 +69,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25178
 [v _INTCONbits `VS1289 ~T0 @X0 0 e@4082 ]
 [v F11020 `(v ~T0 @X0 0 tf ]
-"331 mcc_generated_files/tmr0.h
+"332 mcc_generated_files/tmr0.h
 [v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F11020 ]
 "46 libs/projMain.h
 [v _Timer0_10ms `(v ~T0 @X0 0 ef ]
-"46 libs/eeprom.h
-[v _WriteEeprom `(v ~T0 @X0 0 ef2`us`uc ]
-"51
+"51 libs/eeprom.h
 [v _LoadAllFromEeprom `(v ~T0 @X0 0 ef ]
 "58 libs/HD44780.h
 [v _Lcd_Init `(v ~T0 @X0 0 ef ]
@@ -108,10 +106,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TestGPSStartCondition `(v ~T0 @X0 0 ef ]
 "33
 [v _GetEventNumber `(c ~T0 @X0 0 ef ]
-"67 libs/HD44780.h
+"159 main.c
+[c E11037 0 1 .. ]
+[n E11037 _BOOL FALSE TRUE  ]
+"26 libs/funcs.h
+[v _ReadGPS_DATE_TIME `(E11037 ~T0 @X0 0 ef ]
+"61 libs/HD44780.h
+[v _Lcd_WriteChar `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"67
 [v _WriteLongInt `(v ~T0 @X0 0 ef5`uc`uc`l`c`uc ]
-"34 libs/funcs.h
-[v _GetThisCycle `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10337,14 +10340,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 105: void TMR0_Initialize(void);
 [; ;tmr0.h: 134: void TMR0_StartTimer(void);
 [; ;tmr0.h: 166: void TMR0_StopTimer(void);
-[; ;tmr0.h: 202: uint16_t TMR0_Read16bitTimer(void);
-[; ;tmr0.h: 241: void TMR0_Write16bitTimer(uint16_t timerVal);
-[; ;tmr0.h: 277: void TMR0_Reload16bit(void);
-[; ;tmr0.h: 295: void TMR0_ISR(void);
-[; ;tmr0.h: 313: void TMR0_CallBack(void);
-[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
-[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr0.h: 201: uint8_t TMR0_Read8bitTimer(void);
+[; ;tmr0.h: 240: void TMR0_Write8bitTimer(uint8_t timerVal);
+[; ;tmr0.h: 277: void TMR0_Load8bitPeriod(uint8_t periodVal);
+[; ;tmr0.h: 296: void TMR0_ISR(void);
+[; ;tmr0.h: 314: void TMR0_CallBack(void);
+[; ;tmr0.h: 332: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 350: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 368: void TMR0_DefaultInterruptHandler(void);
 [; ;eusart1.h: 94: void EUSART1_Initialize(void);
 [; ;eusart1.h: 114: uint8_t EUSART1_Read(void);
 [; ;eusart1.h: 134: void EUSART1_Write(uint8_t txData);
@@ -10859,1037 +10862,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;projMain.h: 86: BYTE_BITS FLAGS_1 = 0;
-"94
-[v _EE_Settings `c ~T0 @X0 -> 0 `x e ]
-[i _EE_Settings
-:U ..
--> -> 152 `i `c
--> -> 254 `i `c
--> -> 1 `i `c
--> -> 4 `i `c
--> -> 1 `i `c
--> -> 10 `i `c
--> -> 20 `i `c
--> -> 246 `i `c
--> -> 255 `i `c
--> -> 60 `i `c
--> -> 40 `i `c
--> -> 4 `i `c
--> -> 8 `i `c
--> -> 192 `i `c
--> -> 8 `i `c
--> -> 42 `i `c
--> -> 5 `i `c
--> -> 1 `i `c
--> -> 128 `i `c
--> -> 81 `i `c
--> -> 1 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 197 `i `c
--> -> 213 `i `c
--> -> 85 `i `c
--> -> 85 `i `c
--> -> 85 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 32 `i `c
--> -> 42 `i `c
--> -> 170 `i `c
--> -> 170 `i `c
--> -> 170 `i `c
--> -> 128 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 2 `i `c
--> -> 8 `i `c
--> -> 10 `i `c
--> -> 12 `i `c
--> -> 14 `i `c
--> -> 16 `i `c
--> -> 18 `i `c
--> -> 20 `i `c
--> -> 22 `i `c
--> -> 24 `i `c
--> -> 26 `i `c
--> -> 28 `i `c
--> -> 30 `i `c
--> -> 32 `i `c
--> -> 34 `i `c
--> -> 36 `i `c
--> -> 38 `i `c
--> -> 32 `i `c
--> -> 12 `i `c
--> -> 54 `i `c
--> -> 14 `i `c
--> -> 16 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 15 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 14 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 13 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 12 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 11 `i `c
--> -> 127 `i `c
--> -> 0 `i `c
--> -> 16 `i `c
--> -> 20 `i `c
--> -> 16 `i `c
--> -> 10 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 9 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 8 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 7 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 6 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 5 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 4 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 3 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 2 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 1 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 0 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 16 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 15 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 14 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 13 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 12 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 11 `i `c
--> -> 127 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -U -> 1 `i `c
--> -> 10 `i `c
--> -> 127 `i `c
--> -> 10 `i `c
--> -> 36 `i `c
--> -> 144 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 10 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 10 `i `c
--> -> 9 `i `c
--> -> 36 `i `c
--> -> 36 `i `c
--> -> 144 `i `c
--> -> 3 `i `c
--> -> 4 `i `c
--> -> 144 `i `c
--> -> 8 `i `c
--> -> 0 `i `c
--> -> 2 `i `c
--> -> 20 `i `c
--> -> 144 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 21 `i `c
--> -> 36 `i `c
--> -> 36 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 2 `i `c
--> -> 36 `i `c
--> -> 16 `i `c
--> -> 0 `i `c
--> -> 32 `i `c
--> -> 2 `i `c
--> -> 36 `i `c
--> -> 80 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 1 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 20 `i `c
--> -> 32 `i `c
--> -> 2 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 4 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 4 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 10 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 8 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 10 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 3 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 3 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 3 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 3 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 9 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 9 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 10 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 5 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 10 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 6 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 4 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 4 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 9 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 7 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 9 `i `c
--> -> 18 `i `c
--> -> 72 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `c
-..
-]
-[; ;projMain.h: 94: INT8 EE_Settings[]={0x98, 0xFE, 1, 4, 1, 10, 20, 0xF6, 0xFF, 60, 40, 4, 8, 192, 8, 42, 5, 1, 128, 81, 1, 0, 5, 0xC5, 0xD5, 0x55, 0x55, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x2A, 0xAA, 0
 [v $root$_main `(v ~T0 @X0 0 e ]
 "53 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -11911,115 +10883,89 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 89: TMR0_SetInterruptHandler(Timer0_10ms);
 "89
 [e ( _TMR0_SetInterruptHandler (1 &U _Timer0_10ms ]
-[; ;main.c: 91: for (INT16 i=0; i<1024; i++)
-"91
-{
-[v _i `s ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `s ]
-[e $ < -> _i `i -> 1024 `i 1348  ]
-[e $U 1349  ]
-"92
-[e :U 1348 ]
-[; ;main.c: 92: WriteEeprom(i,EE_Settings[i]);
-[e ( _WriteEeprom (2 , -> _i `us -> *U + &U _EE_Settings * -> -> _i `us `ux -> -> # *U &U _EE_Settings `ui `ux `uc ]
-"91
-[e ++ _i -> -> 1 `i `s ]
-[e $ < -> _i `i -> 1024 `i 1348  ]
-[e :U 1349 ]
-"92
-}
 [; ;main.c: 94: LoadAllFromEeprom();
 "94
 [e ( _LoadAllFromEeprom ..  ]
 [; ;main.c: 96: Lcd_Init();
 "96
 [e ( _Lcd_Init ..  ]
-[; ;main.c: 100: DATE_TIME.SECOND = 57590;
-"100
-[e = . . _DATE_TIME 0 0 -> 57590 `l ]
-[; ;main.c: 101: DATE_TIME.YEAR = 2017;
-"101
-[e = . . _DATE_TIME 0 3 -> -> 2017 `i `us ]
-[; ;main.c: 102: DATE_TIME.DATE.Day = 1;
-"102
-[e = . . . . _DATE_TIME 0 1 0 0 -> -> 1 `i `ui ]
-[; ;main.c: 103: DATE_TIME.DATE.Month = 1;
-"103
-[e = . . . . _DATE_TIME 0 1 0 1 -> -> 1 `i `ui ]
-[; ;main.c: 104: DATE_TIME.DAY.Val = 0x40;
-"104
-[e = . . . . _DATE_TIME 0 2 1 1 -> -> 64 `i `uc ]
 [; ;main.c: 106: if (GPS_SYNC_AT_START == 1)
 "106
-[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1351  ]
+[e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1348  ]
 [; ;main.c: 107: FLAGS_0.bits.b0 = SET;
 "107
 [e = . . _FLAGS_0 1 0 -> . `E11242 1 `uc ]
-[e :U 1351 ]
+[e :U 1348 ]
 [; ;main.c: 108: LATCbits.LC0 = OFF;
 "108
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
 [; ;main.c: 111: while (1)
 "111
-[e :U 1353 ]
+[e :U 1350 ]
 [; ;main.c: 112: {
 "112
 {
 [; ;main.c: 114: if (FLAGS_0.bits.b0) SwitchOnGPS();
 "114
-[e $ ! != -> . . _FLAGS_0 1 0 `i -> -> -> 0 `i `uc `i 1355  ]
+[e $ ! != -> . . _FLAGS_0 1 0 `i -> -> -> 0 `i `uc `i 1352  ]
 [e ( _SwitchOnGPS ..  ]
-[e :U 1355 ]
+[e :U 1352 ]
 [; ;main.c: 115: if (FLAGS_0.bits.b1) VerifyForGPSOnTIme();
 "115
-[e $ ! != -> . . _FLAGS_0 1 1 `i -> -> -> 0 `i `uc `i 1356  ]
+[e $ ! != -> . . _FLAGS_0 1 1 `i -> -> -> 0 `i `uc `i 1353  ]
 [e ( _VerifyForGPSOnTIme ..  ]
-[e :U 1356 ]
+[e :U 1353 ]
 [; ;main.c: 116: if (FLAGS_0.bits.b2) ReadGPS();
 "116
-[e $ ! != -> . . _FLAGS_0 1 2 `i -> -> -> 0 `i `uc `i 1357  ]
+[e $ ! != -> . . _FLAGS_0 1 2 `i -> -> -> 0 `i `uc `i 1354  ]
 [e ( _ReadGPS ..  ]
-[e :U 1357 ]
+[e :U 1354 ]
 [; ;main.c: 117: if (FLAGS_0.bits.b3) StopGPS();
 "117
-[e $ ! != -> . . _FLAGS_0 1 3 `i -> -> -> 0 `i `uc `i 1358  ]
+[e $ ! != -> . . _FLAGS_0 1 3 `i -> -> -> 0 `i `uc `i 1355  ]
 [e ( _StopGPS ..  ]
-[e :U 1358 ]
+[e :U 1355 ]
 [; ;main.c: 118: TestGPSStartCondition();
 "118
 [e ( _TestGPSStartCondition ..  ]
 [; ;main.c: 119: NEXT_EVENT = GetEventNumber();
 "119
 [e = _NEXT_EVENT ( _GetEventNumber ..  ]
-[; ;main.c: 136: WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
-"136
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 1 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 137: WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
-"137
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 9 `i `uc -> _PRESENT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 138: WriteLongInt(1, 13, NEXT_STATE, 3, 1);
-"138
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 13 `i `uc -> _NEXT_STATE `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 139: WriteLongInt(2, 1, GetThisCycle(), 3, 1);
-"139
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 1 `i `uc -> ( _GetThisCycle ..  `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 140: WriteLongInt(2, 5, CYCLES[GetThisCycle()].PERIOD, 3, 1);
-"140
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 5 `i `uc -> . . *U + &U _CYCLES * -> ( _GetThisCycle ..  `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 141: WriteLongInt(2, 9, STATE_SECONDS_REMAINING, 3, 1);
-"141
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 9 `i `uc -> _STATE_SECONDS_REMAINING `l -> -> 3 `i `c -> -> 1 `i `uc ]
-[; ;main.c: 142: WriteLongInt(2, 13, SECONDS_TO_ADJUST, 3, 1);
-"142
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 13 `i `uc -> _SECONDS_TO_ADJUST `l -> -> 3 `i `c -> -> 1 `i `uc ]
+[; ;main.c: 159: ReadGPS_DATE_TIME();
+"159
+[e ( _ReadGPS_DATE_TIME ..  ]
+[; ;main.c: 160: Lcd_WriteChar(1,1,0x54);
 "160
-}
-[e :U 1352 ]
-"111
-[e $U 1353  ]
-[e :U 1354 ]
-[; ;main.c: 160: }
-[; ;main.c: 161: }
+[e ( _Lcd_WriteChar (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 84 `i `uc ]
+[; ;main.c: 161: WriteLongInt(1, 2, DATE_TIME.SECOND, 6, 0);
 "161
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 2 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 0 `i `uc ]
+[; ;main.c: 162: Lcd_WriteChar(1,9,0x53);
+"162
+[e ( _Lcd_WriteChar (3 , , -> -> 1 `i `uc -> -> 9 `i `uc -> -> 83 `i `uc ]
+[; ;main.c: 163: WriteLongInt(1, 10, TIME_AT_LAST_GPS_SYNC, 6, 0);
+"163
+[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 10 `i `uc _TIME_AT_LAST_GPS_SYNC -> -> 6 `i `c -> -> 0 `i `uc ]
+[; ;main.c: 164: Lcd_WriteChar(2,1,0x47);
+"164
+[e ( _Lcd_WriteChar (3 , , -> -> 2 `i `uc -> -> 1 `i `uc -> -> 71 `i `uc ]
+[; ;main.c: 165: WriteLongInt(2, 2, GPS_DATE_TIME.SECOND, 6, 0);
+"165
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 2 `i `uc . . _GPS_DATE_TIME 0 0 -> -> 6 `i `c -> -> 0 `i `uc ]
+[; ;main.c: 166: Lcd_WriteChar(2,9,'I');
+"166
+[e ( _Lcd_WriteChar (3 , , -> -> 2 `i `uc -> -> 9 `i `uc -> -> 73 `ui `uc ]
+[; ;main.c: 167: WriteLongInt(2, 10, TIME_WHEN_GPS_IS_SWITCHED_ON, 6, 0);
+"167
+[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 10 `i `uc _TIME_WHEN_GPS_IS_SWITCHED_ON -> -> 6 `i `c -> -> 0 `i `uc ]
+"170
+}
+[e :U 1349 ]
+"111
+[e $U 1350  ]
+[e :U 1351 ]
+[; ;main.c: 170: }
+[; ;main.c: 171: }
+"171
 [e :UE 1347 ]
 }
