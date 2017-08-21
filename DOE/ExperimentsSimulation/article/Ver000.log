@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.6)  6 JUN 2017 21:24
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.20)  6 JUN 2017 19:08
+>>>>>>> 1705abe7d525d17d5930a58e9cdcb06abb7fd7ad
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1211,7 +1215,11 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti8.pfb>
+<<<<<<< HEAD
 Output written on Ver000.pdf (6 pages, 244566 bytes).
+=======
+Output written on Ver000.pdf (6 pages, 249106 bytes).
+>>>>>>> 1705abe7d525d17d5930a58e9cdcb06abb7fd7ad
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream

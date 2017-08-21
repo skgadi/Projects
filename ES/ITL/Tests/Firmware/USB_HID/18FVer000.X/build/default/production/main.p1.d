@@ -1,0 +1,21 @@
+ build/default/production/main.d  \
+ build/default/production/main.p1:  \
+ main.c  \
+gsk_funcs.h  \
+libs/usb/usb_common.h  \
+libs/usb/usb_ch9.h  \
+libs/usb/usb_device.h  \
+power.h  \
+libs/usb/usb_hal_pic18.h  \
+main.h  \
+libs/usb/usb_ch9.h  \
+libs/usb/usb_config.h  \
+libs/usb/usb_hal_pic18.h  \
+libs/usb/usb_hal.h  \
+libs/usb/usb_config.h  \
+libs/usb/usb.h  \
+libs/usb/usb_hal.h  \
+libs/usb/usb_common.h  \
+GenericTypeDefs.h  \
+libs/usb/usb_device_hid.h  \
+libs/usb/fixed_address_memory.h 
