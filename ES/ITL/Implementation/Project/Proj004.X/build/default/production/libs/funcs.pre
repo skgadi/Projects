@@ -14167,7 +14167,7 @@ GPS_DATE_TIME.DATE.Month = (Date[2]-0x30)*10 + (Date[3]-0x30);
 GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
 GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
 GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
-GPS_DATE_TIME.SECOND += TIME_ZONE;
+GPS_DATE_TIME.SECOND += (TIME_ZONE - CYCLE_DELAY);
 if (GPS_DATE_TIME.SECOND < 0) {
 GPS_DATE_TIME.SECOND += 86400;
 GPS_DATE_TIME = DecreaseByADay(GPS_DATE_TIME);
@@ -14202,7 +14202,7 @@ void VerifyForGPSOnTIme (void) {
 INT32 TimeDiff = DATE_TIME.SECOND - TIME_WHEN_GPS_IS_SWITCHED_ON;
 if (TimeDiff<0)
 TimeDiff += 86400;
-if (TimeDiff >= (1*60)) {
+if (TimeDiff >= (20*60)) {
 FLAGS_0.bits.b2 = SET;
 FLAGS_0.bits.b1 = RESET;
 }
@@ -14221,7 +14221,7 @@ if (NO_OF_TIMES_GPS_FAILED > 4) {
 FLAGS_0.bits.b3 = SET;
 } else {
 TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND -
-((1*60) - (5*60));
+((20*60) - (5*60));
 if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
 TIME_WHEN_GPS_IS_SWITCHED_ON += 86400;
 FLAGS_0.bits.b1 = SET;

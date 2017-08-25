@@ -14050,8 +14050,6 @@ TMR0_SetInterruptHandler(Timer0_10ms);
 # 94
 LoadAllFromEeprom();
 
-Lcd_Init();
-
 # 106
 if (GPS_SYNC_AT_START == 1)
 FLAGS_0.bits.b0 = SET;
@@ -14068,18 +14066,7 @@ if (FLAGS_0.bits.b3) StopGPS();
 TestGPSStartCondition();
 NEXT_EVENT = GetEventNumber();
 
-# 159
-ReadGPS_DATE_TIME();
-Lcd_WriteChar(1,1,0x54);
-WriteLongInt(1, 2, DATE_TIME.SECOND, 6, 0);
-Lcd_WriteChar(1,9,0x53);
-WriteLongInt(1, 10, TIME_AT_LAST_GPS_SYNC, 6, 0);
-Lcd_WriteChar(2,1,0x47);
-WriteLongInt(2, 2, GPS_DATE_TIME.SECOND, 6, 0);
-Lcd_WriteChar(2,9,'I');
-WriteLongInt(2, 10, TIME_WHEN_GPS_IS_SWITCHED_ON, 6, 0);
-
-
+# 170
 }
 }
 

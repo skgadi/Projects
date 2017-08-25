@@ -11348,9 +11348,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;funcs.c: 132: GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
 "132
 [e = . . _GPS_DATE_TIME 0 0 ( _TimeTextToSecond (1 &U _Time ]
-[; ;funcs.c: 133: GPS_DATE_TIME.SECOND += TIME_ZONE;
+[; ;funcs.c: 133: GPS_DATE_TIME.SECOND += (TIME_ZONE - CYCLE_DELAY);
 "133
-[e =+ . . _GPS_DATE_TIME 0 0 -> _TIME_ZONE `l ]
+[e =+ . . _GPS_DATE_TIME 0 0 -> - -> _TIME_ZONE `i -> _CYCLE_DELAY `i `l ]
 [; ;funcs.c: 134: if (GPS_DATE_TIME.SECOND < 0) {
 "134
 [e $ ! < . . _GPS_DATE_TIME 0 0 -> -> 0 `i `l 1388  ]
@@ -11465,9 +11465,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "167
 [e =+ _TimeDiff -> 86400 `l ]
 [e :U 1394 ]
-[; ;funcs.c: 168: if (TimeDiff >= (1*60)) {
+[; ;funcs.c: 168: if (TimeDiff >= (20*60)) {
 "168
-[e $ ! >= _TimeDiff -> * -> 1 `i -> 60 `i `l 1395  ]
+[e $ ! >= _TimeDiff -> * -> 20 `i -> 60 `i `l 1395  ]
 {
 [; ;funcs.c: 169: FLAGS_0.bits.b2 = SET;
 "169
@@ -11525,9 +11525,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1399 ]
 {
 [; ;funcs.c: 189: TIME_WHEN_GPS_IS_SWITCHED_ON = DATE_TIME.SECOND -
-[; ;funcs.c: 190: ((1*60) - (5*60));
+[; ;funcs.c: 190: ((20*60) - (5*60));
 "190
-[e = _TIME_WHEN_GPS_IS_SWITCHED_ON - . . _DATE_TIME 0 0 -> - * -> 1 `i -> 60 `i * -> 5 `i -> 60 `i `l ]
+[e = _TIME_WHEN_GPS_IS_SWITCHED_ON - . . _DATE_TIME 0 0 -> - * -> 20 `i -> 60 `i * -> 5 `i -> 60 `i `l ]
 [; ;funcs.c: 191: if (TIME_WHEN_GPS_IS_SWITCHED_ON<0)
 "191
 [e $ ! < _TIME_WHEN_GPS_IS_SWITCHED_ON -> -> 0 `i `l 1401  ]

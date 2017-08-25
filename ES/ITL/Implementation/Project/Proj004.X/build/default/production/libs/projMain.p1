@@ -10949,57 +10949,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1360 ]
 [; ;projMain.c: 26: }
+[; ;projMain.c: 28: for (UINT8 i =0; i<2; i++) {
+"28
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1364  ]
+[e $U 1365  ]
+[e :U 1364 ]
+{
+[; ;projMain.c: 29: *(LIGHTS[i]) = OutForThePorts[i];
+"29
+[e = *U *U + &U _LIGHTS * -> _i `ux -> -> # *U &U _LIGHTS `ui `ux *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux ]
+"30
+}
+"28
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1364  ]
+[e :U 1365 ]
+"30
+}
+[; ;projMain.c: 30: }
 [; ;projMain.c: 32: if ((STATES[PRESENT_STATE].AUDIO == AUDIO_NORMAL)
 [; ;projMain.c: 33: || ((STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL)
 [; ;projMain.c: 34: && (STATE_SECONDS_REMAINING <= SPECIAL_AUDIO_LAST_X_SECONDS))) {
 "34
-[e $ ! || == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 1 `i && == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i <= -> _STATE_SECONDS_REMAINING `i -> _SPECIAL_AUDIO_LAST_X_SECONDS `i 1364  ]
+[e $ ! || == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 1 `i && == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i <= -> _STATE_SECONDS_REMAINING `i -> _SPECIAL_AUDIO_LAST_X_SECONDS `i 1367  ]
 {
 [; ;projMain.c: 35: if (NORMAL_AUDIO_STATE_ON_OFF_COUNTER < AUDIO_NORMAL_ON_TIME)
 "35
-[e $ ! < -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_NORMAL_ON_TIME `i 1365  ]
+[e $ ! < -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_NORMAL_ON_TIME `i 1368  ]
 [; ;projMain.c: 36: LATCbits.LC0 = ON;
 "36
 [e = . . _LATCbits 1 0 -> . `E11238 1 `uc ]
-[e $U 1366  ]
+[e $U 1369  ]
 "37
-[e :U 1365 ]
+[e :U 1368 ]
 [; ;projMain.c: 37: else
 [; ;projMain.c: 38: LATCbits.LC0 = OFF;
 "38
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
-[e :U 1366 ]
+[e :U 1369 ]
 "39
 }
 [; ;projMain.c: 39: } else if (STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL) {
-[e $U 1367  ]
-[e :U 1364 ]
-[e $ ! == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i 1368  ]
+[e $U 1370  ]
+[e :U 1367 ]
+[e $ ! == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i 1371  ]
 {
 [; ;projMain.c: 40: if (SPECIAL_AUDIO_STATE_ON_OFF_COUNTER < AUDIO_SPECIAL_ON_TIME)
 "40
-[e $ ! < -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_SPECIAL_ON_TIME `i 1369  ]
+[e $ ! < -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_SPECIAL_ON_TIME `i 1372  ]
 [; ;projMain.c: 41: LATCbits.LC0 = ON;
 "41
 [e = . . _LATCbits 1 0 -> . `E11238 1 `uc ]
-[e $U 1370  ]
+[e $U 1373  ]
 "42
-[e :U 1369 ]
+[e :U 1372 ]
 [; ;projMain.c: 42: else
 [; ;projMain.c: 43: LATCbits.LC0 = OFF;
 "43
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
-[e :U 1370 ]
+[e :U 1373 ]
 "44
 }
 [; ;projMain.c: 44: } else
-[e $U 1371  ]
-[e :U 1368 ]
+[e $U 1374  ]
+[e :U 1371 ]
 [; ;projMain.c: 45: LATCbits.LC0 = OFF;
 "45
 [e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
-[e :U 1371 ]
-[e :U 1367 ]
+[e :U 1374 ]
+[e :U 1370 ]
 [; ;projMain.c: 47: CENTI_SECOND_COUNT++;
 "47
 [e ++ _CENTI_SECOND_COUNT -> -> 1 `i `uc ]
@@ -11008,34 +11029,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _BLINK_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
 [; ;projMain.c: 49: if (BLINK_STATE_ON_OFF_COUNTER >= (BLINK_ON_TIME + BLINK_OFF_TIME))
 "49
-[e $ ! >= -> _BLINK_STATE_ON_OFF_COUNTER `i + -> _BLINK_ON_TIME `i -> _BLINK_OFF_TIME `i 1372  ]
+[e $ ! >= -> _BLINK_STATE_ON_OFF_COUNTER `i + -> _BLINK_ON_TIME `i -> _BLINK_OFF_TIME `i 1375  ]
 [; ;projMain.c: 50: BLINK_STATE_ON_OFF_COUNTER=0;
 "50
 [e = _BLINK_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
-[e :U 1372 ]
+[e :U 1375 ]
 [; ;projMain.c: 51: NORMAL_AUDIO_STATE_ON_OFF_COUNTER++;
 "51
 [e ++ _NORMAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
 [; ;projMain.c: 52: if (NORMAL_AUDIO_STATE_ON_OFF_COUNTER >= (AUDIO_NORMAL_ON_TIME + AUDIO_NORMAL_OFF_TIME))
 "52
-[e $ ! >= -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_NORMAL_ON_TIME `i -> _AUDIO_NORMAL_OFF_TIME `i 1373  ]
+[e $ ! >= -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_NORMAL_ON_TIME `i -> _AUDIO_NORMAL_OFF_TIME `i 1376  ]
 [; ;projMain.c: 53: NORMAL_AUDIO_STATE_ON_OFF_COUNTER=0;
 "53
 [e = _NORMAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
-[e :U 1373 ]
+[e :U 1376 ]
 [; ;projMain.c: 54: SPECIAL_AUDIO_STATE_ON_OFF_COUNTER++;
 "54
 [e ++ _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
 [; ;projMain.c: 55: if (SPECIAL_AUDIO_STATE_ON_OFF_COUNTER >= (AUDIO_SPECIAL_ON_TIME + AUDIO_SPECIAL_OFF_TIME))
 "55
-[e $ ! >= -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_SPECIAL_ON_TIME `i -> _AUDIO_SPECIAL_OFF_TIME `i 1374  ]
+[e $ ! >= -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_SPECIAL_ON_TIME `i -> _AUDIO_SPECIAL_OFF_TIME `i 1377  ]
 [; ;projMain.c: 56: SPECIAL_AUDIO_STATE_ON_OFF_COUNTER=0;
 "56
 [e = _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
-[e :U 1374 ]
+[e :U 1377 ]
 [; ;projMain.c: 59: if (CENTI_SECOND_COUNT == 100) {
 "59
-[e $ ! == -> _CENTI_SECOND_COUNT `i -> 100 `i 1375  ]
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 100 `i 1378  ]
 {
 [; ;projMain.c: 60: CENTI_SECOND_COUNT = 0;
 "60
@@ -11048,63 +11069,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _STATE_SECONDS_REMAINING -> - - + -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `i -> _SECONDS_TO_ADJUST_PART `i -> _STATE_SECONDS `i -> 1 `i `uc ]
 [; ;projMain.c: 63: if (STATE_SECONDS_REMAINING == 0)
 "63
-[e $ ! == -> _STATE_SECONDS_REMAINING `i -> 0 `i 1376  ]
+[e $ ! == -> _STATE_SECONDS_REMAINING `i -> 0 `i 1379  ]
 [; ;projMain.c: 64: FLAGS_1.bits.b0 = SET;
 "64
 [e = . . _FLAGS_1 1 0 -> . `E11242 1 `uc ]
-[e :U 1376 ]
+[e :U 1379 ]
 [; ;projMain.c: 65: STATE_SECONDS++;
 "65
 [e ++ _STATE_SECONDS -> -> 1 `i `uc ]
 "66
 }
-[e :U 1375 ]
+[e :U 1378 ]
 [; ;projMain.c: 66: }
 [; ;projMain.c: 67: if (CENTI_SECOND_COUNT == 3) {
 "67
-[e $ ! == -> _CENTI_SECOND_COUNT `i -> 3 `i 1377  ]
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 3 `i 1380  ]
 {
 [; ;projMain.c: 68: if (STATE_SECONDS == 0) {
 "68
-[e $ ! == -> _STATE_SECONDS `i -> 0 `i 1378  ]
+[e $ ! == -> _STATE_SECONDS `i -> 0 `i 1381  ]
 {
 [; ;projMain.c: 69: if (SECONDS_TO_ADJUST != 0) {
 "69
-[e $ ! != -> _SECONDS_TO_ADJUST `i -> 0 `i 1379  ]
+[e $ ! != -> _SECONDS_TO_ADJUST `i -> 0 `i 1382  ]
 {
 [; ;projMain.c: 70: if (SECONDS_TO_ADJUST > 0) {
 "70
-[e $ ! > -> _SECONDS_TO_ADJUST `i -> 0 `i 1380  ]
+[e $ ! > -> _SECONDS_TO_ADJUST `i -> 0 `i 1383  ]
 {
 [; ;projMain.c: 71: SECONDS_TO_ADJUST_PART = 0.3*STATES[PRESENT_STATE].PERIOD;
 "71
 [e = _SECONDS_TO_ADJUST_PART -> * .0.3 -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `d `c ]
 [; ;projMain.c: 72: if (SECONDS_TO_ADJUST_PART > SECONDS_TO_ADJUST)
 "72
-[e $ ! > -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1381  ]
+[e $ ! > -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1384  ]
 [; ;projMain.c: 73: SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
 "73
 [e = _SECONDS_TO_ADJUST_PART -> _SECONDS_TO_ADJUST `c ]
-[e :U 1381 ]
+[e :U 1384 ]
 "74
 }
 [; ;projMain.c: 74: } else {
-[e $U 1382  ]
-[e :U 1380 ]
+[e $U 1385  ]
+[e :U 1383 ]
 {
 [; ;projMain.c: 75: SECONDS_TO_ADJUST_PART = -0.3*STATES[PRESENT_STATE].PERIOD;
 "75
 [e = _SECONDS_TO_ADJUST_PART -> * -U .0.3 -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `d `c ]
 [; ;projMain.c: 76: if (SECONDS_TO_ADJUST_PART < SECONDS_TO_ADJUST)
 "76
-[e $ ! < -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1383  ]
+[e $ ! < -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1386  ]
 [; ;projMain.c: 77: SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
 "77
 [e = _SECONDS_TO_ADJUST_PART -> _SECONDS_TO_ADJUST `c ]
-[e :U 1383 ]
+[e :U 1386 ]
 "78
 }
-[e :U 1382 ]
+[e :U 1385 ]
 [; ;projMain.c: 78: }
 [; ;projMain.c: 79: SECONDS_TO_ADJUST -= SECONDS_TO_ADJUST_PART;
 "79
@@ -11112,23 +11133,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 "80
 }
 [; ;projMain.c: 80: } else
-[e $U 1384  ]
-[e :U 1379 ]
+[e $U 1387  ]
+[e :U 1382 ]
 [; ;projMain.c: 81: SECONDS_TO_ADJUST_PART = 0;
 "81
 [e = _SECONDS_TO_ADJUST_PART -> -> 0 `i `c ]
-[e :U 1384 ]
+[e :U 1387 ]
 "82
 }
-[e :U 1378 ]
+[e :U 1381 ]
 "83
 }
-[e :U 1377 ]
+[e :U 1380 ]
 [; ;projMain.c: 82: }
 [; ;projMain.c: 83: }
 [; ;projMain.c: 84: if (CENTI_SECOND_COUNT == 2) {
 "84
-[e $ ! == -> _CENTI_SECOND_COUNT `i -> 2 `i 1385  ]
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 2 `i 1388  ]
 {
 "85
 [v _ThisCycle `uc ~T0 @X0 1 a ]
@@ -11136,36 +11157,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ThisCycle ( _GetThisCycle ..  ]
 [; ;projMain.c: 86: if ((CYCLES[ThisCycle].START_STATE == PRESENT_STATE) && (STATE_SECONDS==0)) {
 "86
-[e $ ! && == -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 1 `i -> _PRESENT_STATE `i == -> _STATE_SECONDS `i -> 0 `i 1386  ]
+[e $ ! && == -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 1 `i -> _PRESENT_STATE `i == -> _STATE_SECONDS `i -> 0 `i 1389  ]
 {
 [; ;projMain.c: 87: SECONDS_TO_ADJUST = (DATE_TIME.SECOND) % (CYCLES[ThisCycle].PERIOD);
 "87
 [e = _SECONDS_TO_ADJUST -> % . . _DATE_TIME 0 0 -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `l `s ]
 [; ;projMain.c: 88: if (SECONDS_TO_ADJUST > (CYCLES[ThisCycle].PERIOD)/2)
 "88
-[e $ ! > -> _SECONDS_TO_ADJUST `ui / -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `ui -> -> 2 `i `ui 1387  ]
+[e $ ! > -> _SECONDS_TO_ADJUST `ui / -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `ui -> -> 2 `i `ui 1390  ]
 [; ;projMain.c: 89: SECONDS_TO_ADJUST -= CYCLES[ThisCycle].PERIOD;
 "89
 [e =- _SECONDS_TO_ADJUST -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `s ]
-[e :U 1387 ]
+[e :U 1390 ]
 [; ;projMain.c: 90: SECONDS_TO_ADJUST = -SECONDS_TO_ADJUST;
 "90
 [e = _SECONDS_TO_ADJUST -> -U -> _SECONDS_TO_ADJUST `i `s ]
 "91
 }
-[e :U 1386 ]
+[e :U 1389 ]
 "92
 }
-[e :U 1385 ]
+[e :U 1388 ]
 [; ;projMain.c: 91: }
 [; ;projMain.c: 92: }
 [; ;projMain.c: 93: if (CENTI_SECOND_COUNT == 1) {
 "93
-[e $ ! == -> _CENTI_SECOND_COUNT `i -> 1 `i 1388  ]
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 1 `i 1391  ]
 {
 [; ;projMain.c: 94: if (!FLAGS_1.bits.b1) {
 "94
-[e $ ! ! != -> . . _FLAGS_1 1 1 `i -> -> -> 0 `i `uc `i 1389  ]
+[e $ ! ! != -> . . _FLAGS_1 1 1 `i -> -> -> 0 `i `uc `i 1392  ]
 {
 "95
 [v _ThisCycle `uc ~T0 @X0 1 a ]
@@ -11173,14 +11194,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ThisCycle ( _GetThisCycle ..  ]
 [; ;projMain.c: 96: if (PRESENT_STATE == CYCLES[ThisCycle].END_STATE) {
 "96
-[e $ ! == -> _PRESENT_STATE `i -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1390  ]
+[e $ ! == -> _PRESENT_STATE `i -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1393  ]
 {
 [; ;projMain.c: 97: PRESENT_EVENT = NEXT_EVENT;
 "97
 [e = _PRESENT_EVENT _NEXT_EVENT ]
 [; ;projMain.c: 98: if (PRESENT_EVENT < 0) {
 "98
-[e $ ! < -> _PRESENT_EVENT `i -> 0 `i 1391  ]
+[e $ ! < -> _PRESENT_EVENT `i -> 0 `i 1394  ]
 {
 [; ;projMain.c: 99: ThisCycle = 0;
 "99
@@ -11188,15 +11209,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "100
 }
 [; ;projMain.c: 100: } else {
-[e $U 1392  ]
-[e :U 1391 ]
+[e $U 1395  ]
+[e :U 1394 ]
 {
 [; ;projMain.c: 101: ThisCycle = EVENTS[PRESENT_EVENT].CYCLE;
 "101
 [e = _ThisCycle . . *U + &U _EVENTS * -> -> _PRESENT_EVENT `uc `ux -> -> # *U &U _EVENTS `ui `ux 0 2 ]
 "102
 }
-[e :U 1392 ]
+[e :U 1395 ]
 [; ;projMain.c: 102: }
 [; ;projMain.c: 103: NEXT_STATE = CYCLES[ThisCycle].START_STATE;
 "103
@@ -11207,21 +11228,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "105
 }
 [; ;projMain.c: 105: } else {
-[e $U 1393  ]
-[e :U 1390 ]
+[e $U 1396  ]
+[e :U 1393 ]
 {
 [; ;projMain.c: 106: NEXT_STATE = PRESENT_STATE+1;
 "106
 [e = _NEXT_STATE -> + -> _PRESENT_STATE `i -> 1 `i `uc ]
 "107
 }
-[e :U 1393 ]
+[e :U 1396 ]
 "108
 }
-[e :U 1389 ]
+[e :U 1392 ]
 "109
 }
-[e :U 1388 ]
+[e :U 1391 ]
 [; ;projMain.c: 107: }
 [; ;projMain.c: 108: }
 [; ;projMain.c: 109: }

@@ -14062,7 +14062,10 @@ for (UINT8 i =0; i<2; i++)
 OutForThePorts[i] = (OutForThePorts[i] | STATES[PRESENT_STATE].BLINK[i]);
 }
 
-# 32
+for (UINT8 i =0; i<2; i++) {
+*(LIGHTS[i]) = OutForThePorts[i];
+}
+
 if ((STATES[PRESENT_STATE].AUDIO == AUDIO_NORMAL)
 || ((STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL)
 && (STATE_SECONDS_REMAINING <= SPECIAL_AUDIO_LAST_X_SECONDS))) {

@@ -130,7 +130,7 @@ BOOL ReadGPS_DATE_TIME (void) {
         GPS_DATE_TIME.DAY.Val = (0x40 >> GetDay(Date));
         GPS_DATE_TIME.YEAR = (Date[4]-0x30)*10 + (Date[5]-0x30) + CENTURY*100;
         GPS_DATE_TIME.SECOND = TimeTextToSecond (Time);
-        GPS_DATE_TIME.SECOND += TIME_ZONE;
+        GPS_DATE_TIME.SECOND += (TIME_ZONE - CYCLE_DELAY);
         if (GPS_DATE_TIME.SECOND < 0) {
             GPS_DATE_TIME.SECOND += NO_OF_SECONDS_IN_A_DAY;
             GPS_DATE_TIME = DecreaseByADay(GPS_DATE_TIME);

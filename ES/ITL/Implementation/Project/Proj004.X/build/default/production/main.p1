@@ -75,8 +75,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer0_10ms `(v ~T0 @X0 0 ef ]
 "51 libs/eeprom.h
 [v _LoadAllFromEeprom `(v ~T0 @X0 0 ef ]
-"58 libs/HD44780.h
-[v _Lcd_Init `(v ~T0 @X0 0 ef ]
 "107 main.c
 [c E11242 0 1 .. ]
 [n E11242 _FLAG RESET SET  ]
@@ -106,15 +104,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TestGPSStartCondition `(v ~T0 @X0 0 ef ]
 "33
 [v _GetEventNumber `(c ~T0 @X0 0 ef ]
-"159 main.c
-[c E11037 0 1 .. ]
-[n E11037 _BOOL FALSE TRUE  ]
-"26 libs/funcs.h
-[v _ReadGPS_DATE_TIME `(E11037 ~T0 @X0 0 ef ]
-"61 libs/HD44780.h
-[v _Lcd_WriteChar `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"67
-[v _WriteLongInt `(v ~T0 @X0 0 ef5`uc`uc`l`c`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10886,9 +10875,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 94: LoadAllFromEeprom();
 "94
 [e ( _LoadAllFromEeprom ..  ]
-[; ;main.c: 96: Lcd_Init();
-"96
-[e ( _Lcd_Init ..  ]
 [; ;main.c: 106: if (GPS_SYNC_AT_START == 1)
 "106
 [e $ ! == -> _GPS_SYNC_AT_START `i -> 1 `i 1348  ]
@@ -10931,33 +10917,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 119: NEXT_EVENT = GetEventNumber();
 "119
 [e = _NEXT_EVENT ( _GetEventNumber ..  ]
-[; ;main.c: 159: ReadGPS_DATE_TIME();
-"159
-[e ( _ReadGPS_DATE_TIME ..  ]
-[; ;main.c: 160: Lcd_WriteChar(1,1,0x54);
-"160
-[e ( _Lcd_WriteChar (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 84 `i `uc ]
-[; ;main.c: 161: WriteLongInt(1, 2, DATE_TIME.SECOND, 6, 0);
-"161
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 2 `i `uc . . _DATE_TIME 0 0 -> -> 6 `i `c -> -> 0 `i `uc ]
-[; ;main.c: 162: Lcd_WriteChar(1,9,0x53);
-"162
-[e ( _Lcd_WriteChar (3 , , -> -> 1 `i `uc -> -> 9 `i `uc -> -> 83 `i `uc ]
-[; ;main.c: 163: WriteLongInt(1, 10, TIME_AT_LAST_GPS_SYNC, 6, 0);
-"163
-[e ( _WriteLongInt (4 , , , , -> -> 1 `i `uc -> -> 10 `i `uc _TIME_AT_LAST_GPS_SYNC -> -> 6 `i `c -> -> 0 `i `uc ]
-[; ;main.c: 164: Lcd_WriteChar(2,1,0x47);
-"164
-[e ( _Lcd_WriteChar (3 , , -> -> 2 `i `uc -> -> 1 `i `uc -> -> 71 `i `uc ]
-[; ;main.c: 165: WriteLongInt(2, 2, GPS_DATE_TIME.SECOND, 6, 0);
-"165
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 2 `i `uc . . _GPS_DATE_TIME 0 0 -> -> 6 `i `c -> -> 0 `i `uc ]
-[; ;main.c: 166: Lcd_WriteChar(2,9,'I');
-"166
-[e ( _Lcd_WriteChar (3 , , -> -> 2 `i `uc -> -> 9 `i `uc -> -> 73 `ui `uc ]
-[; ;main.c: 167: WriteLongInt(2, 10, TIME_WHEN_GPS_IS_SWITCHED_ON, 6, 0);
-"167
-[e ( _WriteLongInt (4 , , , , -> -> 2 `i `uc -> -> 10 `i `uc _TIME_WHEN_GPS_IS_SWITCHED_ON -> -> 6 `i `c -> -> 0 `i `uc ]
 "170
 }
 [e :U 1349 ]

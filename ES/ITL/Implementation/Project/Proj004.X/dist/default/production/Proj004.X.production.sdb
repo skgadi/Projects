@@ -61,11 +61,6 @@ SET 1
 OFF 0
 ON 1
 ]
-"159
-[e E11037 _BOOL `uc
-FALSE 0
-TRUE 1
-]
 "56 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/projMain.h
 [e E11246 _GSK_AUDIO `uc
 AUDIO_OFF 0
@@ -467,9 +462,7 @@ ON 1
 [v _GetDay GetDay `(c  1 e 1 0 ]
 "138
 [v _ValidateDateTime ValidateDateTime `(E11037  1 e 1 0 ]
-"17 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
-[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
-"99
+"99 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
 [v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
 "116
 [v _Lcd_CharCP Lcd_CharCP `(v  1 e 1 0 ]
@@ -479,8 +472,6 @@ ON 1
 [v _Lcd_Delay5us Lcd_Delay5us `(v  1 e 1 0 ]
 "153
 [v _Lcd_Delay5500us Lcd_Delay5500us `(v  1 e 1 0 ]
-"183
-[v _WriteLongInt WriteLongInt `(v  1 e 1 0 ]
 "3 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/projMain.c
 [v _Timer0_10ms Timer0_10ms `(v  1 e 1 0 ]
 "53 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\main.c
@@ -615,27 +606,6 @@ ON 1
 [v _NVMCON1bits NVMCON1bits `VES626  1 e 1 @3969 ]
 "15048
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
-[s S368 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 LATA5 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"15075
-[s S377 . 1 `uc 1 LA0 1 0 :1:0 
-`uc 1 LA1 1 0 :1:1 
-`uc 1 LA2 1 0 :1:2 
-`uc 1 LA3 1 0 :1:3 
-`uc 1 LA4 1 0 :1:4 
-`uc 1 LA5 1 0 :1:5 
-`uc 1 LA6 1 0 :1:6 
-`uc 1 LA7 1 0 :1:7 
-]
-[u S386 . 1 `S368 1 . 1 0 `S377 1 . 1 0 ]
-[v _LATAbits LATAbits `VES386  1 e 1 @3971 ]
 "15160
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "15272
@@ -663,18 +633,6 @@ ON 1
 [v _LATCbits LATCbits `VES1599  1 e 1 @3973 ]
 "15384
 [v _TRISA TRISA `VEuc  1 e 1 @3976 ]
-[s S347 . 1 `uc 1 TRISA0 1 0 :1:0 
-`uc 1 TRISA1 1 0 :1:1 
-`uc 1 TRISA2 1 0 :1:2 
-`uc 1 TRISA3 1 0 :1:3 
-`uc 1 TRISA4 1 0 :1:4 
-`uc 1 TRISA5 1 0 :1:5 
-`uc 1 TRISA6 1 0 :1:6 
-`uc 1 TRISA7 1 0 :1:7 
-]
-"15406
-[u S356 . 1 `S347 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES356  1 e 1 @3976 ]
 "15506
 [v _TRISB TRISB `VEuc  1 e 1 @3977 ]
 "15628
@@ -760,6 +718,8 @@ ON 1
 [v projMain@NO_OF_DAYS_IN_A_MONTH NO_OF_DAYS_IN_A_MONTH `[12]i  1 s 24 NO_OF_DAYS_IN_A_MONTH ]
 "49
 [v _TIME_ZONE TIME_ZONE `s  1 e 2 0 ]
+"50
+[v _CYCLE_DELAY CYCLE_DELAY `s  1 e 2 0 ]
 [s S21 . 4 `ui 1 Day 2 0 `ui 1 Month 2 2 ]
 "51
 [u S24 _GSK_YEAR_DAY 4 `S21 1 . 4 0 ]
@@ -837,6 +797,8 @@ ON 1
 [v _TIME_WHEN_GPS_IS_SWITCHED_ON TIME_WHEN_GPS_IS_SWITCHED_ON `l  1 e 4 0 ]
 "74
 [v _TIME_AT_LAST_GPS_SYNC TIME_AT_LAST_GPS_SYNC `l  1 e 4 0 ]
+"75
+[v _LIGHTS LIGHTS `[2]*.39uc  1 e 4 0 ]
 "76
 [v _SECONDS_TO_ADJUST SECONDS_TO_ADJUST `s  1 e 2 0 ]
 "77
@@ -861,55 +823,6 @@ ON 1
 [v _main main `(v  1 e 1 0 ]
 {
 "171
-} 0
-"183 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
-[v _WriteLongInt WriteLongInt `(v  1 e 1 0 ]
-{
-[v WriteLongInt@y y `uc  1 a 1 wreg ]
-"184
-[v WriteLongInt@POS POS `c  1 a 1 25 ]
-"183
-[v WriteLongInt@y y `uc  1 a 1 wreg ]
-[v WriteLongInt@x x `uc  1 p 1 18 ]
-[v WriteLongInt@Val Val `l  1 p 4 19 ]
-[v WriteLongInt@size size `c  1 p 1 23 ]
-[v WriteLongInt@Sign Sign `uc  1 p 1 24 ]
-[v WriteLongInt@y y `uc  1 a 1 26 ]
-"198
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
-{
-"11
-[v ___aldiv@quotient quotient `l  1 a 4 10 ]
-"12
-[v ___aldiv@sign sign `uc  1 a 1 9 ]
-[v ___aldiv@counter counter `uc  1 a 1 8 ]
-"8
-[v ___aldiv@dividend dividend `l  1 p 4 0 ]
-[v ___aldiv@divisor divisor `l  1 p 4 4 ]
-"42
-} 0
-"99 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
-[v _Lcd_WriteChar Lcd_WriteChar `(v  1 e 1 0 ]
-{
-[v Lcd_WriteChar@y y `uc  1 a 1 wreg ]
-"100
-[v Lcd_WriteChar@data data `uc  1 a 1 17 ]
-"99
-[v Lcd_WriteChar@y y `uc  1 a 1 wreg ]
-[v Lcd_WriteChar@x x `uc  1 p 1 14 ]
-[v Lcd_WriteChar@c c `uc  1 p 1 15 ]
-[v Lcd_WriteChar@y y `uc  1 a 1 16 ]
-"110
-} 0
-"116
-[v _Lcd_CharCP Lcd_CharCP `(v  1 e 1 0 ]
-{
-[v Lcd_CharCP@c c `uc  1 a 1 wreg ]
-[v Lcd_CharCP@c c `uc  1 a 1 wreg ]
-[v Lcd_CharCP@c c `uc  1 a 1 2 ]
-"127
 } 0
 "164 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/funcs.c
 [v _VerifyForGPSOnTIme VerifyForGPSOnTIme `(v  1 e 1 0 ]
@@ -1529,31 +1442,6 @@ ON 1
 [v ReadEeprom@Address Address `S609  1 p 2 0 ]
 "13
 } 0
-"17 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/HD44780.c
-[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
-{
-"23
-[v Lcd_Init@data data `uc  1 a 1 3 ]
-"45
-} 0
-"153
-[v _Lcd_Delay5500us Lcd_Delay5500us `(v  1 e 1 0 ]
-{
-"155
-} 0
-"133
-[v _Lcd_Command Lcd_Command `(v  1 e 1 0 ]
-{
-[v Lcd_Command@command command `uc  1 a 1 wreg ]
-[v Lcd_Command@command command `uc  1 a 1 wreg ]
-[v Lcd_Command@command command `uc  1 a 1 2 ]
-"145
-} 0
-"150
-[v _Lcd_Delay5us Lcd_Delay5us `(v  1 e 1 0 ]
-{
-"152
-} 0
 "210 D:\GitHub\Projects\ES\ITL\Implementation\Project\Proj004.X\libs/funcs.c
 [v _GetEventNumber GetEventNumber `(c  1 e 1 0 ]
 {
@@ -1597,19 +1485,21 @@ ON 1
 [v _Timer0_10ms Timer0_10ms `(v  1 e 1 0 ]
 {
 "20
-[v Timer0_10ms@i_2901 i `uc  1 a 1 63 ]
+[v Timer0_10ms@i_2892 i `uc  1 a 1 64 ]
 "95
-[v Timer0_10ms@ThisCycle_2906 ThisCycle `uc  1 a 1 57 ]
+[v Timer0_10ms@ThisCycle_2898 ThisCycle `uc  1 a 1 57 ]
 "24
-[v Timer0_10ms@i_2902 i `uc  1 a 1 64 ]
+[v Timer0_10ms@i_2893 i `uc  1 a 1 65 ]
 "85
-[v Timer0_10ms@ThisCycle ThisCycle `uc  1 a 1 61 ]
+[v Timer0_10ms@ThisCycle ThisCycle `uc  1 a 1 59 ]
+"28
+[v Timer0_10ms@i_2894 i `uc  1 a 1 61 ]
 "15
-[v Timer0_10ms@i_2900 i `uc  1 a 1 62 ]
+[v Timer0_10ms@i_2891 i `uc  1 a 1 60 ]
 "12
 [v Timer0_10ms@i i `uc  1 a 1 58 ]
 "11
-[v Timer0_10ms@OutForThePorts OutForThePorts `[2]uc  1 a 2 59 ]
+[v Timer0_10ms@OutForThePorts OutForThePorts `[2]uc  1 a 2 62 ]
 "110
 } 0
 "27 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\lbtoft.c
