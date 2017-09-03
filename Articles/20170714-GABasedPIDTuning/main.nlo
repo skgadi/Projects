@@ -1,0 +1,17 @@
+\nomenclatureentry{a$r$@[{$r$}]\begingroup Reference signal\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$u$@[{$u$}]\begingroup Control signal\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$y$@[{$y$}]\begingroup Output of the plant\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$e$@[{$e$}]\begingroup Error between reference and measured plant output\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$t$@[{$t$}]\begingroup Time\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{a$K_P$@[{$K_P$}]\begingroup Proportional constant of PID controller\nomeqref {1}|nompageref}{1}
+\nomenclatureentry{a$K_I$@[{$K_I$}]\begingroup Integral constant of PID controller\nomeqref {1}|nompageref}{1}
+\nomenclatureentry{a$K_D$@[{$K_D$}]\begingroup Derivative constant of PID controller\nomeqref {1}|nompageref}{1}
+\nomenclatureentry{a$s$@[{$s$}]\begingroup Laplace transform's complex variable\nomeqref {2}|nompageref}{1}
+\nomenclatureentry{a$N$@[{$N$}]\begingroup Constant associated with the filter implementing the derivative term in a PID controller\nomeqref {2}|nompageref}{1}
+\nomenclatureentry{a$C$@[{$C$}]\begingroup Population\nomunit{$\mathbb{R}^{n\times 4}$}\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a$n$@[{$n$}]\begingroup Population size\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a$C_i$@[{$C_i$}]\begingroup $i$\textsuperscript{th} chromosome of the population\nomunit{$\mathbb{R}^{4}$}\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a$T_i^-$@[{$T_i^-$}]\begingroup Start time of the implementation of the $i$\textsuperscript{th} chromosome\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a$T_i^+$@[{$T_i^+$}]\begingroup End time of the implementation of the $i$\textsuperscript{th} chromosome\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a$T$@[{$T$}]\begingroup Time interval for which the $i$\textsuperscript{th} chromosome is applied\nomeqref {2}|nompageref}{3}
+\nomenclatureentry{a@[{}]\begingroup \nomeqref {2}|nompageref}{3}
