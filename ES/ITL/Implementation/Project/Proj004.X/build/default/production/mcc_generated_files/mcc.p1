@@ -10316,14 +10316,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 105: void TMR0_Initialize(void);
 [; ;tmr0.h: 134: void TMR0_StartTimer(void);
 [; ;tmr0.h: 166: void TMR0_StopTimer(void);
-[; ;tmr0.h: 202: uint16_t TMR0_Read16bitTimer(void);
-[; ;tmr0.h: 241: void TMR0_Write16bitTimer(uint16_t timerVal);
-[; ;tmr0.h: 277: void TMR0_Reload16bit(void);
-[; ;tmr0.h: 295: void TMR0_ISR(void);
-[; ;tmr0.h: 313: void TMR0_CallBack(void);
-[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
-[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr0.h: 201: uint8_t TMR0_Read8bitTimer(void);
+[; ;tmr0.h: 240: void TMR0_Write8bitTimer(uint8_t timerVal);
+[; ;tmr0.h: 277: void TMR0_Load8bitPeriod(uint8_t periodVal);
+[; ;tmr0.h: 296: void TMR0_ISR(void);
+[; ;tmr0.h: 314: void TMR0_CallBack(void);
+[; ;tmr0.h: 332: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 350: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 368: void TMR0_DefaultInterruptHandler(void);
 [; ;eusart1.h: 94: void EUSART1_Initialize(void);
 [; ;eusart1.h: 114: uint8_t EUSART1_Read(void);
 [; ;eusart1.h: 134: void EUSART1_Write(uint8_t txData);
@@ -10364,9 +10364,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 118: {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-[; ;mcc.c: 120: OSCCON1 = 0x20;
+[; ;mcc.c: 120: OSCCON1 = 0x22;
 "120
-[e = _OSCCON1 -> -> 32 `i `uc ]
+[e = _OSCCON1 -> -> 34 `i `uc ]
 [; ;mcc.c: 122: OSCCON3 = 0x00;
 "122
 [e = _OSCCON3 -> -> 0 `i `uc ]

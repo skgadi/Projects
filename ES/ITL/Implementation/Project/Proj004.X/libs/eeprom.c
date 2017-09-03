@@ -1,6 +1,6 @@
 #include "eeprom.h"
 
-BYTE ReadEeprom(WORD_VAL Address){
+BYTE ReadEeprom (WORD_VAL Address){
     //Page 142 of 40001816D document
     //Address.Val -= 0x310000;
     NVMCON1bits.NVMREG = 00;
@@ -12,6 +12,24 @@ BYTE ReadEeprom(WORD_VAL Address){
     return NVMDAT;
 }
 
+void WriteEeprom (UINT16 Add, BYTE Data) {
+    WORD_VAL Address;
+    Address.Val = Add;
+    NVMCON1bits.NVMREG = 00;
+    NVMADRL = Address.v[0];
+    NVMADRH = Address.v[1];
+    NVMDAT = Data;
+    NVMCON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    NVMCON2 = 0x55;
+    NVMCON2 = 0xAA;
+    NVMCON1bits.WR = 1;
+    while(NVMCON1bits.WR);
+    INTCONbits.GIE = 1;
+    NVMCON1bits.WREN = 0;
+    NVMCON1bits.NVMREG1 = 1; // to fix the error mentioned in 4th page of http://ww1.microchip.com/downloads/en/DeviceDoc/80000712A.pdf 
+}
+
 void LoadSettingsFromEeprom (void) {
     WORD_VAL Temp16, Address;
     DWORD_VAL Temp32;
@@ -20,7 +38,7 @@ void LoadSettingsFromEeprom (void) {
     Temp16.v[0] = ReadEeprom(Address);
     Address.Val++;
     Temp16.v[1] = ReadEeprom(Address);
-    TIME_ZONE = (INT16) Temp16.Val;
+    TIME_ZONE = (INT16) 60*Temp16.Val;
     // Reading DAY_LIGHT_START
     Address.Val = EEPROM_ADDRESS_DAY_LIGHT_START;
     DAY_LIGHT_START.Day = ReadEeprom (Address);
@@ -91,12 +109,14 @@ void LoadEventsFromEeprom (void) {
         Temp16.v[0] = ReadEeprom(Address);
         Address.Val++;
         Temp16.v[1] = ReadEeprom(Address);
-        EVENTS[i].START_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+        EVENTS[i].START_TIME = (INT32)((INT8)Temp16.v[1])*60*60
+                + (INT32)((INT8)Temp16.v[0])*60;
         Address.Val++;
         Temp16.v[0] = ReadEeprom(Address);
         Address.Val++;
         Temp16.v[1] = ReadEeprom(Address);
-        EVENTS[i].END_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+        EVENTS[i].END_TIME = (INT32)((INT8)Temp16.v[1])*60*60
+                + (INT32)((INT8)Temp16.v[0])*60;
         Address.Val++;
         EVENTS[i].CYCLE = ReadEeprom(Address);
         Address.Val++;
@@ -134,8 +154,31 @@ void LoadStatesFromEeprom (void) {
     }
 }
 
+void LoadCyclesFromEeprom (void) {
+    WORD_VAL Address;
+    Address.Val = EEPROM_ADDRESS_CYCLE_TYPES;
+    //Loading from EEPROM
+    for (int i=0; i<MAX_NO_OF_CYCLE_TYPES; i++) {
+        CYCLES[i].END_STATE = ReadEeprom(Address);
+        Address.Val++;
+    }
+    //Preparing the information
+    for (int i=0; i<MAX_NO_OF_CYCLE_TYPES; i++) {
+        if (i==0)
+            CYCLES[i].START_STATE = 0;
+        else /*if (CYCLES[i].END_STATE == CYCLES[i-1].END_STATE)
+            CYCLES[i].START_STATE = CYCLES[i].END_STATE;
+        else*/
+            CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
+        CYCLES[i].PERIOD = 0;
+        for (int j=CYCLES[i].START_STATE; j<=CYCLES[i].END_STATE; j++ )
+            CYCLES[i].PERIOD += STATES[j].PERIOD;
+    }
+}
+
 void LoadAllFromEeprom (void) {
     LoadSettingsFromEeprom ();
     LoadEventsFromEeprom ();
     LoadStatesFromEeprom();
+    LoadCyclesFromEeprom();
 }

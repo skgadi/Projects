@@ -13603,28 +13603,28 @@ void TMR0_StartTimer(void);
 # 166
 void TMR0_StopTimer(void);
 
-# 202
-uint16_t TMR0_Read16bitTimer(void);
+# 201
+uint8_t TMR0_Read8bitTimer(void);
 
-# 241
-void TMR0_Write16bitTimer(uint16_t timerVal);
+# 240
+void TMR0_Write8bitTimer(uint8_t timerVal);
 
 # 277
-void TMR0_Reload16bit(void);
+void TMR0_Load8bitPeriod(uint8_t periodVal);
 
-# 295
+# 296
 void TMR0_ISR(void);
 
-# 313
+# 314
 void TMR0_CallBack(void);
 
-# 331
+# 332
 void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 
-# 349
+# 350
 extern void (*TMR0_InterruptHandler)(void);
 
-# 367
+# 368
 void TMR0_DefaultInterruptHandler(void);
 
 # 94 "libs/../mcc_generated_files/eusart1.h"
@@ -13868,6 +13868,7 @@ unsigned char b63:1;
 
 # 19 "libs/ProjectTypeDefs.h"
 typedef enum _SWITCH { OFF = 0, ON } SWITCH;
+typedef enum _FLAG { RESET = 0, SET } FLAG;
 typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
 typedef union _GSK_WEEK {
 struct {
@@ -13888,14 +13889,23 @@ unsigned Val :7;
 
 typedef union _GSK_YEAR_DAY {
 struct {
-unsigned Day:5;
-unsigned Month:4;
+unsigned Day;
+unsigned Month;
 };
 } GSK_YEAR_DAY;
 
 typedef INT32 GSK_SECOND_IN_DAY;
 typedef UINT8 GSK_CYCLE_TYPE;
+typedef UINT16 GSK_YEAR;
 
+typedef union _GSK_DATE_TIME {
+struct {
+GSK_SECOND_IN_DAY SECOND;
+GSK_YEAR_DAY DATE;
+GSK_WEEK DAY;
+GSK_YEAR YEAR;
+};
+} GSK_DATE_TIME;
 typedef union _GSK_CYCLE {
 struct {
 UINT16 PERIOD;
@@ -13949,15 +13959,32 @@ INT8 GetDay (char *Date);
 BOOL ValidateDateTime (char *Date, char *Time);
 void ValidateDateTime1 (char Date[], char Time[]);
 
-# 31 "libs/projMain.h"
-UINT8 GLOBAL_CENTURY = 20;
+# 17 "libs/funcs.h"
+GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+BOOL ReadGPS_DATE_TIME (void);
+INT32 TimeTextToSecond (char *Time);
+void SwitchOnGPS (void);
+void VerifyForGPSOnTIme (void);
+void ReadGPS (void);
+void StopGPS (void);
+void TestGPSStartCondition (void);
+INT8 GetEventNumber(void);
+UINT8 GetThisCycle (void);
+
+# 43 "libs/projMain.h"
+static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 
-INT GLOBAL_I =0;
-INT GLOBAL_USARTSIZE=0;
 void Timer0_10ms (void);
-void Timer1_1s (void);
-void Timer3_1ms (void);
+
 
 INT16 TIME_ZONE = 0;
 INT16 CYCLE_DELAY = 0;
@@ -13965,11 +13992,35 @@ GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
 GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
 UINT8 CENTURY = 20;
 UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-
-
 GSK_EVENT EVENTS[24];
 GSK_STATE STATES[160];
 GSK_CYCLE CYCLES[17];
+
+
+INT8 PRESENT_EVENT=-1;
+INT8 NEXT_EVENT=-1;
+UINT8 PRESENT_STATE = 0;
+UINT8 NEXT_STATE = 0;
+UINT8 STATE_SECONDS = 0;
+UINT8 STATE_SECONDS_REMAINING = 0;
+UINT8 CENTI_SECOND_COUNT = 0;
+UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
+UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+GSK_DATE_TIME DATE_TIME;
+GSK_DATE_TIME GPS_DATE_TIME;
+UINT8 NO_OF_TIMES_GPS_FAILED = 0;
+INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
+INT32 TIME_AT_LAST_GPS_SYNC = 0;
+UINT8 *(LIGHTS[]) = {&LATA, &LATB};
+INT16 SECONDS_TO_ADJUST = 0;
+INT8 SECONDS_TO_ADJUST_PART = 0;
+
+
+BYTE_BITS FLAGS_0 = 0;
+
+# 86
+BYTE_BITS FLAGS_1 = 0;
 
 # 40 "libs/eeprom.h"
 UINT8 extern CENTURY, BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
@@ -13977,14 +14028,16 @@ INT16 extern TIME_ZONE, CYCLE_DELAY;
 GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
 GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
 
-BYTE ReadEeprom(WORD_VAL Address);
+BYTE ReadEeprom (WORD_VAL Address);
+void WriteEeprom (UINT16 Add, BYTE Data);
 void LoadSettingsFromEeprom (void);
 void LoadEventsFromEeprom (void);
 void LoadStatesFromEeprom (void);
+void LoadCyclesFromEeprom (void);
 void LoadAllFromEeprom (void);
 
 # 3 "libs/eeprom.c"
-BYTE ReadEeprom(WORD_VAL Address){
+BYTE ReadEeprom (WORD_VAL Address){
 
 
 NVMCON1bits.NVMREG = 00;
@@ -13996,63 +14049,81 @@ NVMCON1bits.NVMREG1 = 1;
 return NVMDAT;
 }
 
+void WriteEeprom (UINT16 Add, BYTE Data) {
+WORD_VAL Address;
+Address.Val = Add;
+NVMCON1bits.NVMREG = 00;
+NVMADRL = Address.v[0];
+NVMADRH = Address.v[1];
+NVMDAT = Data;
+NVMCON1bits.WREN = 1;
+INTCONbits.GIE = 0;
+NVMCON2 = 0x55;
+NVMCON2 = 0xAA;
+NVMCON1bits.WR = 1;
+while(NVMCON1bits.WR);
+INTCONbits.GIE = 1;
+NVMCON1bits.WREN = 0;
+NVMCON1bits.NVMREG1 = 1;
+}
+
 void LoadSettingsFromEeprom (void) {
 WORD_VAL Temp16, Address;
 DWORD_VAL Temp32;
 
-Address.Val = 0;
+Address.Val = 0x00;
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
-TIME_ZONE = (INT16) Temp16.Val;
+TIME_ZONE = (INT16) 60*Temp16.Val;
 
-Address.Val = 2;
+Address.Val = 0x02;
 DAY_LIGHT_START.Day = ReadEeprom (Address);
 Address.Val++;
 DAY_LIGHT_START.Month = ReadEeprom (Address);
 
-Address.Val = 4;
+Address.Val = 0x04;
 DAY_LIGHT_END.Day = ReadEeprom (Address);
 Address.Val++;
 DAY_LIGHT_END.Month = ReadEeprom (Address);
 
-Address.Val = 6;
+Address.Val = 0x06;
 CENTURY = ReadEeprom(Address);
 
-Address.Val = 7;
+Address.Val = 0x07;
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
 CYCLE_DELAY = (INT16) Temp16.Val;
 
-Address.Val = 9;
+Address.Val = 0x09;
 BLINK_ON_TIME = ReadEeprom(Address);
 
-Address.Val = 10;
+Address.Val = 0x0A;
 BLINK_OFF_TIME = ReadEeprom(Address);
 
-Address.Val = 11;
+Address.Val = 0x0B;
 BLINK_LAST_X_SECONDS = ReadEeprom(Address);
 
-Address.Val = 12;
+Address.Val = 0x0C;
 AUDIO_NORMAL_ON_TIME = ReadEeprom(Address);
 
-Address.Val = 13;
+Address.Val = 0x0D;
 AUDIO_NORMAL_OFF_TIME = ReadEeprom(Address);
 
-Address.Val = 14;
+Address.Val = 0x0E;
 AUDIO_SPECIAL_ON_TIME = ReadEeprom(Address);
 
-Address.Val = 15;
+Address.Val = 0x0F;
 AUDIO_SPECIAL_OFF_TIME = ReadEeprom(Address);
 
-Address.Val = 16;
+Address.Val = 0x10;
 SPECIAL_AUDIO_LAST_X_SECONDS = ReadEeprom(Address);
 
-Address.Val = 17;
+Address.Val = 0x11;
 GPS_SYNC_AT_START = ReadEeprom(Address);
 
-Address.Val = 18;
+Address.Val = 0x12;
 Temp32.Val = 0;
 Temp32.v[0] = ReadEeprom(Address);
 Address.Val++;
@@ -14061,7 +14132,7 @@ Address.Val++;
 Temp32.v[2] = ReadEeprom(Address);
 GPS_SYNC_EVERY_x_SECONDS = Temp32.Val;
 
-Address.Val = 21;
+Address.Val = 0x15;
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
@@ -14070,17 +14141,19 @@ GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME = Temp16.v[1]*60*60 + Temp16.v[0]*60;
 
 void LoadEventsFromEeprom (void) {
 WORD_VAL Temp16, Address;
-Address.Val = 80;
+Address.Val = 0x50;
 for (int i=0; i<24; i++) {
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
-EVENTS[i].START_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+EVENTS[i].START_TIME = (INT32)((INT8)Temp16.v[1])*60*60
++ (INT32)((INT8)Temp16.v[0])*60;
 Address.Val++;
 Temp16.v[0] = ReadEeprom(Address);
 Address.Val++;
 Temp16.v[1] = ReadEeprom(Address);
-EVENTS[i].END_TIME = Temp16.v[1]*60*60+Temp16.v[0]*60;
+EVENTS[i].END_TIME = (INT32)((INT8)Temp16.v[1])*60*60
++ (INT32)((INT8)Temp16.v[0])*60;
 Address.Val++;
 EVENTS[i].CYCLE = ReadEeprom(Address);
 Address.Val++;
@@ -14092,9 +14165,9 @@ Address.Val++;
 void LoadStatesFromEeprom (void) {
 WORD_VAL AddStates, AddAudioNormal, AddAudioSpecial, TempNormalAdd, TempSpecialAdd;
 UINT8 AudAddInc;
-AddStates.Val = 224;
-AddAudioNormal.Val = 23;
-AddAudioSpecial.Val = 43;
+AddStates.Val = 0xE0;
+AddAudioNormal.Val = 0x17;
+AddAudioSpecial.Val = 0x2B;
 for (int i=0; i<160; i++) {
 STATES[i].PERIOD = ReadEeprom(AddStates);
 AddStates.Val++;
@@ -14118,8 +14191,31 @@ STATES[i].AUDIO = AUDIO_OFF;
 }
 }
 
+void LoadCyclesFromEeprom (void) {
+WORD_VAL Address;
+Address.Val = 0x3F;
+
+for (int i=0; i<17; i++) {
+CYCLES[i].END_STATE = ReadEeprom(Address);
+Address.Val++;
+}
+
+for (int i=0; i<17; i++) {
+if (i==0)
+CYCLES[i].START_STATE = 0;
+else
+
+# 172
+CYCLES[i].START_STATE = CYCLES[i-1].END_STATE+1;
+CYCLES[i].PERIOD = 0;
+for (int j=CYCLES[i].START_STATE; j<=CYCLES[i].END_STATE; j++ )
+CYCLES[i].PERIOD += STATES[j].PERIOD;
+}
+}
+
 void LoadAllFromEeprom (void) {
 LoadSettingsFromEeprom ();
 LoadEventsFromEeprom ();
 LoadStatesFromEeprom();
+LoadCyclesFromEeprom();
 }

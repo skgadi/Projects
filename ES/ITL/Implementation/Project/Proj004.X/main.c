@@ -87,39 +87,86 @@ void main(void)
     INTERRUPT_GlobalInterruptEnable();
     INTERRUPT_PeripheralInterruptEnable();
     TMR0_SetInterruptHandler(Timer0_10ms);
-    //TMR1_SetInterruptHandler(Timer1_1s);
-    //TMR3_SetInterruptHandler(Timer3_1ms);
-    Lcd_Init();
-    //Lcd_Text(2,1, "asdfasdf");
-    GPS_SWITCH=ON;
-    char Date[] = "------";
-    char Time[] = "------";
+#ifdef SET_EEPROM
+    for (INT16 i=0; i<1024; i++)
+        WriteEeprom(i,EE_Settings[i]);
+#endif
     LoadAllFromEeprom();
+#ifdef LCD_SHOW
+    Lcd_Init();
+    //Lcd_Command(LCD_UNDERLINE_ON);
+#endif
+#ifdef SET_START_TIME
+    DATE_TIME.SECOND = SET_START_TIME;
+    DATE_TIME.YEAR = 2017;
+    DATE_TIME.DATE.Day = 1;
+    DATE_TIME.DATE.Month = 1;
+    DATE_TIME.DAY.Val = 0x40;
+#endif
+    if (GPS_SYNC_AT_START == 1)
+        ACTION_GPS_START = SET;
+    AUDIO_SWITCH = OFF;
+    //Temp Code goes here
     //----------End of add by SKGadi----------
     while (1)
     {
         // Add your application code
-        //ReadGPSDateTime (Date, Time);
-        Date[0] = 0x3A;
-        Time[0] = 0x3A;
-        EUSART1_Initialize();
-        ReadGPSDateTime(Date, Time);
-        //ReadGPSTime(Time);
-        Lcd_Text(2,1, Time);
-        Lcd_Text(2,7, "-");
-        Lcd_Text(2,8, Date);
-        Lcd_Text(2,14, "--");
-        Lcd_Int(1, 14, GLOBAL_I, 3);
-        if (ValidateDateTime(Date, Time)) {
-            Lcd_Text(1, 1, ":)");
-            Lcd_Int(2, 16, GetDay(Date), 1);
-        } else {
-            Lcd_Text(1, 1, ":(");
-        }
-        WriteLongInt(1, 4, STATES[2].AUDIO, 5,1);
-        //__delay_ms(1000);
-        /*Lcd_Command(LCD_CLEAR);
-        ShowRawData();*/
+        if (ACTION_GPS_START) SwitchOnGPS();
+        if (ACTION_GPS_VERIFY_WAIT_TIME) VerifyForGPSOnTIme();
+        if (ACTION_GPS_READ) ReadGPS();
+        if (ACTION_GPS_STOP) StopGPS();
+        TestGPSStartCondition();
+        NEXT_EVENT = GetEventNumber();
+#ifdef LCD_SHOW
+#if LCD_SHOW == 0
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 0);
+        WriteLongInt(1, 7, GPS_DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 14, NO_OF_TIMES_GPS_FAILED, 2, 1);
+        WriteLongInt(2, 1, TIME_AT_LAST_GPS_SYNC, 6, 0);
+        WriteLongInt(2, 7, TIME_WHEN_GPS_IS_SWITCHED_ON, 6,1);
+#elif LCD_SHOW == 1
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, STATE_SECONDS_REMAINING, 3, 1);
+        WriteLongInt(2, 5, STATES[PRESENT_STATE].ON[0], 3, 1);
+        WriteLongInt(2, 9, STATES[PRESENT_STATE].BLINK[0], 3, 1);
+        WriteLongInt(2, 13, STATES[PRESENT_STATE].AUDIO, 3, 1);
+#elif LCD_SHOW == 2
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, GetThisCycle(), 3, 1);
+        WriteLongInt(2, 5, CYCLES[GetThisCycle()].PERIOD, 3, 1);
+        WriteLongInt(2, 9, STATE_SECONDS_REMAINING, 3, 1);
+        WriteLongInt(2, 13, SECONDS_TO_ADJUST, 3, 1);
+#elif LCD_SHOW == 3
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_STATE, 3, 1);
+        WriteLongInt(1, 13, NEXT_STATE, 3, 1);
+        WriteLongInt(2, 1, CYCLES[PRESENT_STATE].START_STATE, 3, 1);
+        WriteLongInt(2, 5, CYCLES[PRESENT_STATE].PERIOD, 3, 1);
+        WriteLongInt(2, 9, CYCLES[PRESENT_STATE].END_STATE, 3, 1);
+        WriteLongInt(2, 13, STATE_SECONDS_REMAINING, 3, 1);
+#elif LCD_SHOW == 4
+        WriteLongInt(1, 1, DATE_TIME.SECOND, 6, 1);
+        WriteLongInt(1, 9, PRESENT_EVENT, 3, 1);
+        WriteLongInt(1, 13, NEXT_EVENT, 3, 1);
+        WriteLongInt(2, 1, EVENTS[PRESENT_EVENT].CYCLE, 3, 1);
+        WriteLongInt(2, 5, EVENTS[NEXT_EVENT].START_TIME, 6, 1);
+        WriteLongInt(2, 13, EVENTS[NEXT_EVENT].CYCLE, 3, 1);
+#elif LCD_SHOW == 5
+        ReadGPS_DATE_TIME();
+        Lcd_WriteChar(1,1,0x54);
+        WriteLongInt(1, 2, DATE_TIME.SECOND, 6, 0);
+        Lcd_WriteChar(1,9,0x53);
+        WriteLongInt(1, 10, TIME_AT_LAST_GPS_SYNC, 6, 0);
+        Lcd_WriteChar(2,1,0x47);
+        WriteLongInt(2, 2, GPS_DATE_TIME.SECOND, 6, 0);
+        Lcd_WriteChar(2,9,'I');
+        WriteLongInt(2, 10, TIME_WHEN_GPS_IS_SWITCHED_ON, 6, 0);
+#endif
+#endif
     }
 }
 /**

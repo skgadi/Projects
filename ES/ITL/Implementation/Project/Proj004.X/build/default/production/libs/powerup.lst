@@ -1,42 +1,43 @@
 
 
 Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
-                                                                                                           Fri Jul 07 19:02:07 2017
+                                                                                                           Fri Aug 25 13:22:19 2017
 
 
      1                           	processor	18F26K40
      2                           	opt	pw 132
      3                           	psect	powerup,global,reloc=2,class=CODE,delta=1
-     4                           
-     5                           ;
+     4                           	psect	pa_nodes0,global,class=CODE,delta=1
+     5                           
      6                           ;
-     7                           ; For more information look at http:
-     8                           ; or 4th page of http:
-     9                           ;
+     7                           ;
+     8                           ; For more information look at http:
+     9                           ; or 4th page of http:
     10                           ;
-    11  0000                     stk_offset	set	0
-    12  0000                     auto_size	set	0
-    13                           
-    14                           ; stack_auto defines a symbol /name/_offset which equates to the
-    15                           ; stack offset of the auto object in question
-    16  0000                     
-    17                           ; stack_param defines a symbol /name/_offset which equates to the
-    18                           ; stack offset of the parameter object in question
-    19  0000                     
-    20                           ; alloc_stack adjusts the SP to allocate space for auto objects
-    21                           ; it also links in to the btemp symbol so that can be used
-    22  0000                     
-    23                           ; restore_stack adjusts the SP to remove all auto and parameter
-    24                           ; objects from the stack prior to returning from a function
-    25  0000                     
-    26                           	psect	powerup
-    27  00008C                     powerup:
-    28                           	opt stack 0
-    29  00008C  8E81               	bsf	3969,7,c
-    30  00008E  EF49  F000         	goto	start
+    11                           ;
+    12  0000                     stk_offset	set	0
+    13  0000                     auto_size	set	0
+    14                           
+    15                           ; stack_auto defines a symbol /name/_offset which equates to the
+    16                           ; stack offset of the auto object in question
+    17  0000                     
+    18                           ; stack_param defines a symbol /name/_offset which equates to the
+    19                           ; stack offset of the parameter object in question
+    20  0000                     
+    21                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    22                           ; it also links in to the btemp symbol so that can be used
+    23  0000                     
+    24                           ; restore_stack adjusts the SP to remove all auto and parameter
+    25                           ; objects from the stack prior to returning from a function
+    26  0000                     
+    27                           	psect	powerup
+    28  00006A                     powerup:
+    29                           	opt stack 0
+    30  00006A  8E81               	bsf	3969,7,c
+    31  00006C  EF38  F000         	goto	start
 
 
 Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
-Symbol Table                                                                                               Fri Jul 07 19:02:07 2017
+Symbol Table                                                                                               Fri Aug 25 13:22:19 2017
 
-                          start 0092                          NVMCON1 000F81                          powerup 008C  
+                          start 0070                          NVMCON1 000F81                          powerup 006A  

@@ -13591,34 +13591,31 @@ void TMR0_StartTimer(void);
 # 166
 void TMR0_StopTimer(void);
 
-# 202
-uint16_t TMR0_Read16bitTimer(void);
+# 201
+uint8_t TMR0_Read8bitTimer(void);
 
-# 241
-void TMR0_Write16bitTimer(uint16_t timerVal);
+# 240
+void TMR0_Write8bitTimer(uint8_t timerVal);
 
 # 277
-void TMR0_Reload16bit(void);
+void TMR0_Load8bitPeriod(uint8_t periodVal);
 
-# 295
+# 296
 void TMR0_ISR(void);
 
-# 313
+# 314
 void TMR0_CallBack(void);
 
-# 331
+# 332
 void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 
-# 349
+# 350
 extern void (*TMR0_InterruptHandler)(void);
 
-# 367
+# 368
 void TMR0_DefaultInterruptHandler(void);
 
-# 57 "mcc_generated_files/tmr0.c"
-volatile uint16_t timer0ReloadVal16bit;
-
-# 63
+# 58 "mcc_generated_files/tmr0.c"
 void (*TMR0_InterruptHandler)(void);
 
 void TMR0_Initialize(void)
@@ -13626,19 +13623,16 @@ void TMR0_Initialize(void)
 
 
 
-T0CON0 = 0x10;
+T0CON0 = 0x00;
 
 
-T0CON1 = 0x50;
+T0CON1 = 0x53;
 
 
-TMR0H = 0xF0;
+TMR0H = 0x7C;
 
 
-TMR0L = 0x60;
-
-
-timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;
+TMR0L = 0x00;
 
 
 PIR0bits.TMR0IF = 0;
@@ -13665,31 +13659,26 @@ void TMR0_StopTimer(void)
 T0CON0bits.T0EN = 0;
 }
 
-uint16_t TMR0_Read16bitTimer(void)
+uint8_t TMR0_Read8bitTimer(void)
 {
-uint16_t readVal;
-uint8_t readValLow;
-uint8_t readValHigh;
+uint8_t readVal;
 
-readValLow = TMR0L;
-readValHigh = TMR0H;
-readVal = ((uint16_t)readValHigh << 8) + readValLow;
+
+readVal = TMR0L;
 
 return readVal;
 }
 
-void TMR0_Write16bitTimer(uint16_t timerVal)
+void TMR0_Write8bitTimer(uint8_t timerVal)
 {
 
-TMR0H = timerVal >> 8;
-TMR0L = (uint8_t) timerVal;
+TMR0L = timerVal;
 }
 
-void TMR0_Reload16bit(void)
+void TMR0_Load8bitPeriod(uint8_t periodVal)
 {
 
-TMR0H = timer0ReloadVal16bit >> 8;
-TMR0L = (uint8_t) timer0ReloadVal16bit;
+TMR0H = periodVal;
 }
 
 void TMR0_ISR(void)
@@ -13698,10 +13687,6 @@ static volatile uint16_t CountCallBack = 0;
 
 
 PIR0bits.TMR0IF = 0;
-
-TMR0H = timer0ReloadVal16bit >> 8;
-TMR0L = (uint8_t) timer0ReloadVal16bit;
-
 
 if (++CountCallBack >= 10)
 {

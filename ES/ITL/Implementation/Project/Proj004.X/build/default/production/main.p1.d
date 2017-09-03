@@ -11,6 +11,7 @@ libs/gps.h  \
 libs/GenericTypeDefs.h  \
 mcc_generated_files/interrupt_manager.h  \
 mcc_generated_files/tmr0.h  \
+libs/funcs.h  \
 libs/projMain.h  \
 mcc_generated_files/pin_manager.h  \
 libs/ProjectTypeDefs.h 

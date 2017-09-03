@@ -1,42 +1,77 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"39 libs/ProjectTypeDefs.h
-[s S1338 :5 `uc 1 :4 `uc 1 ]
+"40 libs/ProjectTypeDefs.h
+[s S1338 `ui 1 `ui 1 ]
 [n S1338 . Day Month ]
-"38
+"39
 [u S1337 `S1338 1 ]
 [n S1337 _GSK_YEAR_DAY . ]
-"22
+"23
 [s S1335 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1335 . . Sunday Monday Tuesday Wednesday Thursday Friday Saturday ]
-"32
+"33
 [s S1336 :1 `uc 1 :7 `uc 1 ]
 [n S1336 . . Val ]
-"21
+"22
 [u S1334 `S1335 1 `S1336 1 ]
 [n S1334 _GSK_WEEK . . ]
-"58
-[s S1342 `l 1 `l 1 `uc 1 `S1334 1 ]
-[n S1342 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
-"56
-[u S1341 `S1342 1 ]
-[n S1341 _GSK_EVENT . ]
-"49 libs/projMain.h
-[c E11242 0 1 2 .. ]
-[n E11242 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
-"68 libs/ProjectTypeDefs.h
-[s S1344 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11242 1 ]
-[n S1344 . PERIOD ON BLINK AUDIO ]
+"68
+[s S1344 `l 1 `l 1 `uc 1 `S1334 1 ]
+[n S1344 . START_TIME END_TIME CYCLE SELECTED_WEEKS ]
 "66
 [u S1343 `S1344 1 ]
-[n S1343 _GSK_STATE . ]
-"49
-[s S1340 `us 1 `uc 1 `uc 1 ]
-[n S1340 . PERIOD START_STATE END_STATE ]
-"48
+[n S1343 _GSK_EVENT . ]
+"56 libs/projMain.h
+[c E11246 0 1 2 .. ]
+[n E11246 _GSK_AUDIO AUDIO_OFF AUDIO_NORMAL AUDIO_SPECIAL  ]
+"78 libs/ProjectTypeDefs.h
+[s S1346 `uc 1 `uc -> 2 `i `uc -> 2 `i `E11246 1 ]
+[n S1346 . PERIOD ON BLINK AUDIO ]
+"76
+[u S1345 `S1346 1 ]
+[n S1345 _GSK_STATE . ]
+"59
+[s S1342 `us 1 `uc 1 `uc 1 ]
+[n S1342 . PERIOD START_STATE END_STATE ]
+"58
+[u S1341 `S1342 1 ]
+[n S1341 _GSK_CYCLE . ]
+"51
+[s S1340 `l 1 `S1337 1 `S1334 1 `us 1 ]
+[n S1340 . SECOND DATE DAY YEAR ]
+"50
 [u S1339 `S1340 1 ]
-[n S1339 _GSK_CYCLE . ]
-"15160 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
+[n S1339 _GSK_DATE_TIME . ]
+"15048 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
+[v _LATA `Vuc ~T0 @X0 0 e@3971 ]
+"15160
 [v _LATB `Vuc ~T0 @X0 0 e@3972 ]
+"93 libs/GenericTypeDefs.h
+[s S1321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1321 . b0 b1 b2 b3 b4 b5 b6 b7 ]
+"89
+[u S1320 `uc 1 `S1321 1 ]
+[n S1320 _BYTE_VAL Val bits ]
+"7 libs/projMain.c
+[c E11242 0 1 .. ]
+[n E11242 _FLAG RESET SET  ]
+"15278 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f26k40.h
+[s S750 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S750 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"15288
+[s S751 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S751 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"15277
+[u S749 `S750 1 `S751 1 ]
+[n S749 . . . ]
+"15299
+[v _LATCbits `VS749 ~T0 @X0 0 e@3973 ]
+"36 libs/projMain.c
+[c E11238 0 1 .. ]
+[n E11238 _SWITCH OFF ON  ]
+"17 libs/funcs.h
+[v _IncreaseByASecond `(S1339 ~T0 @X0 0 ef1`S1339 ]
+"34
+[v _GetThisCycle `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10262,14 +10297,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 105: void TMR0_Initialize(void);
 [; ;tmr0.h: 134: void TMR0_StartTimer(void);
 [; ;tmr0.h: 166: void TMR0_StopTimer(void);
-[; ;tmr0.h: 202: uint16_t TMR0_Read16bitTimer(void);
-[; ;tmr0.h: 241: void TMR0_Write16bitTimer(uint16_t timerVal);
-[; ;tmr0.h: 277: void TMR0_Reload16bit(void);
-[; ;tmr0.h: 295: void TMR0_ISR(void);
-[; ;tmr0.h: 313: void TMR0_CallBack(void);
-[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
-[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr0.h: 201: uint8_t TMR0_Read8bitTimer(void);
+[; ;tmr0.h: 240: void TMR0_Write8bitTimer(uint8_t timerVal);
+[; ;tmr0.h: 277: void TMR0_Load8bitPeriod(uint8_t periodVal);
+[; ;tmr0.h: 296: void TMR0_ISR(void);
+[; ;tmr0.h: 314: void TMR0_CallBack(void);
+[; ;tmr0.h: 332: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 350: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 368: void TMR0_DefaultInterruptHandler(void);
 [; ;eusart1.h: 94: void EUSART1_Initialize(void);
 [; ;eusart1.h: 114: uint8_t EUSART1_Read(void);
 [; ;eusart1.h: 134: void EUSART1_Write(uint8_t txData);
@@ -10486,56 +10521,66 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;GenericTypeDefs.h: 278: } bits;
 [; ;GenericTypeDefs.h: 279: } QWORD_VAL;
 [; ;ProjectTypeDefs.h: 19: typedef enum _SWITCH { OFF = 0, ON } SWITCH;
-[; ;ProjectTypeDefs.h: 20: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
-[; ;ProjectTypeDefs.h: 21: typedef union _GSK_WEEK {
-[; ;ProjectTypeDefs.h: 22: struct {
-[; ;ProjectTypeDefs.h: 23: unsigned :1;
-[; ;ProjectTypeDefs.h: 24: unsigned Sunday:1;
-[; ;ProjectTypeDefs.h: 25: unsigned Monday:1;
-[; ;ProjectTypeDefs.h: 26: unsigned Tuesday:1;
-[; ;ProjectTypeDefs.h: 27: unsigned Wednesday:1;
-[; ;ProjectTypeDefs.h: 28: unsigned Thursday:1;
-[; ;ProjectTypeDefs.h: 29: unsigned Friday:1;
-[; ;ProjectTypeDefs.h: 30: unsigned Saturday:1;
-[; ;ProjectTypeDefs.h: 31: };
-[; ;ProjectTypeDefs.h: 32: struct {
-[; ;ProjectTypeDefs.h: 33: unsigned :1;
-[; ;ProjectTypeDefs.h: 34: unsigned Val :7;
-[; ;ProjectTypeDefs.h: 35: };
-[; ;ProjectTypeDefs.h: 36: } GSK_WEEK;
-[; ;ProjectTypeDefs.h: 38: typedef union _GSK_YEAR_DAY {
-[; ;ProjectTypeDefs.h: 39: struct {
-[; ;ProjectTypeDefs.h: 40: unsigned Day:5;
-[; ;ProjectTypeDefs.h: 41: unsigned Month:4;
-[; ;ProjectTypeDefs.h: 42: };
-[; ;ProjectTypeDefs.h: 43: } GSK_YEAR_DAY;
-[; ;ProjectTypeDefs.h: 45: typedef INT32 GSK_SECOND_IN_DAY;
-[; ;ProjectTypeDefs.h: 46: typedef UINT8 GSK_CYCLE_TYPE;
-[; ;ProjectTypeDefs.h: 48: typedef union _GSK_CYCLE {
-[; ;ProjectTypeDefs.h: 49: struct {
-[; ;ProjectTypeDefs.h: 50: UINT16 PERIOD;
-[; ;ProjectTypeDefs.h: 51: UINT8 START_STATE;
-[; ;ProjectTypeDefs.h: 52: UINT8 END_STATE;
-[; ;ProjectTypeDefs.h: 53: };
-[; ;ProjectTypeDefs.h: 54: } GSK_CYCLE;
-[; ;ProjectTypeDefs.h: 56: typedef union _GSK_EVENT
-[; ;ProjectTypeDefs.h: 57: {
-[; ;ProjectTypeDefs.h: 58: struct {
-[; ;ProjectTypeDefs.h: 59: GSK_SECOND_IN_DAY START_TIME;
-[; ;ProjectTypeDefs.h: 60: GSK_SECOND_IN_DAY END_TIME;
-[; ;ProjectTypeDefs.h: 61: GSK_CYCLE_TYPE CYCLE;
-[; ;ProjectTypeDefs.h: 62: GSK_WEEK SELECTED_WEEKS;
+[; ;ProjectTypeDefs.h: 20: typedef enum _FLAG { RESET = 0, SET } FLAG;
+[; ;ProjectTypeDefs.h: 21: typedef enum _GSK_AUDIO { AUDIO_OFF = 0, AUDIO_NORMAL, AUDIO_SPECIAL} GSK_AUDIO;
+[; ;ProjectTypeDefs.h: 22: typedef union _GSK_WEEK {
+[; ;ProjectTypeDefs.h: 23: struct {
+[; ;ProjectTypeDefs.h: 24: unsigned :1;
+[; ;ProjectTypeDefs.h: 25: unsigned Sunday:1;
+[; ;ProjectTypeDefs.h: 26: unsigned Monday:1;
+[; ;ProjectTypeDefs.h: 27: unsigned Tuesday:1;
+[; ;ProjectTypeDefs.h: 28: unsigned Wednesday:1;
+[; ;ProjectTypeDefs.h: 29: unsigned Thursday:1;
+[; ;ProjectTypeDefs.h: 30: unsigned Friday:1;
+[; ;ProjectTypeDefs.h: 31: unsigned Saturday:1;
+[; ;ProjectTypeDefs.h: 32: };
+[; ;ProjectTypeDefs.h: 33: struct {
+[; ;ProjectTypeDefs.h: 34: unsigned :1;
+[; ;ProjectTypeDefs.h: 35: unsigned Val :7;
+[; ;ProjectTypeDefs.h: 36: };
+[; ;ProjectTypeDefs.h: 37: } GSK_WEEK;
+[; ;ProjectTypeDefs.h: 39: typedef union _GSK_YEAR_DAY {
+[; ;ProjectTypeDefs.h: 40: struct {
+[; ;ProjectTypeDefs.h: 41: unsigned Day;
+[; ;ProjectTypeDefs.h: 42: unsigned Month;
+[; ;ProjectTypeDefs.h: 43: };
+[; ;ProjectTypeDefs.h: 44: } GSK_YEAR_DAY;
+[; ;ProjectTypeDefs.h: 46: typedef INT32 GSK_SECOND_IN_DAY;
+[; ;ProjectTypeDefs.h: 47: typedef UINT8 GSK_CYCLE_TYPE;
+[; ;ProjectTypeDefs.h: 48: typedef UINT16 GSK_YEAR;
+[; ;ProjectTypeDefs.h: 50: typedef union _GSK_DATE_TIME {
+[; ;ProjectTypeDefs.h: 51: struct {
+[; ;ProjectTypeDefs.h: 52: GSK_SECOND_IN_DAY SECOND;
+[; ;ProjectTypeDefs.h: 53: GSK_YEAR_DAY DATE;
+[; ;ProjectTypeDefs.h: 54: GSK_WEEK DAY;
+[; ;ProjectTypeDefs.h: 55: GSK_YEAR YEAR;
+[; ;ProjectTypeDefs.h: 56: };
+[; ;ProjectTypeDefs.h: 57: } GSK_DATE_TIME;
+[; ;ProjectTypeDefs.h: 58: typedef union _GSK_CYCLE {
+[; ;ProjectTypeDefs.h: 59: struct {
+[; ;ProjectTypeDefs.h: 60: UINT16 PERIOD;
+[; ;ProjectTypeDefs.h: 61: UINT8 START_STATE;
+[; ;ProjectTypeDefs.h: 62: UINT8 END_STATE;
 [; ;ProjectTypeDefs.h: 63: };
-[; ;ProjectTypeDefs.h: 64: } GSK_EVENT;
-[; ;ProjectTypeDefs.h: 66: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 64: } GSK_CYCLE;
+[; ;ProjectTypeDefs.h: 66: typedef union _GSK_EVENT
 [; ;ProjectTypeDefs.h: 67: {
 [; ;ProjectTypeDefs.h: 68: struct {
-[; ;ProjectTypeDefs.h: 69: UINT8 PERIOD;
-[; ;ProjectTypeDefs.h: 70: UINT8 ON[2];
-[; ;ProjectTypeDefs.h: 71: UINT8 BLINK[2];
-[; ;ProjectTypeDefs.h: 72: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 69: GSK_SECOND_IN_DAY START_TIME;
+[; ;ProjectTypeDefs.h: 70: GSK_SECOND_IN_DAY END_TIME;
+[; ;ProjectTypeDefs.h: 71: GSK_CYCLE_TYPE CYCLE;
+[; ;ProjectTypeDefs.h: 72: GSK_WEEK SELECTED_WEEKS;
 [; ;ProjectTypeDefs.h: 73: };
-[; ;ProjectTypeDefs.h: 74: } GSK_STATE;
+[; ;ProjectTypeDefs.h: 74: } GSK_EVENT;
+[; ;ProjectTypeDefs.h: 76: typedef union _GSK_STATE
+[; ;ProjectTypeDefs.h: 77: {
+[; ;ProjectTypeDefs.h: 78: struct {
+[; ;ProjectTypeDefs.h: 79: UINT8 PERIOD;
+[; ;ProjectTypeDefs.h: 80: UINT8 ON[2];
+[; ;ProjectTypeDefs.h: 81: UINT8 BLINK[2];
+[; ;ProjectTypeDefs.h: 82: GSK_AUDIO AUDIO;
+[; ;ProjectTypeDefs.h: 83: };
+[; ;ProjectTypeDefs.h: 84: } GSK_STATE;
 [; ;HD44780.h: 58: void Lcd_Init(void);
 [; ;HD44780.h: 59: void Lcd_ConstText(unsigned char y, unsigned char x, const char *buffer);
 [; ;HD44780.h: 60: void Lcd_Text(unsigned char y, unsigned char x, char *buffer);
@@ -10558,59 +10603,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 41: INT16 extern TIME_ZONE, CYCLE_DELAY;
 [; ;eeprom.h: 42: GSK_YEAR_DAY extern DAY_LIGHT_START, DAY_LIGHT_END;
 [; ;eeprom.h: 43: GSK_SECOND_IN_DAY extern GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-[; ;eeprom.h: 45: BYTE ReadEeprom(WORD_VAL Address);
-[; ;eeprom.h: 46: void LoadSettingsFromEeprom (void);
-[; ;eeprom.h: 47: void LoadEventsFromEeprom (void);
-[; ;eeprom.h: 48: void LoadStatesFromEeprom (void);
-[; ;eeprom.h: 49: void LoadAllFromEeprom (void);
-"31 libs/projMain.h
-[v _GLOBAL_CENTURY `uc ~T0 @X0 1 e ]
-[i _GLOBAL_CENTURY
--> -> 20 `i `uc
+[; ;eeprom.h: 45: BYTE ReadEeprom (WORD_VAL Address);
+[; ;eeprom.h: 46: void WriteEeprom (UINT16 Add, BYTE Data);
+[; ;eeprom.h: 47: void LoadSettingsFromEeprom (void);
+[; ;eeprom.h: 48: void LoadEventsFromEeprom (void);
+[; ;eeprom.h: 49: void LoadStatesFromEeprom (void);
+[; ;eeprom.h: 50: void LoadCyclesFromEeprom (void);
+[; ;eeprom.h: 51: void LoadAllFromEeprom (void);
+[; ;funcs.h: 17: GSK_DATE_TIME IncreaseByASecond (GSK_DATE_TIME dt);
+[; ;funcs.h: 18: GSK_DATE_TIME IncreaseByADay (GSK_DATE_TIME dt);
+[; ;funcs.h: 19: GSK_DATE_TIME IncreaseByAMonth (GSK_DATE_TIME dt);
+[; ;funcs.h: 20: GSK_DATE_TIME IncreaseByAYear (GSK_DATE_TIME dt);
+[; ;funcs.h: 21: GSK_DATE_TIME DecreaseByASecond (GSK_DATE_TIME dt);
+[; ;funcs.h: 22: GSK_DATE_TIME DecreaseByADay (GSK_DATE_TIME dt);
+[; ;funcs.h: 23: GSK_DATE_TIME DecreaseByAMonth (GSK_DATE_TIME dt);
+[; ;funcs.h: 24: GSK_DATE_TIME DecreaseByAYear (GSK_DATE_TIME dt);
+[; ;funcs.h: 25: GSK_DATE_TIME AdjustDayLightSaving (GSK_DATE_TIME dt);
+[; ;funcs.h: 26: BOOL ReadGPS_DATE_TIME (void);
+[; ;funcs.h: 27: INT32 TimeTextToSecond (char *Time);
+[; ;funcs.h: 28: void SwitchOnGPS (void);
+[; ;funcs.h: 29: void VerifyForGPSOnTIme (void);
+[; ;funcs.h: 30: void ReadGPS (void);
+[; ;funcs.h: 31: void StopGPS (void);
+[; ;funcs.h: 32: void TestGPSStartCondition (void);
+[; ;funcs.h: 33: INT8 GetEventNumber(void);
+[; ;funcs.h: 34: UINT8 GetThisCycle (void);
+"43 libs/projMain.h
+[v _NO_OF_DAYS_IN_A_MONTH `i ~T0 @X0 -> 0 `x s ]
+[i _NO_OF_DAYS_IN_A_MONTH
+:U ..
+-> 31 `i
+-> 28 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+-> 30 `i
+-> 31 `i
+..
 ]
-[; ;projMain.h: 31: UINT8 GLOBAL_CENTURY = 20;
-"34
-[v _GLOBAL_I `i ~T0 @X0 1 e ]
-[i _GLOBAL_I
--> 0 `i
-]
-[; ;projMain.h: 34: INT GLOBAL_I =0;
-"35
-[v _GLOBAL_USARTSIZE `i ~T0 @X0 1 e ]
-[i _GLOBAL_USARTSIZE
--> 0 `i
-]
-[; ;projMain.h: 35: INT GLOBAL_USARTSIZE=0;
-[; ;projMain.h: 36: void Timer0_10ms (void);
-[; ;projMain.h: 37: void Timer1_1s (void);
-[; ;projMain.h: 38: void Timer3_1ms (void);
-"40
+[; ;projMain.h: 43: static INT NO_OF_DAYS_IN_A_MONTH[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+[; ;projMain.h: 46: void Timer0_10ms (void);
+"49
 [v _TIME_ZONE `s ~T0 @X0 1 e ]
 [i _TIME_ZONE
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 40: INT16 TIME_ZONE = 0;
-"41
+[; ;projMain.h: 49: INT16 TIME_ZONE = 0;
+"50
 [v _CYCLE_DELAY `s ~T0 @X0 1 e ]
 [i _CYCLE_DELAY
 -> -> 0 `i `s
 ]
-[; ;projMain.h: 41: INT16 CYCLE_DELAY = 0;
-"42
+[; ;projMain.h: 50: INT16 CYCLE_DELAY = 0;
+"51
 [v _DAY_LIGHT_START `S1337 ~T0 @X0 1 e ]
 [v _DAY_LIGHT_END `S1337 ~T0 @X0 1 e ]
-[; ;projMain.h: 42: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
-"43
+[; ;projMain.h: 51: GSK_YEAR_DAY DAY_LIGHT_START, DAY_LIGHT_END;
+"52
 [v _GPS_SYNC_EVERY_x_SECONDS `l ~T0 @X0 1 e ]
 [v _GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME `l ~T0 @X0 1 e ]
-[; ;projMain.h: 43: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
-"44
+[; ;projMain.h: 52: GSK_SECOND_IN_DAY GPS_SYNC_EVERY_x_SECONDS, GPS_SYNC_EVERY_DAY_AT_LOCAL_TIME;
+"53
 [v _CENTURY `uc ~T0 @X0 1 e ]
 [i _CENTURY
 -> -> 20 `i `uc
 ]
-[; ;projMain.h: 44: UINT8 CENTURY = 20;
-"45
+[; ;projMain.h: 53: UINT8 CENTURY = 20;
+"54
 [v _BLINK_ON_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _BLINK_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
@@ -10620,55 +10684,569 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _AUDIO_SPECIAL_OFF_TIME `uc ~T0 @X0 1 e ]
 [v _SPECIAL_AUDIO_LAST_X_SECONDS `uc ~T0 @X0 1 e ]
 [v _GPS_SYNC_AT_START `uc ~T0 @X0 1 e ]
-[; ;projMain.h: 45: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
-"48
-[v _EVENTS `S1341 ~T0 @X0 -> 24 `i e ]
-[; ;projMain.h: 48: GSK_EVENT EVENTS[24];
-"49
-[v _STATES `S1343 ~T0 @X0 -> 160 `i e ]
-[; ;projMain.h: 49: GSK_STATE STATES[160];
-"50
-[v _CYCLES `S1339 ~T0 @X0 -> 17 `i e ]
-[; ;projMain.h: 50: GSK_CYCLE CYCLES[17];
+[; ;projMain.h: 54: UINT8 BLINK_ON_TIME, BLINK_OFF_TIME, BLINK_LAST_X_SECONDS, AUDIO_NORMAL_ON_TIME, AUDIO_NORMAL_OFF_TIME, AUDIO_SPECIAL_ON_TIME, AUDIO_SPECIAL_OFF_TIME, SPECIAL_AUDIO_LAST_X_SECONDS, GPS_SYNC_AT_START;
+"55
+[v _EVENTS `S1343 ~T0 @X0 -> 24 `i e ]
+[; ;projMain.h: 55: GSK_EVENT EVENTS[24];
+"56
+[v _STATES `S1345 ~T0 @X0 -> 160 `i e ]
+[; ;projMain.h: 56: GSK_STATE STATES[160];
+"57
+[v _CYCLES `S1341 ~T0 @X0 -> 17 `i e ]
+[; ;projMain.h: 57: GSK_CYCLE CYCLES[17];
+"60
+[v _PRESENT_EVENT `c ~T0 @X0 1 e ]
+[i _PRESENT_EVENT
+-> -U -> 1 `i `c
+]
+[; ;projMain.h: 60: INT8 PRESENT_EVENT=-1;
+"61
+[v _NEXT_EVENT `c ~T0 @X0 1 e ]
+[i _NEXT_EVENT
+-> -U -> 1 `i `c
+]
+[; ;projMain.h: 61: INT8 NEXT_EVENT=-1;
+"62
+[v _PRESENT_STATE `uc ~T0 @X0 1 e ]
+[i _PRESENT_STATE
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 62: UINT8 PRESENT_STATE = 0;
+"63
+[v _NEXT_STATE `uc ~T0 @X0 1 e ]
+[i _NEXT_STATE
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 63: UINT8 NEXT_STATE = 0;
+"64
+[v _STATE_SECONDS `uc ~T0 @X0 1 e ]
+[i _STATE_SECONDS
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 64: UINT8 STATE_SECONDS = 0;
+"65
+[v _STATE_SECONDS_REMAINING `uc ~T0 @X0 1 e ]
+[i _STATE_SECONDS_REMAINING
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 65: UINT8 STATE_SECONDS_REMAINING = 0;
+"66
+[v _CENTI_SECOND_COUNT `uc ~T0 @X0 1 e ]
+[i _CENTI_SECOND_COUNT
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 66: UINT8 CENTI_SECOND_COUNT = 0;
+"67
+[v _BLINK_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _BLINK_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 67: UINT8 BLINK_STATE_ON_OFF_COUNTER = 0;
+"68
+[v _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _NORMAL_AUDIO_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 68: UINT8 NORMAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"69
+[v _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `uc ~T0 @X0 1 e ]
+[i _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 69: UINT8 SPECIAL_AUDIO_STATE_ON_OFF_COUNTER = 0;
+"70
+[v _DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 70: GSK_DATE_TIME DATE_TIME;
+"71
+[v _GPS_DATE_TIME `S1339 ~T0 @X0 1 e ]
+[; ;projMain.h: 71: GSK_DATE_TIME GPS_DATE_TIME;
+"72
+[v _NO_OF_TIMES_GPS_FAILED `uc ~T0 @X0 1 e ]
+[i _NO_OF_TIMES_GPS_FAILED
+-> -> 0 `i `uc
+]
+[; ;projMain.h: 72: UINT8 NO_OF_TIMES_GPS_FAILED = 0;
+"73
+[v _TIME_WHEN_GPS_IS_SWITCHED_ON `l ~T0 @X0 1 e ]
+[i _TIME_WHEN_GPS_IS_SWITCHED_ON
+-> -> 0 `i `l
+]
+[; ;projMain.h: 73: INT32 TIME_WHEN_GPS_IS_SWITCHED_ON = 0;
+"74
+[v _TIME_AT_LAST_GPS_SYNC `l ~T0 @X0 1 e ]
+[i _TIME_AT_LAST_GPS_SYNC
+-> -> 0 `i `l
+]
+[; ;projMain.h: 74: INT32 TIME_AT_LAST_GPS_SYNC = 0;
+"75
+[v _LIGHTS `*uc ~T0 @X0 -> 0 `x e ]
+[i _LIGHTS
+:U ..
+-> &U _LATA `*uc
+-> &U _LATB `*uc
+..
+]
+[; ;projMain.h: 75: UINT8 *(LIGHTS[]) = {&LATA, &LATB};
+"76
+[v _SECONDS_TO_ADJUST `s ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST
+-> -> 0 `i `s
+]
+[; ;projMain.h: 76: INT16 SECONDS_TO_ADJUST = 0;
+"77
+[v _SECONDS_TO_ADJUST_PART `c ~T0 @X0 1 e ]
+[i _SECONDS_TO_ADJUST_PART
+-> -> 0 `i `c
+]
+[; ;projMain.h: 77: INT8 SECONDS_TO_ADJUST_PART = 0;
+"80
+[v _FLAGS_0 `S1320 ~T0 @X0 1 e ]
+[i _FLAGS_0
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+[; ;projMain.h: 80: BYTE_BITS FLAGS_0 = 0;
+"86
+[v _FLAGS_1 `S1320 ~T0 @X0 1 e ]
+[i _FLAGS_1
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+[; ;projMain.h: 86: BYTE_BITS FLAGS_1 = 0;
 "3 libs/projMain.c
 [v _Timer0_10ms `(v ~T0 @X0 1 ef ]
 {
 [; ;projMain.c: 3: void Timer0_10ms (void) {
 [e :U _Timer0_10ms ]
 [f ]
-[; ;projMain.c: 5: GLOBAL_I++;
+[; ;projMain.c: 4: if (FLAGS_1.bits.b0) {
+"4
+[e $ ! != -> . . _FLAGS_1 1 0 `i -> -> -> 0 `i `uc `i 1348  ]
+{
+[; ;projMain.c: 5: PRESENT_STATE = NEXT_STATE;
 "5
-[e ++ _GLOBAL_I -> 1 `i ]
-[; ;projMain.c: 6: if (GLOBAL_I%10==0) {
+[e = _PRESENT_STATE _NEXT_STATE ]
+[; ;projMain.c: 6: STATE_SECONDS = 0;
 "6
-[e $ ! == % _GLOBAL_I -> 10 `i -> 0 `i 1346  ]
-{
-[; ;projMain.c: 7: LATB ^= 0xFF;
+[e = _STATE_SECONDS -> -> 0 `i `uc ]
+[; ;projMain.c: 7: FLAGS_1.bits.b0 = RESET;
 "7
-[e =^ _LATB -> -> 255 `i `uc ]
+[e = . . _FLAGS_1 1 0 -> . `E11242 0 `uc ]
+[; ;projMain.c: 8: FLAGS_1.bits.b1 = RESET;
 "8
-}
-[e :U 1346 ]
-[; ;projMain.c: 8: }
-[; ;projMain.c: 9: if (GLOBAL_I%5000==0) {
+[e = . . _FLAGS_1 1 1 -> . `E11242 0 `uc ]
+[; ;projMain.c: 9: STATE_SECONDS_REMAINING = STATES[PRESENT_STATE].PERIOD;
 "9
-[e $ ! == % _GLOBAL_I -> 5000 `i -> 0 `i 1347  ]
+[e = _STATE_SECONDS_REMAINING . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 ]
+"10
+}
+[e :U 1348 ]
+"11
+[v _OutForThePorts `uc ~T0 @X0 -> 2 `i a ]
+[; ;projMain.c: 10: }
+[; ;projMain.c: 11: UINT8 OutForThePorts[2];
+[; ;projMain.c: 12: for (UINT8 i =0; i<2; i++) {
+"12
 {
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1349  ]
+[e $U 1350  ]
+[e :U 1349 ]
+{
+[; ;projMain.c: 13: OutForThePorts[i] = 0x00;
+"13
+[e = *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux -> -> 0 `i `uc ]
 "14
 }
-[e :U 1347 ]
-[; ;projMain.c: 14: }
-[; ;projMain.c: 15: }
-"15
-[e :UE 1345 ]
+"12
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1349  ]
+[e :U 1350 ]
+"14
 }
-"18
-[v _Timer1_1s `(v ~T0 @X0 1 ef ]
+[; ;projMain.c: 14: }
+[; ;projMain.c: 15: for (UINT8 i =0; i<2; i++) {
+"15
 {
-[; ;projMain.c: 18: void Timer1_1s (void) {
-[e :U _Timer1_1s ]
-[f ]
-[; ;projMain.c: 48: }
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1352  ]
+[e $U 1353  ]
+[e :U 1352 ]
+{
+[; ;projMain.c: 16: OutForThePorts[i] = STATES[PRESENT_STATE].ON[i];
+"16
+[e = *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 * -> _i `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 1 `ui `ux ]
+"17
+}
+"15
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1352  ]
+[e :U 1353 ]
+"17
+}
+[; ;projMain.c: 17: }
+[; ;projMain.c: 18: if (STATE_SECONDS_REMAINING <= BLINK_LAST_X_SECONDS) {
+"18
+[e $ ! <= -> _STATE_SECONDS_REMAINING `i -> _BLINK_LAST_X_SECONDS `i 1355  ]
+{
+[; ;projMain.c: 19: if (BLINK_STATE_ON_OFF_COUNTER < BLINK_ON_TIME) {
+"19
+[e $ ! < -> _BLINK_STATE_ON_OFF_COUNTER `i -> _BLINK_ON_TIME `i 1356  ]
+{
+[; ;projMain.c: 20: for (UINT8 i =0; i<2; i++)
+"20
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1357  ]
+[e $U 1358  ]
+"21
+[e :U 1357 ]
+[; ;projMain.c: 21: OutForThePorts[i] = (OutForThePorts[i] | STATES[PRESENT_STATE].BLINK[i]);
+[e = *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux -> | -> *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux `i -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 * -> _i `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 `ui `ux `i `uc ]
+"20
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1357  ]
+[e :U 1358 ]
+"21
+}
+"22
+}
+[e :U 1356 ]
+"23
+}
+[; ;projMain.c: 22: }
+[; ;projMain.c: 23: } else {
+[e $U 1360  ]
+[e :U 1355 ]
+{
+[; ;projMain.c: 24: for (UINT8 i =0; i<2; i++)
+"24
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1361  ]
+[e $U 1362  ]
+"25
+[e :U 1361 ]
+[; ;projMain.c: 25: OutForThePorts[i] = (OutForThePorts[i] | STATES[PRESENT_STATE].BLINK[i]);
+[e = *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux -> | -> *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux `i -> *U + &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 * -> _i `ux -> -> # *U &U . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 2 `ui `ux `i `uc ]
+"24
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1361  ]
+[e :U 1362 ]
+"25
+}
+"26
+}
+[e :U 1360 ]
+[; ;projMain.c: 26: }
+[; ;projMain.c: 28: for (UINT8 i =0; i<2; i++) {
+"28
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1364  ]
+[e $U 1365  ]
+[e :U 1364 ]
+{
+[; ;projMain.c: 29: *(LIGHTS[i]) = OutForThePorts[i];
+"29
+[e = *U *U + &U _LIGHTS * -> _i `ux -> -> # *U &U _LIGHTS `ui `ux *U + &U _OutForThePorts * -> _i `ux -> -> # *U &U _OutForThePorts `ui `ux ]
+"30
+}
+"28
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 1364  ]
+[e :U 1365 ]
+"30
+}
+[; ;projMain.c: 30: }
+[; ;projMain.c: 32: if ((STATES[PRESENT_STATE].AUDIO == AUDIO_NORMAL)
+[; ;projMain.c: 33: || ((STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL)
+[; ;projMain.c: 34: && (STATE_SECONDS_REMAINING <= SPECIAL_AUDIO_LAST_X_SECONDS))) {
+"34
+[e $ ! || == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 1 `i && == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i <= -> _STATE_SECONDS_REMAINING `i -> _SPECIAL_AUDIO_LAST_X_SECONDS `i 1367  ]
+{
+[; ;projMain.c: 35: if (NORMAL_AUDIO_STATE_ON_OFF_COUNTER < AUDIO_NORMAL_ON_TIME)
+"35
+[e $ ! < -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_NORMAL_ON_TIME `i 1368  ]
+[; ;projMain.c: 36: LATCbits.LC0 = ON;
+"36
+[e = . . _LATCbits 1 0 -> . `E11238 1 `uc ]
+[e $U 1369  ]
+"37
+[e :U 1368 ]
+[; ;projMain.c: 37: else
+[; ;projMain.c: 38: LATCbits.LC0 = OFF;
+"38
+[e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
+[e :U 1369 ]
+"39
+}
+[; ;projMain.c: 39: } else if (STATES[PRESENT_STATE].AUDIO == AUDIO_SPECIAL) {
+[e $U 1370  ]
+[e :U 1367 ]
+[e $ ! == -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 3 `i -> . `E11246 2 `i 1371  ]
+{
+[; ;projMain.c: 40: if (SPECIAL_AUDIO_STATE_ON_OFF_COUNTER < AUDIO_SPECIAL_ON_TIME)
+"40
+[e $ ! < -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i -> _AUDIO_SPECIAL_ON_TIME `i 1372  ]
+[; ;projMain.c: 41: LATCbits.LC0 = ON;
+"41
+[e = . . _LATCbits 1 0 -> . `E11238 1 `uc ]
+[e $U 1373  ]
+"42
+[e :U 1372 ]
+[; ;projMain.c: 42: else
+[; ;projMain.c: 43: LATCbits.LC0 = OFF;
+"43
+[e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
+[e :U 1373 ]
+"44
+}
+[; ;projMain.c: 44: } else
+[e $U 1374  ]
+[e :U 1371 ]
+[; ;projMain.c: 45: LATCbits.LC0 = OFF;
+"45
+[e = . . _LATCbits 1 0 -> . `E11238 0 `uc ]
+[e :U 1374 ]
+[e :U 1370 ]
+[; ;projMain.c: 47: CENTI_SECOND_COUNT++;
+"47
+[e ++ _CENTI_SECOND_COUNT -> -> 1 `i `uc ]
+[; ;projMain.c: 48: BLINK_STATE_ON_OFF_COUNTER++;
 "48
-[e :UE 1348 ]
+[e ++ _BLINK_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
+[; ;projMain.c: 49: if (BLINK_STATE_ON_OFF_COUNTER >= (BLINK_ON_TIME + BLINK_OFF_TIME))
+"49
+[e $ ! >= -> _BLINK_STATE_ON_OFF_COUNTER `i + -> _BLINK_ON_TIME `i -> _BLINK_OFF_TIME `i 1375  ]
+[; ;projMain.c: 50: BLINK_STATE_ON_OFF_COUNTER=0;
+"50
+[e = _BLINK_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
+[e :U 1375 ]
+[; ;projMain.c: 51: NORMAL_AUDIO_STATE_ON_OFF_COUNTER++;
+"51
+[e ++ _NORMAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
+[; ;projMain.c: 52: if (NORMAL_AUDIO_STATE_ON_OFF_COUNTER >= (AUDIO_NORMAL_ON_TIME + AUDIO_NORMAL_OFF_TIME))
+"52
+[e $ ! >= -> _NORMAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_NORMAL_ON_TIME `i -> _AUDIO_NORMAL_OFF_TIME `i 1376  ]
+[; ;projMain.c: 53: NORMAL_AUDIO_STATE_ON_OFF_COUNTER=0;
+"53
+[e = _NORMAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
+[e :U 1376 ]
+[; ;projMain.c: 54: SPECIAL_AUDIO_STATE_ON_OFF_COUNTER++;
+"54
+[e ++ _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 1 `i `uc ]
+[; ;projMain.c: 55: if (SPECIAL_AUDIO_STATE_ON_OFF_COUNTER >= (AUDIO_SPECIAL_ON_TIME + AUDIO_SPECIAL_OFF_TIME))
+"55
+[e $ ! >= -> _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER `i + -> _AUDIO_SPECIAL_ON_TIME `i -> _AUDIO_SPECIAL_OFF_TIME `i 1377  ]
+[; ;projMain.c: 56: SPECIAL_AUDIO_STATE_ON_OFF_COUNTER=0;
+"56
+[e = _SPECIAL_AUDIO_STATE_ON_OFF_COUNTER -> -> 0 `i `uc ]
+[e :U 1377 ]
+[; ;projMain.c: 59: if (CENTI_SECOND_COUNT == 100) {
+"59
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 100 `i 1378  ]
+{
+[; ;projMain.c: 60: CENTI_SECOND_COUNT = 0;
+"60
+[e = _CENTI_SECOND_COUNT -> -> 0 `i `uc ]
+[; ;projMain.c: 61: DATE_TIME = IncreaseByASecond(DATE_TIME);
+"61
+[e = _DATE_TIME ( _IncreaseByASecond (1 _DATE_TIME ]
+[; ;projMain.c: 62: STATE_SECONDS_REMAINING = (STATES[PRESENT_STATE].PERIOD + SECONDS_TO_ADJUST_PART) - STATE_SECONDS-1;
+"62
+[e = _STATE_SECONDS_REMAINING -> - - + -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `i -> _SECONDS_TO_ADJUST_PART `i -> _STATE_SECONDS `i -> 1 `i `uc ]
+[; ;projMain.c: 63: if (STATE_SECONDS_REMAINING == 0)
+"63
+[e $ ! == -> _STATE_SECONDS_REMAINING `i -> 0 `i 1379  ]
+[; ;projMain.c: 64: FLAGS_1.bits.b0 = SET;
+"64
+[e = . . _FLAGS_1 1 0 -> . `E11242 1 `uc ]
+[e :U 1379 ]
+[; ;projMain.c: 65: STATE_SECONDS++;
+"65
+[e ++ _STATE_SECONDS -> -> 1 `i `uc ]
+"66
+}
+[e :U 1378 ]
+[; ;projMain.c: 66: }
+[; ;projMain.c: 67: if (CENTI_SECOND_COUNT == 3) {
+"67
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 3 `i 1380  ]
+{
+[; ;projMain.c: 68: if (STATE_SECONDS == 0) {
+"68
+[e $ ! == -> _STATE_SECONDS `i -> 0 `i 1381  ]
+{
+[; ;projMain.c: 69: if (SECONDS_TO_ADJUST != 0) {
+"69
+[e $ ! != -> _SECONDS_TO_ADJUST `i -> 0 `i 1382  ]
+{
+[; ;projMain.c: 70: if (SECONDS_TO_ADJUST > 0) {
+"70
+[e $ ! > -> _SECONDS_TO_ADJUST `i -> 0 `i 1383  ]
+{
+[; ;projMain.c: 71: SECONDS_TO_ADJUST_PART = 0.3*STATES[PRESENT_STATE].PERIOD;
+"71
+[e = _SECONDS_TO_ADJUST_PART -> * .0.3 -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `d `c ]
+[; ;projMain.c: 72: if (SECONDS_TO_ADJUST_PART > SECONDS_TO_ADJUST)
+"72
+[e $ ! > -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1384  ]
+[; ;projMain.c: 73: SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
+"73
+[e = _SECONDS_TO_ADJUST_PART -> _SECONDS_TO_ADJUST `c ]
+[e :U 1384 ]
+"74
+}
+[; ;projMain.c: 74: } else {
+[e $U 1385  ]
+[e :U 1383 ]
+{
+[; ;projMain.c: 75: SECONDS_TO_ADJUST_PART = -0.3*STATES[PRESENT_STATE].PERIOD;
+"75
+[e = _SECONDS_TO_ADJUST_PART -> * -U .0.3 -> . . *U + &U _STATES * -> _PRESENT_STATE `ux -> -> # *U &U _STATES `ui `ux 0 0 `d `c ]
+[; ;projMain.c: 76: if (SECONDS_TO_ADJUST_PART < SECONDS_TO_ADJUST)
+"76
+[e $ ! < -> _SECONDS_TO_ADJUST_PART `i -> _SECONDS_TO_ADJUST `i 1386  ]
+[; ;projMain.c: 77: SECONDS_TO_ADJUST_PART = SECONDS_TO_ADJUST;
+"77
+[e = _SECONDS_TO_ADJUST_PART -> _SECONDS_TO_ADJUST `c ]
+[e :U 1386 ]
+"78
+}
+[e :U 1385 ]
+[; ;projMain.c: 78: }
+[; ;projMain.c: 79: SECONDS_TO_ADJUST -= SECONDS_TO_ADJUST_PART;
+"79
+[e =- _SECONDS_TO_ADJUST -> _SECONDS_TO_ADJUST_PART `s ]
+"80
+}
+[; ;projMain.c: 80: } else
+[e $U 1387  ]
+[e :U 1382 ]
+[; ;projMain.c: 81: SECONDS_TO_ADJUST_PART = 0;
+"81
+[e = _SECONDS_TO_ADJUST_PART -> -> 0 `i `c ]
+[e :U 1387 ]
+"82
+}
+[e :U 1381 ]
+"83
+}
+[e :U 1380 ]
+[; ;projMain.c: 82: }
+[; ;projMain.c: 83: }
+[; ;projMain.c: 84: if (CENTI_SECOND_COUNT == 2) {
+"84
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 2 `i 1388  ]
+{
+"85
+[v _ThisCycle `uc ~T0 @X0 1 a ]
+[; ;projMain.c: 85: UINT8 ThisCycle = GetThisCycle();
+[e = _ThisCycle ( _GetThisCycle ..  ]
+[; ;projMain.c: 86: if ((CYCLES[ThisCycle].START_STATE == PRESENT_STATE) && (STATE_SECONDS==0)) {
+"86
+[e $ ! && == -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 1 `i -> _PRESENT_STATE `i == -> _STATE_SECONDS `i -> 0 `i 1389  ]
+{
+[; ;projMain.c: 87: SECONDS_TO_ADJUST = (DATE_TIME.SECOND) % (CYCLES[ThisCycle].PERIOD);
+"87
+[e = _SECONDS_TO_ADJUST -> % . . _DATE_TIME 0 0 -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `l `s ]
+[; ;projMain.c: 88: if (SECONDS_TO_ADJUST > (CYCLES[ThisCycle].PERIOD)/2)
+"88
+[e $ ! > -> _SECONDS_TO_ADJUST `ui / -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `ui -> -> 2 `i `ui 1390  ]
+[; ;projMain.c: 89: SECONDS_TO_ADJUST -= CYCLES[ThisCycle].PERIOD;
+"89
+[e =- _SECONDS_TO_ADJUST -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 0 `s ]
+[e :U 1390 ]
+[; ;projMain.c: 90: SECONDS_TO_ADJUST = -SECONDS_TO_ADJUST;
+"90
+[e = _SECONDS_TO_ADJUST -> -U -> _SECONDS_TO_ADJUST `i `s ]
+"91
+}
+[e :U 1389 ]
+"92
+}
+[e :U 1388 ]
+[; ;projMain.c: 91: }
+[; ;projMain.c: 92: }
+[; ;projMain.c: 93: if (CENTI_SECOND_COUNT == 1) {
+"93
+[e $ ! == -> _CENTI_SECOND_COUNT `i -> 1 `i 1391  ]
+{
+[; ;projMain.c: 94: if (!FLAGS_1.bits.b1) {
+"94
+[e $ ! ! != -> . . _FLAGS_1 1 1 `i -> -> -> 0 `i `uc `i 1392  ]
+{
+"95
+[v _ThisCycle `uc ~T0 @X0 1 a ]
+[; ;projMain.c: 95: UINT8 ThisCycle = GetThisCycle();
+[e = _ThisCycle ( _GetThisCycle ..  ]
+[; ;projMain.c: 96: if (PRESENT_STATE == CYCLES[ThisCycle].END_STATE) {
+"96
+[e $ ! == -> _PRESENT_STATE `i -> . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 2 `i 1393  ]
+{
+[; ;projMain.c: 97: PRESENT_EVENT = NEXT_EVENT;
+"97
+[e = _PRESENT_EVENT _NEXT_EVENT ]
+[; ;projMain.c: 98: if (PRESENT_EVENT < 0) {
+"98
+[e $ ! < -> _PRESENT_EVENT `i -> 0 `i 1394  ]
+{
+[; ;projMain.c: 99: ThisCycle = 0;
+"99
+[e = _ThisCycle -> -> 0 `i `uc ]
+"100
+}
+[; ;projMain.c: 100: } else {
+[e $U 1395  ]
+[e :U 1394 ]
+{
+[; ;projMain.c: 101: ThisCycle = EVENTS[PRESENT_EVENT].CYCLE;
+"101
+[e = _ThisCycle . . *U + &U _EVENTS * -> -> _PRESENT_EVENT `uc `ux -> -> # *U &U _EVENTS `ui `ux 0 2 ]
+"102
+}
+[e :U 1395 ]
+[; ;projMain.c: 102: }
+[; ;projMain.c: 103: NEXT_STATE = CYCLES[ThisCycle].START_STATE;
+"103
+[e = _NEXT_STATE . . *U + &U _CYCLES * -> _ThisCycle `ux -> -> # *U &U _CYCLES `ui `ux 0 1 ]
+[; ;projMain.c: 104: FLAGS_1.bits.b1 = SET;
+"104
+[e = . . _FLAGS_1 1 1 -> . `E11242 1 `uc ]
+"105
+}
+[; ;projMain.c: 105: } else {
+[e $U 1396  ]
+[e :U 1393 ]
+{
+[; ;projMain.c: 106: NEXT_STATE = PRESENT_STATE+1;
+"106
+[e = _NEXT_STATE -> + -> _PRESENT_STATE `i -> 1 `i `uc ]
+"107
+}
+[e :U 1396 ]
+"108
+}
+[e :U 1392 ]
+"109
+}
+[e :U 1391 ]
+[; ;projMain.c: 107: }
+[; ;projMain.c: 108: }
+[; ;projMain.c: 109: }
+[; ;projMain.c: 110: }
+"110
+[e :UE 1347 ]
 }
