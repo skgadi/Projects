@@ -23,7 +23,7 @@
 %\author[FIME]{José Martín Sánchez-Hernández}
 
 \begin{abstract}
-Human-robot interaction (HRI) combines the positive trades of humans and machines. A control algorithm makes sure that the machine follows the human instructions. Also, it should ensure a stable HRI. This article presents a comparison of four  HRI control algorithms. It identifies the hardware and software requirements for the algorithm's implementation. Also, it presents the pros and cons of these algorithms.
+An human-robot interaction (HRI) combines the positive attributes of humans and machines. The robot's control algorithm is responsible for tracking the human intentions and following them. Also, it should ensure a stable HRI. This article presents a comparison of four  HRI control algorithms. It identifies the hardware and software requirements for the algorithm's implementation.
 \end{abstract}
 
 \begin{keyword}
@@ -33,11 +33,15 @@ Force Augmenting Device \sep Exoskeletons \sep Human-Robot Interaction
 \end{frontmatter}
 \section{Introduction}
 \label{Introduction}
-There is a growing interest in the area of human-robot interaction. These interactions are of two types: 1) The mechanical forces are not exchanged between the human and the robot arms. Example: Teleoperation 2) The robot arm and the human arm produces reaction forces on each other. This article focuses on the interaction where human and robot are in contact all the times. The human-exoskeleton interaction constitutes these interactions, where anthropomorphic robot arm moves along with the human arm. These force augmenting devices can be used in various applications ranging from active prosthetics, material handling, military, space research, etc.
+There is a growing interest in the area of human-robot interaction (HRI). These interactions are of two types: 1) The mechanical forces are not exchanged between the human and the robot arms. Example: Teleoperation 2) The robot arm and the human arm produces reaction forces on each other. This article focuses on the control algorithm applicable to the second type where human and robot are in contact all the times.
+\par
+The robots of the HRI can be used to amplify or attenuate the force exerted by the human operator by selecting an amplifying factor. These robots which are also known as the force augmenting devices (FADs) have various applications ranging from active prosthetics, material handling, military, space research, etc. In an HRI where robot manipulators are anthropomorphic are called exoskeletons or powered exoskeletons.
 \par
 Since these force augmenting devices (FAD) are always in contact with the human, stability is of extreme importance. This article presents four control schemes whose stability is rigorously studied. In this document, the words exoskeletons and robot replaces the word force augmenting device.
 \par
-The next section presents a generalized human-FAD interaction model. Four control schemes proposed in [6]–[9] are applied to this interaction model, and their differences are studied in Section \ref{CCS}. 
+The next section presents a generalized human-FAD interaction model. Four control schemes proposed in [6]–[9] are applied to this interaction model, and their differences are studied in Section \ref{CCS}.
+\par
+Stability regardless the human providing stability.
 \section{A general representation of a Human-Robot interaction}
 \label{GHRI}
 \section{Comparison of control schemes}
