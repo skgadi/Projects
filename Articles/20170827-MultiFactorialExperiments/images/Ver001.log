@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  28 NOV 2017 21:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  28 NOV 2017 23:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**./Ver000.tex
-(./Ver000.tex
+**./Ver001.tex
+(./Ver001.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/base/fix-cm.sty
@@ -874,7 +874,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )
 (c:/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzex
 ternalshared.code.tex))
-\openout3 = `Ver000.auxlock'.
+\openout3 = `Ver001.auxlock'.
 
 
 (c:/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
@@ -1015,8 +1015,8 @@ tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
 (c:/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patch
-plots.code.tex) (./Ver000.aux)
-\openout1 = `Ver000.aux'.
+plots.code.tex) (./Ver001.aux)
+\openout1 = `Ver001.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
@@ -1083,67 +1083,75 @@ ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.14}).
 
-SVJour3 warning: Missing \date
-SVJour3 warning: Missing \institute
-LaTeX Font Info:    Try loading font information for U+msa on input line 66.
+===== Image 'Ver001-figure0' is up-to-date. ======
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 86.
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 66.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 66.
- [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+===== Image 'Ver001-figure1' is up-to-date. ======
+===== Image 'Ver001-figure2' is up-to-date. ======
+===== Image 'Ver001-figure3' is up-to-date. ======
+===== Image 'Ver001-figure4' is up-to-date. ======
+===== Image 'Ver001-figure5' is up-to-date. ======
 
-
-]
-===== Image 'Ver000-figure0' is up-to-date. ======
-===== Image 'Ver000-figure1' is up-to-date. ======
-===== Image 'Ver000-figure2' is up-to-date. ======
-[2 <./Ver000-figure0.pdf> <./Ver000-figure1.pdf>]
-===== Image 'Ver000-figure3' is up-to-date. ======
-[3 <./Ver000-figure2.pdf> <./Ver000-figure3.pdf>]
-===== Image 'Ver000-figure4' is up-to-date. ======
-===== Image 'Ver000-figure5' is up-to-date. ======
-
-Overfull \hbox (9.04639pt too wide) in paragraph at lines 367--396
+Overfull \hbox (9.04639pt too wide) in paragraph at lines 227--256
  [][] 
  []
 
-[4] (./Ver000.bbl [5 <./Ver000-figure4.pdf> <./Ver000-figure5.pdf>]) [6
 
-]
-(./Ver000.aux) ) 
+LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 25
+6.
+
+
+LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 25
+6.
+
+===== Image 'Ver001-figure6' is up-to-date. ======
+
+Overfull \hbox (6.5872pt too wide) in paragraph at lines 266--295
+ [][] 
+ []
+
+(./Ver001.bbl [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+ <./Ver001-figure0.pdf> <./Ver001-figure1.pdf> <./Ver001-figure2.pdf> <./Ver001
+-figure3.pdf>])
+Underfull \hbox (badness 10000) has occurred while \output is active
+[][]
+ []
+
+[2 <./Ver001-figure4.pdf> <./Ver001-figure5.pdf> <./Ver001-figure6.pdf>]
+(./Ver001.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 25040 strings out of 492995
- 639149 string characters out of 6136417
- 830138 words of memory out of 5000000
- 28141 multiletter control sequences out of 15000+600000
- 13975 words of font info for 53 fonts, out of 8000000 for 9000
+ 24993 strings out of 492995
+ 638384 string characters out of 6136417
+ 821138 words of memory out of 5000000
+ 28102 multiletter control sequences out of 15000+600000
+ 11539 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,14n,120p,853b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbs
-y10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2017/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti8.pfb>
-Output written on Ver000.pdf (6 pages, 747398 bytes).
+ 70i,8n,120p,735b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2017/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+
+Output written on Ver001.pdf (2 pages, 779345 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
+ 149 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
