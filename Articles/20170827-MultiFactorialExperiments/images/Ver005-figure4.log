@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  8 DEC 2017 18:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  10 DEC 2017 13:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -992,22 +992,22 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
-The command '\includegraphics [width=\textwidth ]{Ver004-figure9}' has been opt
+The command '\includegraphics [width=\textwidth ]{Ver005-figure9}' has been opt
 imized away. Use '/tikz/external/optimize=false' to disable this.
  ) 
 Here is how much of TeX's memory you used:
- 25205 strings out of 492995
- 650056 string characters out of 6136417
- 3291297 words of memory out of 5000000
- 28332 multiletter control sequences out of 15000+600000
- 6245 words of font info for 25 fonts, out of 8000000 for 9000
+ 25201 strings out of 492995
+ 649979 string characters out of 6136417
+ 3353199 words of memory out of 5000000
+ 28330 multiletter control sequences out of 15000+600000
+ 5640 words of font info for 23 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,13n,120p,769b,2446s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2017/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Ver005-figure4.pdf (1 page, 180053 bytes).
+Output written on Ver005-figure4.pdf (1 page, 137805 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream

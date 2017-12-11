@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  8 DEC 2017 22:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  10 DEC 2017 16:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -960,7 +960,11 @@ tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
 (c:/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patch
-plots.code.tex) (./Ver005.aux)
+plots.code.tex) (./Ver005.aux
+
+LaTeX Warning: Label `Fig:TwoVarNovelFunc' multiply defined.
+
+)
 \openout1 = `Ver005.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
@@ -977,8 +981,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
 LaTeX Font Info:    ... okay on input line 51.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
 LaTeX Font Info:    ... okay on input line 51.
-
-(c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count127
 \scratchdimen=\dimen175
@@ -1042,29 +1045,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ===== Image 'Ver005-figure2' is up-to-date. ======
 ===== Image 'Ver005-figure3' is up-to-date. ======
 ===== Image 'Ver005-figure4' is up-to-date. ======
-[1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+\openout3 = `Ver005-figure5.md5'.
 
- <./Ver005-figure0.pdf> <./Ver005-figure1.pdf>] [2 <./Ver005-figure2.pdf> <./Ve
-r005-figure3.pdf> <./Ver005-figure4.pdf>]
-===== Image 'Ver005-figure5' is up-to-date. ======
+===== 'mode=convert with system call': Invoking 'pdflatex -shell-escape -halt-o
+n-error -interaction=batchmode -jobname "Ver005-figure5" "\def\tikzexternalreal
+job{Ver005}\input{Ver005}"' ========
+\openout3 = `Ver005.auxlock'.
 
-LaTeX Warning: Float too large for page by 53.2984pt on input line 244.
+runsystem(pdflatex -shell-escape -halt-on-error -interaction=batchmode -jobname
+ "Ver005-figure5" "\def\tikzexternalrealjob{Ver005}\input{Ver005}")...executed.
+
+\openout3 = `Ver005.auxlock'.
+
+
+LaTeX Warning: Float too large for page by 92.71164pt on input line 253.
 
 ===== Image 'Ver005-figure6' is up-to-date. ======
-
-LaTeX Warning: Reference `Sec:Application' on page 3 undefined on input line 28
-2.
-
 ===== Image 'Ver005-figure7' is up-to-date. ======
+
+LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 32
+7.
+
 ===== Image 'Ver005-figure8' is up-to-date. ======
-<Ver005-figure9.pdf, id=98, 795.97375pt x 615.29875pt>
+<Ver005-figure9.pdf, id=13, 795.97375pt x 615.29875pt>
 File: Ver005-figure9.pdf Graphic file (type pdf)
 
 <use Ver005-figure9.pdf>
-Package pdftex.def Info: Ver005-figure9.pdf used on input line 367.
+Package pdftex.def Info: Ver005-figure9.pdf used on input line 374.
 (pdftex.def)             Requested size: 528.93675pt x 408.88687pt.
- [3 <./Ver005-figure5.pdf>] [4 <./Ver005-figure6.pdf> <./Ver005-figure7.pdf> <.
-/Ver005-figure8.pdf>] [5 <./Ver005-figure9.pdf
+ [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Ver005-fig
+ure0.pdf> <./Ver005-figure1.pdf> <./Ver005-figure2.pdf>] [2 <./Ver005-figure3.p
+df> <./Ver005-figure4.pdf>] [3 <./Ver005-figure5.pdf>]
+[4 <./Ver005-figure6.pdf> <./Ver005-figure7.pdf> <./Ver005-figure8.pdf>]
+[5 <./Ver005-figure9.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Ver005-figure9.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
@@ -1072,27 +1085,31 @@ d other resource which is no dict (key 'ProcSets', type <array>); ignored.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 24688 strings out of 492995
- 635325 string characters out of 6136417
- 808052 words of memory out of 5000000
- 27798 multiletter control sequences out of 15000+600000
- 6871 words of font info for 27 fonts, out of 8000000 for 9000
+ 24682 strings out of 492995
+ 635262 string characters out of 6136417
+ 809052 words of memory out of 5000000
+ 27794 multiletter control sequences out of 15000+600000
+ 6266 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,6n,120p,735b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2017
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2017/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Ver005.pdf (5 pages, 1118658 bytes).
+b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Ver005.pdf (5 pages, 1063492 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

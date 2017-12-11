@@ -154,9 +154,14 @@
 		\addplot3[
 		surf,
 		%samples = 50,
-		domain=-2.5:2.5,
+		domain=-3:3,
 		]
-		{exp(-(x+0.49*sin(deg(x+y)))^2)+exp(-(y+0.49*sin(deg(x+y)))^2)};
+		{(
+				 exp(-( 0.448*x + 0.308*y )^2)
+			)*(  exp(-( 0.308*x + 0.338*y )^2)
+			)*(( exp(-( 1.329*x - 0.493*y )^2)
+			)+(  exp(-( -0.493*x + 2.761*y )^2)
+			))};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{The proposed function $C_4(x_1, x_2)$ for $a = 0.49$.}
@@ -177,15 +182,19 @@
 	\addplot3[
 	surf,
 	%samples = 50,
-	domain=-2.5:2.5,
+	domain=-15:15,
 	]
-	{exp(-(x+0.49*sin(deg(x+y)))^2)+exp(-(y+0.49*sin(deg(x+y)))^2)};
+	{(
+			 exp(-( 0.1*x + 0.0*y )^2)
+		)*(  exp(-( 0.0*x + 0.1*y )^2)
+		)*(( exp(-( 0.979*x + 0.636*y )^2)
+		)+(  exp(-( 0.636*x + 0.773*y )^2)
+		))};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{The proposed function $C_4(x_1, x_2)$ for $a = 0.49$.}
-	\label{Fig:Figure5}
+	\label{Fig:TwoVarNovelFunc}
 \end{figure}
-\section{adf}
 
 \pagebreak
 \begin{figure}
@@ -193,17 +202,17 @@
 	\begin{tikzpicture}[node distance = 5mm, auto]
 		\node (Start) [startstop] {START};
 		\node (Define) [process, below = of Start] {DEFINE $\alpha, \beta, F_L, F_U, K_D$~AND $K_R$};
-		\node (Calculate01) [process, below =of Define] {CALCULATE\\$F_I, F_1$ AND $F_2$\\USING (17), (18) AND (19)};
+		\node (Calculate01) [process, below =of Define] {CALCULATE\\$F_I, F_1$ AND $F_2$\\USING (8), (9) AND (10)};
 		\node (Input01) [io, below = of Calculate01, text width=3cm] {INPUT $n$};
-		\node (Calculate01a) [process, below = of Input01] {CALCULATE $a=\frac{0.95}{n}$};
+		\node (Calculate01a) [process, below = of Input01] {GENERATE A NONSINGULAR $Q\in \Re^{n\times n}$};
 		\node (Input02) [io, below = of Calculate01a] {INPUT $x_i^L$~AND~$x_i^U$};
-		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (23) AND (24)};
+		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (14) AND (15)};
 		\node (Input03) [io, below = of Calculate02, text width=3.25cm] {INPUT $x_i$};
 		\node (Calculate03) [process, below = of Input03] {RESET $\Sigma_z=0$};
-		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (22) AND\\UPDATE $\Sigma_z = \Sigma_z + z_i$};
-		\node (Calculate05) [process, below = of Calculate04] {RESET $F=F_1$};
-		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\  $F=F+\frac{F_2}{n} \exp[-\left[z_i + a\sin\left(\Sigma_z\right)\right]^2]$};
-		\node (Calculate07) [process, below = of Calculate06] {UPDATE	\\ $F=F+\frac{F_2K_R\xi}{n}$};
+		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (13)};
+		\node (Calculate05) [process, below = of Calculate04] {SET $\prod=1$, $\sum = 0$ \\AND CALCULATE \\ $r=Pz$ AND $s=Qz$};
+		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\ $\prod = \prod \left[e^{-r_i^2}\right]$\\$\sum=\sum + e^{-r_i^2}$};
+		\node (Calculate07) [process, below = of Calculate06] {CALCULATE \\ $F=F_1+\frac{F_2}{n}\left[\prod \times \sum + K_R\xi\right]$};
 		\node (Output03) [io, below = of Calculate07, text width=3cm] {OUTPUT $F$};
 		\node (Decision01) [decision, below = of Output03, text width=2.55cm] {CONTINUE\\EXPERIMENTS?};
 		\node (Stop) [startstop, below = of Decision01] {STOP};
@@ -245,6 +254,43 @@
 
 
 
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=0.50\textwidth,	
+	height = 7.5cm,
+	colormap/cool,
+	xlabel=$x_1$,
+	ylabel=$x_2$,
+	zlabel=$F$,
+	]
+	\addplot3[
+	surf,
+	%samples = 50,
+	domain = 1:13,
+	domain y = 0:100,
+	]
+	{160.49815877303246 + 167.90759039534183/2*(
+		exp(-(5/12*(x - 7.784)*0.5)^2)*exp(-(5/100*(y - 23.606)*0.5)^2)
+		* ( exp(-(2.128*5/12*(x - 7.784) + 0.675*5/100*(y - 23.606))^2)
+		+ exp(-(0.675*5/12*(x - 7.784) + 1.452*5/100*(y - 23.606))^2)
+		+ (rand-0.5)*2*0.1
+		)
+	};
+	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
+	\addplot3 [color= red,mark=*,] coordinates {
+		(4.375, 28.125, 194.1394)
+		(7.036, 39.667, 257.2037)
+		(8.209, 23.667, 314.6647)
+		(8.150, 22.880, 319.9692)
+	};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{The proposed function $C_4(x_1, x_2)$ for $a = 0.49$.}
+	\label{Fig:TwoVarNovelFunc4}
+\end{figure}
+
 
 \begin{figure}
 	\centering
@@ -267,14 +313,13 @@
 		{160.49815877303246 + 167.90759039534183/2*(
 			exp(-(5/12*(x - 7.784)*0.5)^2)*exp(-(5/100*(y - 23.606)*0.5)^2)
 			+ exp(-(2.128*5/12*(x - 7.784) + 0.675*5/100*(y - 23.606))^2)
-			+ exp(-(0.675*5/12*(x - 7.784) + 2.128*5/100*(y - 23.606))^2)
+			+ exp(-(0.675*5/12*(x - 7.784) + 1.452*5/100*(y - 23.606))^2)
 			)
 		};
 		\addplot3 [color= red,mark=*,] coordinates {
 		(4.375, 28.125, 194.1394)
 		(7.036, 39.667, 257.2037)
 		(8.209, 23.667, 314.6647)
-		(6.664, 31.356, 277.3672)
 		(8.150, 22.880, 319.9692)
 		};
 	\end{axis}
@@ -307,8 +352,7 @@
 	{160.49815877303246 + 167.90759039534183/2*(
 		exp(-(5/12*(x - 7.784)*0.5)^2)*exp(-(5/100*(y - 23.606)*0.5)^2)
 		* ( exp(-(2.128*5/12*(x - 7.784) + 0.675*5/100*(y - 23.606))^2)
-		+ exp(-(0.675*5/12*(x - 7.784) + 2.128*5/100*(y - 23.606))^2))
-		+ (rand-0.5)*2*0.1
+		+ exp(-(0.675*5/12*(x - 7.784) + 1.452*5/100*(y - 23.606))^2)
 		)
 	};
 	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
@@ -316,7 +360,6 @@
 		(4.375, 28.125, 194.1394)
 		(7.036, 39.667, 257.2037)
 		(8.209, 23.667, 314.6647)
-		(6.664, 31.356, 277.3672)
 		(8.150, 22.880, 319.9692)
 	};
 	\end{axis}
@@ -325,42 +368,6 @@
 	\label{Fig:TwoVarNovelFunc6}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[
-	width=0.50\textwidth,	
-	height = 7.5cm,
-	colormap/cool,
-	xlabel=$x_1$,
-	ylabel=$x_2$,
-	zlabel=$F$,
-	]
-	\addplot3[
-	surf,
-	%samples = 50,
-	domain = 1:13,
-	domain y = 0:100,
-	]
-	{160.49815877303246 + 167.90759039534183/2*(
-		exp(-(5/12*(x - 7.784)*0.5)^2)*exp(-(5/100*(y - 23.606)*0.5)^2)
-		* ( exp(-(2.128*5/12*(x - 7.784) + 0.675*5/100*(y - 23.606))^2)
-		+ exp(-(0.675*5/12*(x - 7.784) + 2.128*5/100*(y - 23.606))^2))
-		)
-	};
-	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
-	\addplot3 [color= red,mark=*,] coordinates {
-		(4.375, 28.125, 194.1394)
-		(7.036, 39.667, 257.2037)
-		(8.209, 23.667, 314.6647)
-		(6.664, 31.356, 277.3672)
-		(8.150, 22.880, 319.9692)
-	};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{The proposed function $C_4(x_1, x_2)$ for $a = 0.49$.}
-	\label{Fig:TwoVarNovelFunc4}
-\end{figure}
 
 \begin{figure}
 	\centering
