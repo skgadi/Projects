@@ -220,10 +220,10 @@
 		\node (Input01) [io, below = of Calculate01, text width=3cm] {INPUT $n$};
 		\node (Calculate01a) [process, below = of Input01] {GENERATE A NONSINGULAR $Q\in \Re^{n\times n}$};
 		\node (Input02) [io, below = of Calculate01a] {INPUT $x_i^L$~AND~$x_i^U$};
-		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (14) AND (15)};
+		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (15) AND (16)};
 		\node (Input03) [io, below = of Calculate02, text width=3.25cm] {INPUT $x_i$};
 		\node (Calculate03) [process, below = of Input03] {RESET $\Sigma_z=0$};
-		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (13)};
+		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (14)};
 		\node (Calculate05) [process, below = of Calculate04] {SET $\prod=1$, $\sum = 0$ \\AND CALCULATE \\ $r=Pz$ AND $s=Qz$};
 		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\ $\prod = \prod \left[e^{-r_i^2}\right]$\\$\sum=\sum + e^{-r_i^2}$};
 		\node (Calculate07) [process, below = of Calculate06] {CALCULATE \\ $F=F_1+\frac{F_2}{n}\left[\prod \times \sum + K_R\xi\right]$};
@@ -275,9 +275,9 @@
 	width=0.50\textwidth,	
 	height = 7.5cm,
 	colormap/cool,
-	xlabel=$x_1$,
-	ylabel=$x_2$,
-	zlabel=$F$,
+	xlabel={pH = $x_1$},
+	ylabel={Temperature = $x_2$},
+	zlabel={Enzyme production = $F$},
 	]
 	\addplot3[
 	surf,
@@ -301,7 +301,7 @@
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Surface plot of $F$ with the constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Surface plot of $F$ with the constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:TwoVarNovelFunc4}
 \end{figure}
 
@@ -312,9 +312,9 @@
 	\begin{axis}
 		[
 		width=0.50\textwidth,	
-		xlabel=$x_1$,
-		ylabel=$x_2$,
-		zlabel=$C$,
+		xlabel={pH = $x_1$},
+		ylabel={Temperature = $x_2$},
+		zlabel={Enzyme production = $F$},
 		view={0}{90}
 		]
 		\addplot3[contour gnuplot ={number=20,
@@ -338,7 +338,7 @@
 		};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Contour plot of $F$ with $K_R=0$ and the other constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Contour plot of $F$ with $K_R=0$ and the other constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:Application2Variable}
 \end{figure}
 
@@ -353,9 +353,9 @@
 	width=0.50\textwidth,	
 	height = 7.5cm,
 	colormap/cool,
-	xlabel=$x_1$,
-	ylabel=$x_2$,
-	zlabel=$F$,
+	xlabel={pH = $x_1$},
+	ylabel={Temperature = $x_2$},	
+	zlabel={Enzyme production = $F$},
 	]
 	\addplot3[
 	surf,
@@ -378,7 +378,7 @@
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Surface plot of $F$ with $K_R=0$ and the other constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Surface plot of $F$ with $K_R=0$ and the other constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:TwoVarNovelFunc6}
 \end{figure}
 

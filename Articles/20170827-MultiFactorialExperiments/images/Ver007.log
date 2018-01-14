@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  11 DEC 2017 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.31)  13 DEC 2017 00:43
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**./Ver005.tex
-(./Ver005.tex
+**./Ver007.tex
+(./Ver007.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/base/fix-cm.sty
@@ -819,7 +819,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )
 (c:/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzex
 ternalshared.code.tex))
-\openout3 = `Ver005.auxlock'.
+\openout3 = `Ver007.auxlock'.
 
 
 (c:/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
@@ -960,12 +960,12 @@ tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
 (c:/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patch
-plots.code.tex) (./Ver005.aux
+plots.code.tex) (./Ver007.aux
 
 LaTeX Warning: Label `Fig:TwoVarNovelFunc' multiply defined.
 
 )
-\openout1 = `Ver005.aux'.
+\openout1 = `Ver007.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
 LaTeX Font Info:    ... okay on input line 51.
@@ -1031,7 +1031,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.14}).
 
-===== Image 'Ver005-figure0' is up-to-date. ======
+===== Image 'Ver007-figure0' is up-to-date. ======
 LaTeX Font Info:    Try loading font information for U+msa on input line 87.
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1041,80 +1041,56 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-===== Image 'Ver005-figure1' is up-to-date. ======
-===== Image 'Ver005-figure2' is up-to-date. ======
-===== Image 'Ver005-figure3' is up-to-date. ======
-===== Image 'Ver005-figure4' is up-to-date. ======
-===== Image 'Ver005-figure5' is up-to-date. ======
+===== Image 'Ver007-figure1' is up-to-date. ======
+===== Image 'Ver007-figure2' is up-to-date. ======
+===== Image 'Ver007-figure3' is up-to-date. ======
+===== Image 'Ver007-figure4' is up-to-date. ======
+===== Image 'Ver007-figure5' is up-to-date. ======
 
 LaTeX Warning: Float too large for page by 92.71164pt on input line 267.
 
-===== Image 'Ver005-figure6' is up-to-date. ======
-
-LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 30
-4.
-
-===== Image 'Ver005-figure7' is up-to-date. ======
-
-LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 34
-1.
-
-
-LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 34
-1.
-
-===== Image 'Ver005-figure8' is up-to-date. ======
-
-LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 38
-1.
-
-
-LaTeX Warning: Reference `Sec:Application' on page 1 undefined on input line 38
-1.
-
+===== Image 'Ver007-figure6' is up-to-date. ======
+===== Image 'Ver007-figure7' is up-to-date. ======
+===== Image 'Ver007-figure8' is up-to-date. ======
 <Ver005-figure9.pdf, id=13, 795.97375pt x 615.29875pt>
 File: Ver005-figure9.pdf Graphic file (type pdf)
 
 <use Ver005-figure9.pdf>
 Package pdftex.def Info: Ver005-figure9.pdf used on input line 388.
 (pdftex.def)             Requested size: 528.93675pt x 408.88687pt.
- [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Ver005-fig
-ure0.pdf> <./Ver005-figure1.pdf> <./Ver005-figure2.pdf>] [2 <./Ver005-figure3.p
-df> <./Ver005-figure4.pdf>] [3 <./Ver005-figure5.pdf>]
-[4 <./Ver005-figure6.pdf> <./Ver005-figure7.pdf> <./Ver005-figure8.pdf>]
-[5 <./Ver005-figure9.pdf
+ [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Ver007-fig
+ure0.pdf> <./Ver007-figure1.pdf> <./Ver007-figure2.pdf>] [2 <./Ver007-figure3.p
+df> <./Ver007-figure4.pdf>] [3 <./Ver007-figure5.pdf>]
+[4 <./Ver007-figure6.pdf> <./Ver007-figure7.pdf>] [5 <./Ver007-figure8.pdf> <./
+Ver005-figure9.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Ver005-figure9.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] (./Ver005.aux)
-
-LaTeX Warning: There were undefined references.
-
+>] (./Ver007.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24682 strings out of 492995
- 635262 string characters out of 6136417
- 811052 words of memory out of 5000000
- 27794 multiletter control sequences out of 15000+600000
- 6266 words of font info for 25 fonts, out of 8000000 for 9000
+ 24675 strings out of 492995
+ 635186 string characters out of 6136417
+ 811050 words of memory out of 5000000
+ 27790 multiletter control sequences out of 15000+600000
+ 5339 words of font info for 22 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,12n,120p,735b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Ver005.pdf (5 pages, 1063659 bytes).
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Ver007.pdf (5 pages, 1056132 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

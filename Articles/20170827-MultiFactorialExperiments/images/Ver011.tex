@@ -2,6 +2,8 @@
 %
 \RequirePackage{amsmath}
 
+
+
 %\documentclass{svjour3}                     % onecolumn (standard format)
 %\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
 %\documentclass[smallextended]{svjour3}       % onecolumn (second format)
@@ -18,9 +20,14 @@
 \newcommand{\me}{\mathrm{e}}
 \usepackage{amsmath}
 
+%\usepackage[monochrome]{color}
+
 %\usepackage[round]{natbib}
 %\usepackage{apacite}
 \usepackage{url}
+
+
+\PassOptionsToPackage{monochrome}{xcolor}
 
 % For the flow charts
 \usepackage{tikz}
@@ -35,6 +42,8 @@
 \tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{dottedarrow} = [thick, dotted,->,>=stealth]
+
+
 
 
 
@@ -70,7 +79,7 @@
 		\begin{axis}[
 			width=0.465\textwidth,	
 			height = 7.5cm,
-			colormap/cool,
+			colormap/blackwhite,
 			xlabel=$x_1$,
 			ylabel=$x_2$,
 			zlabel=$C_1$,
@@ -78,10 +87,19 @@
 			\addplot3[
 			surf,
 			%samples=10,
-			domain=-10:10,
+			domain=-5:5,
 			]
 			{-x^2-y^2};
-			%\addlegendentry{$\frac{sin(r)}{r}$}
+			\addplot3 [blue, dotted, thick, mark=x] coordinates{(-5,0,5) (5,0,5)};
+			\addplot3 [blue, dotted, thick, mark=x] coordinates{(0,-5,5) (0,5,5)};
+			\addplot3[red,/pgfplots/quiver,
+			quiver/u=2*x,
+			quiver/v=2*y,
+			quiver/w=0,
+			quiver/scale arrows=0.1,
+			-stealth,samples=9,
+			domain=-5:5,
+			] {5};			
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Two variable quadratic function $C_1(x_1, x_2)$.}
@@ -96,7 +114,7 @@
 	\begin{axis}[
 		width=0.50\textwidth,	
 		height = 7.5cm,
-		colormap/cool,
+		colormap/blackwhite,
 		xlabel=$x_1$,
 		ylabel=$x_2$,
 		zlabel=$C_2$,
@@ -104,9 +122,19 @@
 		\addplot3[
 		surf,
 		%samples = 10,
-		domain=-1.75:1.75,
+		domain=-2:2,
 		]
 		{exp(-x^2-y^2)};
+		\addplot3 [blue, dotted, thick, mark=x]coordinates {(-2,0,1) (2,0,1)};
+		\addplot3 [blue, dotted, thick, mark=x] coordinates {(0,-2,1) (0,2,1)};
+		\addplot3[red,/pgfplots/quiver,
+		quiver/u=-2*x*exp(-x^2-y^2),
+		quiver/v=-2*y*exp(-x^2-y^2),
+		quiver/w=0,
+		quiver/scale arrows=1,
+		-stealth,samples=9,
+		domain=-2:2,
+		] {1};		
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Two variable Gaussian function $C_2(x_1, x_2)$.}
@@ -121,7 +149,7 @@
 	\begin{axis}[
 		width=0.50\textwidth,	
 		height = 7.5cm,
-		colormap/cool,
+		colormap/blackwhite,
 		xlabel=$x_1$,
 		ylabel=$x_2$,
 		zlabel=$C_3$,
@@ -132,12 +160,21 @@
 		domain=-2.5:2.5,
 		]
 		{exp(-x^2)+exp(-y^2)};
+			\addplot3 [blue, dotted, thick, mark=x] coordinates{(-2.5,0,2) (2.5,0,2)};
+		\addplot3 [blue, dotted, thick, mark=x] coordinates{(0,-2.5,2) (0,2.5,2)};
+		\addplot3[red,/pgfplots/quiver,
+			quiver/u=-2*x*exp(-x^2),
+			quiver/v=2*y*exp(-y^2),
+			quiver/w=0,
+			quiver/scale arrows=1,
+			-stealth,samples=9,
+			domain=-2.5:2.5,
+			] {2};			
 	\end{axis}
 	\end{tikzpicture}	
 	\caption{Modified version of Gaussian function $C_3(x_1, x_2)$.}
 	\label{Fig:2GussianFunctionModified}
 \end{figure}
-
 
 
 \begin{figure}
@@ -146,7 +183,7 @@
 	\begin{axis}[
 		width=0.50\textwidth,	
 		height = 7.5cm,
-		colormap/cool,
+		colormap/blackwhite,
 		xlabel=$x_1$,
 		ylabel=$x_2$,
 		zlabel=$C_4$,
@@ -162,6 +199,16 @@
 			)*(( exp(-( 1.329*x - 0.493*y )^2)
 			)+(  exp(-( -0.493*x + 2.761*y )^2)
 			))};
+			\addplot3 [blue, dotted, thick, mark=x] coordinates{(-3,0,2) (3,0,2)};
+			\addplot3 [blue, dotted, thick, mark=x] coordinates{(0,-3,2) (0,3,2)};
+			\addplot3[red,/pgfplots/quiver,
+			quiver/u=-exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*(exp(-((493*x)/1000 - (2761*y)/1000)^2)*((243049*x)/500000 - (1361173*y)/500000) + exp(-((1329*x)/1000 - (493*y)/1000)^2)*((1766241*x)/500000 - (655197*y)/500000)) - exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*((6272*x)/15625 + (4312*y)/15625)*(exp(-((1329*x)/1000 - (493*y)/1000)^2) + exp(-((493*x)/1000 - (2761*y)/1000)^2)) - exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*((5929*x)/31250 + (13013*y)/62500)*(exp(-((1329*x)/1000 - (493*y)/1000)^2) + exp(-((493*x)/1000 - (2761*y)/1000)^2)),
+			quiver/v= exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*(exp(-((1329*x)/1000 - (493*y)/1000)^2)*((655197*x)/500000 - (243049*y)/500000) + exp(-((493*x)/1000 - (2761*y)/1000)^2)*((1361173*x)/500000 - (7623121*y)/500000)) - exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*((4312*x)/15625 + (5929*y)/31250)*(exp(-((1329*x)/1000 - (493*y)/1000)^2) + exp(-((493*x)/1000 - (2761*y)/1000)^2)) - exp(-((56*x)/125 + (77*y)/250)^2)*exp(-((77*x)/250 + (169*y)/500)^2)*((13013*x)/62500 + (28561*y)/125000)*(exp(-((1329*x)/1000 - (493*y)/1000)^2) + exp(-((493*x)/1000 - (2761*y)/1000)^2)),
+			quiver/w=0,
+			quiver/scale arrows=1,
+			-stealth,samples=9,
+			domain=-2.5:2.5,
+			] {2};			
 	\end{axis}
 	\end{tikzpicture}
 	\caption[Proposed function 1]{The proposed function $C_4(x_1, x_2)$ for $P=\left[ \begin{matrix}
@@ -181,7 +228,7 @@
 	\begin{axis}[
 	width=0.50\textwidth,	
 	height = 7.5cm,
-	colormap/cool,
+	colormap/blackwhite,
 	xlabel=$x_1$,
 	ylabel=$x_2$,
 	zlabel=$C_4$,
@@ -197,6 +244,16 @@
 		)*(( exp(-( 0.979*x + 0.636*y )^2)
 		)+(  exp(-( 0.636*x + 0.773*y )^2)
 		))};
+		\addplot3 [blue, dotted, thick, mark=x] coordinates{(-15,0,2) (15,0,2)};
+		\addplot3 [blue, dotted, thick, mark=x] coordinates{(0,-15,2) (0,15,2)};
+		\addplot3[red,/pgfplots/quiver,
+			quiver/u=- exp(-x^2/100)*exp(-y^2/100)*(exp(-((159*x)/250 + (773*y)/1000)^2)*((25281*x)/31250 + (122907*y)/125000) + exp(-((979*x)/1000 + (159*y)/250)^2)*((958441*x)/500000 + (155661*y)/125000)) - (x*exp(-x^2/100)*exp(-y^2/100)*(exp(-((159*x)/250 + (773*y)/1000)^2) + exp(-((979*x)/1000 + (159*y)/250)^2)))/50,
+			quiver/v=- exp(-x^2/100)*exp(-y^2/100)*(exp(-((979*x)/1000 + (159*y)/250)^2)*((155661*x)/125000 + (25281*y)/31250) + exp(-((159*x)/250 + (773*y)/1000)^2)*((122907*x)/125000 + (597529*y)/500000)) - (y*exp(-x^2/100)*exp(-y^2/100)*(exp(-((159*x)/250 + (773*y)/1000)^2) + exp(-((979*x)/1000 + (159*y)/250)^2)))/50,
+			quiver/w=0,
+			quiver/scale arrows=30,
+			-stealth,samples=9,
+			domain=-15:15,
+			] {2};			
 	\end{axis}
 	\end{tikzpicture}
 	\caption[Proposed function 1]{The proposed function $C_4(x_1, x_2)$ for $P=\left[ \begin{matrix}
@@ -220,10 +277,10 @@
 		\node (Input01) [io, below = of Calculate01, text width=3cm] {INPUT $n$};
 		\node (Calculate01a) [process, below = of Input01] {GENERATE A NONSINGULAR $Q\in \Re^{n\times n}$};
 		\node (Input02) [io, below = of Calculate01a] {INPUT $x_i^L$~AND~$x_i^U$};
-		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (14) AND (15)};
+		\node (Calculate02) [process, below = of Input02] {CALCULATE\\$x_i^I$ AND $x_i^M$\\USING (15) AND (16)};
 		\node (Input03) [io, below = of Calculate02, text width=3.25cm] {INPUT $x_i$};
 		\node (Calculate03) [process, below = of Input03] {RESET $\Sigma_z=0$};
-		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (13)};
+		\node (Calculate04) [process, below = of Calculate03] {CALCULATE $z_i$\\ USING (14)};
 		\node (Calculate05) [process, below = of Calculate04] {SET $\prod=1$, $\sum = 0$ \\AND CALCULATE \\ $r=Pz$ AND $s=Qz$};
 		\node (Calculate06) [process, below = of Calculate05] {UPDATE\\ $\prod = \prod \left[e^{-r_i^2}\right]$\\$\sum=\sum + e^{-r_i^2}$};
 		\node (Calculate07) [process, below = of Calculate06] {CALCULATE \\ $F=F_1+\frac{F_2}{n}\left[\prod \times \sum + K_R\xi\right]$};
@@ -267,6 +324,13 @@
 \end{figure}
 
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Ver011-figure9}
+	\caption{Screenshot of the application.}
+	\label{Fig:TwoVarNovelFunc5}
+\end{figure}
+
 
 \begin{figure}
 	\centering
@@ -274,10 +338,10 @@
 	\begin{axis}[
 	width=0.50\textwidth,	
 	height = 7.5cm,
-	colormap/cool,
-	xlabel=$x_1$,
-	ylabel=$x_2$,
-	zlabel=$F$,
+	colormap/blackwhite,
+	xlabel={pH = $x_1$},
+	ylabel={Temperature = $x_2$},
+	zlabel={Enzyme production = $F$},
 	]
 	\addplot3[
 	surf,
@@ -293,7 +357,7 @@
 		)
 	};
 	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
-	\addplot3 [color= red,mark=*,] coordinates {
+	\addplot3 [color= black,mark=*,] coordinates {
 		(4.375, 28.125, 194.1394)
 		(7.036, 39.667, 257.2037)
 		(8.209, 23.667, 314.6647)
@@ -301,7 +365,7 @@
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Surface plot of $F$ with the constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Surface plot of $F$ with the constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:TwoVarNovelFunc4}
 \end{figure}
 
@@ -311,10 +375,11 @@
 	\begin{tikzpicture}
 	\begin{axis}
 		[
+		colormap/blackwhite,
 		width=0.50\textwidth,	
-		xlabel=$x_1$,
-		ylabel=$x_2$,
-		zlabel=$C$,
+		xlabel={pH = $x_1$},
+		ylabel={Temperature = $x_2$},
+		zlabel={Enzyme production = $F$},
 		view={0}{90}
 		]
 		\addplot3[contour gnuplot ={number=20,
@@ -330,7 +395,7 @@
 			+ exp(-(0.675*5/12*(x - 7.784) + 1.452*5/100*(y - 23.606))^2)
 			)
 		};
-		\addplot3 [color= red,mark=*,] coordinates {
+		\addplot3 [color= black,mark=*,] coordinates {
 		(4.375, 28.125, 194.1394)
 		(7.036, 39.667, 257.2037)
 		(8.209, 23.667, 314.6647)
@@ -338,7 +403,7 @@
 		};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Contour plot of $F$ with $K_R=0$ and the other constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Contour plot of $F$ with $K_R=0$ and the other constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:Application2Variable}
 \end{figure}
 
@@ -350,12 +415,12 @@
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
+	colormap/blackwhite,
 	width=0.50\textwidth,	
 	height = 7.5cm,
-	colormap/cool,
-	xlabel=$x_1$,
-	ylabel=$x_2$,
-	zlabel=$F$,
+	xlabel={pH = $x_1$},
+	ylabel={Temperature = $x_2$},	
+	zlabel={Enzyme production = $F$},
 	]
 	\addplot3[
 	surf,
@@ -367,28 +432,33 @@
 		exp(-(5/12*(x - 7.784)*0.5)^2)*exp(-(5/100*(y - 23.606)*0.5)^2)
 		* ( exp(-(2.128*5/12*(x - 7.784) + 0.675*5/100*(y - 23.606))^2)
 		+ exp(-(0.675*5/12*(x - 7.784) + 1.452*5/100*(y - 23.606))^2)
-		)
+		))
 	};
-	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
-		\addplot3 [color= red,mark=*,] coordinates {
+		\addplot3 [color= black,mark=*,] coordinates {
 		(4.375, 28.125, 194.1394)
 		(7.036, 39.667, 257.2037)
 		(8.209, 23.667, 314.6647)
 		(8.150, 22.880, 319.9692)
 	};
+	%{193.043 + 275.866/2 * exp(-(5/100*(x-25.291) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356))) * exp(-(5/2*(y-0.356) + 0.475*sin( 5/100*(x-25.291) + 5/2*(y-0.356)))};
+%		\addplot3 [blue, dotted, thick, mark=x] coordinates{(7.784,1,328.406) (7.784,100,328.406)};
+%		\addplot3 [blue, dotted, thick, mark=x] coordinates{(0,23.606,328.406) (13,23.606,328.406)};
+%		\addplot3[red,/pgfplots/quiver,
+%			quiver/u=- (5907723137008901*exp(-((5*x)/24 - 973/600)^2)*exp(-(y/40 - 11803/20000)^2)*(exp(-((9*x)/32 + (363*y)/5000 - 4878807/1250000)^2)*((81*x)/512 + (3267*y)/80000 - 43909263/20000000) + exp(-((133*x)/150 + (27*y)/800 - 9238219/1200000)^2)*((17689*x)/11250 + (1197*y)/20000 - 1228683127/90000000)))/70368744177664 - (5907723137008901*exp(-((5*x)/24 - 973/600)^2)*exp(-(y/40 - 11803/20000)^2)*((25*x)/288 - 973/1440)*(exp(-((9*x)/32 + (363*y)/5000 - 4878807/1250000)^2) + exp(-((133*x)/150 + (27*y)/800 - 9238219/1200000)^2)))/70368744177664,
+%			quiver/v= - (5907723137008901*exp(-((5*x)/24 - 973/600)^2)*exp(-(y/40 - 11803/20000)^2)*(exp(-((133*x)/150 + (27*y)/800 - 9238219/1200000)^2)*((1197*x)/20000 + (729*y)/320000 - 83143971/160000000) + exp(-((9*x)/32 + (363*y)/5000 - 4878807/1250000)^2)*((3267*x)/80000 + (131769*y)/12500000 - 1771006941/3125000000)))/70368744177664 - (5907723137008901*exp(-((5*x)/24 - 973/600)^2)*exp(-(y/40 - 11803/20000)^2)*(y/800 - 11803/400000)*(exp(-((9*x)/32 + (363*y)/5000 - 4878807/1250000)^2) + exp(-((133*x)/150 + (27*y)/800 - 9238219/1200000)^2)))/70368744177664,
+%			quiver/w=0,
+%			quiver/scale arrows=.1,
+%			-stealth,samples=9,
+%			domain = 1:13,
+%			domain y = 0:100,
+%		] {325};			
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Surface plot of $F$ with $K_R=0$ and the other constants given in Section~$\ref{Sec:Application}$ superimposed with the RSM results.}
+	\caption{Surface plot of $F$ with $K_R=0$ and the other constants given in Section~6 superimposed with the RSM results.}
 	\label{Fig:TwoVarNovelFunc6}
 \end{figure}
 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{Ver005-figure9}
-	\caption{Screenshot of the application.}
-\label{Fig:TwoVarNovelFunc5}
-\end{figure}
 
 %\bibliographystyle{apacite}%unsrtnat}
 %\bibliographystyle{spbasic}      % basic style, author-year citations
