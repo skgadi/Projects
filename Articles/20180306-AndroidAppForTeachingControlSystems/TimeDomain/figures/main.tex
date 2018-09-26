@@ -53,7 +53,7 @@
 \tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{dottedarrow} = [thick, dotted,->,>=stealth]
-
+\tikzstyle{FigureArrow} = [-stealth, line width=0.5mm]
 
 
 
@@ -194,6 +194,8 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig1.jpg}
 	};
+	\draw [FigureArrow] (-4,2.4) node[right] {\Large $u(t)$} -| (-6.3, 1.9);
+	\draw [FigureArrow] (-4,0) node[right] {\Large $y(t)$} -- (-6.3, 0);
 	\end{tikzpicture}
 	
 	\caption{Step response of the first-order low pass filter.}
@@ -206,6 +208,8 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig2_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4,-0.5) node[right] {\Large $u(t)$} -| (-6.8, .35);
+	\draw [FigureArrow] (-4,-1.5) node[right] {\Large $y(t)$} -- (-8.15, -1.5);
 	\end{tikzpicture}
 	
 	\caption{Sinusoidal response of the fist-order low pass filter.}
@@ -238,6 +242,8 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig4_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4,-0.5) node[right] {\Large $u(t)$} -| (-4.955, .475);
+	\draw [FigureArrow] (-4,-1.5) node[right] {\Large $y(t)$} -- (-7.9, -1.5);
 	\end{tikzpicture}
 	
 	\caption{Response of the second-order filter to a sawtooth wave input.}
@@ -250,6 +256,8 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig5_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4.5,-0.5) node[right] {\Large $u(t)$} -| (-6, .38);
+	\draw [FigureArrow] (-4.5,-1.5) node[right] {\Large $y(t)$} -- (-8.1, -1.5);
 	\end{tikzpicture}
 	
 	\caption{Response of the second-order filter to a square wave input.}
@@ -262,6 +270,12 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig6a.jpg}
 	};
+	\draw [FigureArrow] (-4.5,5.5) node[right] {\Large $u(t)$} -| (-6.1, 7.075);
+	\draw [FigureArrow] (-4.5,4.5) node[right] {\Large $y(t)$} -| (-8.25, 6.7);
+	\draw [FigureArrow] (-4.5,3.5) node[right] {\Large $\hat{y}(t)$} -- (-8.2, 3.5);
+	\draw [FigureArrow] (-4.5,-7) node[right] {\Large $\hat\theta_1(t)$} -- (-7.67, -7);
+	\draw [FigureArrow] (-4.5,-4.5) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
+	\draw [FigureArrow] (-4.5,-2) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
 	\end{tikzpicture}
 	
 	\caption{Signals $u(k)$, $y(k)$, $\hat{y}(k)$ and parameters $\hat{\theta}_{1}$, $\hat{\theta}_{2}$, $\hat{\theta}_{3}$.}
@@ -274,6 +288,9 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig6b.jpg}
 	};
+	\draw [FigureArrow] (-4.5,5.8) node[right] {\Large $u(t)$} -- (-8.375, 5.8);
+	\draw [FigureArrow] (-4.5,3.8) node[right] {\Large $y(t)$} -| (-6, 2.25);
+	\draw [FigureArrow] (-4.5,1.8) node[right] {\Large $\hat{y}(t)$} -- (-7.95, 1.8);
 	\end{tikzpicture}
 	
 	\caption{Estimates ${{\hat{\alpha }}_{1}}(t)$, ${{\hat{\alpha }}_{2}}(t)$, ${{\hat{\alpha }}_{3}}(t)$, .and instantaneous values of signals and parameters.}
@@ -286,6 +303,12 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig7a.jpg}
 	};
+	\draw [FigureArrow] (-4.5,5.5) node[right] {\Large $u(t)$} -| (-6.1, 7.075);
+	\draw [FigureArrow] (-4.5,4.5) node[right] {\Large $y(t)$} -| (-8.25, 6.7);
+	\draw [FigureArrow] (-4.5,3.5) node[right] {\Large $\hat{y}(t)$} -- (-8.2, 3.5);
+	\draw [FigureArrow] (-4.5,-7) node[right] {\Large $\hat\theta_1(t)$} -- (-7.67, -7);
+	\draw [FigureArrow] (-4.5,-4.5) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
+	\draw [FigureArrow] (-4.5,-2) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
 	\end{tikzpicture}
 	
 	\caption{Signals $u(k)$, $y(k)$, $\hat{y}(k)$ and parameters $\hat{\theta}_{1}$, $\hat{\theta}_{2}$, $\hat{\theta}_{3}$, ${{\hat{\theta }}_{4}}$ and  ${{\hat{\theta }}_{5}}$.}

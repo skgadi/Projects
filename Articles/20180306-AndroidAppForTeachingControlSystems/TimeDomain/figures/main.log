@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  24 SEP 2018 13:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  26 SEP 2018 02:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1224,109 +1224,109 @@ File: images/Fig1.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/Fig1.jpg  used on input line 195.
 (pdftex.def)             Requested size: 528.93675pt x 559.11153pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 197--198
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 199--200
  [][] 
  []
 
 <images/Fig2_cortada.jpg, id=9, 1199.48125pt x 565.11125pt>
 File: images/Fig2_cortada.jpg Graphic file (type jpg)
 <use images/Fig2_cortada.jpg>
-Package pdftex.def Info: images/Fig2_cortada.jpg  used on input line 207.
+Package pdftex.def Info: images/Fig2_cortada.jpg  used on input line 209.
 (pdftex.def)             Requested size: 528.93675pt x 249.20158pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 209--210
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 213--214
  [][] 
  []
 
-Package pgfplots info on input line 225: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 229: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
 <images/Fig4_cortada.jpg, id=10, 1200.485pt x 578.16pt>
 File: images/Fig4_cortada.jpg Graphic file (type jpg)
 <use images/Fig4_cortada.jpg>
-Package pdftex.def Info: images/Fig4_cortada.jpg  used on input line 239.
+Package pdftex.def Info: images/Fig4_cortada.jpg  used on input line 243.
 (pdftex.def)             Requested size: 528.93675pt x 254.74406pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 241--242
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 247--248
  [][] 
  []
 
 <images/Fig5_cortada.jpg, id=11, 1200.485pt x 571.13374pt>
 File: images/Fig5_cortada.jpg Graphic file (type jpg)
 <use images/Fig5_cortada.jpg>
-Package pdftex.def Info: images/Fig5_cortada.jpg  used on input line 251.
+Package pdftex.def Info: images/Fig5_cortada.jpg  used on input line 257.
 (pdftex.def)             Requested size: 528.93675pt x 251.64821pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 253--254
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 261--262
  [][] 
  []
 
 <images/Fig6a.jpg, id=12, 1197.47375pt x 1215.54124pt>
 File: images/Fig6a.jpg Graphic file (type jpg)
 <use images/Fig6a.jpg>
-Package pdftex.def Info: images/Fig6a.jpg  used on input line 263.
+Package pdftex.def Info: images/Fig6a.jpg  used on input line 271.
 (pdftex.def)             Requested size: 528.93675pt x 536.91714pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 265--266
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 279--280
  [][] 
  []
 
 <images/Fig6b.jpg, id=13, 1200.485pt x 1079.03125pt>
 File: images/Fig6b.jpg Graphic file (type jpg)
 <use images/Fig6b.jpg>
-Package pdftex.def Info: images/Fig6b.jpg  used on input line 275.
+Package pdftex.def Info: images/Fig6b.jpg  used on input line 289.
 (pdftex.def)             Requested size: 528.93675pt x 475.4338pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 277--278
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 294--295
  [][] 
  []
 
 <images/Fig7a.jpg, id=14, 1192.455pt x 1215.54124pt>
 File: images/Fig7a.jpg Graphic file (type jpg)
 <use images/Fig7a.jpg>
-Package pdftex.def Info: images/Fig7a.jpg  used on input line 287.
+Package pdftex.def Info: images/Fig7a.jpg  used on input line 304.
 (pdftex.def)             Requested size: 528.93675pt x 539.17995pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 289--290
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 312--313
  [][] 
  []
 
 <images/Fig7b.jpg, id=15, 1200.485pt x 1233.60875pt>
 File: images/Fig7b.jpg Graphic file (type jpg)
 <use images/Fig7b.jpg>
-Package pdftex.def Info: images/Fig7b.jpg  used on input line 299.
+Package pdftex.def Info: images/Fig7b.jpg  used on input line 322.
 (pdftex.def)             Requested size: 528.93675pt x 543.54247pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 301--302
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 324--325
  [][] 
  []
 
 <images/Fig8_cortada.jpg, id=16, 1199.48125pt x 1229.59375pt>
 File: images/Fig8_cortada.jpg Graphic file (type jpg)
 <use images/Fig8_cortada.jpg>
-Package pdftex.def Info: images/Fig8_cortada.jpg  used on input line 334.
+Package pdftex.def Info: images/Fig8_cortada.jpg  used on input line 357.
 (pdftex.def)             Requested size: 528.93675pt x 542.2237pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 336--337
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 359--360
  [][] 
  []
 
 <images/Fig9_cortada.jpg, id=17, 1200.485pt x 1222.5675pt>
 File: images/Fig9_cortada.jpg Graphic file (type jpg)
 <use images/Fig9_cortada.jpg>
-Package pdftex.def Info: images/Fig9_cortada.jpg  used on input line 346.
+Package pdftex.def Info: images/Fig9_cortada.jpg  used on input line 369.
 (pdftex.def)             Requested size: 528.93675pt x 538.67755pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 348--349
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 371--372
  [][] 
  []
 
 <images/Fig10_cortada.jpg, id=18, 1200.485pt x 1232.605pt>
 File: images/Fig10_cortada.jpg Graphic file (type jpg)
 <use images/Fig10_cortada.jpg>
-Package pdftex.def Info: images/Fig10_cortada.jpg  used on input line 358.
+Package pdftex.def Info: images/Fig10_cortada.jpg  used on input line 381.
 (pdftex.def)             Requested size: 528.93675pt x 543.1002pt.
 
-Overfull \hbox (9.99928pt too wide) in paragraph at lines 360--361
+Overfull \hbox (9.99928pt too wide) in paragraph at lines 383--384
  [][] 
  []
 
@@ -1339,10 +1339,10 @@ ig7a.jpg>] [12 <./images/Fig7b.jpg>] [13] [14 <./images/Fig8_cortada.jpg>]
 [15 <./images/Fig9_cortada.jpg>] [16 <./images/Fig10_cortada.jpg>] (./main.aux)
  ) 
 Here is how much of TeX's memory you used:
- 43210 strings out of 492649
- 1110817 string characters out of 6133400
- 1344102 words of memory out of 5000000
- 46553 multiletter control sequences out of 15000+600000
+ 43239 strings out of 492649
+ 1111336 string characters out of 6133400
+ 1349306 words of memory out of 5000000
+ 46582 multiletter control sequences out of 15000+600000
  536008 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,19n,136p,10381b,2471s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1355,7 +1355,7 @@ c/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
 b><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (16 pages, 3177765 bytes).
+Output written on main.pdf (16 pages, 3180465 bytes).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
