@@ -43,7 +43,7 @@
 }
 %\tikzexternalize
 
-\usetikzlibrary{shapes.geometric, arrows, calc, positioning}
+\usetikzlibrary{shapes.geometric, arrows, calc, positioning, arrows.meta}
 \tikzstyle{startstop} = [rectangle, thick, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
 \tikzstyle{io} = [trapezium, thick, trapezium left angle=70, trapezium right angle=110, text width=3.75cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{process} = [rectangle, thick, minimum width=2.5cm, text width=4cm, minimum height=0.5cm, text centered, draw=black]
@@ -53,7 +53,7 @@
 \tikzstyle{dottedbox} = [rectangle, dotted, thick, minimum width=2.5cm, text width=2.8cm, minimum height=0.5cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{dottedarrow} = [thick, dotted,->,>=stealth]
-\tikzstyle{FigureArrow} = [-stealth, line width=0.5mm]
+\tikzstyle{FigureArrow} = [-{Stealth[length=3mm, width=2mm]}, line width=0.2mm]
 
 
 
@@ -194,7 +194,7 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig1.jpg}
 	};
-	\draw [FigureArrow] (-4,2.4) node[right] {\Large $u(t)$} -| (-6.3, 1.9);
+	\draw [FigureArrow] (-4,2.4) node[right] {\Large $u(t)$} -| (-6.3, 1.92);
 	\draw [FigureArrow] (-4,0) node[right] {\Large $y(t)$} -- (-6.3, 0);
 	\end{tikzpicture}
 	
@@ -270,12 +270,12 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig6a.jpg}
 	};
-	\draw [FigureArrow] (-4.5,5.5) node[right] {\Large $u(t)$} -| (-6.1, 7.075);
-	\draw [FigureArrow] (-4.5,4.5) node[right] {\Large $y(t)$} -| (-8.25, 6.7);
+	\draw [FigureArrow] (-4.5,6) node[right] {\Large $u(t)$} -| (-6.1, 7.075);
+	\draw [FigureArrow] (-4.5,4.75) node[right] {\Large $y(t)$} -| (-8.25, 6.7);
 	\draw [FigureArrow] (-4.5,3.5) node[right] {\Large $\hat{y}(t)$} -- (-8.2, 3.5);
 	\draw [FigureArrow] (-4.5,-7) node[right] {\Large $\hat\theta_1(t)$} -- (-7.67, -7);
-	\draw [FigureArrow] (-4.5,-4.5) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
-	\draw [FigureArrow] (-4.5,-2) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
+	\draw [FigureArrow] (-4.5,-4.25) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
+	\draw [FigureArrow] (-4.5,-1.5) node[right] {\Large $\hat\theta_3(t)$} -- (-7.65, -1.5);
 	\end{tikzpicture}
 	
 	\caption{Signals $u(k)$, $y(k)$, $\hat{y}(k)$ and parameters $\hat{\theta}_{1}$, $\hat{\theta}_{2}$, $\hat{\theta}_{3}$.}
@@ -303,12 +303,14 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig7a.jpg}
 	};
-	\draw [FigureArrow] (-4.5,5.5) node[right] {\Large $u(t)$} -| (-6.1, 7.075);
-	\draw [FigureArrow] (-4.5,4.5) node[right] {\Large $y(t)$} -| (-8.25, 6.7);
-	\draw [FigureArrow] (-4.5,3.5) node[right] {\Large $\hat{y}(t)$} -- (-8.2, 3.5);
+	\draw [FigureArrow] (-4.5,7.3) node[right] {\Large $u(t)$} -- (-5.79, 7.3);
+	\draw [FigureArrow] (-4.5,6.75) node[right] {\Large $y(t)$} -- (-8.27, 6.75);
+	\draw [FigureArrow] (-4.5,6.15) node[right] {\Large $\hat{y}(t)$} -- (-8.18, 6.15);
 	\draw [FigureArrow] (-4.5,-7) node[right] {\Large $\hat\theta_1(t)$} -- (-7.67, -7);
 	\draw [FigureArrow] (-4.5,-4.5) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
-	\draw [FigureArrow] (-4.5,-2) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
+	\draw [FigureArrow] (-4.5,-1) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
+	\draw [FigureArrow] (-4.5,-0) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
+	\draw [FigureArrow] (-4.5,1) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
 	\end{tikzpicture}
 	
 	\caption{Signals $u(k)$, $y(k)$, $\hat{y}(k)$ and parameters $\hat{\theta}_{1}$, $\hat{\theta}_{2}$, $\hat{\theta}_{3}$, ${{\hat{\theta }}_{4}}$ and  ${{\hat{\theta }}_{5}}$.}
