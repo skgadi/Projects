@@ -41,7 +41,7 @@
 \usetikzlibrary{
 	external,
 }
-%\tikzexternalize
+\tikzexternalize
 
 \usetikzlibrary{shapes.geometric, arrows, calc, positioning, arrows.meta}
 \tikzstyle{startstop} = [rectangle, thick, rounded corners=2.5mm, minimum width=2cm, minimum height=5mm,text centered, draw=black]
@@ -288,9 +288,9 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig6b.jpg}
 	};
-	\draw [FigureArrow] (-4.5,5.8) node[right] {\Large $u(t)$} -- (-8.375, 5.8);
-	\draw [FigureArrow] (-4.5,3.8) node[right] {\Large $y(t)$} -| (-6, 2.25);
-	\draw [FigureArrow] (-4.5,1.8) node[right] {\Large $\hat{y}(t)$} -- (-7.95, 1.8);
+	\draw [FigureArrow] (-4.5,5.8) node[right] {\Large $\hat\alpha_2$} -- (-8.375, 5.8);
+	\draw [FigureArrow] (-4.5,3.8) node[right] {\Large $\hat\alpha_1$} -| (-6, 2.25);
+	\draw [FigureArrow] (-4.5,1.8) node[right] {\Large $\hat\alpha_3$} -- (-7.95, 1.8);
 	\end{tikzpicture}
 	
 	\caption{Estimates ${{\hat{\alpha }}_{1}}(t)$, ${{\hat{\alpha }}_{2}}(t)$, ${{\hat{\alpha }}_{3}}(t)$, .and instantaneous values of signals and parameters.}
@@ -306,11 +306,12 @@
 	\draw [FigureArrow] (-4.5,7.3) node[right] {\Large $u(t)$} -- (-5.79, 7.3);
 	\draw [FigureArrow] (-4.5,6.75) node[right] {\Large $y(t)$} -- (-8.27, 6.75);
 	\draw [FigureArrow] (-4.5,6.15) node[right] {\Large $\hat{y}(t)$} -- (-8.18, 6.15);
-	\draw [FigureArrow] (-4.5,-7) node[right] {\Large $\hat\theta_1(t)$} -- (-7.67, -7);
-	\draw [FigureArrow] (-4.5,-4.5) node[right] {\Large $\hat\theta_2(t)$} -| (-7.5, -5.47);
-	\draw [FigureArrow] (-4.5,-1) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
-	\draw [FigureArrow] (-4.5,-0) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
-	\draw [FigureArrow] (-4.5,1) node[right] {\Large $\hat\theta_3(t)$} -- (-7.5, -2);
+	\draw [FigureArrow] (-4.5,-1.5) node[right] {\Large $\hat\theta_1(t)$} -- (-7.75, -1.5);
+	\draw [FigureArrow] (0,-1.5) node[right] {\Large $\hat\theta_5(t)$} -| (-2, -2.22);
+	\draw [FigureArrow] (0,-6.2) node[right] {\Large $\hat\theta_4(t)$} -| (-2, -6.9);
+	\draw [FigureArrow] (0,-4) node[right] {\Large $\hat\theta_2(t)$} -| (-2, -3.3);
+	\draw [FigureArrow] (-4.5,-4) node[right] {\Large $\hat\theta_3(t)$} -| (-7.95, -3.19);
+
 	\end{tikzpicture}
 	
 	\caption{Signals $u(k)$, $y(k)$, $\hat{y}(k)$ and parameters $\hat{\theta}_{1}$, $\hat{\theta}_{2}$, $\hat{\theta}_{3}$, ${{\hat{\theta }}_{4}}$ and  ${{\hat{\theta }}_{5}}$.}
@@ -323,6 +324,11 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig7b.jpg}
 	};
+	\draw [FigureArrow] (-4.5,9.35) node[right] {\Large $\hat\beta_3(t)$} -| (-7.6, 6.925);
+	\draw [FigureArrow] (-4.5,8.6) node[right] {\Large $\hat\beta_5(t)$} -| (-7.25, 7.8);
+	\draw [FigureArrow] (-4.5,5.39) node[right] {\Large $\hat\beta_4(t)$} -| (-6.5, 4.925);
+	\draw [FigureArrow] (-4.5,4.35) node[right] {\Large $\hat\beta_2(t)$} -| (-6.5, 3.885);
+	\draw [FigureArrow] (-4.5,3.29) node[right] {\Large $\hat\beta_1(t)$} -| (-6.5, 3.755);
 	\end{tikzpicture}
 	
 	\caption{Estimates $\hat{\beta}_{1}$, $\hat{\beta}_{2}$, $\hat{\beta}_{3}$, $\hat{\beta}_{4}$, $\hat{\beta}_{5}$, and instantaneous values of signals and parameters.}
@@ -358,6 +364,10 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig8_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4.5,7) node[right] {\Large $r(t)$} -| (-6.5, 8.84);
+	\draw [FigureArrow] (-4.5,6) node[right] {\Large $y(t)$} -| (-7.5, 8.30);
+	\draw [FigureArrow] (-4.5,-5.5) node[right] {\Large $u(t)$} -| (-7.5, -4.55);
+	\draw [FigureArrow] (-4.5,-7.5) node[right] {\Large $e(t)$} -| (-7.5, -6.85);
 	\end{tikzpicture}
 	
 	\caption{Signals $r(k)$, $y(k)$, $e(k)$ and $u(k)$ of the closed-loop system with ${{K}_{P}}=10$, $K_{I}=0$, and ${{K}_{D}}=0$.}
@@ -370,6 +380,10 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig9_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4.5,7) node[right] {\Large $r(t)$} -| (-6.5, 8.80);
+	\draw [FigureArrow] (-4.5,6) node[right] {\Large $y(t)$} -| (-7.5, 8.37);
+	\draw [FigureArrow] (-4.5,-5.75) node[right] {\Large $u(t)$} -| (-7.36, -5.27);
+	\draw [FigureArrow] (-4.5,-6.5) node[right] {\Large $e(t)$} -| (-7.36, -7);
 	\end{tikzpicture}
 	
 	\caption{Signals $r(k)$, $y(k)$, $e(k)$ and $u(k)$ of the closed-loop system with ${{K}_{P}}=10$, ${{K}_{I}}=2$, and ${{K}_{D}}=0$.}
@@ -382,6 +396,10 @@
 	\node (Excitation) [align=center] {
 		\includegraphics[width=\textwidth]{images/Fig10_cortada.jpg}
 	};
+	\draw [FigureArrow] (-4.5,9.25) node[right] {\Large $r(t)$} -| (-8.3, 7.50);
+	\draw [FigureArrow] (-4.5,4.5) node[right] {\Large $y(t)$} -- (-8.28, 4.5);
+	\draw [FigureArrow] (-4.5,-6.5) node[right] {\Large $u(t)$} -| (-6.315, -5.9);
+	\draw [FigureArrow] (-4.5,-7.6) node[right] {\Large $e(t)$} -| (-6.315, -7.05);
 	\end{tikzpicture}
 	
 	\caption{Signals $r(k)$, $y(k)$, $e(k)$ and $u(k)$ of the closed-loop system with ${{K}_{P}}=20$, ${{K}_{I}}=5$, and ${{K}_{D}}=0.1$.}
