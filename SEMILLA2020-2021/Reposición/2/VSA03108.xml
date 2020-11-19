@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Serie="VSA" Folio="3108" Fecha="2020-11-13T12:01:51" Sello="YEExBqCHm8Jban/0HoWcxHcKyKS7X44UMJNEC3Za8NDdtBSqclxudZpAHg5I4spPtJ34xvNmQs3+tHRp7BbESVsSkLNYEzeC9mjUAn4jkNj09xxRdUnZeko6vP5mIuhkjgorqvKQMRkwizR7WFlhP4bypDWTB3DpsqfC2LOGqtM0fJaYJGNUD4F7T5giz2R/q9C0kWMsp1Vdo65ebm3oPLKVL4kpUMBIDfRKEC8WwOV8fSjFn5Q6EraT+ISVqyC8J3fDDVkgBzh1LYo3TrzxRaQiznszpCmgNrBsHZEITeuQsmPmGtV+2W38AFUFDlR3PT17NBkG17cqbeYycWAcdA==" TipoDeComprobante="I" Moneda="MXN" TipoCambio="1" NoCertificado="00001000000408529069" Certificado="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" SubTotal="4885" LugarExpedicion="25280" MetodoPago="PUE" FormaPago="04" Total="5666.6">
+  <cfdi:Emisor Rfc="CTR831122N85" RegimenFiscal="601" Nombre="Control Tecnico y Representaciones, S.A. de C.V."/>
+  <cfdi:Receptor Rfc="UAC730403446" UsoCFDI="G03" Nombre="UNIVERSIDAD AUTONOMA DE COAHUILA"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="12352104" ClaveUnidad="H87" Cantidad="1.00" Unidad="PIEZA" NoIdentificacion="414298" Descripcion="GLICEROL REAGENTPLUS 99.9% 1LT SIGMA ALDRICH TIEMPO DE ENTREGA DE 4 A 6 SEMANAS" ValorUnitario="1250.00" Importe="1250.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1250.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="200.00"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="12352104" ClaveUnidad="H87" Cantidad="1.00" Unidad="PIEZA" NoIdentificacion="175795" Descripcion="ETILENGLICOL 1000ML SIGMA TIEMPO DE ENTREGA DE 4 A 6 SEMANAS" ValorUnitario="1830.00" Importe="1830.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1830.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="292.80"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="12161500" ClaveUnidad="H87" Cantidad="1.00" Unidad="PIEZA" NoIdentificacion="628131" Descripcion="CLORURO DE COLINA 98% 500GR SIGMA ALDRICH TIEMPO DE ENTREGA DE 4 A 6 SEMANAS" ValorUnitario="1805.00" Importe="1805.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1805.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="288.80"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="781.60">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="781.60"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" SelloCFD="YEExBqCHm8Jban/0HoWcxHcKyKS7X44UMJNEC3Za8NDdtBSqclxudZpAHg5I4spPtJ34xvNmQs3+tHRp7BbESVsSkLNYEzeC9mjUAn4jkNj09xxRdUnZeko6vP5mIuhkjgorqvKQMRkwizR7WFlhP4bypDWTB3DpsqfC2LOGqtM0fJaYJGNUD4F7T5giz2R/q9C0kWMsp1Vdo65ebm3oPLKVL4kpUMBIDfRKEC8WwOV8fSjFn5Q6EraT+ISVqyC8J3fDDVkgBzh1LYo3TrzxRaQiznszpCmgNrBsHZEITeuQsmPmGtV+2W38AFUFDlR3PT17NBkG17cqbeYycWAcdA==" FechaTimbrado="2020-11-13T12:01:52" UUID="1d686ce9-8998-4760-a430-c065e77d0802" NoCertificadoSAT="00001000000406144089" Version="1.1" SelloSAT="ftLYZCAlwzATZ7yFv+0+HM0j7kgzr9FVOB/IGkN71oCT9zXwSQx0yyZo/oTBT4NHiv30PvQcpZ08xgCs1DwySlldaxijoAd/rlYb5beS6HeEbv6AgLAYU02CXsR+54uf97q17pxSRNstOFUla7mQxfjim5zlw3SyLMJrRsgYq9rusXyls4z0fY8tsbkN9x6EmVb2NQLCuBeRMcsOgZQwFcWcGRy6gXdqcCVPWU/jTkQzQ40NCbCkenVErUdIb1dGBAYUqxDn5WVxmRQ13vzxAWxhNerkcsM39GJEbCftIbYBywAfOG+2a1cUA1LYIP5ZggaYulESPdSZIVZA/jzc8Q==" RfcProvCertif="CAD100607RY8"/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

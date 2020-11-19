@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd " Version="3.3" Serie="A" Folio="10686" Fecha="2020-11-13T16:46:35" MetodoPago="PUE" FormaPago="03" TipoDeComprobante="I" Moneda="MXN" TipoCambio="1" LugarExpedicion="25280" SubTotal="1705.00" Total="1977.80" Certificado="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" NoCertificado="00001000000408428382" Sello="E2rcBIbG+/DG9goiDMEIhuwnAFjoKbkfcb8xSCOjOIIJZmXTLPstMoKx2DTVs5v484+EHxNEUSRmiRHrTipcXJH2uVJkm9Y7fDEPIi6fjtDJBqm+dsdnU4CPcAoWRqszb10//EMxPJXHRcihHknjF7DpQzzgH1yeG9vXXCVtTXikT7ddS3mu9urKTPHNmUsAFwqv2EE8ntn/CHl9Qj4eEmVUvjVgmkGn/haCqO2giZ0CKKKNmGs4H1GMOCXxWwuctlz/Zeq/6XWp99cN9D66JxBJvpHYDV3Fr18W2b9+w/E74knD+DC7zRYShjqRrj9zQZQF8eNXSJb00QKxDrDLTw==">
+  <cfdi:Emisor Rfc="FAJP800312SB5" Nombre="PAOLA FAVELA JOCH" RegimenFiscal="612"/>
+  <cfdi:Receptor Rfc="UAC730403446" Nombre="UNIVERSIDAD AUTONOMA DE COAHUILA" UsoCFDI="G03"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="41122401" NoIdentificacion="SP 388" Cantidad="2" Unidad="PIEZA" ClaveUnidad="H87" Descripcion="Barra magnética 38 x 8 mm (CW-001.528)" ValorUnitario="130.000000" Importe="260.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="260.00" Importe="41.60" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="41122401" NoIdentificacion="SP 638" Cantidad="1" Unidad="PIEZA" ClaveUnidad="H87" Descripcion="Barra magnética 63 x 8 mm (6.3 CM) Mca. Dynalon" ValorUnitario="125.000000" Importe="125.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="125.00" Importe="20.00" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="41122101" NoIdentificacion="7715-SN" Cantidad="1" Unidad="PIEZA" ClaveUnidad="H87" Descripcion="Caja petri esteril 90x15mm, 500 PIEZAS" ValorUnitario="1320.000000" Importe="1320.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1320.00" Importe="211.20" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="272.80">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" Importe="272.80" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" Version="1.1" UUID="a4b32bcc-d129-410a-95cd-6879651e8845" FechaTimbrado="2020-11-13T16:47:30" RfcProvCertif="LSO1306189R5" SelloCFD="E2rcBIbG+/DG9goiDMEIhuwnAFjoKbkfcb8xSCOjOIIJZmXTLPstMoKx2DTVs5v484+EHxNEUSRmiRHrTipcXJH2uVJkm9Y7fDEPIi6fjtDJBqm+dsdnU4CPcAoWRqszb10//EMxPJXHRcihHknjF7DpQzzgH1yeG9vXXCVtTXikT7ddS3mu9urKTPHNmUsAFwqv2EE8ntn/CHl9Qj4eEmVUvjVgmkGn/haCqO2giZ0CKKKNmGs4H1GMOCXxWwuctlz/Zeq/6XWp99cN9D66JxBJvpHYDV3Fr18W2b9+w/E74knD+DC7zRYShjqRrj9zQZQF8eNXSJb00QKxDrDLTw==" NoCertificadoSAT="00001000000408254801" SelloSAT="vMWbuch12JmaSFWsy81427ryW8J5MpmKYxFu9Cf6IplXWWzyWjGHbZ/PNZSmTUfonTBZVvHVSCz9uHAeIoVXqlUW7yx6eVxY2Hluq+HEvKsK+eFtYI3MaQMHd1ZFiLTGi9+njBsTzti0gxEdBt9KevRtYJludrfDhHo1eIRlcHjaiVvCoAbCnfb4qdxds1JQoX9ZDQFlrX+5itoUapepGblPIUOizXEu4khP8/lZWSJJS/EdO/nYt4DzL+2XEUzHAmwDq2U7ytI4p8MmtVGGTRxAFOrHuWPWN7U9R4oeWeyy1sFAsrztApA16mfLajTN1ugP+zNTr2Knq6KAk7HxHA=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

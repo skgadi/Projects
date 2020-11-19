@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" Version="3.3" Serie="C" Folio="34276" Fecha="2020-11-12T17:49:55" Sello="ei0QxXPE0faNPvWlbCUN/LsdNDxwYDPgjmASKQA5vm63lTSgjbgsG2z0X3wqnGhYtsUkUetb1RU4wYQmgJKyIEILVESeWGV6YIU73yFv+VtUA/Ha96bOhJJFfbhFCe05J4nJFX8IkMy3OelwszXEVeijjNSCQpHK5LLKmlVq8YnGBbWpyd0pSqZA4YGDk9/p6Jn4GSfeD7FaczjXSlnGJKycMKFo+5DMZbdNirafPcqGElG3rDkoV1t4bpB3EE1HOJgA1O33QWAMCubevOnBeP+6QUM47lFgs3toFOQiT/K2eGMhDLH51XDQpVkQ6IRdl/RcIO/PW1mtqOykY6228Q==" FormaPago="04" NoCertificado="00001000000404725906" Certificado="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" SubTotal="2878.01" Moneda="MXN" Total="3338.50" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="27000">
+	<cfdi:Emisor Rfc="CAQH551124M88" Nombre="HECTOR ESTEBAN CARDENAS QUIÑONES" RegimenFiscal="612"/>
+	<cfdi:Receptor Rfc="UAC730403446" Nombre="UNIVERSIDAD AUTONOMA DE COAHUILA" UsoCFDI="G03"/>
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="39112102" NoIdentificacion="ROB0812" Cantidad="5" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Módulo Convertidor de Serial RS485 a TTL" ValorUnitario="45.684" Importe="228.42">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="228.45" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="36.552"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0299" Cantidad="2" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Convertidor Lógico de Nivel de 5 V a 3.3 V BOB-12009" ValorUnitario="125.00" Importe="250.00">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="250.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="40.00"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="26101700" NoIdentificacion="ROB0643" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Controlador de Motor L298N" ValorUnitario="86.206897" Importe="86.21">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="86.21" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="13.7936"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="39112402" NoIdentificacion="ROB0738" Cantidad="4" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Controlador PWM de Velocidad de Motor DC 6 V 90 V / 15 A 15 khz" ValorUnitario="172.413793" Importe="689.66">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="689.66" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="110.3456"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0797" Cantidad="2" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Controlador de Motor Puente H Doble Canal L9110S" ValorUnitario="34.482759" Importe="68.97">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="68.97" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="11.0352"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0654" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Módulo de Alimentación para Protoboard 5 V y 3.3 V MB102" ValorUnitario="42.672414" Importe="42.67">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="42.67" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="6.8272"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="43201900" NoIdentificacion="MEM0001" Cantidad="2" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Lector de Memorias MicroSD Radox 700-906" ValorUnitario="24.568966" Importe="49.14">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="49.14" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="7.8624"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0325" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Sensor de Nivel de Líquido" ValorUnitario="99.137931" Importe="99.14">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="99.14" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="15.8624"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="46171608" NoIdentificacion="ROB0394" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Sensor SEN-13285 de Movimiento PIR" ValorUnitario="327.586207" Importe="327.59">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="327.59" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="52.4144"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="43201900" NoIdentificacion="MEM0109" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Memoria USB 32GB Adata C906W/32GB" ValorUnitario="171.551724" Importe="171.55">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="171.55" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="27.448"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="26121616" NoIdentificacion="CAB0014" Cantidad="5" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Cable UTP Categoría 5e" ValorUnitario="6.896552" Importe="34.48">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="34.48" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="5.5168"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="43191600" NoIdentificacion="ROB0312" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Lector de RFID por USB" ValorUnitario="416.37931" Importe="416.38">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="416.38" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="66.6208"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0689" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Sensor MQ 7 de Monóxido de Carbono" ValorUnitario="75.00" Importe="75.00">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="75.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="12.00"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0557" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Sensor de Flama Breakout" ValorUnitario="102.586207" Importe="102.59">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="102.59" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="16.4144"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="32131000" NoIdentificacion="ROB0768" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Módulo Emisor y Receptor de Infrarojos 38 KHz HL A838" ValorUnitario="198.275862" Importe="198.28">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="198.28" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="31.7248"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="39121311" NoIdentificacion="CON0630" Cantidad="4" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="Adaptador Clavija Eléctrica Americana a Europea 905-103" ValorUnitario="9.482759" Importe="37.93">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="37.93" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="6.0688"/>
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+	</cfdi:Conceptos>
+	<cfdi:Impuestos TotalImpuestosTrasladados="460.49">
+		<cfdi:Traslados>
+			<cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="460.49"/>
+		</cfdi:Traslados>
+	</cfdi:Impuestos>
+	<cfdi:Complemento><tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" SelloSAT="gvl5/kHK7GGmhRyf+x8PIOhIQNFVTq9r7DJOf3dP9cQb0ItBKSIXzVyjkHCgKYCBX+L+2AUG6Z+O3S+e+3pGighiciEpWbQrphfn/Y9LGTSoa9kBnbdSvarOTgetrWaNRdixfBcyXqJvpAlL7LUJGRFrt7pyXc2iGHScqVWxyIrVHmw0lGQ4wH6tCUXb2mNRaLlMs776Y8jyGzMDLuYs8CI9Xf0z2yznzo2n/60WzT90UEEnycX/dPACm9TynM0cjy9UVp1ZZYtdz+5w3MkGSrknHGO5rLWM8lwiyufLbEmnOqwY64zaQ07Bpo39zpjDOzHDlti5ajATElJ87ZpuTQ==" NoCertificadoSAT="00001000000502000436" SelloCFD="ei0QxXPE0faNPvWlbCUN/LsdNDxwYDPgjmASKQA5vm63lTSgjbgsG2z0X3wqnGhYtsUkUetb1RU4wYQmgJKyIEILVESeWGV6YIU73yFv+VtUA/Ha96bOhJJFfbhFCe05J4nJFX8IkMy3OelwszXEVeijjNSCQpHK5LLKmlVq8YnGBbWpyd0pSqZA4YGDk9/p6Jn4GSfeD7FaczjXSlnGJKycMKFo+5DMZbdNirafPcqGElG3rDkoV1t4bpB3EE1HOJgA1O33QWAMCubevOnBeP+6QUM47lFgs3toFOQiT/K2eGMhDLH51XDQpVkQ6IRdl/RcIO/PW1mtqOykY6228Q==" RfcProvCertif="SCD110105654" FechaTimbrado="2020-11-12T17:50:10" UUID="7BE498D9-FB35-8B41-A694-1ABDA7F5BE50" Version="1.1"/></cfdi:Complemento></cfdi:Comprobante>
