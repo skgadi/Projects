@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:nano",
+    "sketch": "ver000\\automatic_soap_dispenser\\automatic_soap_dispenser.ino",
+    "configuration": "cpu=atmega328old",
+    "port": "COM4"
+}
