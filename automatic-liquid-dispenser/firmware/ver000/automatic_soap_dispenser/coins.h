@@ -4,9 +4,11 @@
 
 
 struct COINS {
-  unsigned int volatile credit;
+  int volatile credit;
+  bool creditChange;
   void increaseCredit();
   void resetCredit();
+  void ackChange();
 };
 
 

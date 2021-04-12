@@ -38,6 +38,8 @@ struct MAIN_ACTIVITY {
   //unsigned int credit=0;
   COINS gskCoins;
 
+  unsigned int tymEqvToCredit=0;
+
   CHEMICAL gskChemicals[NUMBER_OF_CHEMICALS];
   STATE currentState = IDLE;
   unsigned long stateStartTime = millis();
@@ -52,6 +54,7 @@ struct MAIN_ACTIVITY {
   
   STORAGE gskEEPROM;
   LCD_DISPLAY gskDisp;
+  int tymOfLastDisp;
 
 
 

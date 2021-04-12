@@ -52,6 +52,7 @@ void MAIN_ACTIVITY::run () {
     statePrice();
     break;
   case DISPENSE:
+    stateDispense();
     break;
   case PROG:
     stateProg();

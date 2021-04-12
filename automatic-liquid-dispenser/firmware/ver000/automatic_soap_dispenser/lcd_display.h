@@ -11,7 +11,7 @@ struct LCD_DISPLAY {
   void clearAll();
   void enable();
   void displayWelcome();
-  void displayCredit(unsigned int);
+  void displayCredit(int);
   void displayPrice(int);
   void displayProg();
   void displayProgPrice(int, int);
@@ -19,6 +19,7 @@ struct LCD_DISPLAY {
   void displayProgQty1(int, unsigned int, bool);
   void displayProgPriceEdit();
   void displayProgQtyEdit();
+  void displayDispensing(int, double, int);
 };
 
 void gskCoinInserted ();

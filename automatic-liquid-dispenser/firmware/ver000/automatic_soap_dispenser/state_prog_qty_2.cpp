@@ -2,6 +2,7 @@
 void MAIN_ACTIVITY::stateProgQty2() {
   gskRelays.on(selectedChemical);
   unsigned int tempTimeSince = timeSinceStateChange()/100;
+  gskDisp.enable();
   gskDisp.displayProgQty1(selectedChemical+1, tempTimeSince, false);
   int pressedBtn = gskButtons.getPressed();
   if (pressedBtn>=0 && pressedBtn< NUMBER_OF_CHEMICALS) {

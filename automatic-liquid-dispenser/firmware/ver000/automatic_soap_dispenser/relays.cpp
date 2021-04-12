@@ -13,6 +13,7 @@ void RELAYS::configure(){
   for (int  i = 0; i < NUMBER_OF_CHEMICALS; i++) {
     pinMode(btnPins[i], OUTPUT);
   }
+  stopAll();
 }
 
 

@@ -8,24 +8,28 @@
 //COINS gskCoins;
 
 MAIN_ACTIVITY gskMainActivity;
-EasyButton gskAnyButton(COINS_PIN);
+//EasyButton gskAnyButton(COINS_PIN);
+EasyButton gskCoinEntry(COINS_PIN);
 
 
 void setup() {
   gskMainActivity.setup();
 
-  gskAnyButton.onPressed(gskCoinInserted);
+  gskCoinEntry.onPressed(gskCoinInserted);
+  //gskAnyButton.onPressed(gskCoinInserted);
+  //attachInterrupt(digitalPinToInterrupt(COINS_PIN), gskCoinInserted, FALLING);
 }
 
 int i=0;
 void loop() {
   gskMainActivity.run();
-  gskAnyButton.read();
+  gskCoinEntry.read();
+  //gskAnyButton.read();
 }
 
 
 void gskCoinInserted () {
-  gskMainActivity.gskCoins.increaseCredit();
-  gskMainActivity.gskDisp.enable();
-  gskMainActivity.resetStateStarttime();
+  if (gskMainActivity.currentState != DISPENSE) {
+    gskMainActivity.gskCoins.increaseCredit();
+  }
 }
