@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "sketch": "automatic_soap_dispenser.ino",
     "port": "COM4",
-    "programmer": "arduino:arduinoisp"
+    "programmer": "arduino:arduinoasisp"
 }
