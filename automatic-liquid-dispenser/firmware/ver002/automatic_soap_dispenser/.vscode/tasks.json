@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Burn HEX",
+            "type": "shell",
+            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -u -p COM4"
+        },
+        {
+            "label": "Burn Bootloader",
+            "type": "shell",
+            "command": "arduino-cli burn-bootloader --fqbn arduino:avr:uno  --programmer arduinoasisp --port COM4"
+        }
+    ]
+}

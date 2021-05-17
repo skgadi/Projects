@@ -1,0 +1,1060 @@
+{
+  "uuid": "838fc0363a5f146beeda0de11b067bf8",
+  "path": "Offline/solidSwitches-8Channel",
+  "name": "solidSwitches-8Channel",
+  "content": "",
+  "created_at": "2021-05-10 18:57:44",
+  "updated_at": "2021-05-16 13:05:49",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "3150191553cc3a9c758fa162876acb17",
+      "title": "Inverter",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "5eccfbb8dc6c43818f09939cfc139875": 1,
+        "7890a476cbeb49d2902ad80cc4e9f4a3": 8
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "SN74AHC1G14DCKR",
+          8,
+          "SC-70-5_L2.1-W1.3-P0.65-LS2.1-BR",
+          "U4,U5,U6,U7,U8,U9,U10,U11",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI",
+            "BOM_Manufacturer Part": "SN74AHC1G14DCKR",
+            "BOM_Supplier Part": "C66196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d9c30416c42e488a830d49384b50992c",
+            "uuid": "7890a476cbeb49d2902ad80cc4e9f4a3"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          5,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1,CN2,CN3,CN4,CN5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "US1MG_C412437",
+          8,
+          "SMA_L4.4-W2.8-LS5.4-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C412437",
+            "BOM_Manufacturer": "MDD（Microdiode Electronics）",
+            "BOM_Manufacturer Part": "US1MG",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "9275fb41c0064223b77db30e06cb1bfe",
+            "uuid": "2733eabc50eb4e17a382850718c5279c"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1621183329,
+      "createTime": 1620692964,
+      "histories": [],
+      "created_at": "2021-05-10 19:29:24",
+      "updated_at": "2021-05-16 11:42:09"
+    },
+    {
+      "uuid": "0180c576b17c3608ea11a8a80e6d2284",
+      "title": "Switches",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "03448cd951260dd4471e87b914433583": 8
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "SN74AHC1G14DCKR",
+          8,
+          "SC-70-5_L2.1-W1.3-P0.65-LS2.1-BR",
+          "U4,U5,U6,U7,U8,U9,U10,U11",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI",
+            "BOM_Manufacturer Part": "SN74AHC1G14DCKR",
+            "BOM_Supplier Part": "C66196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d9c30416c42e488a830d49384b50992c",
+            "uuid": "7890a476cbeb49d2902ad80cc4e9f4a3"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "XY301V-A-5.0-2P",
+          5,
+          "CONN-TH_XY301V-A-5.0-2P",
+          "U1,U2,U12,U14,U13",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C557651",
+            "BOM_Manufacturer": "--",
+            "BOM_Manufacturer Part": "XY301V-A-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "634790b3a3634c79b0ccf4a39e7e3d95",
+            "uuid": "54b9ebb30ec04f3a9a67d8fa51a8adf6"
+          }
+        ],
+        [
+          "M7_C95872",
+          8,
+          "DO-214AC_L4.3-W2.7-LS5.3-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MDD",
+            "BOM_Manufacturer Part": "M7",
+            "BOM_Supplier Part": "C95872",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "719e77466b9a45aa8f9550a93f6695ed",
+            "uuid": "e3feacc3f78b4f9eb460bd89a310e2de"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1621134009,
+      "createTime": 1620693281,
+      "histories": [],
+      "created_at": "2021-05-10 19:34:41",
+      "updated_at": "2021-05-15 22:00:09"
+    },
+    {
+      "uuid": "f9a2d0776e80d89531cda946033cb7ed",
+      "title": "LEDs",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "0ff0ea83c58f1af8f95d7d1f847f5524": 8,
+        "45aa9db41fe55f139f756074a7ef37a0": 8
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "100nF",
+          2,
+          "C0603",
+          "C10,C9",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0603KRX7R9BB104",
+            "BOM_Supplier Part": "C14663",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "9796ce52d844439588f46357e429be00",
+            "uuid": "154b66255b01a09bf1c88bb1ea89be78"
+          }
+        ],
+        [
+          "74HC04D,653",
+          2,
+          "SOIC-14_L8.7-W3.9-P1.27-LS6.0-BL",
+          "U1,U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "Nexperia",
+            "BOM_Manufacturer Part": "74HC04D,653",
+            "BOM_Supplier Part": "C5590",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "bb311a94a4cb4d43984afb997764cddb",
+            "uuid": "d9dde9cd55ce4901a710bf2be16350d6"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "KF250-3.5-4P-2",
+          3,
+          "CONN-TH_4P-P3.50_KF250-3.5-4P-2",
+          "CN1,CN2,CN3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475165",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF250-3.5-4P-2",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "be0c73e1964c4cb1b3a2c591c2e1b204",
+            "uuid": "4ea54daa3d1f468ea35c68184032cd1a"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "M7_C95872",
+          8,
+          "DO-214AC_L4.3-W2.7-LS5.3-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MDD",
+            "BOM_Manufacturer Part": "M7",
+            "BOM_Supplier Part": "C95872",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "719e77466b9a45aa8f9550a93f6695ed",
+            "uuid": "e3feacc3f78b4f9eb460bd89a310e2de"
+          }
+        ]
+      ],
+      "updateTime": 1621128196,
+      "createTime": 1620778788,
+      "histories": [],
+      "created_at": "2021-05-11 19:19:48",
+      "updated_at": "2021-05-15 20:23:16"
+    },
+    {
+      "uuid": "51a97b5ada81237df5e5727e4e6919ab",
+      "title": "Connectors",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "6d999781e2c5a36ac77b8f85f0f486ba": 1,
+        "c1bf4d0f46294a31af4d88618d23d7ad": 5
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "SN74AHC1G14DCKR",
+          8,
+          "SC-70-5_L2.1-W1.3-P0.65-LS2.1-BR",
+          "U4,U5,U6,U7,U8,U9,U10,U11",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI",
+            "BOM_Manufacturer Part": "SN74AHC1G14DCKR",
+            "BOM_Supplier Part": "C66196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d9c30416c42e488a830d49384b50992c",
+            "uuid": "7890a476cbeb49d2902ad80cc4e9f4a3"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          5,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1,CN2,CN3,CN4,CN5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "M7_C95872",
+          8,
+          "DO-214AC_L4.3-W2.7-LS5.3-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MDD",
+            "BOM_Manufacturer Part": "M7",
+            "BOM_Supplier Part": "C95872",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "719e77466b9a45aa8f9550a93f6695ed",
+            "uuid": "e3feacc3f78b4f9eb460bd89a310e2de"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1621167742,
+      "createTime": 1620778788,
+      "histories": [],
+      "created_at": "2021-05-11 19:19:48",
+      "updated_at": "2021-05-16 07:22:22"
+    },
+    {
+      "uuid": "e5513a44cfab61d5122a3e24cc127fc9",
+      "title": "FREEWHEEL",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "2733eabc50eb4e17a382850718c5279c": 8
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "SN74AHC1G14DCKR",
+          8,
+          "SC-70-5_L2.1-W1.3-P0.65-LS2.1-BR",
+          "U4,U5,U6,U7,U8,U9,U10,U11",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI",
+            "BOM_Manufacturer Part": "SN74AHC1G14DCKR",
+            "BOM_Supplier Part": "C66196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d9c30416c42e488a830d49384b50992c",
+            "uuid": "7890a476cbeb49d2902ad80cc4e9f4a3"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          5,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1,CN2,CN3,CN4,CN5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "US1MG_C412437",
+          8,
+          "SMA_L4.4-W2.8-LS5.4-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C412437",
+            "BOM_Manufacturer": "MDD（Microdiode Electronics）",
+            "BOM_Manufacturer Part": "US1MG",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "9275fb41c0064223b77db30e06cb1bfe",
+            "uuid": "2733eabc50eb4e17a382850718c5279c"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1621176999,
+      "createTime": 1621000593,
+      "histories": [],
+      "created_at": "2021-05-14 08:56:33",
+      "updated_at": "2021-05-16 09:56:39"
+    },
+    {
+      "uuid": "95db82d312abaa033a8db725da4161d5",
+      "title": "Pull-Ups",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "cf35262a9089155ca82a7b41f430ec7d": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A_C181731",
+          1,
+          "SOIC-18_L11.6-W7.5-P1.27-LS10.3-BL",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C181731",
+            "BOM_Manufacturer": "Sinotech Mixic Elec",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20a2ddbc14a14e1790df118e2af69dff",
+            "uuid": "5eccfbb8dc6c43818f09939cfc139875"
+          }
+        ],
+        [
+          "100nF",
+          2,
+          "C0603",
+          "C10,C9",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0603KRX7R9BB104",
+            "BOM_Supplier Part": "C14663",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "9796ce52d844439588f46357e429be00",
+            "uuid": "154b66255b01a09bf1c88bb1ea89be78"
+          }
+        ],
+        [
+          "74HC04D,653",
+          2,
+          "SOIC-14_L8.7-W3.9-P1.27-LS6.0-BL",
+          "U1,U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "Nexperia",
+            "BOM_Manufacturer Part": "74HC04D,653",
+            "BOM_Supplier Part": "C5590",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "bb311a94a4cb4d43984afb997764cddb",
+            "uuid": "d9dde9cd55ce4901a710bf2be16350d6"
+          }
+        ],
+        [
+          "JZC-32F/005-HS3(555)",
+          8,
+          "RELAY-TH_JZC-32F-XXXHXX",
+          "RLY1,RLY2,RLY3,RLY4,RLY5,RLY8,RLY7,RLY6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HF",
+            "BOM_Manufacturer Part": "JZC-32F/005-HS3(555)",
+            "BOM_Supplier Part": "C9222",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "e2d000bc745c4c76bb804312400f9cfb",
+            "uuid": "03448cd951260dd4471e87b914433583"
+          }
+        ],
+        [
+          "220",
+          8,
+          "R0805",
+          "RESFORENAMEOUTINDICATOR1,RESFORENAMEOUTINDICATOR8,RESFORENAMEOUTINDICATOR7,RESFORENAMEOUTINDICATOR2,RESFORENAMEOUTINDICATOR6,RESFORENAMEOUTINDICATOR3,RESFORENAMEOUTINDICATOR5,RESFORENAMEOUTINDICATOR4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "0805W8F2200T5E",
+            "BOM_Supplier Part": "C17557",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "769626f169ec49d9867bc27eb696b6b9",
+            "uuid": "0ff0ea83c58f1af8f95d7d1f847f5524"
+          }
+        ],
+        [
+          "FC-2012HRK-620D",
+          8,
+          "LED0805-RD",
+          "ENAMEOUTINDICATOR1,ENAMEOUTINDICATOR4,ENAMEOUTINDICATOR6,ENAMEOUTINDICATOR3,ENAMEOUTINDICATOR7,ENAMEOUTINDICATOR2,ENAMEOUTINDICATOR8,ENAMEOUTINDICATOR5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NATIONSTAR",
+            "BOM_Manufacturer Part": "FC-2012HRK-620D",
+            "BOM_Supplier Part": "C84256",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "a267edbe7c3c4a16b85fd51e936458d0",
+            "uuid": "45aa9db41fe55f139f756074a7ef37a0"
+          }
+        ],
+        [
+          "KF250-3.5-4P-2",
+          3,
+          "CONN-TH_4P-P3.50_KF250-3.5-4P-2",
+          "CN1,CN2,CN3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475165",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF250-3.5-4P-2",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "be0c73e1964c4cb1b3a2c591c2e1b204",
+            "uuid": "4ea54daa3d1f468ea35c68184032cd1a"
+          }
+        ],
+        [
+          "2*6P header",
+          1,
+          "HDR-TH_12P-P2.54-H-R2-C6-S2.54",
+          "P1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2*6P header",
+            "BOM_Supplier Part": "C60565",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "737b466828894a4894c9d764e75b9af9",
+            "uuid": "6d999781e2c5a36ac77b8f85f0f486ba"
+          }
+        ],
+        [
+          "M7_C95872",
+          8,
+          "DO-214AC_L4.3-W2.7-LS5.3-RD",
+          "D1,D2,D3,D4,D5,D6,D7,D8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MDD",
+            "BOM_Manufacturer Part": "M7",
+            "BOM_Supplier Part": "C95872",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "719e77466b9a45aa8f9550a93f6695ed",
+            "uuid": "e3feacc3f78b4f9eb460bd89a310e2de"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1621128503,
+      "createTime": 1621128446,
+      "histories": [],
+      "created_at": "2021-05-15 20:27:26",
+      "updated_at": "2021-05-15 20:28:23"
+    },
+    {
+      "uuid": "ceaa5b713196e824b9a87a04f92d2b45",
+      "puuid": "838fc0363a5f146beeda0de11b067bf8",
+      "title": "Ref_1621175822286",
+      "filename": "Ref_1621175822286.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "e2d000bc745c4c76bb804312400f9cfb": 8,
+        "d9c30416c42e488a830d49384b50992c": 8,
+        "109e5b24485d430f95eaa4f2fe2ab4f9": 2,
+        "20a2ddbc14a14e1790df118e2af69dff": 1,
+        "769626f169ec49d9867bc27eb696b6b9": 8,
+        "737b466828894a4894c9d764e75b9af9": 1,
+        "a267edbe7c3c4a16b85fd51e936458d0": 8,
+        "f21019be0deb405481de00d4523327ae": 5,
+        "9275fb41c0064223b77db30e06cb1bfe": 8
+      },
+      "BOM": [],
+      "updateTime": 1621188349,
+      "createTime": 1621131446,
+      "histories": [],
+      "created_at": "2021-05-15 21:17:26",
+      "updated_at": "2021-05-16 13:05:49"
+    }
+  ],
+  "sort": [
+    "3150191553cc3a9c758fa162876acb17",
+    "0180c576b17c3608ea11a8a80e6d2284",
+    "f9a2d0776e80d89531cda946033cb7ed",
+    "51a97b5ada81237df5e5727e4e6919ab",
+    "e5513a44cfab61d5122a3e24cc127fc9",
+    "95db82d312abaa033a8db725da4161d5"
+  ],
+  "title": "solidSwitches-8Channel",
+  "foldername": "solidSwitches-8Channel",
+  "schfilename": "solidSwitches-8Channel.json",
+  "schfilemtime": 1621183329208
+}
