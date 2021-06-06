@@ -6,6 +6,9 @@ const availHardware = {
     "desc": "8 channel - Vending machine for liquid detergents",
     "firmware": {
       "folder": "ver001-final/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "board": "arduino:avr:uno",
+      "burnItems": ["bootloader", "burn"],
+      "programmer": "arduinoasisp",
       "globalConfigs": [{
         "id": "NUMBER_OF_CHEMICALS",
         "name": "Number of products",
@@ -52,6 +55,9 @@ const availHardware = {
     "desc": "32 channel - Vending machine for liquid detergents",
     "firmware": {
       "folder": "ver001-final/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "board": "arduino:avr:uno",
+      "burnItems": ["bootloader", "burn"],
+      "programmer": "arduinoasisp",
       "globalConfigs": [{
         "id": "NUMBER_OF_CHEMICALS",
         "name": "Number of products",
