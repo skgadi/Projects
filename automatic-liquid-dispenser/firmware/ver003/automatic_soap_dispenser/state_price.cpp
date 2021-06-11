@@ -15,6 +15,7 @@ void MAIN_ACTIVITY::statePrice() {
   if (gskCoins.credit) {
     changeState(CREDIT);
   }
+
   //if program button is pressed 
   if (gskButtons.isProgBtnPressed()) {
     changeState(PROG);

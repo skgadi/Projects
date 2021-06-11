@@ -17,7 +17,6 @@ void MAIN_ACTIVITY::stateDispense() {
   if (pressedBtn>=0 && pressedBtn< NUMBER_OF_CHEMICALS) {
     gskCoins.credit -= consumedCredit;
     gskRelays.stopAll();
-    updateEEPROMAtDispense(consumedCredit, dispensed);
     if (gskCoins.credit<0) {
       gskCoins.resetCredit();
       changeState(IDLE);
@@ -25,11 +24,8 @@ void MAIN_ACTIVITY::stateDispense() {
     changeState(CREDIT);
   }
   if (remainingTime<0) {
-    gskRelays.stopAll();
-    updateEEPROMAtDispense(gskCoins.credit, dispensed);
     gskCoins.resetCredit();
+    gskRelays.stopAll();
     changeState(IDLE);
   }
 }
-
-

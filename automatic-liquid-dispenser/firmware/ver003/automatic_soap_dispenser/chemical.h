@@ -5,8 +5,6 @@
 struct CHEMICAL {
   int costPerLiter;
   unsigned int timePerLiter;
-  unsigned long cons;
-  unsigned long sales;
 };
 
 

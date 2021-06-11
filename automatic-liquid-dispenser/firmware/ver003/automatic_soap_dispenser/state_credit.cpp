@@ -14,7 +14,6 @@ void MAIN_ACTIVITY::stateCredit() {
     ((timeSinceStateChange()/1000)>(REMOVE_CREDIT_AFTER_x_SECONDS)) ||
     (gskCoins.credit<=0)
     ) {
-    gskEEPROM.addToToal(gskCoins.credit);
     gskCoins.resetCredit();
     changeState(IDLE);
   }

@@ -11,8 +11,8 @@ void MAIN_ACTIVITY::stateProgQty2() {
     Serial.println(timeSinceStateChange());
     #endif
     gskChemicals[selectedChemical].timePerLiter = (timeSinceStateChange()/100);
-    gskEEPROM.putAllChems(gskChemicals);
-    gskEEPROM.getAllChems(gskChemicals);
+    gskEEPROM.putAll(gskChemicals);
+    gskEEPROM.getAll(gskChemicals);
     changeState(PROG_QTY_0);
   }
 

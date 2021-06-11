@@ -1,9 +1,3 @@
-/*
-*/
-#include <SPI.h>
-#include <SD.h>
-
-
 //#include <EasyButton.h>
 #include "main_activity.h"
 
@@ -12,7 +6,6 @@ MAIN_ACTIVITY gskMainActivity;
 
 void setup() {
   gskMainActivity.setup();
-  SD.begin(10);
   //GLOBAL_gskCoinEntry.onPressed(GLOBAL_gskCoinInserted);
   attachInterrupt(digitalPinToInterrupt(COINS_PIN), GLOBAL_gskCoinInserted, FALLING);
 }
@@ -25,4 +18,6 @@ void loop() {
 
 void GLOBAL_gskCoinInserted () {
   gskMainActivity.gskCoins.increaseCredit();
+  /*if (gskMainActivity.currentState != DISPENSE) {
+  }*/
 }

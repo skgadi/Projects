@@ -11,12 +11,25 @@ void RELAYS::on(int rlyNumber) {
 }
 
 void RELAYS::configure(){
-  rlyPins[0] = 10;
-  rlyPins[1] = 9;
-  rlyPins[2] = 8;
-  rlyPins[3] = 7;
-  rlyPins[4] = 6;
-  rlyPins[NUMBER_OF_IN_OUT_PINS] = 5;
+    switch (PIN_MODEL) {
+  case 0:
+    rlyPins[0] = 0;
+    rlyPins[1] = 1;
+    rlyPins[2] = 5;
+    rlyPins[3] = 6;
+    rlyPins[4] = 7;
+    rlyPins[NUMBER_OF_IN_OUT_PINS] = 8;
+    break;
+  case 1:
+    rlyPins[0] = 10;
+    rlyPins[1] = 9;
+    rlyPins[2] = 8;
+    rlyPins[3] = 7;
+    rlyPins[4] = 6;
+    rlyPins[NUMBER_OF_IN_OUT_PINS] = 5;
+    break;
+  }
+
   for (int  i = 0; i < (NUMBER_OF_IN_OUT_PINS+1) ; i++) {
     pinMode(rlyPins[i], OUTPUT);
   }

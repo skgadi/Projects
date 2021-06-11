@@ -34,13 +34,26 @@ bool BUTTONS::isProgBtnPressed() {
 }
 
 void BUTTONS::configure() {
-  btnPins[0] = A2;
-  btnPins[1] = A3;
-  btnPins[2] = A0;
-  btnPins[3] = A1;
-  btnPins[4] = 0;
-  btnPins[NUMBER_OF_IN_OUT_PINS] = 1;
-  progBtnPin = 3;
+  switch (PIN_MODEL) {
+  case 0:
+    btnPins[0] = 9;
+    btnPins[1] = 10;
+    btnPins[2] = A0;
+    btnPins[3] = A1;
+    btnPins[4] = A2;
+    btnPins[NUMBER_OF_IN_OUT_PINS] = A3;
+    progBtnPin = 11;
+    break;
+  case 1:
+    btnPins[0] = A2;
+    btnPins[1] = A3;
+    btnPins[2] = A0;
+    btnPins[3] = A1;
+    btnPins[4] = 0;
+    btnPins[NUMBER_OF_IN_OUT_PINS] = 1;
+    progBtnPin = 3;
+    break;
+  }
 
   for (int i=0; i<(NUMBER_OF_IN_OUT_PINS + 1); i++) {
     pinMode(btnPins[i], INPUT_PULLUP);

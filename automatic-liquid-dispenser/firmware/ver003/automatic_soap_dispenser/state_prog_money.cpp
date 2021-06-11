@@ -30,16 +30,16 @@ void MAIN_ACTIVITY::stateProgMoney() {
     if (gskChemicals[selectedChemical].costPerLiter<1) {
       gskChemicals[selectedChemical].costPerLiter = MAX_MONEY_PER_LITER;
     }
-    gskEEPROM.putAllChems(gskChemicals);
-    gskEEPROM.getAllChems(gskChemicals);
+    gskEEPROM.putAll(gskChemicals);
+    gskEEPROM.getAll(gskChemicals);
   }
   if (pressedBtn == 3) {
     gskChemicals[selectedChemical].costPerLiter++;
     if (gskChemicals[selectedChemical].costPerLiter > MAX_MONEY_PER_LITER) {
       gskChemicals[selectedChemical].costPerLiter = 1;
     }
-    gskEEPROM.putAllChems(gskChemicals);
-    gskEEPROM.getAllChems(gskChemicals);
+    gskEEPROM.putAll(gskChemicals);
+    gskEEPROM.getAll(gskChemicals);
   }
 
 

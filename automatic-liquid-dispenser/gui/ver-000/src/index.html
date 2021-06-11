@@ -29,7 +29,7 @@
           </div>
         </template>
         <template :key="'ref_'+autoUpdate" v-for="(option, idx) in hardware.firmware.directives">
-          <div class="w3-col s6">
+          <div v-if="!option.hide" class="w3-col s6">
             <div @click="option.value = !option.value" class="w3-border w3-hover-shadow w3-round cardConfig w3-padding">
               <input class="w3-check" type="checkbox" v-model="option.value">
               <label>&nbsp;{{option.name}}</label>

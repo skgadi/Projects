@@ -6,17 +6,23 @@
         {
             "label": "Burn HEX",
             "type": "shell",
-            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -u -p COM4 -t"
+            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -u -p COM4 -t -v --clean"
         },
         {
             "label": "Compile HEX",
             "type": "shell",
-            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp"
+            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -v"
         },
         {
             "label": "Burn Bootloader",
             "type": "shell",
-            "command": "arduino-cli burn-bootloader --fqbn arduino:avr:uno  --programmer arduinoasisp --port COM4"
+            "command": "arduino-cli burn-bootloader --fqbn arduino:avr:uno  --programmer arduinoasisp --port COM4 -v"
+        },
+        {
+            "label": "Burn Bootloader & HEX",
+            "dependsOn": ["Burn Bootloader"],
+            "type": "shell",
+            "command": "arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -u -p COM4 -t -v --clean"
         }
     ]
 }

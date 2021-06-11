@@ -12,7 +12,7 @@ void MAIN_ACTIVITY::setup(){
 
 
 
-  gskEEPROM.getAllChems(gskChemicals);
+  gskEEPROM.getAll(gskChemicals);
   correctEEPROMData();
   gskDisp.init();
   pinMode(COINS_PIN, INPUT_PULLUP);
@@ -51,12 +51,6 @@ void MAIN_ACTIVITY::run () {
   case PROG_QTY_2:
     stateProgQty2();
     break;
-  case VIEW_SALES:
-    stateViewSales();
-    break;
-  case TEST_SD:
-    stateTestSD();
-    break;
   default:
     break;
   }
@@ -71,45 +65,16 @@ void MAIN_ACTIVITY::run () {
 
 
 void MAIN_ACTIVITY::correctEEPROMData() {
-  bool changed = false;
-  if (gskEEPROM.getTotal()> (MAX_TOTAL_SALES_FACTOR * MAX_SALES_AMOUNT)) {
-    gskEEPROM.resetTotal();
-  }
   for (int i = 0; i < NUMBER_OF_CHEMICALS; i++) {
     if (gskChemicals[i].costPerLiter<1 || gskChemicals[i].costPerLiter>MAX_MONEY_PER_LITER) {
       gskChemicals[i].costPerLiter = MAX_MONEY_PER_LITER;
-      changed = true;
+      gskEEPROM.putAll(gskChemicals);
+      gskEEPROM.getAll(gskChemicals);
     }
     if (gskChemicals[i].timePerLiter < MIN_CENTI_SEC_PER_LITER || gskChemicals[i].timePerLiter > MAX_CENTI_SEC_PER_LITER) {
       gskChemicals[i].timePerLiter = MIN_CENTI_SEC_PER_LITER;
-      changed = true;
-    }
-    if (gskChemicals[i].sales > MAX_SALES_AMOUNT) {
-      gskChemicals[i].sales = 0;
-      changed = true;
-    }
-    if (gskChemicals[i].cons > (MAX_LITERS_COUNTER*100)) {
-      gskChemicals[i].cons = 0;
-      changed = true;
+      gskEEPROM.putAll(gskChemicals);
+      gskEEPROM.getAll(gskChemicals);
     }
   }
-  if (changed) {
-    gskEEPROM.putAllChems(gskChemicals);
-    gskEEPROM.getAllChems(gskChemicals);
-  }
-}
-
-
-void MAIN_ACTIVITY::updateEEPROMAtDispense(unsigned long amount, double dispensed) {
-    gskEEPROM.addToToal(amount);
-    gskChemicals[selectedChemical].cons += lround(dispensed*100);
-    if (gskChemicals[selectedChemical].cons >= (MAX_LITERS_COUNTER*100)) {
-      gskChemicals[selectedChemical].cons -= (MAX_LITERS_COUNTER*100);
-    }
-    gskChemicals[selectedChemical].sales += amount;
-    if (gskChemicals[selectedChemical].sales >= (MAX_SALES_AMOUNT)) {
-      gskChemicals[selectedChemical].sales -= (MAX_SALES_AMOUNT);
-    }
-    gskEEPROM.putAllChems(gskChemicals);
-    gskEEPROM.getAllChems(gskChemicals);
 }

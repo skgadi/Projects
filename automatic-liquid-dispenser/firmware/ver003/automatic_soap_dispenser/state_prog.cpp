@@ -1,6 +1,6 @@
 #include "main_activity.h"
 void MAIN_ACTIVITY::stateProg() {
-  gskDisp.displayProg(gskEEPROM.getTotal());
+  gskDisp.displayProg();
 
   int pressedBtn = gskButtons.getPressed();
   if (pressedBtn == 0) {
@@ -10,18 +10,6 @@ void MAIN_ACTIVITY::stateProg() {
   if (pressedBtn == 1) {
     selectedChemical = 0;
     changeState(PROG_QTY_0);
-  }
-  if (PROGRAM_SUMMARY || PROGRAM_SD) {
-    if (pressedBtn == 3) {
-      selectedChemical = 0;
-      changeState(VIEW_SALES);
-    }
-  }
-  if (PROGRAM_SD) {
-    if (pressedBtn == 4) {
-      selectedChemical = 0;
-      changeState(TEST_SD);
-    }
   }
 
 
