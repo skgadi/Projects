@@ -22,6 +22,9 @@
 
 #ifdef PROGRAM_SD
 #define CS_PIN_FOR_SD 10
+#ifndef PROGRAM_SUMMARY
+#define PROGRAM_SUMMARY
+#endif
 #endif
 
 

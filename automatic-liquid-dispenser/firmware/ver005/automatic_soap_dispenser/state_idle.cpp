@@ -17,13 +17,14 @@ void MAIN_ACTIVITY::stateIdle() {
     changeState(PROG);
   }
   //if waited for long enough
-  if ((timeSinceStateChange()/1000.0/60.0)>(RESET_LCD_AFTER_x_MINUTES*1.0)) {
+  if (((millis() - prevTimeLCDClear)/1000.0/60.0)>=(RESET_LCD_AFTER_x_MINUTES*1.0)) {
     //gskDisp.displaywaitMessage();
+    prevTimeLCDClear = millis();
     gskDisp.init();
     changeState(IDLE);
   }
 
-  if (( millis() /1000.0/60.0)>(RESET_SYSTEM_AFTER_x_MINUTES*1.0)) {
+  if (( millis() /1000.0/60.0)>=(RESET_SYSTEM_AFTER_x_MINUTES*1.0)) {
 #ifdef PROGRAM_SD
     if (SD.begin(CS_PIN_FOR_SD)) {
       File dataFile = SD.open(logFile, FILE_WRITE);

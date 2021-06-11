@@ -93,6 +93,7 @@ struct MAIN_ACTIVITY {
   bool initAndWriteSD(String);
   void(* resetTheSystem) (void) = 0;
   bool configChangeNoted = false;
+  unsigned long prevTimeLCDClear = 0;
 };
 
 void gskCoinInserted ();
