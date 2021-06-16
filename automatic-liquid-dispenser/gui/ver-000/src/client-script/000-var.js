@@ -5,7 +5,7 @@ const availHardware = {
     "name": "8 channel - VMLS",
     "desc": "8 channel - Vending machine for liquid detergents",
     "firmware": {
-      "folder": "ver005/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "folder": "ver006/automatic_soap_dispenser/automatic_soap_dispenser.ino",
       "board": "arduino:avr:uno",
       "burnItems": ["bootloader", "burn"],
       "programmer": "arduinoasisp",
@@ -82,7 +82,7 @@ const availHardware = {
     "name": "32 channel - VMLS",
     "desc": "32 channel - Vending machine for liquid detergents",
     "firmware": {
-      "folder": "ver005/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "folder": "ver006/automatic_soap_dispenser/automatic_soap_dispenser.ino",
       "board": "arduino:avr:uno",
       "burnItems": ["bootloader", "burn"],
       "programmer": "arduinoasisp",
@@ -159,7 +159,7 @@ const availHardware = {
     "name": "32 channel - VMLS - SMD",
     "desc": "32 channel - Vending machine for liquid detergents with SMD",
     "firmware": {
-      "folder": "ver005/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "folder": "ver006/automatic_soap_dispenser/automatic_soap_dispenser.ino",
       "board": "arduino:avr:uno",
       "burnItems": ["bootloader", "burn"],
       "programmer": "arduinoasisp",
@@ -241,7 +241,7 @@ const availHardware = {
     "name": "32 channel - VMLS - With Power Supply",
     "desc": "32 channel - Vending machine for liquid detergents with power supply",
     "firmware": {
-      "folder": "ver005/automatic_soap_dispenser/automatic_soap_dispenser.ino",
+      "folder": "ver006/automatic_soap_dispenser/automatic_soap_dispenser.ino",
       "board": "arduino:avr:uno",
       "burnItems": ["bootloader", "burn"],
       "programmer": "arduinoasisp",

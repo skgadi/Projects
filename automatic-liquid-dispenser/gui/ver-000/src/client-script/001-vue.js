@@ -41,7 +41,7 @@ const app = {
     compile: function () {
       commandQueue.push({
         name: "Compile",
-        instruction: "arduino-cli compile --fqbn arduino:avr:uno ../../firmware/" + this.hardware.firmware.folder + " --programmer arduinoasisp -v --clean " + this.prepareFlags()
+        instruction: "arduino-cli compile --fqbn arduino:avr:uno ./firmware/" + this.hardware.firmware.folder + " --programmer arduinoasisp -v --clean " + this.prepareFlags()
       });
     },
     burn: function () {
@@ -61,7 +61,7 @@ const app = {
           commandQueue.push({
             name: "Burning bootloader",
             instruction: "arduino-cli compile --fqbn " + this.hardware.firmware.board +
-              " ../../firmware/" + this.hardware.firmware.folder + " " +
+              " ./firmware/" + this.hardware.firmware.folder + " " +
               (!!(this.hardware.firmware.programmer) ? " --programmer " + this.hardware.firmware.programmer : " ") +
               " -u -t -v --clean -p " +
               this.port +
