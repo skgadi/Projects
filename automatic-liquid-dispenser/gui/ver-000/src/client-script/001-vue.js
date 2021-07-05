@@ -59,7 +59,7 @@ const app = {
         }
         if (this.hardware.firmware.burnItems.indexOf("burn") >= 0) {
           commandQueue.push({
-            name: "Burning bootloader",
+            name: "Burning the firmware",
             instruction: "arduino-cli compile --fqbn " + this.hardware.firmware.board +
               " ./firmware/" + this.hardware.firmware.folder + " " +
               (!!(this.hardware.firmware.programmer) ? " --programmer " + this.hardware.firmware.programmer : " ") +
