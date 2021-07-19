@@ -1,0 +1,1244 @@
+{
+  "uuid": "156e0a0b187db582108d0722af837227",
+  "path": "Offline/2021-05-29-Soap-dispenser-IoT-controller",
+  "name": "2021-05-29-Soap-dispenser-IoT-controller",
+  "content": "",
+  "created_at": "2021-05-29 23:13:59",
+  "updated_at": "2021-06-20 20:07:09",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "cd3e88b5580178348e2942cedd2673f3",
+      "title": "Computer",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "e051b43b21f0466e82abb31659b907b8": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "HLK-10M05",
+          1,
+          "PWRM-TH_HLK-10M05",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403745",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M05",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "91564ac4c1cc40e9962490f6deee7c7c",
+            "uuid": "2ec054adbf6c4f1da6188d20ce189495"
+          }
+        ],
+        [
+          "HLK-10M12",
+          1,
+          "PWRM-TH_HLK-10M12",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403746",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M12",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "bf2216edf8ef439981f4457e2965e065",
+            "uuid": "699a40fd19004b71acad21bd80224bb4"
+          }
+        ],
+        [
+          "HLK-PM03",
+          1,
+          "PWRM-TH_HLK-PM03",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C209904",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-PM03",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d7f2099c1c0640bbbedb9d8dfae9f69b",
+            "uuid": "47549a93e71e48f0b34c0584fd692d38"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ],
+        [
+          "TF-15×15",
+          1,
+          "TF-SMD_TF-15-15",
+          "CARD1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "SOFNG",
+            "BOM_Manufacturer Part": "TF-15×15",
+            "BOM_Supplier Part": "C111196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f7dd54f89a0d4286a07c114c2b6d06ed",
+            "uuid": "f359fca38b884498a19842ec720f84f5"
+          }
+        ]
+      ],
+      "updateTime": 1623648366,
+      "createTime": 1622348623,
+      "histories": [],
+      "created_at": "2021-05-29 23:23:43",
+      "updated_at": "2021-06-14 00:26:06"
+    },
+    {
+      "uuid": "4fd79338ba7ea0f3617c8db5f7a7ed4b",
+      "title": "Power",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "c1bf4d0f46294a31af4d88618d23d7ad": 1,
+        "d75bbd3ba4dc4e17f009e1d380985eae": 3,
+        "78e996d5248d44ee8a4815106092b2a6": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "4-5099-8",
+          1,
+          "CONN-TH_4-5099-8",
+          "CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C601194",
+            "BOM_Manufacturer": "UMAX",
+            "BOM_Manufacturer Part": "4-5099-8",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "1e44315b760f4865b958c63e9646c778",
+            "uuid": "78e996d5248d44ee8a4815106092b2a6"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ],
+        [
+          "TF-15×15",
+          1,
+          "TF-SMD_TF-15-15",
+          "CARD1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "SOFNG",
+            "BOM_Manufacturer Part": "TF-15×15",
+            "BOM_Supplier Part": "C111196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f7dd54f89a0d4286a07c114c2b6d06ed",
+            "uuid": "f359fca38b884498a19842ec720f84f5"
+          }
+        ]
+      ],
+      "updateTime": 1624185955,
+      "createTime": 1622354515,
+      "histories": [],
+      "created_at": "2021-05-30 01:01:55",
+      "updated_at": "2021-06-20 05:45:55"
+    },
+    {
+      "uuid": "ef62fb5911a93f1ead7b56568f12cfe4",
+      "title": "Program",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "49c43abc703c4f19b2e9f25705ee825a": 3,
+        "a78ebd109e464db89790979d44ad575d": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "HLK-10M05",
+          1,
+          "PWRM-TH_HLK-10M05",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403745",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M05",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "91564ac4c1cc40e9962490f6deee7c7c",
+            "uuid": "2ec054adbf6c4f1da6188d20ce189495"
+          }
+        ],
+        [
+          "HLK-10M12",
+          1,
+          "PWRM-TH_HLK-10M12",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403746",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M12",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "bf2216edf8ef439981f4457e2965e065",
+            "uuid": "699a40fd19004b71acad21bd80224bb4"
+          }
+        ],
+        [
+          "HLK-PM03",
+          1,
+          "PWRM-TH_HLK-PM03",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C209904",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-PM03",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d7f2099c1c0640bbbedb9d8dfae9f69b",
+            "uuid": "47549a93e71e48f0b34c0584fd692d38"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ]
+      ],
+      "updateTime": 1623639027,
+      "createTime": 1623602329,
+      "histories": [],
+      "created_at": "2021-06-13 11:38:49",
+      "updated_at": "2021-06-13 21:50:27"
+    },
+    {
+      "uuid": "2c57715bb9ba3829fa37c4bcde6b9b5d",
+      "title": "PullUp",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "5947d2fa634203d12e59fdfcf9e29a4e": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "HLK-10M05",
+          1,
+          "PWRM-TH_HLK-10M05",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403745",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M05",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "91564ac4c1cc40e9962490f6deee7c7c",
+            "uuid": "2ec054adbf6c4f1da6188d20ce189495"
+          }
+        ],
+        [
+          "HLK-10M12",
+          1,
+          "PWRM-TH_HLK-10M12",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403746",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M12",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "bf2216edf8ef439981f4457e2965e065",
+            "uuid": "699a40fd19004b71acad21bd80224bb4"
+          }
+        ],
+        [
+          "HLK-PM03",
+          1,
+          "PWRM-TH_HLK-PM03",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C209904",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-PM03",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d7f2099c1c0640bbbedb9d8dfae9f69b",
+            "uuid": "47549a93e71e48f0b34c0584fd692d38"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ]
+      ],
+      "updateTime": 1623639028,
+      "createTime": 1623630829,
+      "histories": [],
+      "created_at": "2021-06-13 19:33:49",
+      "updated_at": "2021-06-13 21:50:28"
+    },
+    {
+      "uuid": "3ae79a01ed89a8556029efe662f87626",
+      "title": "CAPs",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "57b1bb086d994932bc5a25864db04c1a": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "HLK-10M05",
+          1,
+          "PWRM-TH_HLK-10M05",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403745",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M05",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "91564ac4c1cc40e9962490f6deee7c7c",
+            "uuid": "2ec054adbf6c4f1da6188d20ce189495"
+          }
+        ],
+        [
+          "HLK-10M12",
+          1,
+          "PWRM-TH_HLK-10M12",
+          "U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C403746",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-10M12",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "bf2216edf8ef439981f4457e2965e065",
+            "uuid": "699a40fd19004b71acad21bd80224bb4"
+          }
+        ],
+        [
+          "HLK-PM03",
+          1,
+          "PWRM-TH_HLK-PM03",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C209904",
+            "BOM_Manufacturer": "HI-LINK",
+            "BOM_Manufacturer Part": "HLK-PM03",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d7f2099c1c0640bbbedb9d8dfae9f69b",
+            "uuid": "47549a93e71e48f0b34c0584fd692d38"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ]
+      ],
+      "updateTime": 1623639026,
+      "createTime": 1623639026,
+      "histories": [],
+      "created_at": "2021-06-13 21:50:26",
+      "updated_at": "2021-06-13 21:50:26"
+    },
+    {
+      "uuid": "74db8f60e0af11c0e581002177e5035e",
+      "title": "SD Card",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "f359fca38b884498a19842ec720f84f5": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "4-5099-8",
+          1,
+          "CONN-TH_4-5099-8",
+          "CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C601194",
+            "BOM_Manufacturer": "UMAX",
+            "BOM_Manufacturer Part": "4-5099-8",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "1e44315b760f4865b958c63e9646c778",
+            "uuid": "78e996d5248d44ee8a4815106092b2a6"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ],
+        [
+          "TF-15×15",
+          1,
+          "TF-SMD_TF-15-15",
+          "CARD1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "SOFNG",
+            "BOM_Manufacturer Part": "TF-15×15",
+            "BOM_Supplier Part": "C111196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f7dd54f89a0d4286a07c114c2b6d06ed",
+            "uuid": "f359fca38b884498a19842ec720f84f5"
+          }
+        ]
+      ],
+      "updateTime": 1624185955,
+      "createTime": 1623640201,
+      "histories": [],
+      "created_at": "2021-06-13 22:10:01",
+      "updated_at": "2021-06-20 05:45:55"
+    },
+    {
+      "uuid": "c049d3b55bb05348890a2e3d4366ca62",
+      "title": "Buttons",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "f7849f01000d413b88fafd44a8127c0f": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32-S",
+          1,
+          "WIRELM-SMD_ESP32-S",
+          "U4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C277944",
+            "BOM_Manufacturer": "Ai-Thinker",
+            "BOM_Manufacturer Part": "ESP32-S",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "35c7d6b10af34f27be24ebc957e217b4",
+            "uuid": "e051b43b21f0466e82abb31659b907b8"
+          }
+        ],
+        [
+          "4-5099-8",
+          1,
+          "CONN-TH_4-5099-8",
+          "CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C601194",
+            "BOM_Manufacturer": "UMAX",
+            "BOM_Manufacturer Part": "4-5099-8",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "1e44315b760f4865b958c63e9646c778",
+            "uuid": "78e996d5248d44ee8a4815106092b2a6"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          1,
+          "CONN-TH_XY118-5.0-2P",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ],
+        [
+          "220uF",
+          3,
+          "CAP-SMD_BD10.0-L10.3-W10.3-FD",
+          "C1,C2,C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "HONOR",
+            "BOM_Manufacturer Part": "RVT1H221M1010",
+            "BOM_Supplier Part": "C3358",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "d8f8382978a7446f8e8f71c956b0d192",
+            "uuid": "d75bbd3ba4dc4e17f009e1d380985eae"
+          }
+        ],
+        [
+          "C174049",
+          3,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS6.8",
+          "SW1,SW2,SW3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C174049",
+            "BOM_Manufacturer": "BOOMELE(Boom Precision Elec)",
+            "BOM_Manufacturer Part": "C174049",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "a156536f78584916bc0f041c6a68a827",
+            "uuid": "49c43abc703c4f19b2e9f25705ee825a"
+          }
+        ],
+        [
+          "MICROQTJ",
+          1,
+          "MICRO-USB-SMD_MICROQTJ",
+          "USB1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C404968",
+            "BOM_Manufacturer": "SHOU HAN",
+            "BOM_Manufacturer Part": "MicroQTJ",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "76b1caa584a2446b99fdf57ac6bc55c9",
+            "uuid": "a78ebd109e464db89790979d44ad575d"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0402-8P-L2.0-W1.0-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D02WGJ0103TCE",
+            "BOM_Supplier Part": "C25725",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "a9873e4885ba4f869e680326b10930c3",
+            "uuid": "5947d2fa634203d12e59fdfcf9e29a4e"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0402",
+          "C4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C106204",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0402KRX5R7BB104",
+            "BOM_Paste Type": "Extended Part",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "0821ed6ea50c44f4909e4be7610e4198",
+            "uuid": "57b1bb086d994932bc5a25864db04c1a"
+          }
+        ],
+        [
+          "TF-15×15",
+          1,
+          "TF-SMD_TF-15-15",
+          "CARD1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "SOFNG",
+            "BOM_Manufacturer Part": "TF-15×15",
+            "BOM_Supplier Part": "C111196",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f7dd54f89a0d4286a07c114c2b6d06ed",
+            "uuid": "f359fca38b884498a19842ec720f84f5"
+          }
+        ],
+        [
+          "DS1129-06-S8B0P-X",
+          1,
+          "RJ45-TH_DS1129-06-S8B0P-X",
+          "RJ1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CONNFLY",
+            "BOM_Manufacturer Part": "DS1129-06-S8B0P-X",
+            "BOM_Supplier Part": "C86583",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "20807a4856174487b6562dba0533ad2b",
+            "uuid": "f7849f01000d413b88fafd44a8127c0f"
+          }
+        ]
+      ],
+      "updateTime": 1624237629,
+      "createTime": 1624237629,
+      "histories": [],
+      "created_at": "2021-06-20 20:07:09",
+      "updated_at": "2021-06-20 20:07:09"
+    }
+  ],
+  "sort": [
+    "cd3e88b5580178348e2942cedd2673f3",
+    "4fd79338ba7ea0f3617c8db5f7a7ed4b",
+    "ef62fb5911a93f1ead7b56568f12cfe4",
+    "2c57715bb9ba3829fa37c4bcde6b9b5d",
+    "3ae79a01ed89a8556029efe662f87626",
+    "74db8f60e0af11c0e581002177e5035e",
+    "c049d3b55bb05348890a2e3d4366ca62"
+  ],
+  "title": "2021-05-29-Soap-dispenser-IoT-controller",
+  "foldername": "2021-05-29-Soap-dispenser-IoT-controller",
+  "schfilename": "2021-05-29-Soap-dispenser-IoT-controller.json",
+  "schfilemtime": 1624237629654
+}

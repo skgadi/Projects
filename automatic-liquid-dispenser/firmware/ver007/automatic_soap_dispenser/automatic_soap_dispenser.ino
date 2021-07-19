@@ -33,7 +33,9 @@ void loop() {
 #ifdef USE_EASY_BUTTON_FOR_COIN
   GLOBAL_gskCoinEntry.read();
 #else
-  gskMainActivity.gskCoins.checkCoinPulse();
+  //if (gskMainActivity.currentState != DISPENSE) {
+    gskMainActivity.gskCoins.checkCoinPulse();
+  //}
 #endif
 }
 

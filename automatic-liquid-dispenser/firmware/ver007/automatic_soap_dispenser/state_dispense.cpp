@@ -2,7 +2,7 @@
 void MAIN_ACTIVITY::stateDispense() {
   gskRelays.on(selectedChemical);
   double timeOfDispense = timeSinceStateChange();
-  double remainingTime = tymEqvToCredit - timeOfDispense;
+  //double remainingTime = tymEqvToCredit - timeOfDispense;
   int consumedCredit = 1 + floor(timeOfDispense*((1.0*gskChemicals[selectedChemical].costPerLiter)*(1.0/(gskChemicals[selectedChemical].timePerLiter*1.0))));
   //Serial.print("Consumed credit: ");
   //Serial.println(consumedCredit);
@@ -39,7 +39,7 @@ void MAIN_ACTIVITY::stateDispense() {
     }
     changeState(CREDIT);
   }
-  if (remainingTime<=0) {
+  if (remainingCredits<0) {
     gskRelays.stopAll();
     //delay(20000);
     updateEEPROMAtDispense((gskCoins.credit)*1.0, dispensed);

@@ -1,0 +1,679 @@
+{
+  "uuid": "5d47cea850edc58aceeb05e666f1d163",
+  "path": "Offline/8-Channel-Relays",
+  "name": "8-Channel-Relays",
+  "content": "",
+  "created_at": "2021-05-03 19:00:29",
+  "updated_at": "2021-05-03 19:01:21",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "df3694120411406b9dace95b44f961d6",
+      "title": "Connectors",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "55f2d0d2329640f89d978fda30a1626a": 2,
+        "135165364fb3451caa966e8c4da9f998": 4,
+        "5bf898758df74ff7b056927802052d6a": 1,
+        "845138930e454773b90a462247316c9f": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "A2541WR-2X10P",
+          1,
+          "CONN-TH_A2541WR-2X10P",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239341",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WR-2x10P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "ee9f2585afb94b44bb9b17173c6f54bc",
+            "uuid": "5bf898758df74ff7b056927802052d6a"
+          }
+        ],
+        [
+          "KF142V-5.08-8P",
+          2,
+          "CONN-TH_8P-P5.08_KF142V-5.08-8P",
+          "CN1,CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475140",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-8P",
+            "puuid": "cf82cfb604d941a3ba7f19a5c4ff2fe5",
+            "uuid": "55f2d0d2329640f89d978fda30a1626a"
+          }
+        ],
+        [
+          "KF142V-5.08-4P",
+          4,
+          "CONN-TH_4P-P5.08_KF142V-5.08-4P",
+          "CN3,CN4,CN5,CN6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475136",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-4P",
+            "puuid": "d55a3da0f140419db64893747524559c",
+            "uuid": "135165364fb3451caa966e8c4da9f998"
+          }
+        ],
+        [
+          "KF142V-5.08-2P",
+          2,
+          "CONN-TH_P5.08_KF142V-5.08-2P",
+          "CN7,CN8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475134",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-2P",
+            "puuid": "0e8800627bea4322a54de9180ffdd5f7",
+            "uuid": "845138930e454773b90a462247316c9f"
+          }
+        ],
+        [
+          "SRD-5VDC-SL-A",
+          16,
+          "RELAY-TH_SRD-XXVDC-XX-A",
+          "K9,K1,K3,K4,K5,K6,K7,K8,K2,K10,K11,K12,K13,K14,K15,K16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C140615",
+            "BOM_Manufacturer": "Ningbo Songle Relay",
+            "BOM_Manufacturer Part": "SRD-5VDC-SL-A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9d24027212cb4d40a5275636ba1fdc44",
+            "uuid": "8ab1aa174b0842c88b36f6bff6cba243"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-TH_9P-P2.54-D1.0",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "A09-103JP",
+            "BOM_Supplier Part": "C8692",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c946f1098ca14a18a5ecfc2c3fdd9cec",
+            "uuid": "5286fcbbec887b5055147317c2ec5c53"
+          }
+        ],
+        [
+          "ULN2804G-S18-R",
+          2,
+          "SOP-18_L11.4-W7.6-P1.27-LS10.6-BL",
+          "U8,U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C189789",
+            "BOM_Manufacturer": "Unisonic Tech",
+            "BOM_Manufacturer Part": "ULN2804G-S18-R",
+            "BOM_Paste Type": "expand",
+            "puuid": "047baa97984a442fb2c9b3b620708b54",
+            "uuid": "2f0ff4207da5459b8f4984c7c418bf9b"
+          }
+        ],
+        [
+          "XL74LS04",
+          3,
+          "SOP-14_L8.6-W3.9-P1.27-LS6.0-BL",
+          "U4,U5,U6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C513511",
+            "BOM_Manufacturer": "XINLUDA(信路达)",
+            "BOM_Manufacturer Part": "XL74LS04",
+            "puuid": "e69ddeebe4e34357ab0ade32765aa5fb",
+            "uuid": "c8d1ac7ffc3c4e03883307977252144c"
+          }
+        ]
+      ],
+      "updateTime": 1619556801,
+      "createTime": 1619272886,
+      "histories": [],
+      "created_at": "2021-04-24 09:01:26",
+      "updated_at": "2021-04-27 15:53:21"
+    },
+    {
+      "uuid": "265ed3daa6081f726f7852c3aed5d390",
+      "title": "Relays",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "a3878746005c70adddb43469db023fc0": 16
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "A2541WR-2X10P",
+          1,
+          "CONN-TH_A2541WR-2X10P",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239341",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WR-2x10P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "ee9f2585afb94b44bb9b17173c6f54bc",
+            "uuid": "5bf898758df74ff7b056927802052d6a"
+          }
+        ],
+        [
+          "KF142V-5.08-8P",
+          2,
+          "CONN-TH_8P-P5.08_KF142V-5.08-8P",
+          "CN1,CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475140",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-8P",
+            "puuid": "cf82cfb604d941a3ba7f19a5c4ff2fe5",
+            "uuid": "55f2d0d2329640f89d978fda30a1626a"
+          }
+        ],
+        [
+          "KF142V-5.08-4P",
+          4,
+          "CONN-TH_4P-P5.08_KF142V-5.08-4P",
+          "CN3,CN4,CN5,CN6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475136",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-4P",
+            "puuid": "d55a3da0f140419db64893747524559c",
+            "uuid": "135165364fb3451caa966e8c4da9f998"
+          }
+        ],
+        [
+          "KF142V-5.08-2P",
+          2,
+          "CONN-TH_P5.08_KF142V-5.08-2P",
+          "CN7,CN8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475134",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-2P",
+            "puuid": "0e8800627bea4322a54de9180ffdd5f7",
+            "uuid": "845138930e454773b90a462247316c9f"
+          }
+        ],
+        [
+          "SRA-12VDC-CL",
+          16,
+          "RELAY-TH_SRA-X-CX",
+          "K9,K1,K3,K4,K5,K6,K7,K8,K2,K10,K11,K12,K13,K14,K15,K16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "SONGLE",
+            "BOM_Manufacturer Part": "SRA-12VDC-CL",
+            "BOM_Supplier Part": "C60169",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "d8ab81c31f294d2da4cb9751a61dbd65",
+            "uuid": "a3878746005c70adddb43469db023fc0"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-TH_9P-P2.54-D1.0",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "A09-103JP",
+            "BOM_Supplier Part": "C8692",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c946f1098ca14a18a5ecfc2c3fdd9cec",
+            "uuid": "5286fcbbec887b5055147317c2ec5c53"
+          }
+        ],
+        [
+          "ULN2804G-S18-R",
+          2,
+          "SOP-18_L11.4-W7.6-P1.27-LS10.6-BL",
+          "U8,U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C189789",
+            "BOM_Manufacturer": "Unisonic Tech",
+            "BOM_Manufacturer Part": "ULN2804G-S18-R",
+            "BOM_Paste Type": "expand",
+            "puuid": "047baa97984a442fb2c9b3b620708b54",
+            "uuid": "2f0ff4207da5459b8f4984c7c418bf9b"
+          }
+        ],
+        [
+          "XL74LS04",
+          3,
+          "SOP-14_L8.6-W3.9-P1.27-LS6.0-BL",
+          "U4,U5,U6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C513511",
+            "BOM_Manufacturer": "XINLUDA(信路达)",
+            "BOM_Manufacturer Part": "XL74LS04",
+            "puuid": "e69ddeebe4e34357ab0ade32765aa5fb",
+            "uuid": "c8d1ac7ffc3c4e03883307977252144c"
+          }
+        ]
+      ],
+      "updateTime": 1619571133,
+      "createTime": 1619276618,
+      "histories": [],
+      "created_at": "2021-04-24 10:03:38",
+      "updated_at": "2021-04-27 19:52:13"
+    },
+    {
+      "uuid": "b7df1baecb6897b2c832eb6c7353529d",
+      "title": "power",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {},
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "A2541WR-2X10P",
+          1,
+          "CONN-TH_A2541WR-2X10P",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239341",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WR-2x10P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "ee9f2585afb94b44bb9b17173c6f54bc",
+            "uuid": "5bf898758df74ff7b056927802052d6a"
+          }
+        ],
+        [
+          "DBT50B-9.5-2P",
+          2,
+          "CONN-TH_DBT50B-9.5-2P",
+          "U1,U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C729811",
+            "BOM_Manufacturer": "DIBO",
+            "BOM_Manufacturer Part": "DBT50B-9.5-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a8c8a15bbb1f4f6ab075370c2ca47b5c",
+            "uuid": "b29bc147460445cda0287cc22ed017ee"
+          }
+        ],
+        [
+          "DBT50B-9.5-4P",
+          4,
+          "CONN-TH_DBT50B-9.5-4P",
+          "U5,U7,U4,U6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C729813",
+            "BOM_Manufacturer": "DIBO",
+            "BOM_Manufacturer Part": "DBT50B-9.5-4P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a319f454cd2743f1a8c498a7320486a7",
+            "uuid": "fe14b8e0a8a44cf6aef70b453d340613"
+          }
+        ],
+        [
+          "SRD-5VDC-SL-A",
+          16,
+          "RELAY-TH_SRD-XXVDC-XX-A",
+          "K9,K1,K3,K4,K5,K6,K7,K8,K2,K10,K11,K12,K13,K14,K15,K16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C140615",
+            "BOM_Manufacturer": "Ningbo Songle Relay",
+            "BOM_Manufacturer Part": "SRD-5VDC-SL-A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9d24027212cb4d40a5275636ba1fdc44",
+            "uuid": "8ab1aa174b0842c88b36f6bff6cba243"
+          }
+        ]
+      ],
+      "updateTime": 1619356645,
+      "createTime": 1619277205,
+      "histories": [],
+      "created_at": "2021-04-24 10:13:25",
+      "updated_at": "2021-04-25 08:17:25"
+    },
+    {
+      "uuid": "826e22be0fda36a0ca99d476d3cefceb",
+      "title": "pullups",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "5286fcbbec887b5055147317c2ec5c53": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "A2541WR-2X10P",
+          1,
+          "CONN-TH_A2541WR-2X10P",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239341",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WR-2x10P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "ee9f2585afb94b44bb9b17173c6f54bc",
+            "uuid": "5bf898758df74ff7b056927802052d6a"
+          }
+        ],
+        [
+          "KF142V-5.08-8P",
+          2,
+          "CONN-TH_8P-P5.08_KF142V-5.08-8P",
+          "CN1,CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475140",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-8P",
+            "puuid": "cf82cfb604d941a3ba7f19a5c4ff2fe5",
+            "uuid": "55f2d0d2329640f89d978fda30a1626a"
+          }
+        ],
+        [
+          "KF142V-5.08-4P",
+          4,
+          "CONN-TH_4P-P5.08_KF142V-5.08-4P",
+          "CN3,CN4,CN5,CN6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475136",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-4P",
+            "puuid": "d55a3da0f140419db64893747524559c",
+            "uuid": "135165364fb3451caa966e8c4da9f998"
+          }
+        ],
+        [
+          "DBT50B-9.5-2P",
+          2,
+          "CONN-TH_DBT50B-9.5-2P",
+          "U1,U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C729811",
+            "BOM_Manufacturer": "DIBO",
+            "BOM_Manufacturer Part": "DBT50B-9.5-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a8c8a15bbb1f4f6ab075370c2ca47b5c",
+            "uuid": "b29bc147460445cda0287cc22ed017ee"
+          }
+        ],
+        [
+          "SRD-5VDC-SL-A",
+          16,
+          "RELAY-TH_SRD-XXVDC-XX-A",
+          "K9,K1,K3,K4,K5,K6,K7,K8,K2,K10,K11,K12,K13,K14,K15,K16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C140615",
+            "BOM_Manufacturer": "Ningbo Songle Relay",
+            "BOM_Manufacturer Part": "SRD-5VDC-SL-A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9d24027212cb4d40a5275636ba1fdc44",
+            "uuid": "8ab1aa174b0842c88b36f6bff6cba243"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-TH_9P-P2.54-D1.0",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "A09-103JP",
+            "BOM_Supplier Part": "C8692",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c946f1098ca14a18a5ecfc2c3fdd9cec",
+            "uuid": "5286fcbbec887b5055147317c2ec5c53"
+          }
+        ],
+        [
+          "ULN2804G-S18-R",
+          2,
+          "SOP-18_L11.4-W7.6-P1.27-LS10.6-BL",
+          "U8,U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C189789",
+            "BOM_Manufacturer": "Unisonic Tech",
+            "BOM_Manufacturer Part": "ULN2804G-S18-R",
+            "BOM_Paste Type": "expand",
+            "puuid": "047baa97984a442fb2c9b3b620708b54",
+            "uuid": "2f0ff4207da5459b8f4984c7c418bf9b"
+          }
+        ]
+      ],
+      "updateTime": 1619537805,
+      "createTime": 1619359467,
+      "histories": [],
+      "created_at": "2021-04-25 09:04:27",
+      "updated_at": "2021-04-27 10:36:45"
+    },
+    {
+      "uuid": "fdb8d48be7b485d23e99bf9bf76d2fd3",
+      "title": "Driver",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "2f0ff4207da5459b8f4984c7c418bf9b": 2,
+        "c8d1ac7ffc3c4e03883307977252144c": 3
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "A2541WR-2X10P",
+          1,
+          "CONN-TH_A2541WR-2X10P",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239341",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WR-2x10P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "ee9f2585afb94b44bb9b17173c6f54bc",
+            "uuid": "5bf898758df74ff7b056927802052d6a"
+          }
+        ],
+        [
+          "KF142V-5.08-8P",
+          2,
+          "CONN-TH_8P-P5.08_KF142V-5.08-8P",
+          "CN1,CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475140",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-8P",
+            "puuid": "cf82cfb604d941a3ba7f19a5c4ff2fe5",
+            "uuid": "55f2d0d2329640f89d978fda30a1626a"
+          }
+        ],
+        [
+          "KF142V-5.08-4P",
+          4,
+          "CONN-TH_4P-P5.08_KF142V-5.08-4P",
+          "CN3,CN4,CN5,CN6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475136",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF142V-5.08-4P",
+            "puuid": "d55a3da0f140419db64893747524559c",
+            "uuid": "135165364fb3451caa966e8c4da9f998"
+          }
+        ],
+        [
+          "DBT50B-9.5-2P",
+          2,
+          "CONN-TH_DBT50B-9.5-2P",
+          "U1,U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C729811",
+            "BOM_Manufacturer": "DIBO",
+            "BOM_Manufacturer Part": "DBT50B-9.5-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a8c8a15bbb1f4f6ab075370c2ca47b5c",
+            "uuid": "b29bc147460445cda0287cc22ed017ee"
+          }
+        ],
+        [
+          "SRD-5VDC-SL-A",
+          16,
+          "RELAY-TH_SRD-XXVDC-XX-A",
+          "K9,K1,K3,K4,K5,K6,K7,K8,K2,K10,K11,K12,K13,K14,K15,K16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C140615",
+            "BOM_Manufacturer": "Ningbo Songle Relay",
+            "BOM_Manufacturer Part": "SRD-5VDC-SL-A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9d24027212cb4d40a5275636ba1fdc44",
+            "uuid": "8ab1aa174b0842c88b36f6bff6cba243"
+          }
+        ],
+        [
+          "10K",
+          2,
+          "RES-ARRAY-TH_9P-P2.54-D1.0",
+          "RN1,RN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "A09-103JP",
+            "BOM_Supplier Part": "C8692",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c946f1098ca14a18a5ecfc2c3fdd9cec",
+            "uuid": "5286fcbbec887b5055147317c2ec5c53"
+          }
+        ],
+        [
+          "ULN2804G-S18-R",
+          2,
+          "SOP-18_L11.4-W7.6-P1.27-LS10.6-BL",
+          "U8,U3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C189789",
+            "BOM_Manufacturer": "Unisonic Tech",
+            "BOM_Manufacturer Part": "ULN2804G-S18-R",
+            "BOM_Paste Type": "expand",
+            "puuid": "047baa97984a442fb2c9b3b620708b54",
+            "uuid": "2f0ff4207da5459b8f4984c7c418bf9b"
+          }
+        ],
+        [
+          "XL74LS04",
+          3,
+          "SOP-14_L8.6-W3.9-P1.27-LS6.0-BL",
+          "U4,U5,U6",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C513511",
+            "BOM_Manufacturer": "XINLUDA(信路达)",
+            "BOM_Manufacturer Part": "XL74LS04",
+            "puuid": "e69ddeebe4e34357ab0ade32765aa5fb",
+            "uuid": "c8d1ac7ffc3c4e03883307977252144c"
+          }
+        ]
+      ],
+      "updateTime": 1619554323,
+      "createTime": 1619364369,
+      "histories": [],
+      "created_at": "2021-04-25 10:26:09",
+      "updated_at": "2021-04-27 15:12:03"
+    }
+  ],
+  "sort": [
+    "df3694120411406b9dace95b44f961d6",
+    "265ed3daa6081f726f7852c3aed5d390",
+    "b7df1baecb6897b2c832eb6c7353529d",
+    "826e22be0fda36a0ca99d476d3cefceb",
+    "fdb8d48be7b485d23e99bf9bf76d2fd3"
+  ],
+  "title": "8-Channel-Relays",
+  "foldername": "8-Channel-Relays",
+  "schfilename": "8-Channel-Relays.json",
+  "schfilemtime": 1620086429264.7207
+}

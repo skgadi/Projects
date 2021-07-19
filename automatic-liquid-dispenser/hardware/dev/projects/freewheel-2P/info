@@ -1,0 +1,114 @@
+{
+  "uuid": "acc9e7e7807a5e788a256ecf3bae59be",
+  "path": "Offline/freewheel-2P",
+  "name": "freewheel-2P",
+  "content": "",
+  "created_at": "2021-05-03 20:19:14",
+  "updated_at": "2021-05-11 22:14:38",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "d88628077c83a2865a394eea481f7910",
+      "title": "Diode and terminal",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "903895362a2a448c9bc12a9a8ab21601": 1,
+        "e3feacc3f78b4f9eb460bd89a310e2de": 4
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "KF250-3.5-6P-2",
+          1,
+          "CONN-TH_6P-P3.50_KF250-3.5-6P-2",
+          "CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C475167",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF250-3.5-6P-2",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "8223544824f74342a83f19144aaea5cb",
+            "uuid": "903895362a2a448c9bc12a9a8ab21601"
+          }
+        ],
+        [
+          "M7_C95872",
+          4,
+          "DO-214AC_L4.3-W2.7-LS5.3-RD",
+          "D4,D3,D1,D2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MDD",
+            "BOM_Manufacturer Part": "M7",
+            "BOM_Supplier Part": "C95872",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "719e77466b9a45aa8f9550a93f6695ed",
+            "uuid": "e3feacc3f78b4f9eb460bd89a310e2de"
+          }
+        ]
+      ],
+      "updateTime": 1620530770,
+      "createTime": 1620091196,
+      "histories": [],
+      "created_at": "2021-05-03 20:19:56",
+      "updated_at": "2021-05-08 22:26:10"
+    },
+    {
+      "uuid": "55165965aa67e4773bf354adf495e695",
+      "puuid": "acc9e7e7807a5e788a256ecf3bae59be",
+      "title": "PCB_freewheel-2P",
+      "filename": "PCB_freewheel-2P.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "09cc13e85f964f62aaddc9b6ab538321": 1,
+        "719e77466b9a45aa8f9550a93f6695ed": 8
+      },
+      "BOM": [],
+      "updateTime": 1620518912,
+      "createTime": 1620517761,
+      "histories": [],
+      "created_at": "2021-05-08 18:49:21",
+      "updated_at": "2021-05-08 19:08:32"
+    },
+    {
+      "uuid": "fb2e62f16c9544c6abd918b0b5bca680",
+      "puuid": "acc9e7e7807a5e788a256ecf3bae59be",
+      "title": "Ref_1620780613205",
+      "filename": "Ref_1620780613205.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "8223544824f74342a83f19144aaea5cb": 1,
+        "719e77466b9a45aa8f9550a93f6695ed": 4
+      },
+      "BOM": [],
+      "updateTime": 1620789278,
+      "createTime": 1620529737,
+      "histories": [],
+      "created_at": "2021-05-08 22:08:57",
+      "updated_at": "2021-05-11 22:14:38"
+    }
+  ],
+  "sort": [],
+  "title": "freewheel-2P",
+  "foldername": "freewheel-2P",
+  "schfilename": "freewheel-2P.json",
+  "schfilemtime": 1620530770398
+}

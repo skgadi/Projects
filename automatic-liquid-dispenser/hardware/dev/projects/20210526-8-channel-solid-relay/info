@@ -1,0 +1,151 @@
+{
+  "uuid": "587b913e8ef38905d8736344bfc0908e",
+  "path": "Offline/20210526-8-channel-solid-relay",
+  "name": "20210526-8-channel-solid-relay",
+  "content": "",
+  "created_at": "2021-05-26 21:23:05",
+  "updated_at": "2021-05-26 22:32:29",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "45117dcff0042c6c0e47cde9f615eee1",
+      "title": "SolidRelays",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "3b5570c6a2e343b4a0b894f5f60dd219": 8
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A",
+          8,
+          "DIP-18_L23.0-W6.5-P2.54-LS7.6-BL",
+          "Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "STMicroelectronics",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_Supplier Part": "C73936",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "410e4c6012dc4e80aa77814f280c208f",
+            "uuid": "3b5570c6a2e343b4a0b894f5f60dd219"
+          }
+        ]
+      ],
+      "updateTime": 1622083442,
+      "createTime": 1622083431,
+      "histories": [],
+      "created_at": "2021-05-26 21:43:51",
+      "updated_at": "2021-05-26 21:44:02"
+    },
+    {
+      "uuid": "4a5aa881bed0ef41ce6ef18d03ed558f",
+      "title": "Connectors",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "391b1e40ed1a472f9bc181cdd87af69c": 1,
+        "c1bf4d0f46294a31af4d88618d23d7ad": 5
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ULN2803A",
+          8,
+          "DIP-18_L23.0-W6.5-P2.54-LS7.6-BL",
+          "Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "STMicroelectronics",
+            "BOM_Manufacturer Part": "ULN2803A",
+            "BOM_Supplier Part": "C73936",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "410e4c6012dc4e80aa77814f280c208f",
+            "uuid": "3b5570c6a2e343b4a0b894f5f60dd219"
+          }
+        ],
+        [
+          "A2005WV-2X5P",
+          1,
+          "HDR-TH_10P-P2.00-V-R2-C5-S2.00",
+          "CN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C225290",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2005WV-2x5P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "fa4c4c2fd0fb4fdcaeafeb8d5394fc85",
+            "uuid": "391b1e40ed1a472f9bc181cdd87af69c"
+          }
+        ],
+        [
+          "XY118-5.0-2P",
+          5,
+          "CONN-TH_XY118-5.0-2P",
+          "CN6,CN5,CN4,CN3,CN2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C784922",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY118-5.0-2P",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "f21019be0deb405481de00d4523327ae",
+            "uuid": "c1bf4d0f46294a31af4d88618d23d7ad"
+          }
+        ]
+      ],
+      "updateTime": 1622084862,
+      "createTime": 1622083457,
+      "histories": [],
+      "created_at": "2021-05-26 21:44:17",
+      "updated_at": "2021-05-26 22:07:42"
+    },
+    {
+      "uuid": "97eb072c41e5421e15b27d4108756e2b",
+      "puuid": "587b913e8ef38905d8736344bfc0908e",
+      "title": "PCB_20210526-8-channel-solid-relay",
+      "filename": "PCB_20210526-8-channel-solid-relay.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "410e4c6012dc4e80aa77814f280c208f": 8,
+        "fa4c4c2fd0fb4fdcaeafeb8d5394fc85": 1,
+        "f21019be0deb405481de00d4523327ae": 5
+      },
+      "BOM": [],
+      "updateTime": 1622086349,
+      "createTime": 1622084245,
+      "histories": [],
+      "created_at": "2021-05-26 21:57:25",
+      "updated_at": "2021-05-26 22:32:29"
+    }
+  ],
+  "sort": [
+    "45117dcff0042c6c0e47cde9f615eee1",
+    "4a5aa881bed0ef41ce6ef18d03ed558f"
+  ],
+  "title": "20210526-8-channel-solid-relay",
+  "foldername": "20210526-8-channel-solid-relay",
+  "schfilename": "20210526-8-channel-solid-relay.json",
+  "schfilemtime": 1622084862107
+}

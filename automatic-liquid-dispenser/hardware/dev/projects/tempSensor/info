@@ -1,0 +1,58 @@
+{
+  "uuid": "35687e21f4fca5f637e60d826f7304fc",
+  "path": "Offline/tempSensor",
+  "name": "tempSensor",
+  "content": "",
+  "created_at": "2021-04-27 17:19:39",
+  "updated_at": "2021-04-27 19:29:39",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "930d19075a282d8907bb624da46616d1",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "ee964fa7f5015358affe88ba94b4ad04": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "MAX31855KASA+T",
+          1,
+          "SO-8_L4.9-W3.9-P1.27-LS5.9-BL",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MAXIM",
+            "BOM_Manufacturer Part": "MAX31855KASA+T",
+            "BOM_Supplier Part": "C52028",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "8aab91f64b754519a473e8a5b3f412da",
+            "uuid": "ee964fa7f5015358affe88ba94b4ad04"
+          }
+        ]
+      ],
+      "updateTime": 1619569779,
+      "createTime": 1619569779,
+      "histories": [],
+      "created_at": "2021-04-27 19:29:39",
+      "updated_at": "2021-04-27 19:29:39"
+    }
+  ],
+  "sort": [],
+  "title": "tempSensor",
+  "foldername": "tempSensor",
+  "schfilename": "tempSensor.json",
+  "schfilemtime": 1619569779381
+}

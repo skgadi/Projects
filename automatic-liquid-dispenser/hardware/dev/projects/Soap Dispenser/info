@@ -1,0 +1,1405 @@
+{
+  "uuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+  "path": "Offline/Soap Dispenser",
+  "name": "Soap Dispenser",
+  "content": "",
+  "created_at": "2021-03-27 00:43:53",
+  "updated_at": "2021-03-29 16:52:58",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "a61a6f209bb1a5236f451fff1be82dd0",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "69fb829b86ee4371b0d656c591c73c19": 2,
+        "7bc8cd36717f48d5a5cfa530795acdab": 1,
+        "88cbb99e6a3e4b16a96c512859d50f79": 1,
+        "bab97afda85b4bbf8bd6206a789753e2": 1,
+        "c18e392212aec811dbabd9dc77fa97a1": 2,
+        "df48ceed4bd34f6a9951433cb6366f73": 2,
+        "ef0024e752e341cd8c45afef99f73558": 1,
+        "d93761bd1eb1478cad67aab068119150": 1,
+        "c7509cbb11974421922bb3e8d3a351a4": 2,
+        "4d70519108964d52b7f7974e5cf6c567": 1,
+        "3c03129c9cf344dea2f9e47da9a33eef": 1,
+        "798d338ecc35f17f69de553775e18bf4": 1,
+        "948b0d7afb18dac4f0e67db74a7f46da": 1,
+        "a6fece8d15614bc9a38214b936606856": 10,
+        "99d59cd827694626b368e82f2206f1b0": 2,
+        "ab4318fc90be0d1a313504fa7a2ae80d": 1,
+        "eb860e88eda1483c8e9b919bb09f035f": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "220",
+          1,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C433749",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RD 1/4W 220R J T/B A1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "3c03129c9cf344dea2f9e47da9a33eef"
+          }
+        ],
+        [
+          "750",
+          1,
+          "RES-TH_BD2.2-L6.5-P10.50-D0.6",
+          "R2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C337185",
+            "BOM_Manufacturer": "FlyWin",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666264fd42b84465ad050a9517cab8cf",
+            "uuid": "4d70519108964d52b7f7974e5cf6c567"
+          }
+        ],
+        [
+          "5-146274-3",
+          1,
+          "HDR-TH_3P-P2.54-V-S2.54",
+          "MONEDAS",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C306223",
+            "BOM_Manufacturer": "TE Connectivity",
+            "BOM_Manufacturer Part": "5-146274-3",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c6bc7ffcfdde440bbf762dfd21017f27",
+            "uuid": "7bc8cd36717f48d5a5cfa530795acdab"
+          }
+        ],
+        [
+          "KF128L-3.81-2P",
+          2,
+          "CONN-TH_P3.81_KF128L-3.81-2P",
+          "5V,12V",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474932",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF128L-3.81-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "09a7c2a7d8304985b54a882e6c636f8d",
+            "uuid": "69fb829b86ee4371b0d656c591c73c19"
+          }
+        ],
+        [
+          "A2541WV-4P",
+          1,
+          "HDR-TH_4P-P2.54-V",
+          "DISPLAY",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C225479",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WV-4P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "31a453d5adfc45cea944a6450adf2918",
+            "uuid": "88cbb99e6a3e4b16a96c512859d50f79"
+          }
+        ],
+        [
+          "IC seat 14P",
+          2,
+          "DIP-14_L17.8-W10.2-P2.54-BL",
+          "CD4072B-2,CD4072B-1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2325",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "49d758d5e76d4c5e885658bc7d795602",
+            "uuid": "99d59cd827694626b368e82f2206f1b0"
+          }
+        ],
+        [
+          "Header-Male-2.54_2x3",
+          1,
+          "HDR-TH_6P-P2.54-V-R2-C3-S2.54",
+          "PROG",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "Header-Male-2.54_2x3",
+            "BOM_Supplier Part": "C65114",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a436596cfaa0438cbeaf105e5590ca97",
+            "uuid": "798d338ecc35f17f69de553775e18bf4"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "CAP-TH_BD5.0-P2.00-D0.8-FD",
+          "C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ValuePro",
+            "BOM_Manufacturer Part": "0.1UF 50V",
+            "BOM_Supplier Part": "C28061",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "3744bcbe1f464b01ae180f32d7d4b0c4",
+            "uuid": "948b0d7afb18dac4f0e67db74a7f46da"
+          }
+        ],
+        [
+          "IC seat 16P",
+          10,
+          "DIP-16_L20.3-W10.2-P2.54-LS10.2-BL",
+          "ENCODER-01-08,DECODER-09-016,ASDFA,DECODER-25-32,ENCODER-25-32,SK5,ENCODER-09-16,ENCODER-17-24,SK7,DECODER-17-24",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2326",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7e10a45c45da41da8c852bb0f30065ca",
+            "uuid": "a6fece8d15614bc9a38214b936606856"
+          }
+        ],
+        [
+          "DS1009-28AT1NS-0A2",
+          1,
+          "DIP-28_L35.6-W10.2-P2.54-LS7.62-BL",
+          "COMPUTER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CONNFLY",
+            "BOM_Manufacturer Part": "DS1009-28AT1NS-0A2",
+            "BOM_Supplier Part": "C72125",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "b62ea6b996094961a8aa59b4ff7ebc4f",
+            "uuid": "ab4318fc90be0d1a313504fa7a2ae80d"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x16",
+          1,
+          "HDR-TH_32P-P2.54-V-M-R2-C16-S2.54",
+          "BOTONES",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×16Double female header",
+            "BOM_Supplier Part": "C24778",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666e960d81164eaebde15e728f7c89e8",
+            "uuid": "bab97afda85b4bbf8bd6206a789753e2"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x10",
+          2,
+          "HDR-TH_20P-P2.54-V-R2-C10-S2.54",
+          "RELAY01-16,RELAY17-32",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×10Double row female",
+            "BOM_Supplier Part": "C30867",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "780686d0fdb24daf9219b0adc15f316a",
+            "uuid": "c18e392212aec811dbabd9dc77fa97a1"
+          }
+        ],
+        [
+          "LTL2T3GL4J-032A",
+          2,
+          "LED-TH_BD5.0-P2.54-L-RD",
+          "LED1,LED2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C575516",
+            "BOM_Manufacturer": "Lite-On",
+            "BOM_Manufacturer Part": "LTL2T3GL4J-032A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "f8e54adf591145d081238320de52230c",
+            "uuid": "c7509cbb11974421922bb3e8d3a351a4"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-TH_BD2.3-L6.5-P10.50-D0.5",
+          "R1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C385441",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RN1/2WS10KΩFT/BA1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9ea59130ae074fa3abe27de8cbf71d91",
+            "uuid": "d93761bd1eb1478cad67aab068119150"
+          }
+        ],
+        [
+          "22pF",
+          2,
+          "CAP-TH_L8.5-W5.0-P5.00-D1.2",
+          "C1,C2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "Monolithic0603N220J500",
+            "BOM_Supplier Part": "C110283",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "22b246ec12564337ab8a39d4c651a291",
+            "uuid": "df48ceed4bd34f6a9951433cb6366f73"
+          }
+        ],
+        [
+          "XY129V-B-5.08-3P",
+          1,
+          "CONN-TH_XY129V-B-5.08-3P",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C557672",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY129V-B-5.08-3P",
+            "BOM_Paste Type": "expand",
+            "puuid": "afa1fed70d61433c8e3f31f85d69f754",
+            "uuid": "eb860e88eda1483c8e9b919bb09f035f"
+          }
+        ],
+        [
+          "16MHz",
+          1,
+          "HC-49US_L11.5-W4.5-P4.88",
+          "X1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C295075",
+            "BOM_Manufacturer": "TAITIEN Elec",
+            "BOM_Manufacturer Part": "XIHCELNANF-16MHZ",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c3f5f0ccc4444176a5a6d81e2c6071f5",
+            "uuid": "ef0024e752e341cd8c45afef99f73558"
+          }
+        ],
+        [
+          "220",
+          1,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C433749",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RD 1/4W 220R J T/B A1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "3c03129c9cf344dea2f9e47da9a33eef"
+          }
+        ],
+        [
+          "750",
+          1,
+          "RES-TH_BD2.2-L6.5-P10.50-D0.6",
+          "R2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C337185",
+            "BOM_Manufacturer": "FlyWin",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666264fd42b84465ad050a9517cab8cf",
+            "uuid": "4d70519108964d52b7f7974e5cf6c567"
+          }
+        ],
+        [
+          "5-146274-3",
+          1,
+          "HDR-TH_3P-P2.54-V-S2.54",
+          "MONEDAS",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C306223",
+            "BOM_Manufacturer": "TE Connectivity",
+            "BOM_Manufacturer Part": "5-146274-3",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c6bc7ffcfdde440bbf762dfd21017f27",
+            "uuid": "7bc8cd36717f48d5a5cfa530795acdab"
+          }
+        ],
+        [
+          "KF128L-3.81-2P",
+          2,
+          "CONN-TH_P3.81_KF128L-3.81-2P",
+          "5V,12V",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474932",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF128L-3.81-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "09a7c2a7d8304985b54a882e6c636f8d",
+            "uuid": "69fb829b86ee4371b0d656c591c73c19"
+          }
+        ],
+        [
+          "A2541WV-4P",
+          1,
+          "HDR-TH_4P-P2.54-V",
+          "DISPLAY",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C225479",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WV-4P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "31a453d5adfc45cea944a6450adf2918",
+            "uuid": "88cbb99e6a3e4b16a96c512859d50f79"
+          }
+        ],
+        [
+          "KF301-5.0-3P",
+          1,
+          "CONN-TH_3P-P5.00_KF301-5.0-3P",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474882",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF301-5.0-3P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7085a4e18cee4b0690201d020cc82d5c",
+            "uuid": "89eaa88f34bd4d05899b1f517a427935"
+          }
+        ],
+        [
+          "IC seat 14P",
+          2,
+          "DIP-14_L17.8-W10.2-P2.54-BL",
+          "CD4072B-2,CD4072B-1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2325",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "49d758d5e76d4c5e885658bc7d795602",
+            "uuid": "99d59cd827694626b368e82f2206f1b0"
+          }
+        ],
+        [
+          "Header-Male-2.54_2x3",
+          1,
+          "HDR-TH_6P-P2.54-V-R2-C3-S2.54",
+          "PROG",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "Header-Male-2.54_2x3",
+            "BOM_Supplier Part": "C65114",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a436596cfaa0438cbeaf105e5590ca97",
+            "uuid": "798d338ecc35f17f69de553775e18bf4"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "CAP-TH_BD5.0-P2.00-D0.8-FD",
+          "C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ValuePro",
+            "BOM_Manufacturer Part": "0.1UF 50V",
+            "BOM_Supplier Part": "C28061",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "3744bcbe1f464b01ae180f32d7d4b0c4",
+            "uuid": "948b0d7afb18dac4f0e67db74a7f46da"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "R1206",
+          "R4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "1206W4F1002T5E",
+            "BOM_Supplier Part": "C17902",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "0610c91ea88544ecbdf889657d55abcb",
+            "uuid": "4439ff8d4269ac30d55af3439a30f0ec"
+          }
+        ],
+        [
+          "IC seat 16P",
+          10,
+          "DIP-16_L20.3-W10.2-P2.54-LS10.2-BL",
+          "SK5,FASF,DECODER-09-016,DECODER-25-32,SK7,ENCODER-01-08,ENCODER-09-16,DECODER-17-24,ENCODER-25-32,ENCODER-17-24",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2326",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7e10a45c45da41da8c852bb0f30065ca",
+            "uuid": "a6fece8d15614bc9a38214b936606856"
+          }
+        ],
+        [
+          "DS1009-28AT1NS-0A2",
+          1,
+          "DIP-28_L35.6-W10.2-P2.54-LS7.62-BL",
+          "COMPUTER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CONNFLY",
+            "BOM_Manufacturer Part": "DS1009-28AT1NS-0A2",
+            "BOM_Supplier Part": "C72125",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "b62ea6b996094961a8aa59b4ff7ebc4f",
+            "uuid": "ab4318fc90be0d1a313504fa7a2ae80d"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x16",
+          1,
+          "HDR-TH_32P-P2.54-V-M-R2-C16-S2.54",
+          "BOTONES",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×16Double female header",
+            "BOM_Supplier Part": "C24778",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666e960d81164eaebde15e728f7c89e8",
+            "uuid": "bab97afda85b4bbf8bd6206a789753e2"
+          }
+        ],
+        [
+          "74HC138D,653",
+          5,
+          "SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL",
+          "U7,U6,U5,U4,DECODER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "Nexperia",
+            "BOM_Manufacturer Part": "74HC138D,653",
+            "BOM_Supplier Part": "C5602",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "bc30752f83694054baa42649cbb6b7d0",
+            "uuid": "c1b161f2ab2f4bbcb4b742716531c818"
+          }
+        ],
+        [
+          "TS-1109S-B-B",
+          1,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS7.0",
+          "SW2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C480315",
+            "BOM_Manufacturer": "XKB Enterprise",
+            "BOM_Manufacturer Part": "TS-1109S-B-B",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_Paste Type": "recommend",
+            "puuid": "1b989131e981494a86139d8bf3b15fd9",
+            "uuid": "c6aeb8cdf6844639a666dfce447bcad3"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x10",
+          2,
+          "HDR-TH_20P-P2.54-V-R2-C10-S2.54",
+          "RELAY01-16,RELAY17-32",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×10Double row female",
+            "BOM_Supplier Part": "C30867",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "780686d0fdb24daf9219b0adc15f316a",
+            "uuid": "c18e392212aec811dbabd9dc77fa97a1"
+          }
+        ],
+        [
+          "LTL2T3GL4J-032A",
+          2,
+          "LED-TH_BD5.0-P2.54-L-RD",
+          "LED1,LED2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C575516",
+            "BOM_Manufacturer": "Lite-On",
+            "BOM_Manufacturer Part": "LTL2T3GL4J-032A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "f8e54adf591145d081238320de52230c",
+            "uuid": "c7509cbb11974421922bb3e8d3a351a4"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-TH_BD2.3-L6.5-P10.50-D0.5",
+          "R1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C385441",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RN1/2WS10KΩFT/BA1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9ea59130ae074fa3abe27de8cbf71d91",
+            "uuid": "d93761bd1eb1478cad67aab068119150"
+          }
+        ],
+        [
+          "22pF",
+          2,
+          "CAP-TH_L8.5-W5.0-P5.00-D1.2",
+          "C1,C2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "Monolithic0603N220J500",
+            "BOM_Supplier Part": "C110283",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "22b246ec12564337ab8a39d4c651a291",
+            "uuid": "df48ceed4bd34f6a9951433cb6366f73"
+          }
+        ],
+        [
+          "16MHz",
+          1,
+          "HC-49US_L11.5-W4.5-P4.88",
+          "X1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C295075",
+            "BOM_Manufacturer": "TAITIEN Elec",
+            "BOM_Manufacturer Part": "XIHCELNANF-16MHZ",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c3f5f0ccc4444176a5a6d81e2c6071f5",
+            "uuid": "ef0024e752e341cd8c45afef99f73558"
+          }
+        ]
+      ],
+      "updateTime": 1617058378,
+      "createTime": 1616830044,
+      "histories": [],
+      "created_at": "2021-03-27 01:27:24",
+      "updated_at": "2021-03-29 16:52:58"
+    },
+    {
+      "uuid": "e55942dad9aee92436eb4915d90be812",
+      "title": "SMT-Design",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "69fb829b86ee4371b0d656c591c73c19": 2,
+        "7bc8cd36717f48d5a5cfa530795acdab": 1,
+        "88cbb99e6a3e4b16a96c512859d50f79": 1,
+        "bab97afda85b4bbf8bd6206a789753e2": 1,
+        "c18e392212aec811dbabd9dc77fa97a1": 2,
+        "df48ceed4bd34f6a9951433cb6366f73": 2,
+        "ef0024e752e341cd8c45afef99f73558": 1,
+        "d93761bd1eb1478cad67aab068119150": 1,
+        "c7509cbb11974421922bb3e8d3a351a4": 2,
+        "4d70519108964d52b7f7974e5cf6c567": 1,
+        "3c03129c9cf344dea2f9e47da9a33eef": 1,
+        "798d338ecc35f17f69de553775e18bf4": 1,
+        "948b0d7afb18dac4f0e67db74a7f46da": 1,
+        "a6fece8d15614bc9a38214b936606856": 10,
+        "99d59cd827694626b368e82f2206f1b0": 2,
+        "ab4318fc90be0d1a313504fa7a2ae80d": 1,
+        "89eaa88f34bd4d05899b1f517a427935": 1,
+        "c6aeb8cdf6844639a666dfce447bcad3": 1,
+        "4439ff8d4269ac30d55af3439a30f0ec": 1,
+        "c1b161f2ab2f4bbcb4b742716531c818": 5
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "220",
+          1,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C433749",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RD 1/4W 220R J T/B A1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "3c03129c9cf344dea2f9e47da9a33eef"
+          }
+        ],
+        [
+          "750",
+          1,
+          "RES-TH_BD2.2-L6.5-P10.50-D0.6",
+          "R2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C337185",
+            "BOM_Manufacturer": "FlyWin",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666264fd42b84465ad050a9517cab8cf",
+            "uuid": "4d70519108964d52b7f7974e5cf6c567"
+          }
+        ],
+        [
+          "5-146274-3",
+          1,
+          "HDR-TH_3P-P2.54-V-S2.54",
+          "MONEDAS",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C306223",
+            "BOM_Manufacturer": "TE Connectivity",
+            "BOM_Manufacturer Part": "5-146274-3",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c6bc7ffcfdde440bbf762dfd21017f27",
+            "uuid": "7bc8cd36717f48d5a5cfa530795acdab"
+          }
+        ],
+        [
+          "KF128L-3.81-2P",
+          2,
+          "CONN-TH_P3.81_KF128L-3.81-2P",
+          "5V,12V",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474932",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF128L-3.81-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "09a7c2a7d8304985b54a882e6c636f8d",
+            "uuid": "69fb829b86ee4371b0d656c591c73c19"
+          }
+        ],
+        [
+          "A2541WV-4P",
+          1,
+          "HDR-TH_4P-P2.54-V",
+          "DISPLAY",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C225479",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WV-4P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "31a453d5adfc45cea944a6450adf2918",
+            "uuid": "88cbb99e6a3e4b16a96c512859d50f79"
+          }
+        ],
+        [
+          "IC seat 14P",
+          2,
+          "DIP-14_L17.8-W10.2-P2.54-BL",
+          "CD4072B-2,CD4072B-1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2325",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "49d758d5e76d4c5e885658bc7d795602",
+            "uuid": "99d59cd827694626b368e82f2206f1b0"
+          }
+        ],
+        [
+          "Header-Male-2.54_2x3",
+          1,
+          "HDR-TH_6P-P2.54-V-R2-C3-S2.54",
+          "PROG",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "Header-Male-2.54_2x3",
+            "BOM_Supplier Part": "C65114",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a436596cfaa0438cbeaf105e5590ca97",
+            "uuid": "798d338ecc35f17f69de553775e18bf4"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "CAP-TH_BD5.0-P2.00-D0.8-FD",
+          "C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ValuePro",
+            "BOM_Manufacturer Part": "0.1UF 50V",
+            "BOM_Supplier Part": "C28061",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "3744bcbe1f464b01ae180f32d7d4b0c4",
+            "uuid": "948b0d7afb18dac4f0e67db74a7f46da"
+          }
+        ],
+        [
+          "IC seat 16P",
+          10,
+          "DIP-16_L20.3-W10.2-P2.54-LS10.2-BL",
+          "ENCODER-01-08,DECODER-09-016,ASDFA,DECODER-25-32,ENCODER-25-32,SK5,ENCODER-09-16,ENCODER-17-24,SK7,DECODER-17-24",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2326",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7e10a45c45da41da8c852bb0f30065ca",
+            "uuid": "a6fece8d15614bc9a38214b936606856"
+          }
+        ],
+        [
+          "DS1009-28AT1NS-0A2",
+          1,
+          "DIP-28_L35.6-W10.2-P2.54-LS7.62-BL",
+          "COMPUTER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CONNFLY",
+            "BOM_Manufacturer Part": "DS1009-28AT1NS-0A2",
+            "BOM_Supplier Part": "C72125",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "b62ea6b996094961a8aa59b4ff7ebc4f",
+            "uuid": "ab4318fc90be0d1a313504fa7a2ae80d"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x16",
+          1,
+          "HDR-TH_32P-P2.54-V-M-R2-C16-S2.54",
+          "BOTONES",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×16Double female header",
+            "BOM_Supplier Part": "C24778",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666e960d81164eaebde15e728f7c89e8",
+            "uuid": "bab97afda85b4bbf8bd6206a789753e2"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x10",
+          2,
+          "HDR-TH_20P-P2.54-V-R2-C10-S2.54",
+          "RELAY01-16,RELAY17-32",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×10Double row female",
+            "BOM_Supplier Part": "C30867",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "780686d0fdb24daf9219b0adc15f316a",
+            "uuid": "c18e392212aec811dbabd9dc77fa97a1"
+          }
+        ],
+        [
+          "LTL2T3GL4J-032A",
+          2,
+          "LED-TH_BD5.0-P2.54-L-RD",
+          "LED1,LED2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C575516",
+            "BOM_Manufacturer": "Lite-On",
+            "BOM_Manufacturer Part": "LTL2T3GL4J-032A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "f8e54adf591145d081238320de52230c",
+            "uuid": "c7509cbb11974421922bb3e8d3a351a4"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-TH_BD2.3-L6.5-P10.50-D0.5",
+          "R1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C385441",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RN1/2WS10KΩFT/BA1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9ea59130ae074fa3abe27de8cbf71d91",
+            "uuid": "d93761bd1eb1478cad67aab068119150"
+          }
+        ],
+        [
+          "22pF",
+          2,
+          "CAP-TH_L8.5-W5.0-P5.00-D1.2",
+          "C1,C2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "Monolithic0603N220J500",
+            "BOM_Supplier Part": "C110283",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "22b246ec12564337ab8a39d4c651a291",
+            "uuid": "df48ceed4bd34f6a9951433cb6366f73"
+          }
+        ],
+        [
+          "XY129V-B-5.08-3P",
+          1,
+          "CONN-TH_XY129V-B-5.08-3P",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C557672",
+            "BOM_Manufacturer": "Ningbo Xinlaiya Elec.",
+            "BOM_Manufacturer Part": "XY129V-B-5.08-3P",
+            "BOM_Paste Type": "expand",
+            "puuid": "afa1fed70d61433c8e3f31f85d69f754",
+            "uuid": "eb860e88eda1483c8e9b919bb09f035f"
+          }
+        ],
+        [
+          "16MHz",
+          1,
+          "HC-49US_L11.5-W4.5-P4.88",
+          "X1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C295075",
+            "BOM_Manufacturer": "TAITIEN Elec",
+            "BOM_Manufacturer Part": "XIHCELNANF-16MHZ",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c3f5f0ccc4444176a5a6d81e2c6071f5",
+            "uuid": "ef0024e752e341cd8c45afef99f73558"
+          }
+        ],
+        [
+          "220",
+          1,
+          "RES-TH_BD2.4-L6.3-P10.30-D0.6",
+          "R3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C433749",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RD 1/4W 220R J T/B A1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "2915f1f0a54941d7b912decfe617b47f",
+            "uuid": "3c03129c9cf344dea2f9e47da9a33eef"
+          }
+        ],
+        [
+          "750",
+          1,
+          "RES-TH_BD2.2-L6.5-P10.50-D0.6",
+          "R2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C337185",
+            "BOM_Manufacturer": "FlyWin",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666264fd42b84465ad050a9517cab8cf",
+            "uuid": "4d70519108964d52b7f7974e5cf6c567"
+          }
+        ],
+        [
+          "5-146274-3",
+          1,
+          "HDR-TH_3P-P2.54-V-S2.54",
+          "MONEDAS",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C306223",
+            "BOM_Manufacturer": "TE Connectivity",
+            "BOM_Manufacturer Part": "5-146274-3",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c6bc7ffcfdde440bbf762dfd21017f27",
+            "uuid": "7bc8cd36717f48d5a5cfa530795acdab"
+          }
+        ],
+        [
+          "KF128L-3.81-2P",
+          2,
+          "CONN-TH_P3.81_KF128L-3.81-2P",
+          "5V,12V",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474932",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF128L-3.81-2P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "09a7c2a7d8304985b54a882e6c636f8d",
+            "uuid": "69fb829b86ee4371b0d656c591c73c19"
+          }
+        ],
+        [
+          "A2541WV-4P",
+          1,
+          "HDR-TH_4P-P2.54-V",
+          "DISPLAY",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C225479",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541WV-4P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "31a453d5adfc45cea944a6450adf2918",
+            "uuid": "88cbb99e6a3e4b16a96c512859d50f79"
+          }
+        ],
+        [
+          "KF301-5.0-3P",
+          1,
+          "CONN-TH_3P-P5.00_KF301-5.0-3P",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C474882",
+            "BOM_Manufacturer": "Cixi Kefa Elec",
+            "BOM_Manufacturer Part": "KF301-5.0-3P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7085a4e18cee4b0690201d020cc82d5c",
+            "uuid": "89eaa88f34bd4d05899b1f517a427935"
+          }
+        ],
+        [
+          "IC seat 14P",
+          2,
+          "DIP-14_L17.8-W10.2-P2.54-BL",
+          "CD4072B-2,CD4072B-1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2325",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "49d758d5e76d4c5e885658bc7d795602",
+            "uuid": "99d59cd827694626b368e82f2206f1b0"
+          }
+        ],
+        [
+          "Header-Male-2.54_2x3",
+          1,
+          "HDR-TH_6P-P2.54-V-R2-C3-S2.54",
+          "PROG",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "Header-Male-2.54_2x3",
+            "BOM_Supplier Part": "C65114",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a436596cfaa0438cbeaf105e5590ca97",
+            "uuid": "798d338ecc35f17f69de553775e18bf4"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "CAP-TH_BD5.0-P2.00-D0.8-FD",
+          "C3",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "ValuePro",
+            "BOM_Manufacturer Part": "0.1UF 50V",
+            "BOM_Supplier Part": "C28061",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "3744bcbe1f464b01ae180f32d7d4b0c4",
+            "uuid": "948b0d7afb18dac4f0e67db74a7f46da"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "R1206",
+          "R4",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "1206W4F1002T5E",
+            "BOM_Supplier Part": "C17902",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "0610c91ea88544ecbdf889657d55abcb",
+            "uuid": "4439ff8d4269ac30d55af3439a30f0ec"
+          }
+        ],
+        [
+          "IC seat 16P",
+          10,
+          "DIP-16_L20.3-W10.2-P2.54-LS10.2-BL",
+          "DECODER-17-24,ENCODER-17-24,DECODER-09-016,FASF,DECODER-25-32,ENCODER-01-08,ENCODER-09-16,SK7,ENCODER-25-32,SK5",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2326",
+            "BOM_Manufacturer": "Boom Precision Elec",
+            "BOM_Manufacturer Part": "-",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "7e10a45c45da41da8c852bb0f30065ca",
+            "uuid": "a6fece8d15614bc9a38214b936606856"
+          }
+        ],
+        [
+          "DS1009-28AT1NS-0A2",
+          1,
+          "DIP-28_L35.6-W10.2-P2.54-LS7.62-BL",
+          "COMPUTER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "CONNFLY",
+            "BOM_Manufacturer Part": "DS1009-28AT1NS-0A2",
+            "BOM_Supplier Part": "C72125",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "b62ea6b996094961a8aa59b4ff7ebc4f",
+            "uuid": "ab4318fc90be0d1a313504fa7a2ae80d"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x16",
+          1,
+          "HDR-TH_32P-P2.54-V-M-R2-C16-S2.54",
+          "BOTONES",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×16Double female header",
+            "BOM_Supplier Part": "C24778",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "666e960d81164eaebde15e728f7c89e8",
+            "uuid": "bab97afda85b4bbf8bd6206a789753e2"
+          }
+        ],
+        [
+          "74HC138D,653",
+          5,
+          "SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL",
+          "U7,U6,U5,U4,DECODER",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "Nexperia",
+            "BOM_Manufacturer Part": "74HC138D,653",
+            "BOM_Supplier Part": "C5602",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "bc30752f83694054baa42649cbb6b7d0",
+            "uuid": "c1b161f2ab2f4bbcb4b742716531c818"
+          }
+        ],
+        [
+          "TS-1109S-B-B",
+          1,
+          "SW-SMD_4P-L4.5-W4.5-P3.00-LS7.0",
+          "SW2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C480315",
+            "BOM_Manufacturer": "XKB Enterprise",
+            "BOM_Manufacturer Part": "TS-1109S-B-B",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_Paste Type": "recommend",
+            "puuid": "1b989131e981494a86139d8bf3b15fd9",
+            "uuid": "c6aeb8cdf6844639a666dfce447bcad3"
+          }
+        ],
+        [
+          "Header-Female-2.54_2x10",
+          2,
+          "HDR-TH_20P-P2.54-V-R2-C10-S2.54",
+          "RELAY17-32,RELAY01-16",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "2.54mm,2×10Double row female",
+            "BOM_Supplier Part": "C30867",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "780686d0fdb24daf9219b0adc15f316a",
+            "uuid": "c18e392212aec811dbabd9dc77fa97a1"
+          }
+        ],
+        [
+          "LTL2T3GL4J-032A",
+          2,
+          "LED-TH_BD5.0-P2.54-L-RD",
+          "LED1,LED2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C575516",
+            "BOM_Manufacturer": "Lite-On",
+            "BOM_Manufacturer Part": "LTL2T3GL4J-032A",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "f8e54adf591145d081238320de52230c",
+            "uuid": "c7509cbb11974421922bb3e8d3a351a4"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-TH_BD2.3-L6.5-P10.50-D0.5",
+          "R1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C385441",
+            "BOM_Manufacturer": "TyoHM",
+            "BOM_Manufacturer Part": "RN1/2WS10KΩFT/BA1",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9ea59130ae074fa3abe27de8cbf71d91",
+            "uuid": "d93761bd1eb1478cad67aab068119150"
+          }
+        ],
+        [
+          "22pF",
+          2,
+          "CAP-TH_L8.5-W5.0-P5.00-D1.2",
+          "C1,C2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "FH",
+            "BOM_Manufacturer Part": "Monolithic0603N220J500",
+            "BOM_Supplier Part": "C110283",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "22b246ec12564337ab8a39d4c651a291",
+            "uuid": "df48ceed4bd34f6a9951433cb6366f73"
+          }
+        ],
+        [
+          "16MHz",
+          1,
+          "HC-49US_L11.5-W4.5-P4.88",
+          "X1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C295075",
+            "BOM_Manufacturer": "TAITIEN Elec",
+            "BOM_Manufacturer Part": "XIHCELNANF-16MHZ",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "c3f5f0ccc4444176a5a6d81e2c6071f5",
+            "uuid": "ef0024e752e341cd8c45afef99f73558"
+          }
+        ]
+      ],
+      "updateTime": 1617058378,
+      "createTime": 1616959702,
+      "histories": [],
+      "created_at": "2021-03-28 13:28:22",
+      "updated_at": "2021-03-29 16:52:58"
+    },
+    {
+      "uuid": "6a768fcdd8ebacbe0fc39e40e303e20a",
+      "puuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+      "title": "PCB_Soap Dispenser",
+      "filename": "PCB_Soap Dispenser.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "dfb087857aa448f9ae2e786d7aac6290": 1,
+        "f21019be0deb405481de00d4523327ae": 1
+      },
+      "BOM": [],
+      "updateTime": 1616831652,
+      "createTime": 1616831652,
+      "histories": [],
+      "created_at": "2021-03-27 01:54:12",
+      "updated_at": "2021-03-27 01:54:12"
+    },
+    {
+      "uuid": "2f05b1b2101fb43b1925271072b88856",
+      "puuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+      "title": "PCB_Soap Dispenser_2",
+      "filename": "PCB_Soap Dispenser_2.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "dfb087857aa448f9ae2e786d7aac6290": 1,
+        "f21019be0deb405481de00d4523327ae": 1
+      },
+      "BOM": [],
+      "updateTime": 1616831804,
+      "createTime": 1616831804,
+      "histories": [],
+      "created_at": "2021-03-27 01:56:44",
+      "updated_at": "2021-03-27 01:56:44"
+    },
+    {
+      "uuid": "041eafea2ac1c724d09bbff7734ae58c",
+      "puuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+      "title": "PCB_Soap Dispenser_3",
+      "filename": "PCB_Soap Dispenser_3.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "f7603d6ebf0c4af292b5131f4e614ed9": 1,
+        "f21019be0deb405481de00d4523327ae": 2
+      },
+      "BOM": [],
+      "updateTime": 1616854105,
+      "createTime": 1616832228,
+      "histories": [],
+      "created_at": "2021-03-27 02:03:48",
+      "updated_at": "2021-03-27 08:08:25"
+    },
+    {
+      "uuid": "b8828c7ecfd1bfde7029157c860d6b82",
+      "puuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+      "title": "PCB_Soap Dispenser_4",
+      "filename": "PCB_Soap Dispenser_4.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "c6bc7ffcfdde440bbf762dfd21017f27": 2,
+        "09a7c2a7d8304985b54a882e6c636f8d": 2
+      },
+      "BOM": [],
+      "updateTime": 1616878191,
+      "createTime": 1616876883,
+      "histories": [],
+      "created_at": "2021-03-27 14:28:03",
+      "updated_at": "2021-03-27 14:49:51"
+    },
+    {
+      "uuid": "08b8512bae05d9a699b21f228cb1af7b",
+      "puuid": "3bdf010cca0df3b3631a65f4322bcbc2",
+      "title": "PCB_Soap Dispenser_5",
+      "filename": "PCB_Soap Dispenser_5.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "2915f1f0a54941d7b912decfe617b47f": 1,
+        "666264fd42b84465ad050a9517cab8cf": 1,
+        "c6bc7ffcfdde440bbf762dfd21017f27": 1,
+        "09a7c2a7d8304985b54a882e6c636f8d": 2,
+        "31a453d5adfc45cea944a6450adf2918": 1,
+        "49d758d5e76d4c5e885658bc7d795602": 2,
+        "a436596cfaa0438cbeaf105e5590ca97": 1,
+        "3744bcbe1f464b01ae180f32d7d4b0c4": 1,
+        "7e10a45c45da41da8c852bb0f30065ca": 10,
+        "b62ea6b996094961a8aa59b4ff7ebc4f": 1,
+        "666e960d81164eaebde15e728f7c89e8": 1,
+        "780686d0fdb24daf9219b0adc15f316a": 2,
+        "f8e54adf591145d081238320de52230c": 2,
+        "9ea59130ae074fa3abe27de8cbf71d91": 1,
+        "22b246ec12564337ab8a39d4c651a291": 2,
+        "afa1fed70d61433c8e3f31f85d69f754": 1,
+        "c3f5f0ccc4444176a5a6d81e2c6071f5": 1
+      },
+      "BOM": [],
+      "updateTime": 1616958501,
+      "createTime": 1616955656,
+      "histories": [],
+      "created_at": "2021-03-28 12:20:56",
+      "updated_at": "2021-03-28 13:08:21"
+    }
+  ],
+  "sort": [
+    "a61a6f209bb1a5236f451fff1be82dd0",
+    "e55942dad9aee92436eb4915d90be812"
+  ],
+  "title": "Soap Dispenser",
+  "foldername": "Soap Dispenser",
+  "schfilename": "Soap Dispenser.json",
+  "schfilemtime": 1617058378387
+}

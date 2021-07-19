@@ -1,0 +1,207 @@
+{
+  "uuid": "2b265e90618e9fd737bb0feae98186b2",
+  "path": "Offline/module",
+  "name": "module",
+  "content": "",
+  "created_at": "2021-04-07 09:57:32",
+  "updated_at": "2021-04-07 18:03:28",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "190ab2d8b3eff1883b9064a939c6633a",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "154b66255b01a09bf1c88bb1ea89be78": 1,
+        "0ec43cbf0ecf4cbde7e6e842f901049f": 2,
+        "320400870eb297eb1df26973a3a5a9f4": 1,
+        "4439ff8d4269ac30d55af3439a30f0ec": 1,
+        "798d338ecc35f17f69de553775e18bf4": 1,
+        "fa33d4808b42d46b96893a5da4a98304": 1,
+        "f0623d15320d4aa59488fb5b30957461": 1,
+        "d989aebb7fe1457b861e1047c445a675": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "22pF",
+          2,
+          "C0805",
+          "CRYSTAL-CAP-1,CRYSTAL-CAP-2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer Part": "CL21C220JBANNNC",
+            "BOM_Manufacturer": "SAMSUNG",
+            "BOM_Supplier Part": "C1804",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "bbc61cb2bd3840b290cf4f8db68b3c00",
+            "uuid": "0ec43cbf0ecf4cbde7e6e842f901049f"
+          }
+        ],
+        [
+          "100nF",
+          1,
+          "C0603",
+          "CAP-4-ANALOG-REF",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "YAGEO",
+            "BOM_Manufacturer Part": "CC0603KRX7R9BB104",
+            "BOM_Supplier Part": "C14663",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "9796ce52d844439588f46357e429be00",
+            "uuid": "154b66255b01a09bf1c88bb1ea89be78"
+          }
+        ],
+        [
+          "Header-Male-2.54_2x3",
+          1,
+          "HDR-TH_6P-P2.54-V-R2-C3-S2.54",
+          "ICSP-PROGRAM1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE",
+            "BOM_Manufacturer Part": "Header-Male-2.54_2x3",
+            "BOM_Supplier Part": "C65114",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "a436596cfaa0438cbeaf105e5590ca97",
+            "uuid": "798d338ecc35f17f69de553775e18bf4"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "R1206",
+          "R1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "1206W4F1002T5E",
+            "BOM_Supplier Part": "C17902",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "0610c91ea88544ecbdf889657d55abcb",
+            "uuid": "4439ff8d4269ac30d55af3439a30f0ec"
+          }
+        ],
+        [
+          "16MHz",
+          1,
+          "OSC-SMD_4P-L3.2-W2.5-BL",
+          "X2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "YXC",
+            "BOM_Manufacturer Part": "X322516MLB4SI",
+            "BOM_Supplier Part": "C13738",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "3665faf5c7824047877c19fd71b91289",
+            "uuid": "320400870eb297eb1df26973a3a5a9f4"
+          }
+        ],
+        [
+          "R-RJ45R08P-2010",
+          1,
+          "RJ45-TH_R-RJ45R08P-2010",
+          "RJ1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C508566",
+            "BOM_Manufacturer": "Ckmtw(Shenzhen Cankemeng)",
+            "BOM_Manufacturer Part": "R-RJ45R08P-2010",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "9daa05efa1f441e39d6da45ead2989c3",
+            "uuid": "d989aebb7fe1457b861e1047c445a675"
+          }
+        ],
+        [
+          "A2541HWR-2X3P",
+          1,
+          "HDR-TH_6P-P2.54-H-R2-C3-S2.54-W10.2",
+          "H1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C239354",
+            "BOM_Manufacturer": "Changjiang Connectors",
+            "BOM_Manufacturer Part": "A2541HWR-2x3P",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "expand",
+            "puuid": "2f45d956d557434eaf592526307359e4",
+            "uuid": "f0623d15320d4aa59488fb5b30957461"
+          }
+        ],
+        [
+          "ATMEGA328P-AU",
+          1,
+          "TQFP-32_L7.0-W7.0-P0.80-LS9.0-BL",
+          "B1-UC",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "MICROCHIP",
+            "BOM_Manufacturer Part": "ATMEGA328P-AU",
+            "BOM_Supplier Part": "C14877",
+            "BOM_JLCPCB SMD": "Yes",
+            "BOM_LCSC Assembly": "Yes",
+            "BOM_Paste Type": "base",
+            "puuid": "9c6dab9dc91e4b929269cb3454d6d713",
+            "uuid": "fa33d4808b42d46b96893a5da4a98304"
+          }
+        ]
+      ],
+      "updateTime": 1617835064,
+      "createTime": 1617807591,
+      "histories": [],
+      "created_at": "2021-04-07 09:59:51",
+      "updated_at": "2021-04-07 17:37:44"
+    },
+    {
+      "uuid": "aa4d921f99df61fb2b10a38af2126451",
+      "puuid": "2b265e90618e9fd737bb0feae98186b2",
+      "title": "PCB_module",
+      "filename": "PCB_module.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "bbc61cb2bd3840b290cf4f8db68b3c00": 2,
+        "9796ce52d844439588f46357e429be00": 1,
+        "a436596cfaa0438cbeaf105e5590ca97": 1,
+        "0610c91ea88544ecbdf889657d55abcb": 1,
+        "3665faf5c7824047877c19fd71b91289": 1,
+        "9daa05efa1f441e39d6da45ead2989c3": 1,
+        "2f45d956d557434eaf592526307359e4": 1,
+        "9c6dab9dc91e4b929269cb3454d6d713": 1
+      },
+      "BOM": [],
+      "updateTime": 1617836608,
+      "createTime": 1617836608,
+      "histories": [],
+      "created_at": "2021-04-07 18:03:28",
+      "updated_at": "2021-04-07 18:03:28"
+    }
+  ],
+  "sort": [],
+  "title": "module",
+  "foldername": "module",
+  "schfilename": "module.json",
+  "schfilemtime": 1617835064998
+}

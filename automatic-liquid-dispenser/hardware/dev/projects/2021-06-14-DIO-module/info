@@ -1,0 +1,175 @@
+{
+  "uuid": "55cf52739af567745e00cb7c2404837d",
+  "path": "Offline/2021-06-14-DIO-module",
+  "name": "2021-06-14-DIO-module",
+  "content": "",
+  "created_at": "2021-06-14 01:50:40",
+  "updated_at": "2021-06-14 08:15:38",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "90ccd78acca03740bf1c18818e6b2084",
+      "title": "Comm",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "44e5350bf2bb4a288a83c3e1e9641824": 1,
+        "770dd3fffcf7474fa6b8bf2c09339616": 1,
+        "cf35262a9089155ca82a7b41f430ec7d": 1,
+        "475ac45ec29b48a58b23956374e12b7c": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "PCF8574T/3,518",
+          1,
+          "SOIC-16_L10.3-W7.5-P1.27-LS10.3-BL",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NXP",
+            "BOM_Manufacturer Part": "PCF8574T/3,518",
+            "BOM_Supplier Part": "C7605",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "c3a3a479239346a8bb3da07840bfe89e",
+            "uuid": "44e5350bf2bb4a288a83c3e1e9641824"
+          }
+        ],
+        [
+          "TCA6424ARGJR",
+          1,
+          "VQFN-32_L5.0-W5.0-P0.50-TL-EP",
+          "U2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "TI",
+            "BOM_Manufacturer Part": "TCA6424ARGJR",
+            "BOM_Supplier Part": "C80692",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "c9b15f1e4efe4960b85c15d98e0420f6",
+            "uuid": "475ac45ec29b48a58b23956374e12b7c"
+          }
+        ],
+        [
+          "TDR-08",
+          1,
+          "SW-TH_6P-L10.0-W10.0-P2.54-LS7.6_TDR-08",
+          "SW1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C411255",
+            "BOM_Manufacturer": "XINGWEN",
+            "BOM_Manufacturer Part": "TDR-08",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "7d74e56770f94027a36aa57de5bbe63d",
+            "uuid": "770dd3fffcf7474fa6b8bf2c09339616"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1623676538,
+      "createTime": 1623653462,
+      "histories": [],
+      "created_at": "2021-06-14 01:51:02",
+      "updated_at": "2021-06-14 08:15:38"
+    },
+    {
+      "uuid": "25541e1b3b85f07fcb76e68546a135a4",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {},
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "PCF8574T/3,518",
+          1,
+          "SOIC-16_L10.3-W7.5-P1.27-LS10.3-BL",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "NXP",
+            "BOM_Manufacturer Part": "PCF8574T/3,518",
+            "BOM_Supplier Part": "C7605",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "c3a3a479239346a8bb3da07840bfe89e",
+            "uuid": "44e5350bf2bb4a288a83c3e1e9641824"
+          }
+        ],
+        [
+          "TDR-08",
+          1,
+          "SW-TH_6P-L10.0-W10.0-P2.54-LS7.6_TDR-08",
+          "SW1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C411255",
+            "BOM_Manufacturer": "XINGWEN",
+            "BOM_Manufacturer Part": "TDR-08",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "7d74e56770f94027a36aa57de5bbe63d",
+            "uuid": "770dd3fffcf7474fa6b8bf2c09339616"
+          }
+        ],
+        [
+          "10K",
+          1,
+          "RES-ARRAY-SMD_0603-8P-L3.2-W1.6-BL",
+          "RN1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "UniOhm",
+            "BOM_Manufacturer Part": "4D03WGJ0103T5E",
+            "BOM_Supplier Part": "C29718",
+            "BOM_JLCPCB Part Class": "Basic Part",
+            "puuid": "109e5b24485d430f95eaa4f2fe2ab4f9",
+            "uuid": "cf35262a9089155ca82a7b41f430ec7d"
+          }
+        ]
+      ],
+      "updateTime": 1623676019,
+      "createTime": 1623676019,
+      "histories": [],
+      "created_at": "2021-06-14 08:06:59",
+      "updated_at": "2021-06-14 08:06:59"
+    }
+  ],
+  "sort": [
+    "90ccd78acca03740bf1c18818e6b2084",
+    "25541e1b3b85f07fcb76e68546a135a4"
+  ],
+  "title": "2021-06-14-DIO-module",
+  "foldername": "2021-06-14-DIO-module",
+  "schfilename": "2021-06-14-DIO-module.json",
+  "schfilemtime": 1623676538614
+}
