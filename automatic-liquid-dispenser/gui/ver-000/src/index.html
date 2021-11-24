@@ -6,6 +6,8 @@
   <title>Programming the Cards for Liquid Soap Vending machine</title>
   <link rel="stylesheet" href="css/w3.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../node_modules/xterm/css/xterm.css">
+  <script src="../node_modules/xterm/lib/xterm.js"></script>
 </head>
 
 <body class="w3-light-gray">
@@ -45,10 +47,11 @@
       </div>
     </div>
     <div class="w3-col s6 w3-leftbar">
-      <div v-if="selHardware" class="place-ver">
+      <div class="place-ver">
         <label id="executingText" class="place-top">[Idle]</label>
-        <pre class="w3-border w3-block place-middle w3-sand w3-small" id="log"></pre>
-        <div class="place-bottom">
+        <!--pre class="w3-border w3-block place-middle w3-sand w3-small" id="log"></pre-->
+        <div class="place-middle" id="log-view"></div>
+        <div  v-if="selHardware" class="place-bottom">
           <div class="w3-center">
             <input class="w3-input portEntry w3-border" type="text" v-model="port" placeholder="Serial port number" />
             <div class="w3-border w3-button w3-ripple" @click="getPorts">
@@ -56,6 +59,9 @@
             </div>
             <div class="w3-border w3-button w3-ripple" @click="compile">
               Compile
+            </div>
+            <div class="w3-border w3-button w3-ripple" @click="bootloader">
+              Bootloader
             </div>
             <div class="w3-border w3-button w3-ripple" @click="burn">
               Program
@@ -75,6 +81,9 @@
   </script>
   <script src="../node_modules/vue/dist/vue.global.prod.js"></script>
   <script src="./client-script.min.js"></script>
+  <script>
+    require('./renderer');
+  </script>
 </body>
 
 </html>

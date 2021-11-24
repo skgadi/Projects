@@ -2,6 +2,10 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const { exec } = require('child_process');
 const path = require('path');
 
+
+
+
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
@@ -48,6 +52,39 @@ const createWindow = () => {
     console.log(arg) // prints "ping"
     event.returnValue = 'pong'
   })
+
+
+
+//x-term start
+
+const os = require('os');
+const pty = require('node-pty');
+
+var shell = os.platform() === "win32" ? "powershell.exe" : "bash";
+var ptyProcess = pty.spawn(shell, [], {
+        name: 'xterm-color',
+        cols: 80,
+        rows: 40,
+        cwd: process.env.HOME,
+        env: process.env
+    });
+    
+
+    ptyProcess.onData((data) => {
+      mainWindow.webContents.send("terminal-incData", data);
+    });
+
+    ipcMain.on("terminal-into", (event, data)=> {
+      ptyProcess.write(data);
+    })
+    
+//x-term end
+
+
+
+
+
+
 };
 
 // This method will be called when Electron has finished
@@ -74,3 +111,5 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+

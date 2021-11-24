@@ -5,7 +5,7 @@ const app = {
       selHardware: "",
       hardware: {},
       autoUpdate: 0,
-      port: ""
+      port: "COM4"
     }
   },
   watch: {
@@ -44,6 +44,22 @@ const app = {
         instruction: "arduino-cli compile --fqbn arduino:avr:uno ./firmware/" + this.hardware.firmware.folder + " --programmer arduinoasisp -v --clean " + this.prepareFlags()
       });
     },
+    bootloader: function() {
+      if (this.port === "") {
+        appendLog("Port cannot be empty.\nShowing the list of available ports\n");
+        this.getPorts();
+      } else {
+        if (this.hardware.firmware.burnItems.indexOf("bootloader") >= 0) {
+          commandQueue.push({
+            name: "Burning bootloader",
+            instruction: "arduino-cli burn-bootloader --fqbn " + this.hardware.firmware.board +
+              (!!(this.hardware.firmware.programmer) ? " --programmer " + this.hardware.firmware.programmer : " ") +
+              " -v --port  " + this.port
+          });
+        }
+        //arduino-cli compile --fqbn arduino:avr:uno .\automatic_soap_dispenser.ino --programmer arduinoasisp -t -v --clean --build-property build.extra_flags="-DNUMBER_OF_CHEMICALS=10 -DMAX_MONEY_PER_LITER=100"
+      }
+    },
     burn: function () {
       if (this.port === "") {
         appendLog("Port cannot be empty.\nShowing the list of available ports\n");
@@ -78,7 +94,10 @@ const app = {
       });
     },
     clearLog: function () {
-      document.getElementById("log").innerText = "";
+      commandQueue.push({
+        name: "Claring the screen",
+        instruction: "cls"
+      });
     }
   }
 }
