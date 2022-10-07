@@ -1,0 +1,6 @@
+{
+    "sketch": "code.ino",
+    "board": "arduino:avr:uno",
+    "port": "COM8",
+    "output": "../ArduinoOutput"
+}
