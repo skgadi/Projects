@@ -70,7 +70,6 @@ bool SKG_SD::appendMainFile(float* array, int arrayLength) {
   if (!mainFile) {
     return false;
   }
-  mainFile.seek(mainFile.size());
   mainFile.write((uint8_t*)array, arrayLength * sizeof(float));
   return true;
 }
