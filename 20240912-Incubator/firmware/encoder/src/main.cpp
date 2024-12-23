@@ -1,9 +1,9 @@
 #include <Arduino.h>
 #include <ESP32Encoder.h>
 
-#define ENCODER_CLK 14 
-#define ENCODER_DTA 27 
-#define ENCODER_BTN 26 
+#define ENCODER_CLK 19 
+#define ENCODER_DTA 18 
+#define ENCODER_BTN 4 
 
 ESP32Encoder encoder;
 int64_t tempPos = 0;

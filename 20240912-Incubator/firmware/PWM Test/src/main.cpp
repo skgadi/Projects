@@ -2,7 +2,7 @@
 int pwmType = 0;  // 0-blink slowly, 1-blink fast, 2- very fast blink 3 - on, 4
                   // - off, 5 - set duty cycle
 float dutyCycle = 0;
-int PWM_PIN = 13;
+int PWM_PIN = 16;
 
 TaskHandle_t Task1;
 TaskHandle_t Task2;

@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "DHT.h"
 
-#define DHTPIN 25
+#define DHTPIN 2
 #define DHTTYPE DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
