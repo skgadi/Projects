@@ -1,0 +1,41 @@
+#include <Arduino.h>
+
+#define POT_PIN 34
+#define LED_PIN 2
+
+#define STEPPER_PIN_A1 12
+#define STEPPER_PIN_B1 14
+#define STEPPER_PIN_A2 27
+#define STEPPER_PIN_B2 26
+
+int stepSequence[][4] = {
+    {1, 0, 1, 0}, {1, 0, 0, 1}, {0, 1, 0, 1}, {0, 1, 1, 0}};
+int stepIndex = 0;
+
+void moveStepper() {
+    digitalWrite(STEPPER_PIN_A1, stepSequence[stepIndex][0]);
+    digitalWrite(STEPPER_PIN_A2, stepSequence[stepIndex][1]);
+    digitalWrite(STEPPER_PIN_B1, stepSequence[stepIndex][2]);
+    digitalWrite(STEPPER_PIN_B2, stepSequence[stepIndex][3]);
+    stepIndex = (stepIndex + 1) % 4;
+}
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(POT_PIN, INPUT);
+    pinMode(STEPPER_PIN_A1, OUTPUT);
+    pinMode(STEPPER_PIN_A2, OUTPUT);
+    pinMode(STEPPER_PIN_B1, OUTPUT);
+    pinMode(STEPPER_PIN_B2, OUTPUT);
+}
+
+void loop() {
+    int potValue = analogRead(POT_PIN);
+    int inputVal = map(potValue, 0, 4095, 0, 255);
+    analogWrite(LED_PIN, inputVal);
+    int delayTime = 255 - inputVal;
+
+    moveStepper();
+    // delayTime = 50; // Fixed delay for consistent speed in testing
+    delay(delayTime);  // Small delay to allow for smoother operation
+}

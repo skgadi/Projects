@@ -1,0 +1,67 @@
+#include <Arduino.h>
+#include <Stepper.h>
+#include <ESP32RotaryEncoder.h>
+
+// change this to the number of steps on your motor
+#define STEPS 100
+
+// the previous reading from the analog input
+int previous = 0;
+
+#define POT_PIN 34
+#define LED_PIN 2
+
+#define STEPPER_PIN_A1 12
+#define STEPPER_PIN_B1 14
+#define STEPPER_PIN_A2 27
+#define STEPPER_PIN_B2 26
+
+#define PUMP_FACTOR (115.0f / 93.75f)
+
+// create an instance of the stepper class, specifying
+// the number of steps of the motor and the pins it's
+// attached to
+Stepper stepper(STEPS, STEPPER_PIN_A1, STEPPER_PIN_B1, STEPPER_PIN_A2,
+                STEPPER_PIN_B2);
+
+int motorSpeedPrevious = 0;
+unsigned long lastPrintTime = 0;
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(POT_PIN, INPUT);
+    stepper.setSpeed(30);
+    Serial.begin(115200);
+}
+
+void loop() {
+    // read the sensor value:
+    int sensorReading = analogRead(POT_PIN);
+    // map it to a range from 0 to 100:
+    // int motorSpeed = map(sensorReading, 0, 4095, 50, 200);
+    int pumpSpeed = map(sensorReading, 0, 4095, 20, 250);
+
+    int motorSpeed = pumpSpeed * PUMP_FACTOR;
+    // set the motor speed:
+    if (motorSpeed > 0) {
+        stepper.setSpeed(motorSpeed);
+        // step 1/100 of a revolution:
+        stepper.step(STEPS / 100);
+    }
+    // allow noise. So, if speed changes more than 5, then print speed to screen
+    // Also show every 5 seconds
+    if (abs(motorSpeed - motorSpeedPrevious) > 5 ||
+        millis() - lastPrintTime > 5000) {
+        Serial.print("sensor: ");
+        Serial.print(sensorReading);
+        Serial.print(";  motor speed: ");
+        Serial.print(motorSpeed);
+        Serial.print(";  pump velocity: ");
+        // show only 1 decimals
+        float pumpSpeedMl = pumpSpeed / 10.0f;
+        Serial.print(pumpSpeedMl, 1);
+        Serial.println(" ml/h");
+        motorSpeedPrevious = motorSpeed;
+        lastPrintTime = millis();
+    }
+}

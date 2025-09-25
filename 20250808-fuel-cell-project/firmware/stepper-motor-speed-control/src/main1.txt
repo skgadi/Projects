@@ -1,0 +1,34 @@
+suresh#include <AccelStepper.h>
+#include <Arduino.h>
+
+#define POT_PIN 34
+#define LED_PIN 2
+
+#define STEPPER_PIN_A1 12
+#define STEPPER_PIN_B1 14
+#define STEPPER_PIN_A2 27
+#define STEPPER_PIN_B2 26
+
+// Create AccelStepper instance using function interface
+// Define motor interface type
+#define MotorInterfaceType 8  // 8 = FUNCTION type (4 wire)
+
+AccelStepper stepper(AccelStepper::FULL4WIRE, STEPPER_PIN_A1, STEPPER_PIN_A2,
+                     STEPPER_PIN_B1, STEPPER_PIN_B2);
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(POT_PIN, INPUT);
+    stepper.setMaxSpeed(200.0);
+    stepper.setAcceleration(100.0);
+    stepper.moveTo(100000);  // Start at position 0
+}
+
+void loop() {
+    int potValue = analogRead(POT_PIN);
+    int ledBrightness = map(potValue, 0, 4095, 0, 255);
+    analogWrite(LED_PIN, ledBrightness);
+    
+    stepper.run();
+    delay(10);  // Small delay to allow for smoother operation
+}
